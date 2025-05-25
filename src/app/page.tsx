@@ -2,7 +2,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { button } from "./style.css";
 
-export default function Home() {
+export default async function Home() {
+  await fetchSomething();
+
   return (
     <div className={styles.page}>
       <button className={button}>Vanilla Extract Test Button</button>
@@ -94,4 +96,10 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+async function fetchSomething() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users/1");
+  const data = await res.json();
+  console.log(data);
 }

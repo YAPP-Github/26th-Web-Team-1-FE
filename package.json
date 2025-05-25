@@ -37,6 +37,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "eslint-plugin-storybook": "^0.12.0",
+    "msw": "^2.8.4",
     "playwright": "^1.52.0",
     "storybook": "^8.6.14",
     "typescript": "^5",
@@ -45,6 +46,11 @@
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
+    ]
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
     ]
   }
 }
