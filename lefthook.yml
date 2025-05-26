@@ -1,0 +1,17 @@
+pre-commit:
+  commands:
+    lint-staged:
+      run: npx lint-staged
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx commitlint --edit {1}
+
+pre-push:
+  commands:
+    type-check:
+      run: npx tsc --noEmit
+
+colors: true
+no_tty: false
