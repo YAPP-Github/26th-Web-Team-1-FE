@@ -1,31 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { handlers } from "@/mocks/handlers";
+import { Suspense, use } from "react";
+
+const mockingEnabledPromise =
+  typeof window !== "undefined"
+    ? import("@/mocks/browser").then(async ({ worker }) => {
+        await worker.start({
+          onUnhandledRequest(request, print) {
+            if (request.url.includes("_next")) {
+              return;
+            }
+            print.warning();
+          },
+        });
+        worker.use(...handlers);
+
+        console.log(worker.listHandlers());
+      })
+    : Promise.resolve();
 
 export const MSWProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isMswReady, setIsMswReady] = useState(false);
-
-  useEffect(() => {
-    const initMSW = async () => {
-      if (
-        process.env.NODE_ENV === "development" &&
-        process.env.NEXT_PUBLIC_API_MOCKING === "enabled"
-      ) {
-        const { worker } = await import("@/mocks/browser");
-        await worker.start({
-          onUnhandledRequest: "bypass",
-        });
-        console.log("🔥 [MSW] Client-side mocking enabled");
-      }
-      setIsMswReady(true);
-    };
-
-    initMSW();
-  }, []);
-
-  if (!isMswReady) {
-    return null;
-  }
-
-  return <>{children}</>;
+  return (
+    <Suspense fallback={null}>
+      <MockProviderWrapper>{children}</MockProviderWrapper>
+    </Suspense>
+  );
 };
+
+function MockProviderWrapper({ children }: { children: React.ReactNode }) {
+  use(mockingEnabledPromise);
+  return children;
+}
