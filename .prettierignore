@@ -9,6 +9,8 @@ out/
 build/
 dist/
 
+public/
+
 # Environment variables
 .env
 .env.local
