@@ -60,6 +60,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^3.1.4
         version: 3.1.4(@vitest/browser@3.1.4(msw@2.8.4(@types/node@20.17.50)(typescript@5.8.3))(playwright@1.52.0)(vite@6.3.5(@types/node@20.17.50)(jiti@1.21.7)(terser@5.39.2))(vitest@3.1.4))(vitest@3.1.4(@types/node@20.17.50)(@vitest/browser@3.1.4)(jiti@1.21.7)(msw@2.8.4(@types/node@20.17.50)(typescript@5.8.3))(terser@5.39.2))
+      '@vitest/eslint-plugin':
+        specifier: ^1.2.1
+        version: 1.2.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3)(vitest@3.1.4(@types/node@20.17.50)(@vitest/browser@3.1.4)(jiti@1.21.7)(msw@2.8.4(@types/node@20.17.50)(typescript@5.8.3))(terser@5.39.2))
       eslint:
         specifier: ^9
         version: 9.27.0(jiti@1.21.7)
@@ -1369,6 +1372,18 @@ packages:
       vitest: 3.1.4
     peerDependenciesMeta:
       '@vitest/browser':
+        optional: true
+
+  '@vitest/eslint-plugin@1.2.1':
+    resolution: {integrity: sha512-JQr1jdVcrsoS7Sdzn83h9sq4DvREf9Q/onTZbJCqTVlv/76qb+TZrLv/9VhjnjSMHweQH5FdpMDeCR6aDe2fgw==}
+    peerDependencies:
+      eslint: '>= 8.57.0'
+      typescript: '>= 5.0.0'
+      vitest: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      vitest:
         optional: true
 
   '@vitest/expect@2.0.5':
@@ -4677,6 +4692,16 @@ snapshots:
       vitest: 3.1.4(@types/node@20.17.50)(@vitest/browser@3.1.4)(jiti@1.21.7)(msw@2.8.4(@types/node@20.17.50)(typescript@5.8.3))(terser@5.39.2)
     optionalDependencies:
       '@vitest/browser': 3.1.4(msw@2.8.4(@types/node@20.17.50)(typescript@5.8.3))(playwright@1.52.0)(vite@6.3.5(@types/node@20.17.50)(jiti@1.21.7)(terser@5.39.2))(vitest@3.1.4)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@vitest/eslint-plugin@1.2.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3)(vitest@3.1.4(@types/node@20.17.50)(@vitest/browser@3.1.4)(jiti@1.21.7)(msw@2.8.4(@types/node@20.17.50)(typescript@5.8.3))(terser@5.39.2))':
+    dependencies:
+      '@typescript-eslint/utils': 8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3)
+      eslint: 9.27.0(jiti@1.21.7)
+    optionalDependencies:
+      typescript: 5.8.3
+      vitest: 3.1.4(@types/node@20.17.50)(@vitest/browser@3.1.4)(jiti@1.21.7)(msw@2.8.4(@types/node@20.17.50)(typescript@5.8.3))(terser@5.39.2)
     transitivePeerDependencies:
       - supports-color
 
