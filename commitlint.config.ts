@@ -30,8 +30,7 @@ const config: UserConfig = {
       ],
     ],
 
-    // 제목은 소문자로 시작
-    "subject-case": [2, "always", "lower-case"],
+    "subject-case": [0],
 
     // 제목 끝에 마침표 금지
     "subject-full-stop": [2, "never", "."],
