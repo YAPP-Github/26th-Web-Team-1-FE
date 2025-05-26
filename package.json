@@ -10,8 +10,6 @@
     "lint:staged": "lint-staged",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "hooks:install": "lefthook install",
-    "hooks:uninstall": "lefthook uninstall",
     "commit": "git-cz",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -28,7 +26,6 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/cz-commitlint": "^19.8.1",
-    "@commitlint/prompt-cli": "^19.8.1",
     "@commitlint/types": "^19.8.1",
     "@eslint/eslintrc": "^3",
     "@storybook/addon-essentials": "^8.6.14",
