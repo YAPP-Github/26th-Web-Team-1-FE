@@ -1,0 +1,36 @@
+# Set to true to add reviewers to pull requests
+addReviewers: true
+
+# Set to true to add assignees to pull requests
+addAssignees: author
+
+# A list of reviewers to be added to pull requests (GitHub user name)
+reviewers:
+  - wkdtnqls0506
+  - Seojunhwan
+
+# A number of reviewers added to the pull request
+numberOfReviewers: 0
+
+# A list of assignees, overrides reviewers if set
+# assignees:
+#   - assigneeA
+
+# Draft PR에는 리뷰어를 자동 할당하지 않음
+runOnDraft: false
+
+# A number of assignees to add to the pull request
+# Set to 0 to add all of the assignees.
+# Uses numberOfReviewers if unset.
+# numberOfAssignees: 2
+
+# A list of keywords to be skipped the process that add reviewers if pull requests include it
+skipKeywords:
+  - wip
+  - WIP
+  - draft
+  - DRAFT
+  - temp
+  - 임시
+  - 테스트
+  - test
