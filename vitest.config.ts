@@ -2,20 +2,15 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    workspace: [
-      {
-        extends: true,
-        plugins: [],
-        test: {
-          name: "storybook",
-          browser: {
-            enabled: true,
-            headless: true,
-            name: "chromium",
-            provider: "playwright",
-          },
-        },
-      },
-    ],
+    globals: true,
+    environment: "jsdom",
+    exclude: ["node_modules", "dist", "build", "public"],
+    include: ["**/*.test.{ts,tsx}"],
+    // TODO: setupFiles 설정
+    coverage: {
+      exclude: ["node_modules", "dist", "build", "public"],
+      include: ["**/*.{ts,tsx}"],
+    },
+    passWithNoTests: true,
   },
 });
