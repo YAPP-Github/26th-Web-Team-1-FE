@@ -1,7 +1,9 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import vitest from "@vitest/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
+import jestDom from "eslint-plugin-jest-dom";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import testingLibrary from "eslint-plugin-testing-library";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -30,6 +32,7 @@ const eslintConfig = [
       "no-empty": "error",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
+      "@typescript-eslint/no-empty-object-type": "off",
       "spaced-comment": [
         "error",
         "always",
@@ -58,12 +61,21 @@ const eslintConfig = [
       "./src/**/*.test.{js,ts,jsx,tsx}",
       "./src/**/*.spec.{js,ts,jsx,tsx}",
     ],
-    plugins: {
-      vitest,
-    },
-    rules: {
-      ...vitest.configs.recommended.rules,
-    },
+    ...vitest.configs.recommended,
+  },
+  {
+    files: [
+      "./src/**/*.test.{js,ts,jsx,tsx}",
+      "./src/**/*.spec.{js,ts,jsx,tsx}",
+    ],
+    ...jestDom.configs["flat/recommended"],
+  },
+  {
+    files: [
+      "./src/**/*.test.{js,ts,jsx,tsx}",
+      "./src/**/*.spec.{js,ts,jsx,tsx}",
+    ],
+    ...testingLibrary.configs["flat/react"],
   },
   {
     plugins: {
