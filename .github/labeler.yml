@@ -1,54 +1,43 @@
 # 🐛 bug - 버그 수정 관련
 🐛 bug:
-  - head-branch: ["^fix/", "fix/", "bugfix/", "hotfix/"]
   - title: ["^fix:", '^fix\(', "^🐛"]
 
 # ✨ feature - 새로운 기능
 ✨ feature:
-  - head-branch: ["^feat/", "^feature/", "feat/"]
   - title: ["^feat:", '^feat\(', "^✨"]
 
 # 📚 docs - 문서 변경
 📚 docs:
-  - head-branch: ["^docs/", "docs/"]
   - title: ["^docs:", '^docs\(', "^📚"]
 
 # 💄 style - 코드 스타일 변경
 💄 style:
-  - head-branch: ["^style/", "style/"]
   - title: ["^style:", '^style\(', "^💄"]
 
 # ♻️ refactor - 리팩토링
 ♻️ refactor:
-  - head-branch: ["^refactor/", "refactor/"]
   - title: ["^refactor:", '^refactor\(', "^♻️"]
 
 # 🧪 test - 테스트 추가/수정
 🧪 test:
-  - head-branch: ["^test/", "test/"]
   - title: ["^test:", '^test\(', "^🧪"]
 
 # 🔧 chore - 빌드 프로세스, 도구 설정 등
 🔧 chore:
-  - head-branch: ["^chore/", "chore/"]
   - title: ["^chore:", '^chore\(', "^🔧"]
 
 # ⚡ perf - 성능 개선
 ⚡ perf:
-  - head-branch: ["^perf/", "perf/"]
   - title: ["^perf:", '^perf\(', "^⚡"]
 
 # 👷 ci - CI 설정 변경
 👷 ci:
-  - head-branch: ["^ci/", "ci/"]
   - title: ["^ci:", '^ci\(', "^👷"]
 
 # 📦 build - 빌드 시스템 변경
 📦 build:
-  - head-branch: ["^build/", "build/"]
   - title: ["^build:", '^build\(', "^📦"]
 
 # ⏪ revert - 이전 커밋 되돌리기
 ⏪ revert:
-  - head-branch: ["^revert/", "revert/"]
   - title: ["^revert:", '^revert\(', "^⏪", "^Revert"]
