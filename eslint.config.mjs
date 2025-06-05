@@ -4,6 +4,7 @@ import eslintConfigPrettier from "eslint-config-prettier/flat";
 import jestDom from "eslint-plugin-jest-dom";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import testingLibrary from "eslint-plugin-testing-library";
+import playwright from "eslint-plugin-playwright";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -76,6 +77,10 @@ const eslintConfig = [
       "./src/**/*.spec.{js,ts,jsx,tsx}",
     ],
     ...testingLibrary.configs["flat/react"],
+  },
+  {
+    files: ["./tests/**/*.ts", "./tests/**/*.tsx"],
+    ...playwright.configs["flat/recommended"],
   },
   {
     plugins: {
