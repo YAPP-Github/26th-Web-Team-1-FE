@@ -1,0 +1,184 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Next.js 15 App Router Co-location 폴더 구조 가이드
+
+## 프로젝트 구조 원칙
+
+### 1. Co-location 패턴
+- 관련된 파일들을 가능한 한 가까운 곳에 배치
+- 언더스코어(_) 접두사로 라우팅에 포함되지 않는 폴더 구분
+- Route Groups `(groupName)`으로 관련 페이지 그룹화
+
+### 2. 계층적 공유
+- 상위 레벨일수록 더 넓은 범위에서 공유
+- 도메인별 특화 vs 전역 공통 요소 명확히 구분
+
+## 폴더 구조
+
+```
+src/
+├── app/                          # Next.js App Router
+│   ├── (domain)/                 # Route Group 예시 (비즈니스 도메인명으로 변경)
+│   │   ├── _types/               # 해당 도메인 그룹 전용 타입
+│   │   │   ├── domain.types.ts
+│   │   │   └── index.ts
+│   │   ├── _schemas/             # 해당 도메인 그룹 전용 Zod 스키마
+│   │   │   ├── form.schema.ts
+│   │   │   └── index.ts
+│   │   ├── _utils/               # 해당 도메인 그룹 전용 유틸
+│   │   │   ├── domainUtils.ts
+│   │   │   └── index.ts
+│   │   ├── _constants/           # 해당 도메인 그룹 전용 상수
+│   │   │   ├── domain.constants.ts
+│   │   │   └── index.ts
+│   │   ├── _api/                 # 해당 도메인 그룹 전용 API/TanStack Query
+│   │   │   ├── domain.api.ts
+│   │   │   ├── domain.queries.ts
+│   │   │   └── index.ts
+│   │   ├── _hooks/               # 해당 도메인 그룹 공통 훅
+│   │   │   ├── useDomainData.ts
+│   │   │   └── index.ts
+│   │   ├── _components/          # 해당 도메인 그룹 공통 컴포넌트
+│   │   │   ├── DomainLayout.tsx
+│   │   │   └── index.ts
+│   │   ├── feature/              # 페이지별 폴더 (기능명으로 변경)
+│   │   │   ├── _components/      # 해당 페이지 전용 컴포넌트
+│   │   │   │   ├── FeatureSection.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── _hooks/           # 해당 페이지 전용 훅
+│   │   │   │   ├── useFeatureData.ts
+│   │   │   │   └── index.ts
+│   │   │   └── page.tsx
+│   │   └── layout.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   ├── error.tsx
+│   └── not-found.tsx
+├── components/                   # 전역 공통 UI 컴포넌트
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   └── index.ts
+│   └── index.ts
+├── hooks/                        # 전역 공통 훅
+│   ├── useLocalStorage.ts
+│   └── index.ts
+├── lib/                          # 전역 공통 라이브러리
+│   ├── utils/                    # 전역 공통 유틸리티
+│   │   ├── dateUtils.ts
+│   │   ├── stringUtils.ts
+│   │   └── index.ts
+│   ├── api/                      # 전역 API 관련
+│   │   ├── client.ts
+│   │   ├── types.ts
+│   │   └── index.ts
+│   ├── validations/              # 전역 검증 로직
+│   │   ├── common.schema.ts
+│   │   ├── validators.ts
+│   │   └── index.ts
+│   └── index.ts
+├── types/                        # 전역 공통 타입
+│   ├── global.types.ts
+│   └── index.ts
+├── constants/                    # 전역 상수
+│   ├── config.ts
+│   └── index.ts
+└── styles/                       # 전역 스타일 (vanilla-extract)
+    ├── globals.css.ts
+    ├── theme.css.ts
+    └── index.ts
+```
+
+## 정적 자산 및 설정 파일
+
+```
+public/                           # 정적 자산
+├── images/
+│   ├── icons/
+│   └── logos/
+├── favicon.ico
+└── robots.txt
+
+.env.local                        # 환경 변수 (로컬)
+.env.example                      # 환경 변수 예시
+next.config.js                    # Next.js 설정
+middleware.ts                     # Next.js 미들웨어 (루트)
+```
+
+## 테스트 구조
+
+### 테스트 파일 위치 규칙
+- **단위 테스트**: 테스트하려는 모듈과 같은 폴더에 `.test.ts` 또는 `.test.tsx` 확장자로 배치
+- **통합/E2E 테스트**: 별도 `__tests__` 폴더에서 관리
+
+```
+__tests__/                        # 테스트 루트 폴더
+├── unit/                         # 단위 테스트 (모듈별로 구성)
+│   ├── components/
+│   │   └── Button.test.tsx
+│   ├── hooks/
+│   │   └── useLocalStorage.test.ts
+│   └── utils/
+│       └── domainUtils.test.ts
+├── integration/                  # 통합 테스트
+│   ├── api/
+│   │   └── domain.integration.test.ts
+│   └── pages/
+│       └── feature.integration.test.tsx
+└── e2e/                          # E2E 테스트
+    ├── specs/
+    │   ├── domain-flow.spec.ts
+    │   └── user-journey.spec.ts
+    ├── fixtures/
+    │   └── test-data.json
+    └── support/
+        ├── commands.ts
+        └── helpers.ts
+```
+
+## 네이밍 규칙
+
+### 파일 네이밍
+- **컴포넌트**: PascalCase (예: `Button.tsx`, `DomainLayout.tsx`)
+- **훅**: camelCase with `use` 접두사 (예: `useLocalStorage.ts`, `useDomainData.ts`)
+- **유틸/API**: camelCase (예: `domainUtils.ts`, `domain.api.ts`)
+- **타입/스키마**: camelCase (예: `domain.types.ts`, `form.schema.ts`)
+- **상수**: camelCase (예: `domain.constants.ts`)
+- **스타일**: camelCase with `.css.ts` 확장자 (예: `Button.css.ts`, `theme.css.ts`)
+
+### 폴더 네이밍
+- **Route Groups**: `(groupName)` 형태
+- **비라우팅 폴더**: `_folderName` 형태 (언더스코어 접두사)
+- **일반 폴더**: kebab-case 또는 camelCase
+
+## 사용 기술 스택 고려사항
+
+### 주요 라이브러리
+- **폼 관리**: react-hook-form + zod
+- **데이터 페칭**: TanStack Query + ky
+- **스타일링**: vanilla-extract
+- **타입스크립트**: 모든 파일에서 TypeScript 사용
+
+### API 및 상태 관리
+- **API 호출**: `_api` 폴더에 `.api.ts` (ky 사용) + `.queries.ts` (TanStack Query)
+- **스키마 검증**: `_schemas` 폴더에 Zod 스키마 정의
+- **타입 정의**: `_types` 폴더에 도메인별 타입 정의
+- **상수 정의**: `_constants` 폴더에 도메인별 상수 정의
+
+### 전역 공통 요소 구성
+- **유틸리티**: `lib/utils/` 폴더에 기능별로 분리 (날짜, 문자열, 포맷팅 등)
+- **API 클라이언트**: `lib/api/` 폴더에 전역 API 설정 및 타입
+- **검증 로직**: `lib/validations/` 폴더에 공통 스키마 및 검증 함수
+- **스타일링**: `styles/` 폴더에 전역 테마 및 공통 스타일, 컴포넌트별 스타일은 해당 컴포넌트와 같은 위치
+
+## 핵심 규칙
+
+1. **응집도 우선**: 관련된 코드는 가능한 한 가까이 배치
+2. **도메인 분리**: Route Groups를 활용하여 비즈니스 도메인별로 분리
+3. **재사용성 고려**: 전역 공통 요소와 도메인별 요소 명확히 구분
+4. **테스트 근접성**: 단위 테스트는 테스트 대상과 같은 폴더에 배치
+5. **스타일 근접성**: vanilla-extract 스타일 파일은 해당 컴포넌트와 같은 폴더에 배치
+6. **일관성 유지**: 네이밍 규칙과 폴더 구조 일관성 유지
