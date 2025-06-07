@@ -1,4 +1,5 @@
-import { isServer, QueryClient } from "@tanstack/react-query";
+import { isServer, type QueryClient } from "@tanstack/react-query";
+
 import { makeQueryClient } from "./makeQueryClient";
 
 let browserQueryClient: QueryClient | undefined = undefined;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import QueryProvider from "@/providers/QueryProvider";
+
 import { MSWProvider } from "@/providers/MSWProvider";
+import QueryProvider from "@/providers/QueryProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 
 if (process.env.NEXT_RUNTIME === "nodejs") {
   const { server } = await import("@/mocks/server");
-  console.log("🔥 [MSW] Server-side mocking enabled");
+  console.info("🔥 [MSW] Server-side mocking enabled");
   server.listen();
 }
 
@@ -19,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
         <QueryProvider>
           <MSWProvider>{children}</MSWProvider>

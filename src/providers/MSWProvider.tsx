@@ -1,7 +1,8 @@
 "use client";
 
-import { handlers } from "@/mocks/handlers";
 import { Suspense, use } from "react";
+
+import { handlers } from "@/mocks/handlers";
 
 const mockingEnabledPromise =
   typeof window !== "undefined"
@@ -16,7 +17,7 @@ const mockingEnabledPromise =
         });
         worker.use(...handlers);
 
-        console.log(worker.listHandlers());
+        console.info(worker.listHandlers());
       })
     : Promise.resolve();
 
