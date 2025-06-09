@@ -29,6 +29,7 @@ const eslintConfig = [
           fixStyle: "inline-type-imports",
         },
       ],
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "@typescript-eslint/no-unused-vars": "error",
       "no-empty": "error",
       "simple-import-sort/imports": "error",
