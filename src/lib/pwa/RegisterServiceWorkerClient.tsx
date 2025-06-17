@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { registerServiceWorker } from "./_utils";
+import { registerServiceWorker } from "./utils";
 
 export const RegisterServiceWorkerClient = () => {
   useEffect(() => {
