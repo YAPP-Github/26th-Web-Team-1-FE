@@ -12,6 +12,25 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: branch
+    attributes:
+      label: "🧩 브랜치 prefix"
+      options:
+        - revert
+        - refactor
+        - perf
+        - feature
+        - bug
+        - ci
+        - style
+        - docs
+        - build
+        - chore
+        - test
+    validations:
+      required: true
+
   - type: textarea
     id: details
     attributes:
