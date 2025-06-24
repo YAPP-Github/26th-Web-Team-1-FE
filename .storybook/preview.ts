@@ -1,11 +1,13 @@
-import type { Preview } from '@storybook/react'
+import "@/styles/reset.css.ts";
+
+import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
     },
   },
