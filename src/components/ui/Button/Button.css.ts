@@ -10,6 +10,17 @@ export const button = recipe({
     fontWeight: 600,
     transition: "background-color 0.2s ease",
     whiteSpace: "nowrap",
+
+    selectors: {
+      "&:disabled": {
+        backgroundColor: colors.coolNeutral[96],
+        color: colors.neutral[70],
+        cursor: "not-allowed",
+      },
+      "&:disabled:hover": {
+        backgroundColor: colors.coolNeutral[96],
+      },
+    },
   },
   variants: {
     variant: {
@@ -27,11 +38,6 @@ export const button = recipe({
         color: colors.neutral[10],
         backgroundColor: colors.coolNeutral[99],
         ":hover": { backgroundColor: colors.coolNeutral[97] },
-      },
-      disabled: {
-        backgroundColor: colors.coolNeutral[96],
-        color: colors.neutral[70],
-        cursor: "not-allowed",
       },
     },
     size: {

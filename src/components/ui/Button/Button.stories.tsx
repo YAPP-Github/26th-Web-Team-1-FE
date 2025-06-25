@@ -21,6 +21,9 @@ const meta: Meta<typeof Button> = {
       control: "select",
       options: ["small", "medium", "large", "fullWidth"],
     },
+    disabled: {
+      control: "boolean",
+    },
     onClick: { action: "clicked" },
   },
 };
@@ -47,14 +50,6 @@ export const Assistive: Story = {
   args: {
     variant: "assistive",
     size: "medium",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    variant: "disabled",
-    size: "medium",
-    disabled: true,
   },
 };
 

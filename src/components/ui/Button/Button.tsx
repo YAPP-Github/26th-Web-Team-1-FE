@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from "react";
 
 import { button } from "./Button.css";
 
-type ButtonVariant = "primary" | "dark" | "assistive" | "disabled";
+type ButtonVariant = "primary" | "dark" | "assistive";
 type ButtonSize = "small" | "medium" | "large" | "fullWidth";
 
 type ButtonProps = {
