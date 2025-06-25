@@ -5,8 +5,7 @@ import { button } from "./Button.css";
 type ButtonVariant = "primary" | "dark" | "assistive";
 type ButtonSize = "small" | "medium" | "large" | "fullWidth";
 
-type ButtonProps = {
-  children: React.ReactNode;
+export type ButtonProps = {
   variant?: ButtonVariant;
   size?: ButtonSize;
 } & ComponentPropsWithoutRef<"button">;
