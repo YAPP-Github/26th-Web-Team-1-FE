@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/experimental-nextjs-vite";
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -8,5 +10,13 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ["../public"],
+  viteFinal: async config => {
+    config.plugins = [
+      ...(config.plugins || []),
+      tsconfigPaths(),
+      vanillaExtractPlugin(),
+    ];
+    return config;
+  },
 };
 export default config;

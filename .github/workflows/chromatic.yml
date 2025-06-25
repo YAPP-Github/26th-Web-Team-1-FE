@@ -1,0 +1,45 @@
+name: Storybook Chromatic Deployment
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  storybook-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Publish to Chromatic
+        id: chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          onlyChanged: true
+          autoAcceptChanges: true
+
+      - name: Comment PR
+        if: always()
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: chromatic-preview-${{ github.event.number }}
+          message: |
+            🎨 **Storybook Preview**: ${{ steps.chromatic.outputs.storybookUrl }}
+            🔗 **Chromatic Build**: ${{ steps.chromatic.outputs.buildUrl }}
