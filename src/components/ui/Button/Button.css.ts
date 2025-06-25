@@ -49,15 +49,11 @@ export const button = recipe({
         borderRadius: radius[80],
       },
       medium: {
-        width: "80px",
-        height: "40px",
         padding: "9px 20px",
         fontSize: "15px",
         borderRadius: radius[100],
       },
       large: {
-        width: "98px",
-        height: "48px",
         padding: "12px 28px",
         fontSize: "16px",
         borderRadius: radius[120],
