@@ -1,7 +1,4 @@
-export function isClient() {
-  return typeof window !== "undefined" && typeof document !== "undefined";
-}
+export const isClient = () =>
+  typeof window !== "undefined" && typeof document !== "undefined";
 
-export function isServer() {
-  return !isClient();
-}
+export const isServer = () => !isClient();
