@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 
 import { RegisterServiceWorkerClient } from "@/lib/pwa";
 import { MSWProvider, QueryProvider } from "@/providers";
+import { pretendard } from "@/styles/pretendard";
 
 export const metadata: Metadata = {
   title: "Eat-da",
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className={pretendard.className}>
       <body>
         <RegisterServiceWorkerClient />
         <QueryProvider>
