@@ -22,7 +22,7 @@ export const input = recipe({
     padding: "14px 12px",
     ...typography.body1,
     fontWeight: "500",
-    border: "none",
+    border: "1px solid transparent",
     borderRadius: radius[160],
     outline: "none",
   },
