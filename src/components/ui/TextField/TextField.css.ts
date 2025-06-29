@@ -72,9 +72,6 @@ export const helperText = recipe({
   variants: {
     status: {
       inactive: {},
-      focus: {},
-      filled: {},
-      disabled: {},
       negative: { color: semantic.status.negative },
     },
   },
