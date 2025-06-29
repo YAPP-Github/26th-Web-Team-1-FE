@@ -9,7 +9,7 @@ export const wrapper = style({
   gap: "8px",
 });
 
-export const title = style({
+export const label = style({
   ...typography.label1,
   fontWeight: 600,
   color: semantic.text.alternative,
@@ -81,4 +81,23 @@ export const helperText = recipe({
   defaultVariants: {
     status: "inactive",
   },
+});
+
+export const inputWrapper = style({
+  position: "relative",
+});
+
+export const rightIconWrapper = style({
+  position: "absolute",
+  right: "12px",
+  top: "50%",
+  transform: "translateY(-50%)",
+  border: "none",
+  background: "transparent",
+  padding: "1px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  opacity: 1,
+  transition: "opacity 0.2s ease",
 });
