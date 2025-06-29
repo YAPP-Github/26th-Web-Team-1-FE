@@ -1,11 +1,12 @@
 import "@/styles/reset.css";
-import "@/styles/globals.css";
 
 import type { Metadata } from "next";
 
 import { RegisterServiceWorkerClient } from "@/lib/pwa";
 import { MSWProvider, QueryProvider } from "@/providers";
 import { pretendard } from "@/styles/pretendard";
+
+import * as styles from "./layout.css";
 
 export const metadata: Metadata = {
   title: "Eat-da",
@@ -25,11 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={pretendard.className}>
-      <body>
-        <RegisterServiceWorkerClient />
-        <QueryProvider>
-          <MSWProvider>{children}</MSWProvider>
-        </QueryProvider>
+      <body className={styles.body}>
+        <div className={styles.wrapper}>
+          <RegisterServiceWorkerClient />
+          <QueryProvider>
+            <MSWProvider>{children}</MSWProvider>
+          </QueryProvider>
+        </div>
       </body>
     </html>
   );
