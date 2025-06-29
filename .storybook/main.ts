@@ -1,5 +1,6 @@
 import type { StorybookConfig } from "@storybook/experimental-nextjs-vite";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import svgr from "vite-plugin-svgr";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
@@ -15,6 +16,7 @@ const config: StorybookConfig = {
       ...(config.plugins || []),
       tsconfigPaths(),
       vanillaExtractPlugin(),
+      svgr(),
     ];
     return config;
   },
