@@ -6,7 +6,7 @@ import * as styles from "./BottomSheet.css";
 export type BottomSheetProps = {
   open: boolean;
   children: ReactNode;
-  title?: string;
+  title: string;
   trigger?: ReactNode;
   footer?: ReactNode;
   onOpenChange: (open: boolean) => void;
