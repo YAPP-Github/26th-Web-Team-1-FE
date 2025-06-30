@@ -2,8 +2,13 @@ name: deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - stage
   pull_request:
+    branches:
+      - main
+      - stage
     types: [opened, synchronize, reopened]
 
 permissions:
@@ -22,4 +27,4 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          PRODUCTION: ${{ github.event_name == 'push' }}
+          PRODUCTION: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
