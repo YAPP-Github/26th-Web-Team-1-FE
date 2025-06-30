@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FormProvider, useForm } from "react-hook-form";
+import { type ComponentProps } from "react";
 
 import { TextField } from "./TextField";
 // import ClearIcon from "@/assets/Clear.svg";
@@ -8,12 +8,6 @@ const meta: Meta<typeof TextField> = {
   title: "Components/TextField",
   component: TextField,
   tags: ["autodocs"],
-  args: {
-    label: "닉네임",
-    placeholder: "닉네임을 입력해 주세요.",
-    helperText: "2~10자 이내로 입력해주세요.",
-    disabled: false,
-  },
   argTypes: {
     status: {
       control: "select",
@@ -34,32 +28,63 @@ const meta: Meta<typeof TextField> = {
 export default meta;
 type Story = StoryObj<typeof TextField>;
 
-const StoryWrapper = (args: React.ComponentProps<typeof TextField>) => {
-  const methods = useForm({
-    defaultValues: { nickname: "" },
-  });
-  const { control } = methods;
-
+const TextFieldWrapper = ({
+  status,
+  label,
+  helperText,
+  placeholder,
+  disabled,
+  value,
+  onChange,
+}: ComponentProps<typeof TextField>) => {
   return (
-    <FormProvider {...methods}>
-      <TextField
-        {...args}
-        name='nickname'
-        control={control}
-        // rightIcon={<ClearIcon />}
-      />
-    </FormProvider>
+    <TextField
+      label={label}
+      status={status}
+      helperText={helperText}
+      placeholder={placeholder}
+      disabled={disabled}
+      value={value}
+      onChange={onChange}
+      // rightAddon={value && !disabled ? <ClearIcon /> : null}
+    />
   );
 };
 
 export const Inactive: Story = {
-  render: args => <StoryWrapper {...args} />,
+  render: args => <TextFieldWrapper {...args} />,
+  args: {
+    label: "닉네임",
+    placeholder: "닉네임을 입력해 주세요.",
+    helperText: "2~10자 이내로 입력해주세요.",
+    status: "inactive",
+    disabled: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "기본 상태의 텍스트 필드입니다. 입력값이 없거나 정상적인 입력일 경우 사용됩니다.",
+      },
+    },
+  },
 };
 
 export const Negative: Story = {
-  render: args => <StoryWrapper {...args} />,
+  render: args => <TextFieldWrapper {...args} />,
   args: {
-    status: "negative",
+    label: "닉네임",
+    placeholder: "닉네임을 입력해 주세요.",
     helperText: "닉네임은 10자 이내로 입력해주세요.",
+    status: "negative",
+    disabled: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "에러 상태의 텍스트 필드입니다. 유효성 검사 실패 등 부정적인 피드백을 제공할 때 사용됩니다.",
+      },
+    },
   },
 };

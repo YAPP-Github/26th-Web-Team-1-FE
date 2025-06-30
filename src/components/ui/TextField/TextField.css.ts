@@ -84,7 +84,7 @@ export const inputWrapper = style({
   position: "relative",
 });
 
-export const rightIconWrapper = style({
+export const rightAddonWrapper = style({
   position: "absolute",
   right: "12px",
   top: "50%",
@@ -95,6 +95,4 @@ export const rightIconWrapper = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  opacity: 1,
-  transition: "opacity 0.2s ease",
 });
