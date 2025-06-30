@@ -22,7 +22,8 @@
     "@vanilla-extract/recipes": "^0.5.7",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.58.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -35,6 +36,7 @@
     "@storybook/blocks": "^8.6.14",
     "@storybook/experimental-nextjs-vite": "8.6.14",
     "@storybook/react": "^8.6.14",
+    "@svgr/webpack": "^8.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -66,6 +68,7 @@
     "prettier": "^3.5.3",
     "storybook": "^8.6.14",
     "typescript": "^5",
+    "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.1.4"
   },

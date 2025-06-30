@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 
 import { RegisterServiceWorkerClient } from "@/lib/pwa";
 import { MSWProvider, QueryProvider } from "@/providers";
+import { pretendard } from "@/styles/pretendard";
+
+import * as styles from "./layout.css";
 
 export const metadata: Metadata = {
   title: "Eat-da",
@@ -22,12 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body>
-        <RegisterServiceWorkerClient />
-        <QueryProvider>
-          <MSWProvider>{children}</MSWProvider>
-        </QueryProvider>
+    <html lang='en' className={pretendard.className}>
+      <body className={styles.body}>
+        <div className={styles.wrapper}>
+          <RegisterServiceWorkerClient />
+          <QueryProvider>
+            <MSWProvider>{children}</MSWProvider>
+          </QueryProvider>
+        </div>
       </body>
     </html>
   );

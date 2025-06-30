@@ -35,6 +35,13 @@ jobs:
           onlyChanged: true
           autoAcceptChanges: true
 
+      - name: Get current time (KST)
+        uses: josStorer/get-current-time@v2
+        id: current-time
+        with:
+          format: "YYYY년 MM월 DD일 HH시 mm분 ss초"
+          utcOffset: "+09:00"
+
       - name: Comment PR
         if: always()
         uses: thollander/actions-comment-pull-request@v3
@@ -43,3 +50,4 @@ jobs:
           message: |
             🎨 **Storybook Preview**: ${{ steps.chromatic.outputs.storybookUrl }}
             🔗 **Chromatic Build**: ${{ steps.chromatic.outputs.buildUrl }}
+            🕖 ***Updated at**: ${{ steps.current-time.outputs.formattedTime }}
