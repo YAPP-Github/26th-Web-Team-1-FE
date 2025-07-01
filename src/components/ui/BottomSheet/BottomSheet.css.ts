@@ -23,17 +23,13 @@ export const content = style({
 export const innerContent = style({
   width: "100%",
   maxWidth: "480px",
-  /**
-   * @todo 디자이너와 논의 후 minHeight 값 변경
-   */
-  minHeight: "100px",
+  minHeight: "326px",
   maxHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   backgroundColor: colors.common[100],
   borderTopLeftRadius: radius[120],
   borderTopRightRadius: radius[120],
-  overflowY: "auto",
 });
 
 export const handleContainer = style({
@@ -62,6 +58,19 @@ export const main = style({
   flexDirection: "column",
   gap: "8px",
   padding: "14px 20px 60px",
+  overflowY: "auto",
+});
+
+export const mainTitle = style({
+  ...typography.title3,
+  fontWeight: 600,
+  color: semantic.text.normal,
+});
+
+export const mainDescription = style({
+  ...typography.body2,
+  fontWeight: 400,
+  color: semantic.text.alternative,
 });
 
 export const buttonContainer = style({
