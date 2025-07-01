@@ -1,6 +1,6 @@
 import ky, { type BeforeRetryState, type HTTPError } from "ky";
 
-import { postClientReissue } from "@/app/_api/member/member.api";
+import { postClientReissue } from "@/app/_api/auth/auth.api";
 import {
   ApiException,
   ForbiddenException,
@@ -88,9 +88,10 @@ const refreshTokenAndRetry = async ({ error }: BeforeRetryState) => {
   isRefreshing = true;
 
   try {
-    // 토큰 재발급 API 호출
+    // 토큰 재발급
     await postClientReissue();
-    // 클라이언트 세션 캐시 비우기
+
+    // 재발급 성공 후, 클라이언트의 세션 캐시를 비워 새 정보를 가져오게 합니다.
     clearClientSessionCache();
 
     // 재발급 성공
