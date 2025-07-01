@@ -2,8 +2,8 @@ import { type NextRequest, NextResponse } from "next/server";
 
 import { postLogin } from "@/app/_api/auth/auth.api";
 import { TOKEN_TIMES } from "@/constants/time.constants";
-import { type ApiError } from "@/lib/api/type";
-import { getSessionFromServer } from "@/lib/session/serverSession";
+import { type ApiError } from "@/lib/api";
+import { getSessionFromServer } from "@/lib/session";
 
 /**
  * 로그인 요청

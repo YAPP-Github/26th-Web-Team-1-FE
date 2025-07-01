@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { useLoginMutation } from "@/app/_api/auth/auth.queries";
-import { clearClientSessionCache } from "@/lib/session/clientSession";
+import { clearClientSessionCache } from "@/lib/session";
 
 export default function AuthCallbackPage() {
   const router = useRouter();

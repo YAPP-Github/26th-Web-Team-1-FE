@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 
 import { postReissue } from "@/app/_api/auth/auth.api";
 import { TOKEN_TIMES } from "@/constants";
-import { getSessionFromServer } from "@/lib/session/serverSession";
+import { getSessionFromServer } from "@/lib/session";
 
 // 인증이 필요 없는 경로
 const PUBLIC_PATHS = ["/login", "/signup", "/public", "/login/callback"];
