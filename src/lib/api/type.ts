@@ -7,7 +7,7 @@ export type ApiError = {
    * 에러 코드
    * @example "AUTH002"
    */
-  errorCode: string;
+  errorCode?: string;
   /**
    * 에러 메시지
    * @example "이미 만료된 토큰입니다."
