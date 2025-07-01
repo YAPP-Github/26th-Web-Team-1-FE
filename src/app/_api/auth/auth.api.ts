@@ -32,13 +32,15 @@ export const postReissue = async (params: ReissueRequest) => {
 };
 
 /**
- * 백엔드의 /api/auth/login/oauth 엔드포인트에 oauth 로그인 요청 URL을 받아옵니다.
- * @description kakao provider만 지원합니다.
+ * OAuth 제공자의 인증 페이지로 브라우저를 리다이렉트시킵니다.
  *
- * @returns 302 리다이렉트 응답
+ * @description
+ * 이 함수를 호출하면, 서버로부터 302 리다이렉트 응답을 받아
+ * OAuth 제공자의 인증 페이지로 즉시 이동합니다.
+ * 반환 값은 없으며, 호출 즉시 페이지가 전환됩니다.
  */
-export const getOauthLoginUrl = async () => {
-  return await http.get("api/auth/login/oauth").json();
+export const redirectToKakaoOAuthLoginPage = async () => {
+  await http.get("api/auth/login/oauth");
 };
 
 type Information = Omit<LoginResponse, "token">["information"];
