@@ -1,0 +1,1 @@
+export { type SessionData } from "@/lib/session/type";
