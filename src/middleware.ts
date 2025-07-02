@@ -6,7 +6,7 @@ import { TOKEN_TIMES } from "@/constants";
 import { getSessionFromServer } from "@/lib/session";
 
 // 인증이 필요 없는 경로
-const PUBLIC_PATHS = ["/login", "/signup", "/public", "/login/callback"];
+const PUBLIC_PATHS = ["/", "/login", "/signup", "/public", "/login/callback"];
 
 const isPublicPath = (pathname: string) => {
   return PUBLIC_PATHS.some(path => pathname.startsWith(path));
