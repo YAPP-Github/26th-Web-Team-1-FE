@@ -12,7 +12,7 @@ export default function AuthCallbackPage() {
   const code = searchParams.get("code");
   const next = searchParams.get("next");
 
-  const { mutate: login, isError } = useLoginMutation();
+  const { mutate: login } = useLoginMutation();
 
   useEffect(() => {
     if (code) {
@@ -29,6 +29,7 @@ export default function AuthCallbackPage() {
           onError: error => {
             console.error("로그인에 실패했습니다:", error);
             alert("로그인에 실패했습니다. 다시 시도해주세요.");
+            router.replace("/login");
           },
         }
       );
@@ -37,10 +38,6 @@ export default function AuthCallbackPage() {
       router.replace("/");
     }
   }, [code, login, router, next]);
-
-  if (isError) {
-    return <div>로그인 처리 중 오류가 발생했습니다.</div>;
-  }
 
   return <div>로그인 중입니다...</div>;
 }
