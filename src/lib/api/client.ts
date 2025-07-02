@@ -1,6 +1,6 @@
 import ky, { type BeforeRetryState, type HTTPError } from "ky";
 
-import { postClientReissue } from "@/app/_api/auth/auth.api";
+import { postClientReissue } from "@/app/(auth)/_api/auth/auth.api";
 import {
   ApiException,
   ForbiddenException,

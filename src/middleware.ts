@@ -1,7 +1,7 @@
 // src/middleware.ts
 import { type NextRequest, NextResponse } from "next/server";
 
-import { postReissue } from "@/app/_api/auth/auth.api";
+import { postReissue } from "@/app/(auth)/_api/auth/auth.api";
 import { TOKEN_TIMES } from "@/constants";
 import { getSessionFromServer } from "@/lib/session";
 

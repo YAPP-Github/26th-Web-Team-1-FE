@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-import { useLoginMutation } from "@/app/_api/auth/auth.queries";
+import { useLoginMutation } from "@/app/(auth)/_api/auth/auth.queries";
 import { clearClientSessionCache } from "@/lib/session";
 
 export default function AuthCallbackPage() {
@@ -29,7 +29,6 @@ export default function AuthCallbackPage() {
           onError: error => {
             console.error("로그인에 실패했습니다:", error);
             alert("로그인에 실패했습니다. 다시 시도해주세요.");
-            router.back();
           },
         }
       );

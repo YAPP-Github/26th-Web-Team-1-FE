@@ -1,4 +1,4 @@
-import { getSession } from "@/app/_api/session/session.api";
+import { getSession } from "@/app/(auth)/_api/session/session.api";
 import { TOKEN_TIMES } from "@/constants";
 import { type SessionData } from "@/lib/session";
 

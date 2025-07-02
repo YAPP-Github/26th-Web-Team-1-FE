@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import { postLogin } from "@/app/_api/auth/auth.api";
+import { postLogin } from "@/app/(auth)/_api/auth/auth.api";
 import { TOKEN_TIMES } from "@/constants/time.constants";
 import { type ApiError } from "@/lib/api";
 import { UnauthorizedException } from "@/lib/exceptions";
