@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { postLogin } from "@/app/_api/auth/auth.api";
 import { TOKEN_TIMES } from "@/constants/time.constants";
 import { type ApiError } from "@/lib/api";
+import { UnauthorizedException } from "@/lib/exceptions";
 import { getSessionFromServer } from "@/lib/session";
 
 /**
@@ -48,10 +49,10 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json(data.information);
   } catch (error) {
     console.error("Login failed:", error);
-    // TODO: 에러 처리 세분화
+
     return NextResponse.json<ApiError>(
-      { errorMessage: "인증에 실패했습니다." },
-      { status: 401 }
+      { errorMessage: "로그인에 실패했습니다." },
+      { status: error instanceof UnauthorizedException ? 401 : 400 }
     );
   }
 };
