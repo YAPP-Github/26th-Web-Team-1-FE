@@ -40,7 +40,7 @@ export const postReissue = async (params: ReissueRequest) => {
  * 반환 값은 없으며, 호출 즉시 페이지가 전환됩니다.
  */
 export const redirectToKakaoOAuthLoginPage = async () => {
-  await http.get("api/auth/login/oauth");
+  window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login/oauth`;
 };
 
 type Information = Omit<LoginResponse, "token">["information"];
@@ -51,7 +51,7 @@ type Information = Omit<LoginResponse, "token">["information"];
  * @param {LoginRequest} params - 카카오 인가 코드
  * @returns {Promise<Information>} 회원 정보
  */
-export const postClientLogin = async (params: LoginRequest) => {
+export const postClientLogin = async (params: Omit<LoginRequest, "origin">) => {
   return await nextHttp
     .post("api/auth/login", { json: params })
     .json<Information>();

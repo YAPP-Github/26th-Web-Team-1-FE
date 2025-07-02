@@ -12,6 +12,7 @@ import { getSessionFromServer } from "@/lib/session";
  */
 export const POST = async (req: NextRequest) => {
   const { code } = await req.json();
+  const origin = req.headers.get("origin");
 
   if (!code) {
     return NextResponse.json<ApiError>(
@@ -20,8 +21,18 @@ export const POST = async (req: NextRequest) => {
     );
   }
 
+  if (!origin) {
+    return NextResponse.json<ApiError>(
+      { errorMessage: "올바르지 않은 요청입니다." },
+      { status: 400 }
+    );
+  }
+
   try {
-    const data = await postLogin({ code });
+    const data = await postLogin({
+      code,
+      origin,
+    });
     const session = await getSessionFromServer();
 
     session.isLoggedIn = true;

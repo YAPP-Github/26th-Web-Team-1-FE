@@ -1,5 +1,6 @@
 export type LoginRequest = {
   code: string;
+  origin: string;
 };
 
 export type LoginResponse = {
