@@ -42,9 +42,7 @@ export const button = recipe({
     },
     size: {
       small: {
-        width: "63px",
-        height: "32px",
-        padding: "9px 20px",
+        padding: "7px 20px",
         fontSize: "13px",
         borderRadius: radius[80],
       },
