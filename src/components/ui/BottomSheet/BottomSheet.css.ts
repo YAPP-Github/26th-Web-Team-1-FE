@@ -3,10 +3,7 @@ import { style } from "@vanilla-extract/css";
 import { colors, radius, semantic, typography } from "@/styles";
 
 export const overlay = style({
-  width: "100%",
-  maxWidth: "480px",
   position: "fixed",
-  margin: "0 auto",
   inset: 0,
   backgroundColor: semantic.background.dim,
 });
@@ -16,20 +13,21 @@ export const content = style({
   bottom: 0,
   left: 0,
   right: 0,
+  maxWidth: "480px",
+  margin: "0 auto",
   display: "flex",
   justifyContent: "center",
+  backgroundColor: colors.common[100],
+  borderTopLeftRadius: radius[120],
+  borderTopRightRadius: radius[120],
 });
 
 export const innerContent = style({
   width: "100%",
-  maxWidth: "480px",
   minHeight: "326px",
   maxHeight: "100vh",
   display: "flex",
   flexDirection: "column",
-  backgroundColor: colors.common[100],
-  borderTopLeftRadius: radius[120],
-  borderTopRightRadius: radius[120],
 });
 
 export const handleContainer = style({
@@ -53,7 +51,7 @@ export const title = style({
   color: semantic.text.normal,
 });
 
-export const main = style({
+export const sheetBody = style({
   display: "flex",
   flexDirection: "column",
   gap: "8px",
@@ -61,13 +59,13 @@ export const main = style({
   overflowY: "auto",
 });
 
-export const mainTitle = style({
+export const sheetBodyTitle = style({
   ...typography.title3,
   fontWeight: 600,
   color: semantic.text.normal,
 });
 
-export const mainDescription = style({
+export const sheetBodyDescription = style({
   ...typography.body2,
   fontWeight: 400,
   color: semantic.text.alternative,
