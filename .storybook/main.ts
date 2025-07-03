@@ -1,24 +1,34 @@
-import type { StorybookConfig } from "@storybook/experimental-nextjs-vite";
+import type { StorybookConfig } from "@storybook/nextjs-vite";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import svgr from "vite-plugin-svgr";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: ["@storybook/addon-essentials"],
+  addons: [
+    "@chromatic-com/storybook",
+    "@storybook/addon-docs",
+    "@storybook/addon-a11y",
+    "@storybook/addon-vitest",
+  ],
   framework: {
-    name: "@storybook/experimental-nextjs-vite",
+    name: "@storybook/nextjs-vite",
     options: {},
   },
+  features: {
+    experimentalRSC: true,
+  },
   staticDirs: ["../public"],
-  viteFinal: async config => {
-    config.plugins = [
-      ...(config.plugins || []),
-      tsconfigPaths(),
-      vanillaExtractPlugin(),
-      svgr(),
-    ];
-    return config;
+  async viteFinal(config) {
+    return {
+      ...config,
+      plugins: [
+        ...(config.plugins ?? []),
+        svgr(),
+        vanillaExtractPlugin(),
+        tsconfigPaths(),
+      ],
+    };
   },
 };
 export default config;
