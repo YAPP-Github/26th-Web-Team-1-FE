@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useState } from "react";
 
 import { Button } from "../Button";
@@ -14,7 +14,7 @@ const meta: Meta<typeof BottomSheet> = {
     title: { control: "text" },
     trigger: { control: false },
     footer: { control: false },
-    children: { control: false },
+    content: { control: false },
   },
 };
 export default meta;
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof BottomSheet>;
 
 const BottomSheetWrapper = (
   args: React.ComponentProps<typeof BottomSheet> & {
-    children?: React.ReactNode;
+    content?: React.ReactNode;
     footer?: React.ReactNode;
   }
 ) => {
@@ -39,9 +39,8 @@ const BottomSheetWrapper = (
           바텀시트 열기
         </Button>
       }
-    >
-      {args.children}
-    </BottomSheet>
+      content={args.content}
+    />
   );
 };
 
@@ -55,35 +54,39 @@ export const Default: Story = {
           동의하고 계속하기
         </Button>
       }
-    >
-      <h2 className={styles.mainTitle}>비밀번호를 변경해 안내 설명</h2>
-      <p className={styles.mainDescription}>
-        회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우 비밀번호
-        변경을 안내해 드리고 있습니다. 회원님의 개인정보 보호를 위해 장기간
-        비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
-        있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
-        비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를 위해
-        장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
-        있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
-        비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를 위해
-        장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
-        있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
-        비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를 위해
-        장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
-        있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
-        비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를 위해
-        장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
-        있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
-        비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를 위해
-        장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
-        있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
-        비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를 위해
-        장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
-        있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
-        비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를 위해
-        장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고 있습니다.
-      </p>
-    </BottomSheetWrapper>
+      content={
+        <>
+          <h2 className={styles.sheetBodyTitle}>비밀번호를 변경해 안내 설명</h2>
+          <p className={styles.sheetBodyDescription}>
+            회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
+            비밀번호 변경을 안내해 드리고 있습니다. 회원님의 개인정보 보호를
+            위해 장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
+            있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인
+            경우 비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를
+            위해 장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
+            있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인
+            경우 비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를
+            위해 장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
+            있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인
+            경우 비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를
+            위해 장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
+            있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인
+            경우 비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를
+            위해 장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
+            있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인
+            경우 비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를
+            위해 장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
+            있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인
+            경우 비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를
+            위해 장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
+            있습니다.회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인
+            경우 비밀번호 변경을 안내해 드리고 있습니다.회원님의 개인정보 보호를
+            위해 장기간 비밀번호를 유지 중인 경우 비밀번호 변경을 안내해 드리고
+            있습니다.
+          </p>
+        </>
+      }
+    />
   ),
   parameters: {
     docs: {
@@ -108,13 +111,18 @@ export const Opened: Story = {
             확인
           </Button>
         }
-      >
-        <h2 className={styles.mainTitle}>비밀번호를 변경해 안내 설명</h2>
-        <p className={styles.mainDescription}>
-          회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
-          비밀번호 변경을 안내해 드리고 있습니다.
-        </p>
-      </BottomSheetWrapper>
+        content={
+          <>
+            <h2 className={styles.sheetBodyTitle}>
+              비밀번호를 변경해 안내 설명
+            </h2>
+            <p className={styles.sheetBodyDescription}>
+              회원님의 개인정보 보호를 위해 장기간 비밀번호를 유지 중인 경우
+              비밀번호 변경을 안내해 드리고 있습니다.
+            </p>
+          </>
+        }
+      />
     );
   },
   args: {
