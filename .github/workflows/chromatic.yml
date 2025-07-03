@@ -50,4 +50,4 @@ jobs:
           message: |
             🎨 **Storybook Preview**: ${{ steps.chromatic.outputs.storybookUrl }}
             🔗 **Chromatic Build**: ${{ steps.chromatic.outputs.buildUrl }}
-            🕖 ***Updated at**: ${{ steps.current-time.outputs.formattedTime }}
+            🕖 **Updated at**: ${{ steps.current-time.outputs.formattedTime }}
