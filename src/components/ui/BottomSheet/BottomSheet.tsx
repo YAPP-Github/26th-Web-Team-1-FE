@@ -1,41 +1,34 @@
 import { type ReactNode } from "react";
-import { Drawer } from "vaul";
+import { type DialogProps,Drawer } from "vaul";
 
 import * as styles from "./BottomSheet.css";
 
 export type BottomSheetProps = {
-  open: boolean;
-  children: ReactNode;
   title: string;
   trigger?: ReactNode;
   footer?: ReactNode;
-  onOpenChange: (open: boolean) => void;
-};
+  content?: ReactNode;
+} & DialogProps;
 
 export const BottomSheet = ({
-  open,
   title,
-  onOpenChange,
-  children,
   trigger,
   footer,
+  content,
+  ...props
 }: BottomSheetProps) => {
   return (
-    <Drawer.Root open={open} onOpenChange={onOpenChange}>
+    <Drawer.Root {...props}>
       {trigger && <Drawer.Trigger asChild>{trigger}</Drawer.Trigger>}
       <Drawer.Portal>
         <Drawer.Overlay className={styles.overlay} />
         <Drawer.Content className={styles.content}>
-          <section
-            className={styles.innerContent}
-            aria-modal='true'
-            role='dialog'
-          >
+          <section className={styles.innerContent}>
             <div className={styles.handleContainer}>
               <div className={styles.handle} />
             </div>
             <Drawer.Title className={styles.title}>{title}</Drawer.Title>
-            <main className={styles.main}>{children}</main>
+            <div className={styles.sheetBody}>{content}</div>
             {footer && <div className={styles.buttonContainer}>{footer}</div>}
           </section>
         </Drawer.Content>
