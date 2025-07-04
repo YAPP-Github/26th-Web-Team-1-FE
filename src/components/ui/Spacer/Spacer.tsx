@@ -20,7 +20,7 @@ export type SpacerProps<T extends ElementType> =
  *
  * <Stack>
  *  <Text>Hello</Text>
- *  <Spacer size={10} direction='vertical' />
+ *  <Spacer size={10} />
  *  <Text>World</Text>
  * </Stack>
  * ```
