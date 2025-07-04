@@ -1,4 +1,5 @@
-import { type CSSProperties, type ElementType } from "react";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { type ElementType } from "react";
 
 import { colors } from "@/styles/colors.css";
 import { semantic } from "@/styles/semantic.css";
@@ -92,18 +93,19 @@ export const Text = <T extends ElementType = "p">({
   const Component = as || "p";
 
   const style = {
-    [fontSizeVar]: typography[typo]?.fontSize,
-    [lineHeightVar]: typography[typo]?.lineHeight,
-    [letterSpacingVar]: typography[typo]?.letterSpacing,
-    [colorVar]: color ? resolveColor(color) : undefined,
     ...styleFromProps,
-  } as CSSProperties;
+    ...assignInlineVars({
+      [fontSizeVar]: typography[typo]?.fontSize,
+      [lineHeightVar]: typography[typo]?.lineHeight,
+      [letterSpacingVar]: typography[typo]?.letterSpacing,
+      [colorVar]: color ? resolveColor(color) : undefined,
+    }),
+  };
 
   return (
     <Component
       className={`${textStyles} ${className ?? ""}`.trim()}
       style={style}
-      j
       ref={ref}
       {...rest}
     />

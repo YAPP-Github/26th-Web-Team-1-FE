@@ -1,13 +1,12 @@
+import { createVar } from "@vanilla-extract/css";
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 
-import { getVar } from "@/lib/utils/getVar";
-
-export const stackGapVar = "--stack-gap";
+export const stackGapVar = createVar();
 
 export const stackStyles = recipe({
   base: {
     display: "flex",
-    gap: getVar(stackGapVar),
+    gap: stackGapVar,
   },
   variants: {
     direction: {

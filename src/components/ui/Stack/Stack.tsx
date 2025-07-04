@@ -1,4 +1,5 @@
-import { type CSSProperties, type ElementType } from "react";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { type ElementType } from "react";
 
 import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
 import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic";
@@ -40,9 +41,11 @@ const Stack = <T extends ElementType = "div">({
   const Component = as || "div";
 
   const style = {
-    [stackGapVar]: gap ? coerceCssRemValue(gap) : undefined,
     ...styleFromProps,
-  } as CSSProperties;
+    ...assignInlineVars({
+      [stackGapVar]: gap ? coerceCssRemValue(gap) : undefined,
+    }),
+  };
 
   return (
     <Component

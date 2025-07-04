@@ -1,4 +1,5 @@
-import { type CSSProperties, type ElementType } from "react";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { type ElementType } from "react";
 
 import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
 import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic";
@@ -39,30 +40,34 @@ export const Bleed = <T extends ElementType = "div">({
   const Component = as || "div";
 
   const style = {
-    ...(inline
-      ? {
-          [bleedInlineStartVar]: coerceCssRemValue(inline),
-          [bleedInlineEndVar]: coerceCssRemValue(inline),
-        }
-      : {}),
-    ...(block
-      ? {
-          [bleedBlockStartVar]: coerceCssRemValue(block),
-          [bleedBlockEndVar]: coerceCssRemValue(block),
-        }
-      : {}),
-    ...(inlineStart
-      ? {
-          [bleedInlineStartVar]: coerceCssRemValue(inlineStart),
-        }
-      : {}),
-    ...(inlineEnd ? { [bleedInlineEndVar]: coerceCssRemValue(inlineEnd) } : {}),
-    ...(blockStart
-      ? { [bleedBlockStartVar]: coerceCssRemValue(blockStart) }
-      : {}),
-    ...(blockEnd ? { [bleedBlockEndVar]: coerceCssRemValue(blockEnd) } : {}),
     ...styleFromProps,
-  } as CSSProperties;
+    ...assignInlineVars({
+      ...(inline
+        ? {
+            [bleedInlineStartVar]: coerceCssRemValue(inline),
+            [bleedInlineEndVar]: coerceCssRemValue(inline),
+          }
+        : {}),
+      ...(block
+        ? {
+            [bleedBlockStartVar]: coerceCssRemValue(block),
+            [bleedBlockEndVar]: coerceCssRemValue(block),
+          }
+        : {}),
+      ...(inlineStart
+        ? {
+            [bleedInlineStartVar]: coerceCssRemValue(inlineStart),
+          }
+        : {}),
+      ...(inlineEnd
+        ? { [bleedInlineEndVar]: coerceCssRemValue(inlineEnd) }
+        : {}),
+      ...(blockStart
+        ? { [bleedBlockStartVar]: coerceCssRemValue(blockStart) }
+        : {}),
+      ...(blockEnd ? { [bleedBlockEndVar]: coerceCssRemValue(blockEnd) } : {}),
+    }),
+  };
 
   return (
     <Component
