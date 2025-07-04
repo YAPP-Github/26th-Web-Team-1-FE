@@ -26,7 +26,7 @@ export type StackProps<T extends ElementType> =
  * </Stack>
  * ```
  */
-const Stack = <T extends ElementType = "div">({
+export const Stack = <T extends ElementType = "div">({
   as,
   className,
   direction,
