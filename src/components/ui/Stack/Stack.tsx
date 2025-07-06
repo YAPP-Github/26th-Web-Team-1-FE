@@ -2,7 +2,7 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { type ElementType } from "react";
 
 import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
-import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic";
+import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic.types";
 
 import { stackGapVar, stackStyles, type StackVariants } from "./Stack.css";
 
@@ -11,7 +11,6 @@ export type StackProps<T extends ElementType> =
     T,
     StackVariants & {
       gap?: number | string;
-      direction?: "row" | "column";
     }
   >;
 
