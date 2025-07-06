@@ -2,7 +2,7 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { type ElementType } from "react";
 
 import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
-import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic";
+import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic.types";
 
 import {
   bleedBlockEndVar,
@@ -42,30 +42,22 @@ export const Bleed = <T extends ElementType = "div">({
   const style = {
     ...styleFromProps,
     ...assignInlineVars({
-      ...(inline
-        ? {
-            [bleedInlineStartVar]: coerceCssRemValue(inline),
-            [bleedInlineEndVar]: coerceCssRemValue(inline),
-          }
-        : {}),
-      ...(block
-        ? {
-            [bleedBlockStartVar]: coerceCssRemValue(block),
-            [bleedBlockEndVar]: coerceCssRemValue(block),
-          }
-        : {}),
-      ...(inlineStart
-        ? {
-            [bleedInlineStartVar]: coerceCssRemValue(inlineStart),
-          }
-        : {}),
-      ...(inlineEnd
-        ? { [bleedInlineEndVar]: coerceCssRemValue(inlineEnd) }
-        : {}),
-      ...(blockStart
-        ? { [bleedBlockStartVar]: coerceCssRemValue(blockStart) }
-        : {}),
-      ...(blockEnd ? { [bleedBlockEndVar]: coerceCssRemValue(blockEnd) } : {}),
+      ...(inline && {
+        [bleedInlineStartVar]: coerceCssRemValue(inline),
+        [bleedInlineEndVar]: coerceCssRemValue(inline),
+      }),
+      ...(block && {
+        [bleedBlockStartVar]: coerceCssRemValue(block),
+        [bleedBlockEndVar]: coerceCssRemValue(block),
+      }),
+      ...(inlineStart && {
+        [bleedInlineStartVar]: coerceCssRemValue(inlineStart),
+      }),
+      ...(inlineEnd && { [bleedInlineEndVar]: coerceCssRemValue(inlineEnd) }),
+      ...(blockStart && {
+        [bleedBlockStartVar]: coerceCssRemValue(blockStart),
+      }),
+      ...(blockEnd && { [bleedBlockEndVar]: coerceCssRemValue(blockEnd) }),
     }),
   };
 
