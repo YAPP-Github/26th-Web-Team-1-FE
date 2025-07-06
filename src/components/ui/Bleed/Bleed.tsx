@@ -4,13 +4,7 @@ import { type ElementType } from "react";
 import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
 import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic.types";
 
-import {
-  bleedBlockEndVar,
-  bleedBlockStartVar,
-  bleedInlineEndVar,
-  bleedInlineStartVar,
-  bleedStyles,
-} from "./Bleed.css";
+import * as styles from "./Bleed.css";
 
 export type BleedProps<T extends ElementType> =
   PolymorphicComponentPropsWithRef<
@@ -43,27 +37,31 @@ export const Bleed = <T extends ElementType = "div">({
     ...styleFromProps,
     ...assignInlineVars({
       ...(inline && {
-        [bleedInlineStartVar]: coerceCssRemValue(inline),
-        [bleedInlineEndVar]: coerceCssRemValue(inline),
+        [styles.bleedInlineStartVar]: coerceCssRemValue(inline),
+        [styles.bleedInlineEndVar]: coerceCssRemValue(inline),
       }),
       ...(block && {
-        [bleedBlockStartVar]: coerceCssRemValue(block),
-        [bleedBlockEndVar]: coerceCssRemValue(block),
+        [styles.bleedBlockStartVar]: coerceCssRemValue(block),
+        [styles.bleedBlockEndVar]: coerceCssRemValue(block),
       }),
       ...(inlineStart && {
-        [bleedInlineStartVar]: coerceCssRemValue(inlineStart),
+        [styles.bleedInlineStartVar]: coerceCssRemValue(inlineStart),
       }),
-      ...(inlineEnd && { [bleedInlineEndVar]: coerceCssRemValue(inlineEnd) }),
+      ...(inlineEnd && {
+        [styles.bleedInlineEndVar]: coerceCssRemValue(inlineEnd),
+      }),
       ...(blockStart && {
-        [bleedBlockStartVar]: coerceCssRemValue(blockStart),
+        [styles.bleedBlockStartVar]: coerceCssRemValue(blockStart),
       }),
-      ...(blockEnd && { [bleedBlockEndVar]: coerceCssRemValue(blockEnd) }),
+      ...(blockEnd && {
+        [styles.bleedBlockEndVar]: coerceCssRemValue(blockEnd),
+      }),
     }),
   };
 
   return (
     <Component
-      className={`${bleedStyles} ${className ?? ""}`.trim()}
+      className={`${styles.container} ${className ?? ""}`.trim()}
       style={style}
       {...props}
     />

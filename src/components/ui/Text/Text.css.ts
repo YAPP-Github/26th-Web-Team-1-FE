@@ -5,7 +5,7 @@ export const lineHeightVar = createVar();
 export const letterSpacingVar = createVar();
 export const colorVar = createVar();
 
-export const textStyles = style({
+export const container = style({
   color: colorVar,
   fontSize: fontSizeVar,
   lineHeight: lineHeightVar,

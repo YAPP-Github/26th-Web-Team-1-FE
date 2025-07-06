@@ -4,13 +4,7 @@ import { type ElementType } from "react";
 import { colors, semantic, typography } from "@/styles";
 import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic.types";
 
-import {
-  colorVar,
-  fontSizeVar,
-  letterSpacingVar,
-  lineHeightVar,
-  textStyles,
-} from "./Text.css";
+import * as styles from "./Text.css";
 
 type DotNestedKeys<T> = (
   T extends object
@@ -93,16 +87,16 @@ export const Text = <T extends ElementType = "p">({
   const style = {
     ...styleFromProps,
     ...assignInlineVars({
-      [fontSizeVar]: typography[typo]?.fontSize,
-      [lineHeightVar]: typography[typo]?.lineHeight,
-      [letterSpacingVar]: typography[typo]?.letterSpacing,
-      [colorVar]: color ? resolveColor(color) : undefined,
+      [styles.fontSizeVar]: typography[typo]?.fontSize,
+      [styles.lineHeightVar]: typography[typo]?.lineHeight,
+      [styles.letterSpacingVar]: typography[typo]?.letterSpacing,
+      [styles.colorVar]: color ? resolveColor(color) : undefined,
     }),
   };
 
   return (
     <Component
-      className={`${textStyles} ${className ?? ""}`.trim()}
+      className={`${styles.container} ${className ?? ""}`.trim()}
       style={style}
       ref={ref}
       {...rest}

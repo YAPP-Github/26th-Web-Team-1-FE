@@ -4,12 +4,12 @@ import { type ElementType } from "react";
 import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
 import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic.types";
 
-import { stackGapVar, stackStyles, type StackVariants } from "./Stack.css";
+import * as styles from "./Stack.css";
 
 export type StackProps<T extends ElementType> =
   PolymorphicComponentPropsWithRef<
     T,
-    StackVariants & {
+    styles.StackVariants & {
       gap?: number | string;
     }
   >;
@@ -42,14 +42,14 @@ export const Stack = <T extends ElementType = "div">({
   const style = {
     ...styleFromProps,
     ...assignInlineVars({
-      [stackGapVar]: gap ? coerceCssRemValue(gap) : undefined,
+      [styles.stackGapVar]: gap ? coerceCssRemValue(gap) : undefined,
     }),
   };
 
   return (
     <Component
       ref={ref}
-      className={`${stackStyles({
+      className={`${styles.container({
         direction,
         justify,
         align,

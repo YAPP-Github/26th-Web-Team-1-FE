@@ -3,7 +3,7 @@ import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 
 export const stackGapVar = createVar();
 
-export const stackStyles = recipe({
+export const container = recipe({
   base: {
     display: "flex",
     gap: stackGapVar,
@@ -62,4 +62,4 @@ export const stackStyles = recipe({
   },
 });
 
-export type StackVariants = RecipeVariants<typeof stackStyles>;
+export type StackVariants = RecipeVariants<typeof container>;
