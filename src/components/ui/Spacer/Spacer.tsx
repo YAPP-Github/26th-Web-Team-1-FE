@@ -1,7 +1,7 @@
 import { type ElementType } from "react";
 
 import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
-import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic";
+import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic.types";
 
 export type SpacerProps<T extends ElementType> =
   PolymorphicComponentPropsWithRef<
