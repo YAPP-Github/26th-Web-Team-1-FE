@@ -24,7 +24,7 @@ const meta: Meta<typeof Text> = {
       description: "미리 정의된 타이포그래피 스타일을 적용합니다.",
       table: {
         type: { summary: "keyof typeof typography" },
-        defaultValue: { summary: "body1Bd" },
+        defaultValue: { summary: "body1Sb" },
       },
     },
     color: {
@@ -54,7 +54,7 @@ type Story = StoryObj<typeof Text>;
 export const Default: Story = {
   args: {
     children: "이것은 기본 텍스트입니다.",
-    typo: "body1Bd",
+    typo: "body1Sb",
     color: "neutral.10",
   },
 };
@@ -109,7 +109,7 @@ export const AsHeading: Story = {
       <Text as='h2' typo='title2Sb'>
         이것은 H2 태그입니다. (typo: title2)
       </Text>
-      <Text as='span' typo='body1Bd'>
+      <Text as='span' typo='body1Sb'>
         이것은 SPAN 태그입니다.
       </Text>
     </div>

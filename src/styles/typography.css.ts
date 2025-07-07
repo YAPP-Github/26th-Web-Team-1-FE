@@ -73,7 +73,7 @@ export const typography = createGlobalTheme(":root", {
     letterSpacing: "-0.002em",
     fontWeight: "400",
   },
-  body1Bd: {
+  body1Sb: {
     fontSize: "16px",
     lineHeight: "24px",
     letterSpacing: "0.0057em",
@@ -91,7 +91,7 @@ export const typography = createGlobalTheme(":root", {
     letterSpacing: "0.0057em",
     fontWeight: "400",
   },
-  body2Bd: {
+  body2Sb: {
     fontSize: "15px",
     lineHeight: "22px",
     letterSpacing: "0.0096em",
