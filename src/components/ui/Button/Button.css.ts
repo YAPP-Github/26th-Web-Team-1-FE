@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { colors, radius } from "@/styles";
+import { colors, radius, typography } from "@/styles";
 
 export const button = recipe({
   base: {
@@ -39,28 +39,28 @@ export const button = recipe({
         backgroundColor: colors.coolNeutral[99],
         ":hover": { backgroundColor: colors.coolNeutral[97] },
       },
+      custom: {},
     },
     size: {
       small: {
-        padding: "7px 20px",
-        fontSize: "13px",
+        ...typography.label2,
+        padding: "0.7rem 2rem",
         borderRadius: radius[80],
       },
       medium: {
-        padding: "9px 20px",
-        fontSize: "15px",
+        ...typography.body2,
+        padding: "0.9rem 2rem",
         borderRadius: radius[100],
       },
       large: {
-        padding: "12px 28px",
-        fontSize: "16px",
+        ...typography.body1,
+        padding: "1.2rem 2.8rem",
         borderRadius: radius[120],
       },
       fullWidth: {
+        ...typography.body1,
         width: "100%",
-        height: "52px",
-        padding: "12px 28px",
-        fontSize: "16px",
+        padding: "1.4rem 2.8rem",
         borderRadius: radius[160],
       },
     },
