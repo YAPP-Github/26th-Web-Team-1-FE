@@ -1,8 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { type ComponentProps } from "react";
 
+import ClearIcon from "@/assets/clear.svg";
+
 import { TextField } from "./TextField";
-// import ClearIcon from "@/assets/Clear.svg";
 
 const meta: Meta<typeof TextField> = {
   title: "Components/TextField",
@@ -46,7 +47,7 @@ const TextFieldWrapper = ({
       disabled={disabled}
       value={value}
       onChange={onChange}
-      // rightAddon={value && !disabled ? <ClearIcon /> : null}
+      rightAddon={value && !disabled ? <ClearIcon /> : null}
     />
   );
 };
