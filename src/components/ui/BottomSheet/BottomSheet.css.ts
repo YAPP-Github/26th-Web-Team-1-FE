@@ -46,8 +46,7 @@ export const title = style({
   display: "flex",
   gap: "10px",
   padding: "14px 20px",
-  ...typography.title2,
-  fontWeight: 600,
+  ...typography.title2Sb,
   color: semantic.text.normal,
 });
 
@@ -60,14 +59,12 @@ export const sheetBody = style({
 });
 
 export const sheetBodyTitle = style({
-  ...typography.title3,
-  fontWeight: 600,
+  ...typography.title3Sb,
   color: semantic.text.normal,
 });
 
 export const sheetBodyDescription = style({
-  ...typography.body2,
-  fontWeight: 400,
+  ...typography.body2Rg,
   color: semantic.text.alternative,
 });
 

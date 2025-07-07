@@ -76,7 +76,7 @@ export type TextProps<T extends ElementType> = PolymorphicComponentPropsWithRef<
 export const Text = <T extends ElementType = "p">({
   as,
   className,
-  typo = "body1",
+  typo = "body1Sb",
   color = "neutral.10",
   style: styleFromProps,
   ref,
@@ -90,6 +90,7 @@ export const Text = <T extends ElementType = "p">({
       [styles.fontSizeVar]: typography[typo]?.fontSize,
       [styles.lineHeightVar]: typography[typo]?.lineHeight,
       [styles.letterSpacingVar]: typography[typo]?.letterSpacing,
+      [styles.fontWeightVar]: typography[typo]?.fontWeight,
       [styles.colorVar]: color ? resolveColor(color) : undefined,
     }),
   };

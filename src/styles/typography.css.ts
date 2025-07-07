@@ -5,60 +5,144 @@ export const typography = createGlobalTheme(":root", {
     fontSize: "40px",
     lineHeight: "52px",
     letterSpacing: "-0.0282em",
+    fontWeight: "700",
   },
   display2: {
     fontSize: "36px",
     lineHeight: "48px",
     letterSpacing: "-0.027em",
+    fontWeight: "700",
   },
   display3: {
     fontSize: "32px",
     lineHeight: "42px",
     letterSpacing: "-0.025em",
+    fontWeight: "700",
   },
-  title1: {
+  title1Bd: {
     fontSize: "24px",
     lineHeight: "32px",
     letterSpacing: "-0.023em",
+    fontWeight: "700",
   },
-  title2: {
+  title1Md: {
+    fontSize: "24px",
+    lineHeight: "32px",
+    letterSpacing: "-0.023em",
+    fontWeight: "500",
+  },
+  title1Rg: {
+    fontSize: "24px",
+    lineHeight: "32px",
+    letterSpacing: "-0.023em",
+    fontWeight: "400",
+  },
+  title2Sb: {
     fontSize: "20px",
     lineHeight: "28px",
     letterSpacing: "-0.012em",
+    fontWeight: "600",
   },
-  title3: {
+  title2Md: {
+    fontSize: "20px",
+    lineHeight: "28px",
+    letterSpacing: "-0.012em",
+    fontWeight: "500",
+  },
+  title2Rg: {
+    fontSize: "20px",
+    lineHeight: "28px",
+    letterSpacing: "-0.012em",
+    fontWeight: "400",
+  },
+  title3Sb: {
     fontSize: "18px",
     lineHeight: "26px",
     letterSpacing: "-0.002em",
+    fontWeight: "600",
   },
-  body1: {
+  title3Md: {
+    fontSize: "18px",
+    lineHeight: "26px",
+    letterSpacing: "-0.002em",
+    fontWeight: "500",
+  },
+  title3Rg: {
+    fontSize: "18px",
+    lineHeight: "26px",
+    letterSpacing: "-0.002em",
+    fontWeight: "400",
+  },
+  body1Sb: {
     fontSize: "16px",
     lineHeight: "24px",
     letterSpacing: "0.0057em",
+    fontWeight: "600",
   },
-  body2: {
+  body1Md: {
+    fontSize: "16px",
+    lineHeight: "24px",
+    letterSpacing: "0.0057em",
+    fontWeight: "500",
+  },
+  body1Rg: {
+    fontSize: "16px",
+    lineHeight: "24px",
+    letterSpacing: "0.0057em",
+    fontWeight: "400",
+  },
+  body2Sb: {
     fontSize: "15px",
     lineHeight: "22px",
     letterSpacing: "0.0096em",
+    fontWeight: "600",
+  },
+  body2Md: {
+    fontSize: "15px",
+    lineHeight: "22px",
+    letterSpacing: "0.0096em",
+    fontWeight: "500",
+  },
+  body2Rg: {
+    fontSize: "15px",
+    lineHeight: "22px",
+    letterSpacing: "0.0096em",
+    fontWeight: "400",
   },
   label1: {
     fontSize: "14px",
     lineHeight: "20px",
     letterSpacing: "0.0145em",
+    fontWeight: "600",
   },
   label2: {
     fontSize: "13px",
     lineHeight: "18px",
     letterSpacing: "0.0194em",
+    fontWeight: "600",
   },
-  caption1: {
+  caption1Sb: {
     fontSize: "12px",
     lineHeight: "16px",
     letterSpacing: "0.0252em",
+    fontWeight: "600",
+  },
+  caption1Md: {
+    fontSize: "12px",
+    lineHeight: "16px",
+    letterSpacing: "0.0252em",
+    fontWeight: "500",
+  },
+  caption1Rg: {
+    fontSize: "12px",
+    lineHeight: "16px",
+    letterSpacing: "0.0252em",
+    fontWeight: "400",
   },
   caption2: {
     fontSize: "11px",
     lineHeight: "14px",
     letterSpacing: "0.0311em",
+    fontWeight: "600",
   },
 });

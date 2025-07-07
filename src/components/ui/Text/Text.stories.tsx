@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Fragment } from "react";
 
 import { typography } from "@/styles/typography.css";
@@ -24,7 +24,7 @@ const meta: Meta<typeof Text> = {
       description: "미리 정의된 타이포그래피 스타일을 적용합니다.",
       table: {
         type: { summary: "keyof typeof typography" },
-        defaultValue: { summary: "body1" },
+        defaultValue: { summary: "body1Sb" },
       },
     },
     color: {
@@ -54,7 +54,7 @@ type Story = StoryObj<typeof Text>;
 export const Default: Story = {
   args: {
     children: "이것은 기본 텍스트입니다.",
-    typo: "body1",
+    typo: "body1Sb",
     color: "neutral.10",
   },
 };
@@ -103,13 +103,13 @@ export const Colors: Story = {
 export const AsHeading: Story = {
   render: () => (
     <div>
-      <Text as='h1' typo='title1'>
+      <Text as='h1' typo='title1Bd'>
         이것은 H1 태그입니다. (typo: title1)
       </Text>
-      <Text as='h2' typo='title2'>
+      <Text as='h2' typo='title2Sb'>
         이것은 H2 태그입니다. (typo: title2)
       </Text>
-      <Text as='span' typo='body1'>
+      <Text as='span' typo='body1Sb'>
         이것은 SPAN 태그입니다.
       </Text>
     </div>
