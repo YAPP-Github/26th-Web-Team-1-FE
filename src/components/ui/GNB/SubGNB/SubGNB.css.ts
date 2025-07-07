@@ -51,7 +51,7 @@ export const titleWrapperLeft = style({
 });
 
 export const title = style({
-  ...typography.title2,
+  ...typography.title2Sb,
   fontWeight: 600,
   whiteSpace: "nowrap",
   color: semantic.text.normal,

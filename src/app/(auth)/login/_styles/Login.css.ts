@@ -74,13 +74,11 @@ export const titleWrapper = style({
 });
 
 export const title = style({
-  ...typography.title1,
-  fontWeight: "700",
+  ...typography.title1Bd,
 });
 
 export const subtitle = style({
-  ...typography.body1,
-  fontWeight: "500",
+  ...typography.body1Md,
   color: semantic.text.alternative,
 });
 
@@ -100,7 +98,6 @@ export const kakaoLogo = style({
 });
 
 export const kakaoText = style({
-  ...typography.body1,
-  fontWeight: "600",
+  ...typography.body1Sb,
   color: semantic.text.normal,
 });

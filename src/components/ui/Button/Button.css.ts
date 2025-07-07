@@ -48,17 +48,17 @@ export const button = recipe({
         borderRadius: radius[80],
       },
       medium: {
-        ...typography.body2,
+        ...typography.body2Sb,
         padding: "0.9rem 2rem",
         borderRadius: radius[100],
       },
       large: {
-        ...typography.body1,
+        ...typography.body1Sb,
         padding: "1.2rem 2.8rem",
         borderRadius: radius[120],
       },
       fullWidth: {
-        ...typography.body1,
+        ...typography.body1Sb,
         width: "100%",
         padding: "1.4rem 2.8rem",
         borderRadius: radius[160],

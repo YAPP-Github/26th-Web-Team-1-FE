@@ -32,10 +32,10 @@ export const textButton = recipe({
     },
     size: {
       medium: {
-        ...typography.body1,
+        ...typography.body1Sb,
       },
       small: {
-        ...typography.label2,
+        ...typography.label1,
       },
     },
   },
