@@ -74,7 +74,8 @@
     "prettier": "^3.5.3",
     "storybook": "^9.0.15",
     "typescript": "^5",
-    "vitest": "^3.1.4"
+    "vitest": "^3.1.4",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "msw": {
     "workerDirectory": [
