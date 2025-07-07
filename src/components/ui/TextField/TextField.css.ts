@@ -11,7 +11,6 @@ export const wrapper = style({
 
 export const label = style({
   ...typography.label1,
-  fontWeight: 600,
   color: semantic.text.alternative,
 });
 
@@ -20,8 +19,7 @@ export const input = recipe({
     width: "100%",
     height: "52px",
     padding: "14px 12px",
-    ...typography.body1,
-    fontWeight: "500",
+    ...typography.body1Md,
     border: "1px solid transparent",
     borderRadius: radius[160],
     outline: "none",
@@ -65,8 +63,7 @@ export const input = recipe({
 
 export const helperText = recipe({
   base: {
-    ...typography.caption1,
-    fontWeight: "500",
+    ...typography.caption1Md,
     color: semantic.text.alternative,
   },
   variants: {
