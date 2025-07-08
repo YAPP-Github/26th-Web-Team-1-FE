@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { type ComponentProps } from "react";
 
-import ClearIcon from "@/assets/clear.svg";
+import ClearIcon from "@/assets/circle-clear.svg";
 
 import { TextField } from "./TextField";
 
