@@ -7,7 +7,7 @@ type WrapperVariants = "white" | "transparent";
 
 export type GNBProps = {
   /**
-   * SubGNB의 타이틀 텍스트
+   * GNB의 타이틀 텍스트
    */
   title?: string | ReactNode;
 
@@ -28,21 +28,21 @@ export type GNBProps = {
   rightAddon?: ReactNode;
 
   /**
-   * SubGNB의 배경색
+   * GNB의 배경색
    * @default "white"
    */
   background?: WrapperVariants;
 };
 
 /**
- * SubGNB 컴포넌트
+ * GNB 컴포넌트
  * @description 상단에 고정되어 표시되는 Global Navigation Bar 컴포넌트입니다.
  * 타이틀과 좌/우 Addon 요소(버튼, 아이콘 등)를 유연하게 조합할 수 있으며,
  * 배경 색상과 타이틀 정렬 방식을 설정할 수 있습니다.
  *
  * @example
  * ```tsx
- * <SubGNB
+ * <GNB
  *   title="타이틀"
  *   align="left"
  *   background="transparent"
@@ -62,7 +62,7 @@ export const GNB = ({
   align = "center",
   leftAddon,
   rightAddon,
-  background,
+  background = "white",
 }: GNBProps) => {
   return (
     <header className={styles.wrapper({ background })}>
