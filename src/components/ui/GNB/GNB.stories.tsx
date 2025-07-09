@@ -4,11 +4,11 @@ import LeftArrowIcon from "@/assets/left-arrow.svg";
 import MenuIcon from "@/assets/menu.svg";
 import SearchIcon from "@/assets/search.svg";
 
-import { SubGNB } from "./SubGNB";
+import { GNB } from "./GNB";
 
-const meta: Meta<typeof SubGNB> = {
-  title: "Components/SubGNB",
-  component: SubGNB,
+const meta: Meta<typeof GNB> = {
+  title: "Components/GNB",
+  component: GNB,
   tags: ["autodocs"],
   argTypes: {
     align: {
@@ -23,7 +23,7 @@ const meta: Meta<typeof SubGNB> = {
     },
     title: {
       control: "text",
-      description: "GNB의 타이틀 텍스트",
+      description: "GNB의 타이틀 요소 (예: 텍스트, 로고 아이콘 등)",
     },
     leftAddon: {
       control: false,
@@ -38,14 +38,14 @@ const meta: Meta<typeof SubGNB> = {
     docs: {
       description: {
         component:
-          "SubGNB는 상단 네비게이션 바로, 타이틀과 좌우 Addon(버튼, 아이콘 등)을 유연하게 배치할 수 있습니다. align, background, leftAddon, rightAddon 등 다양한 props로 상황에 맞게 사용할 수 있습니다.",
+          "GNB는 상단 네비게이션 바로, 타이틀과 좌우 Addon(버튼, 아이콘 등)을 유연하게 배치할 수 있습니다. align, background, leftAddon, rightAddon 등 다양한 props로 상황에 맞게 사용할 수 있습니다.",
       },
     },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof SubGNB>;
+type Story = StoryObj<typeof GNB>;
 
 export const Primary: Story = {
   args: {

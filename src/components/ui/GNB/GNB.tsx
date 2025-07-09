@@ -1,15 +1,15 @@
 import { type ReactNode } from "react";
 
-import * as styles from "./SubGNB.css";
+import * as styles from "./GNB.css";
 
 type AlignVariant = "left" | "center";
 type WrapperVariants = "white" | "transparent";
 
-export type SubGNBProps = {
+export type GNBProps = {
   /**
    * SubGNB의 타이틀 텍스트
    */
-  title?: string;
+  title?: string | ReactNode;
 
   /**
    * 타이틀 정렬 방식
@@ -57,13 +57,13 @@ export type SubGNBProps = {
  * ```
  */
 
-export const SubGNB = ({
+export const GNB = ({
   title,
   align = "center",
   leftAddon,
   rightAddon,
   background,
-}: SubGNBProps) => {
+}: GNBProps) => {
   return (
     <header className={styles.wrapper({ background })}>
       <div
@@ -75,15 +75,19 @@ export const SubGNB = ({
       >
         {leftAddon}
       </div>
-      <div
-        className={
-          align === "center"
-            ? styles.titleWrapperCenter
-            : styles.titleWrapperLeft
-        }
-      >
-        {title && <h1 className={styles.title}>{title}</h1>}
-      </div>
+
+      {title && (
+        <div
+          className={
+            align === "center"
+              ? styles.titleWrapperAbsoluteCenter
+              : styles.titleWrapperLeft
+          }
+        >
+          <span className={styles.title}>{title}</span>
+        </div>
+      )}
+
       <div className={styles.rightWrapper}>{rightAddon}</div>
     </header>
   );

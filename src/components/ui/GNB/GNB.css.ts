@@ -36,11 +36,15 @@ export const leftWrapperWithMargin = style({
   marginRight: "0.8rem",
 });
 
-export const titleWrapperCenter = style({
+export const titleWrapperAbsoluteCenter = style({
+  position: "absolute",
+  top: 0,
+  left: "50%",
+  transform: "translateX(-50%)",
+  height: "100%",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  flex: 1,
 });
 
 export const titleWrapperLeft = style({
@@ -55,6 +59,8 @@ export const title = style({
   fontWeight: 600,
   whiteSpace: "nowrap",
   color: semantic.text.normal,
+  display: "flex",
+  alignItems: "center",
 });
 
 export const rightWrapper = style({
