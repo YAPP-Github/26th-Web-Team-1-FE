@@ -12,7 +12,7 @@ export const backgroundWrapper = style({
   position: "relative",
   width: "100%",
   height: "100%",
-  backgroundImage: "url(\"/images/login-background.png\")",
+  backgroundImage: "url(\"/images/login-background.webp\")",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
