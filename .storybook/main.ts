@@ -1,34 +1,39 @@
-import type { StorybookConfig } from "@storybook/nextjs-vite";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
-import svgr from "vite-plugin-svgr";
-import tsconfigPaths from "vite-tsconfig-paths";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { StorybookConfig } from "@storybook/nextjs";
+import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: [
-    "@chromatic-com/storybook",
-    "@storybook/addon-docs",
-    "@storybook/addon-a11y",
-    "@storybook/addon-vitest",
-  ],
+  addons: ["@storybook/addon-docs", "@storybook/addon-a11y"],
   framework: {
-    name: "@storybook/nextjs-vite",
+    name: "@storybook/nextjs",
     options: {},
   },
   features: {
     experimentalRSC: true,
   },
   staticDirs: ["../public"],
-  async viteFinal(config) {
-    return {
-      ...config,
-      plugins: [
-        ...(config.plugins ?? []),
-        svgr(),
-        vanillaExtractPlugin(),
-        tsconfigPaths(),
-      ],
-    };
+  webpackFinal: async (config: any) => {
+    const imageRule = config.module.rules.find(rule => {
+      const test = (rule as { test: RegExp }).test;
+
+      if (!test) {
+        return false;
+      }
+
+      return test.test(".svg");
+    }) as { [key: string]: any };
+
+    imageRule.exclude = /\.svg$/;
+
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
+    config.plugins.push(new VanillaExtractPlugin());
+
+    return config;
   },
 };
 export default config;

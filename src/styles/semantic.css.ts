@@ -15,6 +15,18 @@ export const semantic = createGlobalTheme(":root", {
     normal: colors.coolNeutral[99],
     pressed: colors.coolNeutral[97],
   },
+  button: {
+    primaryNormalSolid: colors.redOrange[50],
+    primaryPressedSolid: colors.redOrange[40],
+    darkNormalSolid: colors.neutral[10],
+    darkPressedSolid: colors.neutral[30],
+    assistiveNormalSolid: colors.coolNeutral[99],
+    assistivePressedSolid: colors.coolNeutral[97],
+    disabledSolid: colors.coolNeutral[96],
+    textPrimary: colors.redOrange[50],
+    textAssistive: colors.neutral[50],
+    textDisabled: colors.neutral[70],
+  },
   text: {
     normal: colors.neutral[10],
     neutral: colors.neutral[30],

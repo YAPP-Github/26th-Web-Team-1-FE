@@ -2,7 +2,7 @@ import type { ComponentProps } from "react";
 
 import { button } from "./Button.css";
 
-type ButtonVariant = "primary" | "dark" | "assistive";
+type ButtonVariant = "primary" | "dark" | "assistive" | "custom";
 type ButtonSize = "small" | "medium" | "large" | "fullWidth";
 
 export type ButtonProps = {

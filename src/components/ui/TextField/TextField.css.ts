@@ -6,7 +6,7 @@ import { radius, semantic, typography } from "@/styles";
 export const wrapper = style({
   display: "flex",
   flexDirection: "column",
-  gap: "8px",
+  gap: "0.8rem",
 });
 
 export const label = style({
@@ -17,8 +17,8 @@ export const label = style({
 export const input = recipe({
   base: {
     width: "100%",
-    height: "52px",
-    padding: "14px 12px",
+    height: "5.2rem",
+    padding: "1.4rem 1.2rem",
     ...typography.body1Md,
     border: "1px solid transparent",
     borderRadius: radius[160],
@@ -83,12 +83,12 @@ export const inputWrapper = style({
 
 export const rightAddonWrapper = style({
   position: "absolute",
-  right: "12px",
+  right: "1.2rem",
   top: "50%",
   transform: "translateY(-50%)",
   border: "none",
   background: "transparent",
-  padding: "1px",
+  padding: "0.1rem",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
