@@ -11,4 +11,5 @@ export const container = style({
   fontSize: fontSizeVar,
   lineHeight: lineHeightVar,
   letterSpacing: letterSpacingVar,
+  fontWeight: fontWeightVar,
 });
