@@ -7,7 +7,7 @@ import { redirectToKakaoOAuthLoginPage } from "@/app/(auth)/_api/auth/auth.api";
 import KakaoLogoIcon from "@/assets/kakao-logo.svg";
 import KoreanOrangeLogo from "@/assets/korean-orange-logo.svg";
 import { Button } from "@/components/ui/Button";
-import { SubGNB } from "@/components/ui/GNB/SubGNB";
+import { GNB } from "@/components/ui/GNB";
 import { TextButton } from "@/components/ui/TextButton";
 
 import * as styles from "./_styles/Login.css";
@@ -22,7 +22,7 @@ export default function LoginPage() {
   return (
     <main className={styles.wrapper}>
       <div className={styles.backgroundWrapper}>
-        <SubGNB
+        <GNB
           align='left'
           background='transparent'
           rightAddon={
