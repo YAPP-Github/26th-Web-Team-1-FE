@@ -68,6 +68,7 @@ export const getPhoneNumberCheck = async (
 ) => {
   const response = await authHttp.get("api/member/phone-number/check", {
     searchParams: phoneNumber,
+    throwHttpErrors: false,
   });
 
   if (response.status === 204) {
