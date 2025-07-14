@@ -40,7 +40,7 @@ globalStyle("body", {
   },
 });
 
-globalStyle("ol, ul", {
+globalStyle("ol, ul, li", {
   "@layer": {
     [reset]: {
       listStyle: "none",
