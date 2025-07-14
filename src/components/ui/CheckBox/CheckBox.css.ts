@@ -5,26 +5,36 @@ import { semantic } from "@/styles";
 
 export const checkboxWrapper = recipe({
   base: {
-    width: "24px",
-    height: "24px",
+    width: "2.4rem",
+    height: "2.4rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
     borderRadius: "4.8px",
-    transition: "background-color 0.2s ease-in-out",
+    transition: "background-color 0.2s ease-in-out, color 0.2s ease-in-out",
   },
   variants: {
     hasBackground: {
-      true: { backgroundColor: semantic.icon.disabled },
-      false: { backgroundColor: "transparent" },
+      true: {
+        backgroundColor: semantic.icon.disabled,
+      },
+      false: {
+        backgroundColor: "transparent",
+      },
     },
     checked: {
-      true: { color: semantic.icon.white },
-      false: { color: semantic.icon.white },
+      true: {},
+      false: {},
     },
   },
   compoundVariants: [
+    {
+      variants: { hasBackground: true, checked: false },
+      style: {
+        color: semantic.icon.white,
+      },
+    },
     {
       variants: { hasBackground: true, checked: true },
       style: {
@@ -47,6 +57,7 @@ export const checkboxWrapper = recipe({
   ],
   defaultVariants: {
     hasBackground: true,
+    checked: false,
   },
 });
 

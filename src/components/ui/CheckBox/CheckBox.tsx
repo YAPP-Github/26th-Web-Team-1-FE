@@ -31,11 +31,15 @@ type CheckBoxProps = {
 
 /**
  * CheckBox UI 컴포넌트
- *
- * @param {boolean} checked - 체크박스의 체크 상태
- * @param {boolean} [hasBackground=true] - 배경색 포함 여부
- * @param {function} onCheckedChange - 체크 상태 변경 콜백
- * @param {string} [className] - 추가 CSS 클래스
+ * @example
+ * ```tsx
+ * <CheckBox
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ *   hasBackground={true}       // 기본값이 true 이므로 생략 가능
+ *   className="my-custom-class" // 추가 스타일링이 필요할 때
+ * />
+ * ```
  */
 export const CheckBox = ({
   checked,
