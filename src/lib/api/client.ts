@@ -31,7 +31,10 @@ const apiErrorHandler = async (error: HTTPError) => {
 
   try {
     const errorData = await response.json<ApiError>();
-    errorMessage = errorData?.errorMessage || "알 수 없는 오류가 발생했습니다.";
+    errorMessage =
+      errorData?.message ||
+      errorData?.errorMessage ||
+      "알 수 없는 오류가 발생했습니다.";
   } catch {
     errorMessage = "서버 응답을 처리하는 중 오류가 발생했습니다.";
   }
@@ -69,7 +72,7 @@ const setAuthorizationHeader = async (request: Request) => {
     : await getSessionFromClient();
 
   if (session?.isLoggedIn && session.accessToken) {
-    request.headers.set("Authorization", `Bearer ${session.accessToken}`);
+    request.headers.set("Authorization", `${session.accessToken}`);
   }
 };
 
