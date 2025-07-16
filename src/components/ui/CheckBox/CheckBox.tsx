@@ -1,6 +1,6 @@
 "use client";
 
-import { type ComponentProps } from "react";
+import { type ChangeEvent, type ComponentProps } from "react";
 
 import CheckIcon from "@/assets/check.svg";
 
@@ -46,9 +46,18 @@ export const CheckBox = ({
   hasBackground = true,
   className,
   onCheckedChange,
+  onChange,
   ...props
 }: CheckBoxProps) => {
   const variantClass = styles.checkboxWrapper({ hasBackground, checked });
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onChange?.(event);
+
+    if (!event.defaultPrevented) {
+      onCheckedChange(event.target.checked);
+    }
+  };
 
   return (
     <label className={`${variantClass} ${className ?? ""}`}>
@@ -56,7 +65,7 @@ export const CheckBox = ({
         type='checkbox'
         className={styles.hiddenCheckbox}
         checked={checked}
-        onChange={e => onCheckedChange(e.target.checked)}
+        onChange={event => handleChange(event)}
         {...props}
       />
       <CheckIcon className={styles.icon} />
