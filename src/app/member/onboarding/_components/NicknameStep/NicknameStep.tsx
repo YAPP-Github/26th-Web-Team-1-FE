@@ -34,7 +34,7 @@ export const NicknameStep = ({ nickname, onNext }: NicknameStepProps) => {
   } = useForm({
     resolver: zodResolver(nicknameSchema),
     defaultValues: { nickname: nickname || "" },
-    mode: "onTouched",
+    mode: "onChange",
   });
 
   const nicknameValue = watch("nickname");
@@ -65,10 +65,19 @@ export const NicknameStep = ({ nickname, onNext }: NicknameStepProps) => {
   }, 2000);
 
   useEffect(() => {
-    setIsNicknameValidating(true);
-    if (nicknameValue) {
-      debouncedNicknameCheck(nicknameValue);
+    const { success } = nicknameSchema.safeParse({ nickname: nicknameValue });
+
+    if (
+      (nickname && nicknameValue === nickname) ||
+      !nicknameValue ||
+      !success
+    ) {
+      setIsNicknameValidating(false);
+      return;
     }
+
+    setIsNicknameValidating(true);
+    debouncedNicknameCheck(nicknameValue);
   }, [nicknameValue]);
 
   const onSubmit = () => {
