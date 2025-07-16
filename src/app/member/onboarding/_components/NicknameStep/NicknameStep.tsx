@@ -1,7 +1,8 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDebounce } from "react-simplikit";
 
 import { useNicknameCheckMutation } from "@/app/member/_api/member.queries";
 import { nicknameSchema } from "@/app/member/_schemas";
@@ -20,9 +21,8 @@ type NicknameStepProps = {
 
 export const NicknameStep = ({ nickname, onNext }: NicknameStepProps) => {
   const [isNicknameValidating, setIsNicknameValidating] = useState(false);
-  const debounceTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const { mutate: checkNickname } = useNicknameCheckMutation();
+  const { mutate: checkNickname, isPending } = useNicknameCheckMutation();
 
   const {
     register,
@@ -30,8 +30,7 @@ export const NicknameStep = ({ nickname, onNext }: NicknameStepProps) => {
     watch,
     setValue,
     setError,
-    clearErrors,
-    formState: { errors, isSubmitting },
+    formState: { errors, isValid },
   } = useForm({
     resolver: zodResolver(nicknameSchema),
     defaultValues: { nickname: nickname || "" },
@@ -40,62 +39,40 @@ export const NicknameStep = ({ nickname, onNext }: NicknameStepProps) => {
 
   const nicknameValue = watch("nickname");
 
-  useEffect(() => {
-    const { success } = nicknameSchema.safeParse({ nickname: nicknameValue });
-
-    if (debounceTimer.current) {
-      clearTimeout(debounceTimer.current);
-    }
-
-    clearErrors("nickname");
-
-    if (
-      (nickname && nicknameValue === nickname) ||
-      !nicknameValue ||
-      !success
-    ) {
-      setIsNicknameValidating(false);
-      return;
-    }
-
-    setIsNicknameValidating(true);
-    debounceTimer.current = setTimeout(() => {
-      checkNickname(
-        { nickname: nicknameValue },
-        {
-          onSuccess: isAvailable => {
-            if (!isAvailable) {
-              setError("nickname", {
-                type: "manual",
-                message: "이미 사용 중인 닉네임이에요",
-              });
-            }
-          },
-          onError: () => {
+  const debouncedNicknameCheck = useDebounce((nicknameValue: string) => {
+    checkNickname(
+      { nickname: nicknameValue },
+      {
+        onSuccess: isAvailable => {
+          if (!isAvailable) {
             setError("nickname", {
               type: "manual",
-              message: "확인 중 오류가 발생했어요. 다시 시도해주세요.",
+              message: "이미 사용 중인 닉네임이에요",
             });
-          },
-          onSettled: () => {
-            setIsNicknameValidating(false);
-          },
-        }
-      );
-    }, 2000);
-
-    return () => {
-      if (debounceTimer.current) {
-        clearTimeout(debounceTimer.current);
+          }
+        },
+        onError: () => {
+          setError("nickname", {
+            type: "manual",
+            message: "확인 중 오류가 발생했어요. 다시 시도해주세요.",
+          });
+        },
+        onSettled: () => {
+          setIsNicknameValidating(false);
+        },
       }
-    };
-  }, [nicknameValue, checkNickname, nickname, clearErrors, setError]);
+    );
+  }, 2000);
+
+  useEffect(() => {
+    setIsNicknameValidating(true);
+    if (nicknameValue) {
+      debouncedNicknameCheck(nicknameValue);
+    }
+  }, [nicknameValue]);
 
   const onSubmit = () => {
-    if (!errors.nickname) {
-      onNext(nicknameValue);
-      return;
-    }
+    onNext(nicknameValue);
   };
 
   const handleClearClick = () => {
@@ -135,12 +112,7 @@ export const NicknameStep = ({ nickname, onNext }: NicknameStepProps) => {
       <Button
         size='fullWidth'
         type='submit'
-        disabled={
-          !!errors.nickname ||
-          !nicknameValue ||
-          isSubmitting ||
-          isNicknameValidating
-        }
+        disabled={!isValid || isNicknameValidating || isPending}
       >
         다음
       </Button>
