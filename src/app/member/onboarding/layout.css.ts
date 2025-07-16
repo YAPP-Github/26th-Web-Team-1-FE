@@ -8,13 +8,17 @@ export const wrapper = style({
   flexDirection: "column",
 });
 
-export const icon = style({
-  cursor: "pointer",
-});
-
 export const mainWrapper = style({
   display: "flex",
   flexDirection: "column",
   flex: 1,
   padding: "2rem",
+});
+
+export const button = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "2rem",
+  height: "2rem",
 });

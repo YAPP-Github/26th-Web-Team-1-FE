@@ -22,7 +22,14 @@ export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
     <div className={styles.wrapper}>
       <GNB
         leftAddon={
-          <LeftArrowIcon className={styles.icon} onClick={handleClick} />
+          <button
+            type='button'
+            onClick={handleClick}
+            aria-label='뒤로가기'
+            className={styles.button}
+          >
+            <LeftArrowIcon width={20} height={20} />
+          </button>
         }
       />
       <main className={styles.mainWrapper}>{children}</main>
