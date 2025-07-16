@@ -1,12 +1,12 @@
 import { authHttp } from "@/lib/api";
 
-import type {
-  MemberResponse,
-  NicknameCheckRequest,
-  PhoneNumberCheckRequest,
-  UpdateMemberRequest,
-  UpdateMemberResponse,
-} from "../_types";
+import {
+  type MemberResponse,
+  type NicknameCheckRequest,
+  type PhoneNumberCheckRequest,
+  type UpdateMemberRequest,
+  type UpdateMemberResponse,
+} from "./member.types";
 
 /**
  * 회원 정보 조회 API
