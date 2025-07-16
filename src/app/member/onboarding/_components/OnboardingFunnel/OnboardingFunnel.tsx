@@ -1,8 +1,9 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import { useFunnel } from "@use-funnel/browser";
 
-import { useMemberQuery } from "@/app/member/_api";
+import { memberQueryOptions } from "@/app/member/_api";
 
 import type {
   AgreeFunnel,
@@ -14,7 +15,7 @@ import { NicknameStep } from "../NicknameStep";
 import { PhoneNumberStep } from "../PhoneNumberStep";
 
 export const OnboardingFunnel = () => {
-  const { data: member } = useMemberQuery();
+  const { data: member } = useQuery(memberQueryOptions);
 
   const funnel = useFunnel<{
     nicknameStep: NicknameFunnel;
