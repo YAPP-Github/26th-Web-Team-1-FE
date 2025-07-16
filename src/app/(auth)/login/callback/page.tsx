@@ -1,15 +1,11 @@
 "use client";
 
-import { useQueryClient } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { useLoginMutation } from "@/app/(auth)/_api/auth/auth.queries";
-import { QUERY_KEYS } from "@/constants";
-import { clearClientSessionCache } from "@/lib/session";
 
 export default function AuthCallbackPage() {
-  const queryClient = useQueryClient();
   const router = useRouter();
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
@@ -23,10 +19,6 @@ export default function AuthCallbackPage() {
         { code },
         {
           onSuccess: response => {
-            clearClientSessionCache();
-
-            queryClient.setQueryData(QUERY_KEYS.member, response);
-
             if (response.isSignUp) {
               router.replace("/member/onboarding");
             } else {
