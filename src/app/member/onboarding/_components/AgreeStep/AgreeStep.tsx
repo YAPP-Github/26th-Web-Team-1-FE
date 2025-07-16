@@ -1,4 +1,3 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
@@ -7,7 +6,6 @@ import { Button } from "@/components/ui/Button";
 import { CheckBox } from "@/components/ui/CheckBox";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
-import { QUERY_KEYS } from "@/constants";
 
 import { AGREEMENTS } from "../../_constants/agreement.constants";
 import { OnboardingTitle } from "../OnboardingTitle";
@@ -21,7 +19,6 @@ export const AgreeStep = ({
   phoneNumber: string;
 }) => {
   const router = useRouter();
-  const queryClient = useQueryClient();
   const { mutate: updateMember } = useUpdateMemberMutation();
 
   const { register, handleSubmit, watch, setValue } = useForm<{
@@ -57,9 +54,6 @@ export const AgreeStep = ({
       },
       {
         onSuccess: () => {
-          queryClient.invalidateQueries({
-            queryKey: QUERY_KEYS.member,
-          });
           router.push("/");
         },
       }
