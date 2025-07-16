@@ -20,12 +20,12 @@ export const PhoneNumberStep = ({
   phoneNumber?: string;
   onNext: (phoneNumber: string) => void;
 }) => {
-  const { mutate: checkPhoneNumber } = usePhoneNumberCheckMutation();
+  const { mutate: checkPhoneNumber, isPending } = usePhoneNumberCheckMutation();
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isValid },
     watch,
     setValue,
     setError,
@@ -85,16 +85,8 @@ export const PhoneNumberStep = ({
               setValue("phoneNumber", formatted);
             },
           })}
-          status={
-            errors.phoneNumber && phoneNumberValue !== ""
-              ? "negative"
-              : "inactive"
-          }
-          helperText={
-            errors.phoneNumber && phoneNumberValue !== ""
-              ? errors.phoneNumber.message
-              : undefined
-          }
+          status={errors.phoneNumber ? "negative" : "inactive"}
+          helperText={errors.phoneNumber?.message}
           rightAddon={
             phoneNumberValue && (
               <ClearIcon
@@ -107,11 +99,7 @@ export const PhoneNumberStep = ({
           }
         />
       </VStack>
-      <Button
-        size='fullWidth'
-        type='submit'
-        disabled={!!errors.phoneNumber || !phoneNumberValue || isSubmitting}
-      >
+      <Button size='fullWidth' type='submit' disabled={!isValid || isPending}>
         다음
       </Button>
     </VStack>
