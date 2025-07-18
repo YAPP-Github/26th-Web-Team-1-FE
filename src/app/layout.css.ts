@@ -10,6 +10,6 @@ export const wrapper = style({
   margin: "0 auto",
   width: "100%",
   maxWidth: "480px",
-  minHeight: "100vh",
+  minHeight: "100dvh",
   backgroundColor: colors.common[100],
 });

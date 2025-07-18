@@ -12,7 +12,12 @@ export type ApiError = {
    * 에러 메시지
    * @example "이미 만료된 토큰입니다."
    */
-  errorMessage: string;
+  errorMessage?: string;
+  /**
+   * 에러 메시지
+   * @example "이미 만료된 토큰입니다."
+   */
+  message?: string;
 };
 
 /**

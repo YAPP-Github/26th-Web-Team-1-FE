@@ -1,4 +1,7 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+import { memberQueryKeys } from "@/app/member/_api";
+import { clearClientSessionCache } from "@/lib/session";
 
 import {
   deleteClientSession,
@@ -7,8 +10,14 @@ import {
 } from "./auth.api";
 
 export const useLoginMutation = () => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: postClientLogin,
+    onSuccess: response => {
+      clearClientSessionCache();
+      queryClient.setQueryData(memberQueryKeys.me(), response);
+    },
   });
 };
 

@@ -4,7 +4,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { useLoginMutation } from "@/app/(auth)/_api/auth/auth.queries";
-import { clearClientSessionCache } from "@/lib/session";
 
 export default function AuthCallbackPage() {
   const router = useRouter();
@@ -19,12 +18,12 @@ export default function AuthCallbackPage() {
       login(
         { code },
         {
-          onSuccess: () => {
-            clearClientSessionCache();
-
-            const redirectUrl = next || "/";
-
-            router.replace(redirectUrl);
+          onSuccess: response => {
+            if (response.isSignUp) {
+              router.replace("/member/onboarding");
+            } else {
+              router.replace("/");
+            }
           },
           onError: error => {
             console.error("로그인에 실패했습니다:", error);
