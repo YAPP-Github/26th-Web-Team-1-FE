@@ -2,6 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { semantic, typography } from "@/styles";
+import { zIndex } from "@/styles/zIndex.css";
 
 export const wrapper = recipe({
   base: {
@@ -12,7 +13,7 @@ export const wrapper = recipe({
     width: "100%",
     height: "5.6rem",
     padding: "1.4rem 2rem",
-    zIndex: 999,
+    zIndex: zIndex.gnb,
   },
   variants: {
     background: {
