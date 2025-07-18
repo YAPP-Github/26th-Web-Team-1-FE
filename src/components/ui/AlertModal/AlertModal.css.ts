@@ -24,7 +24,7 @@ export const content = style({
   zIndex: zIndex.modal,
 });
 
-export const textWrapper = style({
+export const innerContent = style({
   overflowY: "auto",
   padding: "4.8rem 1.6rem",
   display: "flex",
@@ -41,21 +41,19 @@ export const description = style({
   ...typography.body2Rg,
   color: semantic.text.alternative,
   marginTop: "0.8rem",
+  width: "100%",
+  textAlign: "center",
 });
 
-export const buttonGroup = style({
-  display: "flex",
+export const footer = style({
   width: "100%",
+  display: "flex",
 });
 
 export const cancelButton = style({
   flex: 1,
-  minWidth: 0,
-  overflow: "hidden",
 });
 
 export const confirmButton = style({
   flex: 1,
-  minWidth: 0,
-  overflow: "hidden",
 });

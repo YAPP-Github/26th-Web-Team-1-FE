@@ -1,108 +1,75 @@
-import type { DialogProps } from "@radix-ui/react-dialog";
-import * as Dialog from "@radix-ui/react-dialog";
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
+import { type ReactNode } from "react";
 
-import { Button } from "../Button";
 import * as styles from "./AlertModal.css";
 
 export type AlertModalProps = {
-  /** 모달 제목  */
+  /** 모달의 제목 */
   title?: string;
 
-  /** 모달 설명  */
-  description?: string;
+  /** 모달을 열기 위한 트리거(버튼 등, 선택) */
+  trigger?: ReactNode;
 
-  /** 확인 버튼 클릭 시 실행되는 콜백 */
-  onConfirm?: () => void | Promise<void>;
+  /** 본문(설명 등, ReactNode로 자유롭게 구성) */
+  content?: ReactNode;
 
-  /** 취소 버튼 클릭 시 실행되는 콜백 */
-  onCancel?: () => void;
-
-  /** 확인 버튼 텍스트 */
-  confirmLabel?: string;
-
-  /** 취소 버튼 텍스트 */
-  cancelLabel?: string;
-} & DialogProps;
+  /**
+   * 하단 푸터(버튼 영역 등, ReactNode로 자유롭게 구성)
+   * Radix의 <AlertDialog.Cancel asChild> 또는 <AlertDialog.Action asChild>를 조합하여 사용 가능
+   * 예시:
+   * <>
+   *   <AlertDialog.Cancel asChild>
+   *     <Button>취소</Button>
+   *   </AlertDialog.Cancel>
+   *   <AlertDialog.Action asChild>
+   *     <Button>확인</Button>
+   *   </AlertDialog.Action>
+   * </>
+   */
+  footer?: ReactNode;
+};
 
 /**
  * AlertModal 컴포넌트
  *
- * @description
- * Radix UI의 Dialog를 래핑한 모달 컴포넌트입니다.
- * 제목과 설명을 표시하고, 확인/취소 버튼을 제공합니다.
- *
  * @example
  * ```tsx
- * const [open, setOpen] = useState(false);
- *
  * <AlertModal
- *   open={open}
- *   onOpenChange={setOpen}
- *   title="로그아웃 하시겠어요?"
- *   description="로그아웃하면 다시 로그인해야 합니다."
- *   cancelLabel="취소"
- *   confirmLabel="로그아웃"
- *   onCancel={() => console.log("취소")}
- *   onConfirm={() => console.log("확인")}
+ *   title="정말 삭제하시겠어요?"
+ *   trigger={<Button>모달 열기</Button>}
+ *   content={<div>삭제하면 복구할 수 없습니다.</div>}
+ *   footer={
+ *     <>
+ *       <Button variant="assistive">취소</Button>
+ *       <Button variant="primary">삭제</Button>
+ *     </>
+ *   }
  * />
  * ```
  */
 export const AlertModal = ({
-  open,
-  onOpenChange,
   title,
-  description,
-  onConfirm,
-  onCancel,
-  confirmLabel = "확인",
-  cancelLabel = "취소",
+  trigger,
+  content,
+  footer,
 }: AlertModalProps) => {
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <Dialog.Portal>
-        <Dialog.Overlay className={styles.overlay} />
-        <Dialog.Content className={styles.content}>
-          {(title || description) && (
-            <div className={styles.textWrapper}>
-              {title && (
-                <Dialog.Title className={styles.title}>{title}</Dialog.Title>
-              )}
-              {description && (
-                <Dialog.Description className={styles.description}>
-                  {description}
-                </Dialog.Description>
-              )}
-            </div>
-          )}
-
-          <div className={styles.buttonGroup}>
-            <Dialog.Close asChild>
-              <Button
-                className={styles.cancelButton}
-                variant='assistive'
-                size='large'
-                onClick={onCancel}
-                style={{
-                  borderRadius: "0 0 0 1.2rem",
-                }}
-              >
-                {cancelLabel}
-              </Button>
-            </Dialog.Close>
-            <Button
-              className={styles.confirmButton}
-              variant='primary'
-              size='large'
-              onClick={onConfirm}
-              style={{
-                borderRadius: "0 0 1.2rem 0",
-              }}
-            >
-              {confirmLabel}
-            </Button>
-          </div>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+    <AlertDialog.Root>
+      {trigger && <AlertDialog.Trigger asChild>{trigger}</AlertDialog.Trigger>}
+      <AlertDialog.Portal>
+        <AlertDialog.Overlay className={styles.overlay} />
+        <AlertDialog.Content className={styles.content}>
+          <section className={styles.innerContent}>
+            {title && (
+              <AlertDialog.Title className={styles.title}>
+                {title}
+              </AlertDialog.Title>
+            )}
+            {content && <div className={styles.description}>{content}</div>}
+          </section>
+          {footer && <div className={styles.footer}>{footer}</div>}
+        </AlertDialog.Content>
+      </AlertDialog.Portal>
+    </AlertDialog.Root>
   );
 };
