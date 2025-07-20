@@ -1,4 +1,5 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { type HTMLAttributes } from "react";
 
 import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
 
@@ -11,9 +12,9 @@ export type SkeletonProps = {
   /** 스켈레톤 높이 */
   height: number;
 
-  /** border-radius(px 또는 string) */
+  /** border-radius(px, rem, %, 토큰 모두 가능) */
   radius?: number | string;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
 /**
  * Skeleton 컴포넌트
@@ -22,13 +23,21 @@ export type SkeletonProps = {
  * <Skeleton width={120} height={24} radius={8} />
  * ```
  */
-export const Skeleton = ({ width, height, radius }: SkeletonProps) => {
-  const style = assignInlineVars({
-    [styles.widthVar]: coerceCssRemValue(width),
-    [styles.heightVar]: coerceCssRemValue(height),
-    [styles.radiusVar]:
-      typeof radius === "number" ? coerceCssRemValue(radius) : radius,
-  });
+export const Skeleton = ({
+  width,
+  height,
+  radius,
+  style: customStyle,
+  ...rest
+}: SkeletonProps) => {
+  const style = {
+    ...assignInlineVars({
+      [styles.widthVar]: coerceCssRemValue(width),
+      [styles.heightVar]: coerceCssRemValue(height),
+      [styles.radiusVar]: radius ? coerceCssRemValue(radius) : undefined,
+    }),
+    ...customStyle,
+  };
 
-  return <div className={styles.wrapper} style={style} />;
+  return <div className={styles.wrapper} style={style} {...rest} />;
 };
