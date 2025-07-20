@@ -6,7 +6,7 @@ import { useDebounce } from "react-simplikit";
 
 import { useNicknameCheckMutation } from "@/app/member/_api/member.queries";
 import { nicknameSchema } from "@/app/member/_schemas";
-import ClearIcon from "@/assets/circle-clear.svg";
+import CircleCloseIcon from "@/assets/circle-close.svg";
 import { Button } from "@/components/ui/Button";
 import { VStack } from "@/components/ui/Stack";
 import { TextField } from "@/components/ui/TextField";
@@ -108,7 +108,7 @@ export const NicknameStep = ({ nickname, onNext }: NicknameStepProps) => {
           helperText={errors.nickname?.message}
           rightAddon={
             nicknameValue && (
-              <ClearIcon
+              <CircleCloseIcon
                 width={22}
                 height={22}
                 className={styles.icon}

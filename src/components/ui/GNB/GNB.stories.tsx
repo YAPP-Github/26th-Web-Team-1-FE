@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import LeftArrowIcon from "@/assets/left-arrow.svg";
+import ChevronLeftIcon from "@/assets/chevron-left.svg";
 import MenuIcon from "@/assets/menu.svg";
 import SearchIcon from "@/assets/search.svg";
 
@@ -51,7 +51,7 @@ export const Primary: Story = {
   args: {
     title: "타이틀",
     background: "white",
-    leftAddon: <LeftArrowIcon width={24} height={24} />,
+    leftAddon: <ChevronLeftIcon width={24} height={24} />,
     rightAddon: (
       <>
         <SearchIcon width={24} height={24} />
@@ -102,7 +102,7 @@ export const LeftAlignedTitle: Story = {
 export const WithLeftAddon: Story = {
   args: {
     title: "타이틀",
-    leftAddon: <LeftArrowIcon width={24} height={24} />,
+    leftAddon: <ChevronLeftIcon width={24} height={24} />,
   },
   parameters: {
     docs: {
@@ -130,7 +130,7 @@ export const WithRightAddon: Story = {
 export const WithBothAddons: Story = {
   args: {
     title: "타이틀",
-    leftAddon: <LeftArrowIcon width={24} height={24} />,
+    leftAddon: <ChevronLeftIcon width={24} height={24} />,
     rightAddon: <MenuIcon width={24} height={24} />,
   },
   parameters: {
@@ -146,7 +146,7 @@ export const TransparentBackground: Story = {
   args: {
     title: "타이틀",
     background: "transparent",
-    leftAddon: <LeftArrowIcon width={24} height={24} />,
+    leftAddon: <ChevronLeftIcon width={24} height={24} />,
     rightAddon: <MenuIcon width={24} height={24} />,
   },
   parameters: {
@@ -160,7 +160,7 @@ export const TransparentBackground: Story = {
 
 export const NoTitle: Story = {
   args: {
-    leftAddon: <LeftArrowIcon width={24} height={24} />,
+    leftAddon: <ChevronLeftIcon width={24} height={24} />,
     rightAddon: <MenuIcon width={24} height={24} />,
   },
   parameters: {

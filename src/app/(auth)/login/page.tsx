@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { redirectToKakaoOAuthLoginPage } from "@/app/(auth)/_api/auth/auth.api";
 import KakaoLogoIcon from "@/assets/kakao-logo.svg";
-import KoreanOrangeLogo from "@/assets/korean-orange-logo.svg";
+import LogoWordmarkIcon from "@/assets/logo-wordmark.svg";
 import { Button } from "@/components/ui/Button";
 import { GNB } from "@/components/ui/GNB";
 import { TextButton } from "@/components/ui/TextButton";
@@ -37,7 +37,7 @@ export default function LoginPage() {
           }
         />
         <div className={styles.logoWrapper}>
-          <KoreanOrangeLogo className={styles.logoIcon} />
+          <LogoWordmarkIcon className={styles.logoIcon} />
           <Image
             src='/images/login-house.png'
             alt='로그인 일러스트'

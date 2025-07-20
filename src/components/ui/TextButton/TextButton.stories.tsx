@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import LeftArrowIcon from "@/assets/left-arrow.svg";
+import ChevronLeftIcon from "@/assets/chevron-left.svg";
 
 import { TextButton } from "./TextButton";
 
@@ -110,7 +110,7 @@ export const WithLeftAddon: Story = {
     children: "아이콘 + 텍스트",
     variant: "primary",
     size: "medium",
-    leftAddon: <LeftArrowIcon width={20} height={20} />,
+    leftAddon: <ChevronLeftIcon width={20} height={20} />,
   },
   parameters: {
     docs: {

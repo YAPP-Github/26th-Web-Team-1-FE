@@ -8,27 +8,36 @@ import { GNB } from "@/components/ui/GNB";
 
 import * as styles from "./layout.css";
 
-type OnboardingLayoutProps = {
+type MemberProfileLayoutProps = {
   children: ReactNode;
 };
 
-export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
+export default function MemberProfileLayout({
+  children,
+}: MemberProfileLayoutProps) {
   const router = useRouter();
   const handleClick = () => {
-    router.back();
+    router.push("/");
   };
 
   return (
     <div className={styles.wrapper}>
       <GNB
+        align='center'
+        title='마이페이지'
         leftAddon={
           <button
             type='button'
             onClick={handleClick}
-            aria-label='뒤로가기'
+            aria-label='홈으로 이동하기'
             className={styles.button}
           >
-            <ChevronLeftIcon width={20} height={20} />
+            <ChevronLeftIcon
+              width={24}
+              height={24}
+              onClick={handleClick}
+              className={styles.icon}
+            />
           </button>
         }
       />

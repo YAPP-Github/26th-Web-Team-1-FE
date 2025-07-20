@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { usePhoneNumberCheckMutation } from "@/app/member/_api/member.queries";
 import { phoneNumberSchema } from "@/app/member/_schemas";
 import { type PhoneNumberFormValues } from "@/app/member/_types/member.types";
-import ClearIcon from "@/assets/circle-clear.svg";
+import CircleCloseIcon from "@/assets/circle-close.svg";
 import { Button } from "@/components/ui/Button";
 import { VStack } from "@/components/ui/Stack";
 import { TextField } from "@/components/ui/TextField";
@@ -89,7 +89,7 @@ export const PhoneNumberStep = ({
           helperText={errors.phoneNumber?.message}
           rightAddon={
             phoneNumberValue && (
-              <ClearIcon
+              <CircleCloseIcon
                 width={22}
                 height={22}
                 className={styles.icon}
