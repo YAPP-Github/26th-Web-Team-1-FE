@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import RightArrowIcon from "@/assets/right-arrow.svg";
+import ChevronRightIcon from "@/assets/chevron-right.svg";
 import { Bleed } from "@/components/ui/Bleed";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
@@ -29,7 +29,7 @@ export const Banner = () => {
             <Text typo='label2' color='neutral.10'>
               가게 등록하기
             </Text>
-            <RightArrowIcon width={16} height={16} className={styles.icon} />
+            <ChevronRightIcon width={16} height={16} className={styles.icon} />
           </Link>
         </VStack>
       </HStack>

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { type ComponentProps } from "react";
 
-import ClearIcon from "@/assets/circle-clear.svg";
+import CircleCloseIcon from "@/assets/circle-close.svg";
 
 import { TextField } from "./TextField";
 
@@ -47,7 +47,7 @@ const TextFieldWrapper = ({
       disabled={disabled}
       value={value}
       onChange={onChange}
-      rightAddon={value && !disabled ? <ClearIcon /> : null}
+      rightAddon={value && !disabled ? <CircleCloseIcon /> : null}
     />
   );
 };

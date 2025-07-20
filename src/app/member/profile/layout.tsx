@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { type ReactNode } from "react";
 
-import LeftArrowIcon from "@/assets/left-arrow.svg";
+import ChevronLeftIcon from "@/assets/chevron-left.svg";
 import { GNB } from "@/components/ui/GNB";
 
 import * as styles from "./layout.css";
@@ -32,7 +32,7 @@ export default function MemberProfileLayout({
             aria-label='홈으로 이동하기'
             className={styles.button}
           >
-            <LeftArrowIcon
+            <ChevronLeftIcon
               width={24}
               height={24}
               onClick={handleClick}

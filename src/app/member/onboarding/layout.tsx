@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { type ReactNode } from "react";
 
-import LeftArrowIcon from "@/assets/left-arrow.svg";
+import ChevronLeftIcon from "@/assets/chevron-left.svg";
 import { GNB } from "@/components/ui/GNB";
 
 import * as styles from "./layout.css";
@@ -28,7 +28,7 @@ export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
             aria-label='뒤로가기'
             className={styles.button}
           >
-            <LeftArrowIcon width={20} height={20} />
+            <ChevronLeftIcon width={20} height={20} />
           </button>
         }
       />
