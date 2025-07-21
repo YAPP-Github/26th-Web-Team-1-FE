@@ -20,7 +20,7 @@ export const content = style({
   transform: "translate(-50%, -50%)",
   width: "min(30rem, 90vw)",
   background: semantic.background.white,
-  borderRadius: radius[120],
+  borderRadius: radius[160],
   zIndex: zIndex.modal,
 });
 
