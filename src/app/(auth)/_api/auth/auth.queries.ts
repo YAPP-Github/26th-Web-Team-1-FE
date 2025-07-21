@@ -30,5 +30,8 @@ export const useReissueMutation = () => {
 export const useDeleteSessionMutation = () => {
   return useMutation({
     mutationFn: deleteClientSession,
+    onSuccess: () => {
+      clearClientSessionCache();
+    },
   });
 };
