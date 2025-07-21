@@ -14,3 +14,7 @@ export const menuItem = style({
   ...typography.body1Sb,
   color: semantic.text.normal,
 });
+
+export const modalButton = style({
+  flex: 1,
+});
