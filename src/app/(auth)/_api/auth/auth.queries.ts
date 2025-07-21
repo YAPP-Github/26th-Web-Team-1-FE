@@ -28,10 +28,13 @@ export const useReissueMutation = () => {
 };
 
 export const useDeleteSessionMutation = () => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: deleteClientSession,
     onSuccess: () => {
       clearClientSessionCache();
+      queryClient.clear();
     },
   });
 };
