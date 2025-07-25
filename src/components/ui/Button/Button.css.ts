@@ -43,7 +43,7 @@ export const button = recipe({
     },
     size: {
       small: {
-        ...typography.label2,
+        ...typography.label2Sb,
         padding: "0.7rem 2rem",
         borderRadius: radius[80],
       },

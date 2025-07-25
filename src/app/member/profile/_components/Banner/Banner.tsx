@@ -26,7 +26,7 @@ export const Banner = () => {
           </Text>
           {/* TODO: [가게 등록하기] url로 변경 */}
           <Link href='/' className={styles.linkWrapper}>
-            <Text typo='label2' color='neutral.10'>
+            <Text typo='label2Sb' color='neutral.10'>
               가게 등록하기
             </Text>
             <ChevronRightIcon width={16} height={16} className={styles.icon} />

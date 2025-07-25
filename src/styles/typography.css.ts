@@ -109,17 +109,41 @@ export const typography = createGlobalTheme(":root", {
     letterSpacing: "0.0096em",
     fontWeight: "400",
   },
-  label1: {
+  label1Sb: {
     fontSize: "1.4rem",
     lineHeight: "2rem",
     letterSpacing: "0.0145em",
     fontWeight: "600",
   },
-  label2: {
+  label1Md: {
+    fontSize: "1.4rem",
+    lineHeight: "2rem",
+    letterSpacing: "0.0145em",
+    fontWeight: "500",
+  },
+  label1Rg: {
+    fontSize: "1.4rem",
+    lineHeight: "2rem",
+    letterSpacing: "0.0145em",
+    fontWeight: "400",
+  },
+  label2Sb: {
     fontSize: "1.3rem",
     lineHeight: "1.8rem",
     letterSpacing: "0.0194em",
     fontWeight: "600",
+  },
+  label2Md: {
+    fontSize: "1.3rem",
+    lineHeight: "1.8rem",
+    letterSpacing: "0.0194em",
+    fontWeight: "500",
+  },
+  label2Rg: {
+    fontSize: "1.3rem",
+    lineHeight: "1.8rem",
+    letterSpacing: "0.0194em",
+    fontWeight: "400",
   },
   caption1Sb: {
     fontSize: "1.2rem",
