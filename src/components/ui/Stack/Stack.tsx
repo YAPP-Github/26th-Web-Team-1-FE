@@ -32,7 +32,7 @@ export const Stack = <T extends ElementType = "div">({
   justify,
   align,
   wrap,
-  gap,
+  gap = 0,
   style: styleFromProps,
   ref,
   ...rest
@@ -42,7 +42,7 @@ export const Stack = <T extends ElementType = "div">({
   const style = {
     ...styleFromProps,
     ...assignInlineVars({
-      [styles.stackGapVar]: gap ? coerceCssRemValue(gap) : undefined,
+      [styles.stackGapVar]: coerceCssRemValue(gap),
     }),
   };
 
