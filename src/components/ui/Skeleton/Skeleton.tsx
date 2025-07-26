@@ -7,10 +7,10 @@ import * as styles from "./Skeleton.css";
 
 export type SkeletonProps = {
   /** 스켈레톤 너비 */
-  width: number;
+  width: number | string;
 
   /** 스켈레톤 높이 */
-  height: number;
+  height: number | string;
 
   /** border-radius(px, rem, %, 토큰 모두 가능) */
   radius?: number | string;
