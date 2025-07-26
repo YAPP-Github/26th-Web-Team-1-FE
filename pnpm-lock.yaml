@@ -39,8 +39,8 @@ importers:
         specifier: ^8.0.4
         version: 8.0.4
       ky:
-        specifier: 1.7.5
-        version: 1.7.5
+        specifier: 1.8.2
+        version: 1.8.2
       next:
         specifier: 15.3.2
         version: 15.3.2(@babel/core@7.27.1)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -4322,8 +4322,8 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  ky@1.7.5:
-    resolution: {integrity: sha512-HzhziW6sc5m0pwi5M196+7cEBtbt0lCYi67wNsiwMUmz833wloE0gbzJPWKs1gliFKQb34huItDQX97LyOdPdA==}
+  ky@1.8.2:
+    resolution: {integrity: sha512-XybQJ3d4Ea1kI27DoelE5ZCT3bSJlibYTtQuMsyzKox3TMyayw1asgQdl54WroAm+fIA3ZCr8zXW2RpR7qWVpA==}
     engines: {node: '>=18'}
 
   language-subtag-registry@0.3.23:
@@ -10785,7 +10785,7 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  ky@1.7.5: {}
+  ky@1.8.2: {}
 
   language-subtag-registry@0.3.23: {}
 
