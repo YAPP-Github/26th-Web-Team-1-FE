@@ -16,8 +16,6 @@ import { radius } from "@/styles";
 import { articleQueryOptions } from "../../_api/articles";
 import * as styles from "./StoreStory.css";
 
-const ARTICLE_SIZE = 3;
-
 export const StoreStory = () => {
   return (
     <VStack gap={16}>
@@ -31,6 +29,8 @@ export const StoreStory = () => {
     </VStack>
   );
 };
+
+const ARTICLE_SIZE = 3;
 
 const StoreStoryContent = () => {
   const slickRef = useRef<Slider>(null);

@@ -18,8 +18,6 @@ import { radius } from "@/styles";
 import { storesQueryOptions } from "../../_api/shop";
 import * as styles from "./RecentlySupportStories.css";
 
-const CHEER_SIZE = 10;
-
 export const RecentlySupportedStores = () => {
   return (
     <VStack>
@@ -54,6 +52,8 @@ export const RecentlySupportedStores = () => {
     </VStack>
   );
 };
+
+const CHEER_SIZE = 10;
 
 const RecentlySupportedStoresContent = () => {
   const {
