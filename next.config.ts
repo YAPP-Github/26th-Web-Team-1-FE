@@ -11,6 +11,23 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "eatda-storage-dev.s3.ap-northeast-2.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "eatda-storage-prod.s3.ap-northeast-2.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 module.exports = withVanillaExtract(nextConfig);
