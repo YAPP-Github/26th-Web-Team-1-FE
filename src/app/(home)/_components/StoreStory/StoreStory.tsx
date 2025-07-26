@@ -56,13 +56,19 @@ const StoreStoryContent = () => {
           beforeChange={(_, next) => setCurrentIndex(next)}
         >
           {articles.map(({ imageUrl, title, subtitle, articleUrl }) => (
-            <StoreStoryCard
+            <Link
               key={title}
-              src={imageUrl}
-              title={title}
-              description={subtitle}
-              articleUrl={articleUrl}
-            />
+              href={articleUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              draggable={false}
+            >
+              <StoreStoryCard
+                src={imageUrl}
+                title={title}
+                description={subtitle}
+              />
+            </Link>
           ))}
         </Slider>
       </div>
@@ -79,25 +85,11 @@ type StoreStoryCardProps = {
   src: string;
   title: string;
   description: string;
-  articleUrl: string;
 };
 
-const StoreStoryCard = ({
-  src,
-  title,
-  description,
-  articleUrl,
-  ...props
-}: StoreStoryCardProps) => {
+const StoreStoryCard = ({ src, title, description }: StoreStoryCardProps) => {
   return (
-    <Link
-      href={articleUrl}
-      target='_blank'
-      rel='noopener noreferrer'
-      className={styles.storyCard}
-      draggable={false}
-      {...props}
-    >
+    <div className={styles.storyCard}>
       <Image fill src={src} alt='story' className={styles.storyImage} />
       <div className={styles.storyCardGradient} />
       <VStack gap={4} style={{ zIndex: 1, position: "relative" }}>
@@ -108,7 +100,7 @@ const StoreStoryCard = ({
           {convertNewlineToJSX(description)}
         </Text>
       </VStack>
-    </Link>
+    </div>
   );
 };
 
