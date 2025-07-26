@@ -10,7 +10,7 @@ export const wrapper = style({
 });
 
 export const label = style({
-  ...typography.label1,
+  ...typography.label1Sb,
   color: semantic.text.alternative,
 });
 

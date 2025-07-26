@@ -61,6 +61,9 @@ globalStyle("button", {
       outline: "none",
       boxShadow: "none",
       cursor: "pointer",
+      WebkitAppearance: "none",
+      MozAppearance: "none",
+      appearance: "none",
     },
   },
 });

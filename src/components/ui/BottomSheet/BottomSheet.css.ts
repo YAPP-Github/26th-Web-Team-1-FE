@@ -1,11 +1,13 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, radius, semantic, typography } from "@/styles";
+import { colors, semantic } from "@/styles";
+import { zIndex } from "@/styles/zIndex.css";
 
 export const overlay = style({
   position: "fixed",
   inset: 0,
   backgroundColor: semantic.background.dim,
+  zIndex: zIndex.overlay,
 });
 
 export const content = style({
@@ -15,23 +17,17 @@ export const content = style({
   right: 0,
   maxWidth: "48rem",
   margin: "0 auto",
-  display: "flex",
-  justifyContent: "center",
   backgroundColor: colors.common[100],
-  borderTopLeftRadius: radius[120],
-  borderTopRightRadius: radius[120],
+  borderRadius: "2.8rem 2.8rem 0 0",
+  zIndex: zIndex.modal,
 });
 
 export const innerContent = style({
   width: "100%",
-  minHeight: "32.6rem",
-  maxHeight: "100vh",
+  minHeight: "37.5rem",
+  maxHeight: "calc(100dvh - 52px)",
   display: "flex",
   flexDirection: "column",
-});
-
-export const handleContainer = style({
-  padding: "1.2rem 16.2rem 1rem",
 });
 
 export const handle = style({
@@ -43,29 +39,16 @@ export const handle = style({
 });
 
 export const title = style({
-  display: "flex",
-  gap: "1rem",
+  width: "100%",
   padding: "1.4rem 2rem",
-  ...typography.title2Sb,
-  color: semantic.text.normal,
 });
 
 export const sheetBody = style({
   display: "flex",
+  flex: 1,
   flexDirection: "column",
   gap: "0.8rem",
-  padding: "1.4rem 2rem 6rem",
-  overflowY: "auto",
-});
-
-export const sheetBodyTitle = style({
-  ...typography.title3Sb,
-  color: semantic.text.normal,
-});
-
-export const sheetBodyDescription = style({
-  ...typography.body2Rg,
-  color: semantic.text.alternative,
+  padding: "2rem",
 });
 
 export const buttonContainer = style({

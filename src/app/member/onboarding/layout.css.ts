@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css";
 export const wrapper = style({
   width: "100%",
   maxWidth: "480px",
-  height: "100vh",
+  height: "100dvh",
   display: "flex",
   flexDirection: "column",
 });

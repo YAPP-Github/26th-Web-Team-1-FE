@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 
-import { semantic, typography } from "@/styles";
+import { colors, semantic, typography } from "@/styles";
 
 export const wrapper = style({
   width: "100%",
-  height: "100vh",
+  height: "100dvh",
   overflow: "hidden",
 });
 
@@ -39,6 +39,7 @@ export const logoWrapper = style({
 export const logoIcon = style({
   width: "7.7rem",
   height: "4rem",
+  color: colors.redOrange[50],
 });
 
 export const gradientOverlay = style({
