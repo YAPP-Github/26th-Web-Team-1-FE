@@ -43,8 +43,9 @@ export const RecentlySupportedStores = () => {
       <Link href='/stores'>
         <Button
           variant='custom'
+          size='large'
           className={styles.showAllButton}
-          style={{ width: "100%" }}
+          fullWidth
         >
           가게 전체보기
         </Button>
