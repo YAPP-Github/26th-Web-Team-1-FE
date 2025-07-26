@@ -52,7 +52,7 @@ const RecentSupportCardContent = () => {
             store={{
               name: cheer.storeName,
               imageUrl: cheer.imageUrl,
-              location: `${cheer.storeDistrict} ${cheer.storeDistrict}`,
+              location: `${cheer.storeDistrict} ${cheer.storeNeighborhood}`,
               category: cheer.storeCategory,
             }}
             content={cheer.cheerDescription}
