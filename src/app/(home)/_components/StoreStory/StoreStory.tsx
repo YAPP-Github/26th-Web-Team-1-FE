@@ -104,7 +104,7 @@ const StoreStoryCard = ({ src, title, description }: StoreStoryCardProps) => {
         <Text as='h4' color='text.white' typo='title3Sb'>
           {convertNewlineToJSX(title)}
         </Text>
-        <Text as='p' color='neutral.95' typo='label2'>
+        <Text as='p' color='neutral.95' typo='label2Sb'>
           {convertNewlineToJSX(description)}
         </Text>
       </VStack>
