@@ -28,7 +28,7 @@
     "@vanilla-extract/recipes": "^0.5.7",
     "iron-session": "^8.0.4",
     "ky": "1.7.5",
-    "next": "15.3.2",
+    "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.58.1",
