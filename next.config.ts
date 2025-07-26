@@ -16,13 +16,13 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "eatda-storage-dev.s3.ap-northeast-2.amazonaws.com",
+        hostname: process.env.S3_DEV_BUCKET_HOSTNAME!,
         port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "eatda-storage-prod.s3.ap-northeast-2.amazonaws.com",
+        hostname: process.env.S3_PROD_BUCKET_HOSTNAME!,
         port: "",
         pathname: "/**",
       },
