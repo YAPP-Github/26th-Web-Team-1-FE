@@ -3,6 +3,7 @@
 import { Suspense } from "@suspensive/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import Link from "next/link";
 import { Separated } from "react-simplikit";
 
 import { Bleed } from "@/components/ui/Bleed";
@@ -26,9 +27,11 @@ export const RecentlySupportedStores = () => {
         <Text as='h2' color='text.normal' typo='title2Sb'>
           최근에 응원 받은 가게
         </Text>
-        <TextButton variant='assistive' size='small'>
-          전체보기
-        </TextButton>
+        <Link href='/stores'>
+          <TextButton variant='assistive' size='small'>
+            전체보기
+          </TextButton>
+        </Link>
       </HStack>
 
       <Spacer size={16} />
@@ -39,32 +42,49 @@ export const RecentlySupportedStores = () => {
 
       <Spacer size={20} />
 
-      <Button variant='custom' className={styles.showAllButton}>
-        가게 전체보기
-      </Button>
+      <Link href='/stores'>
+        <Button
+          variant='custom'
+          className={styles.showAllButton}
+          style={{ width: "100%" }}
+        >
+          가게 전체보기
+        </Button>
+      </Link>
     </VStack>
   );
 };
 
 const RecentlySupportedStoresContent = () => {
-  const { data } = useSuspenseQuery(storesQueryOptions(CHEER_SIZE));
+  const {
+    data: { stores },
+  } = useSuspenseQuery(storesQueryOptions(CHEER_SIZE));
 
   return (
     <Bleed inline={20}>
       <HStack gap={12} className={styles.supportedStoreCardList}>
-        {data.stores.map(store => (
-          <SupportedStoreCard
-            key={store.id}
-            storeName={store.name}
-            storeDistrict={store.district}
-            storeNeighborhood={store.neighborhood}
-            storeCategory={store.category}
-            imageUrl={store.imageUrl}
-          />
+        {stores.map(store => (
+          <Link href={`/stores/${store.id}`} key={store.id}>
+            <SupportedStoreCard
+              storeName={store.name}
+              storeDistrict={store.district}
+              storeNeighborhood={store.neighborhood}
+              storeCategory={store.category}
+              imageUrl={store.imageUrl}
+            />
+          </Link>
         ))}
       </HStack>
     </Bleed>
   );
+};
+
+type SupportedStoreCardProps = {
+  storeName: string;
+  storeDistrict: string;
+  storeNeighborhood: string;
+  storeCategory: string;
+  imageUrl: string;
 };
 
 const SupportedStoreCard = ({
@@ -73,13 +93,7 @@ const SupportedStoreCard = ({
   storeNeighborhood,
   storeCategory,
   imageUrl,
-}: {
-  storeName: string;
-  storeDistrict: string;
-  storeNeighborhood: string;
-  storeCategory: string;
-  imageUrl: string;
-}) => {
+}: SupportedStoreCardProps) => {
   return (
     <VStack gap={12} className={styles.supportedStoreCard}>
       <div className={styles.supportedStoreCardImageWrapper}>
