@@ -42,6 +42,7 @@ export const Spacer = <T extends ElementType = "span">({
       {...rest}
       style={{
         ...style,
+        display: "block",
         height: direction === "vertical" ? coerceCssRemValue(size) : undefined,
         width: direction === "horizontal" ? coerceCssRemValue(size) : undefined,
       }}
