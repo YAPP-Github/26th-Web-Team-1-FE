@@ -112,15 +112,17 @@ const StoreStoryCard = ({
   );
 };
 
+type StoreStoryIndicatorProps = {
+  totalCount: number;
+  currentIndex: number;
+  onClickDot: (index: number) => void;
+};
+
 const StoreStoryIndicator = ({
   totalCount,
   currentIndex,
   onClickDot,
-}: {
-  totalCount: number;
-  currentIndex: number;
-  onClickDot: (index: number) => void;
-}) => {
+}: StoreStoryIndicatorProps) => {
   return (
     <HStack gap={6}>
       {Array.from({ length: totalCount }).map((_, index) => (
