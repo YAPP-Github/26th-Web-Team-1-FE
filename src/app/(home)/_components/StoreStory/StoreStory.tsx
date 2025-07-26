@@ -5,7 +5,7 @@ import { noop, useSuspenseQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import Slider from "react-slick";
+import Slider, { type Settings } from "react-slick";
 
 import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
@@ -32,6 +32,12 @@ export const StoreStory = () => {
 
 const ARTICLE_SIZE = 3;
 
+const SLIDER_SETTINGS: Settings = {
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
 const StoreStoryContent = () => {
   const slickRef = useRef<Slider>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -49,10 +55,7 @@ const StoreStoryContent = () => {
       <div className={styles.storeStoryList}>
         <Slider
           ref={slickRef}
-          dots
-          speed={500}
-          slidesToShow={1}
-          slidesToScroll={1}
+          {...SLIDER_SETTINGS}
           beforeChange={(_, next) => setCurrentIndex(next)}
         >
           {articles.map(({ imageUrl, title, subtitle, articleUrl }) => (
