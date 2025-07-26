@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense } from "@suspensive/react";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { noop, useSuspenseQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -36,7 +36,9 @@ const StoreStoryContent = () => {
   const slickRef = useRef<Slider>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const { data } = useSuspenseQuery(articleQueryOptions(ARTICLE_SIZE));
+  const {
+    data: { articles },
+  } = useSuspenseQuery(articleQueryOptions(ARTICLE_SIZE));
 
   const handleDotClick = (index: number) => {
     slickRef.current?.slickGoTo(index);
@@ -53,7 +55,7 @@ const StoreStoryContent = () => {
           slidesToScroll={1}
           beforeChange={(_, next) => setCurrentIndex(next)}
         >
-          {data.articles.map(({ imageUrl, title, subtitle, articleUrl }) => (
+          {articles.map(({ imageUrl, title, subtitle, articleUrl }) => (
             <StoreStoryCard
               key={title}
               src={imageUrl}
@@ -64,16 +66,11 @@ const StoreStoryContent = () => {
           ))}
         </Slider>
       </div>
-      <HStack gap={6}>
-        {data.articles.map((_, index) => (
-          <span
-            key={index}
-            data-active={currentIndex === index}
-            className={styles.dot}
-            onClick={() => handleDotClick(index)}
-          />
-        ))}
-      </HStack>
+      <StoreStoryIndicator
+        totalCount={articles.length}
+        currentIndex={currentIndex}
+        onClickDot={handleDotClick}
+      />
     </VStack>
   );
 };
@@ -115,15 +112,34 @@ const StoreStoryCard = ({
   );
 };
 
+const StoreStoryIndicator = ({
+  totalCount,
+  currentIndex,
+  onClickDot,
+}: {
+  totalCount: number;
+  currentIndex: number;
+  onClickDot: (index: number) => void;
+}) => {
+  return (
+    <HStack gap={6}>
+      {Array.from({ length: totalCount }).map((_, index) => (
+        <span
+          key={index}
+          data-active={currentIndex === index}
+          className={styles.dot}
+          onClick={() => onClickDot(index)}
+        />
+      ))}
+    </HStack>
+  );
+};
+
 const StoreStorySkeleton = () => {
   return (
     <VStack gap={16} align='center'>
       <Skeleton width='100%' height={172} radius={radius[160]} />
-      <HStack gap={6}>
-        {Array.from({ length: 3 }).map((_, id) => (
-          <span key={id} className={styles.dot} />
-        ))}
-      </HStack>
+      <StoreStoryIndicator totalCount={3} currentIndex={0} onClickDot={noop} />
     </VStack>
   );
 };
