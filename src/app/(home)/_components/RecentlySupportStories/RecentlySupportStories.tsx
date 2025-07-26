@@ -97,7 +97,7 @@ const SupportedStoreCard = ({
   return (
     <VStack gap={12} className={styles.supportedStoreCard}>
       <div className={styles.supportedStoreCardImageWrapper}>
-        <Image fill src={imageUrl} alt={storeName} />
+        <Image fill src={imageUrl} alt={`${storeName} 가게 이미지`} />
       </div>
       <VStack className={styles.supportedStoreCardContent}>
         <Text>{storeName}</Text>

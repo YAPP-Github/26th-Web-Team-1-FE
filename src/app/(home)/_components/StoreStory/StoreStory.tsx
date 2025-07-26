@@ -93,7 +93,12 @@ type StoreStoryCardProps = {
 const StoreStoryCard = ({ src, title, description }: StoreStoryCardProps) => {
   return (
     <div className={styles.storyCard}>
-      <Image fill src={src} alt='story' className={styles.storyImage} />
+      <Image
+        fill
+        src={src}
+        alt={`${title} 가게 이야기 이미지`}
+        className={styles.storyImage}
+      />
       <div className={styles.storyCardGradient} />
       <VStack gap={4} style={{ zIndex: 1, position: "relative" }}>
         <Text as='h4' color='text.white' typo='title3Sb'>

@@ -91,7 +91,7 @@ const RecentSupportCard = ({
         <Image
           width={40}
           height={40}
-          alt={store.name}
+          alt={`${store.name} 가게 이미지`}
           className={styles.storeImage}
           src={store.imageUrl}
         />
