@@ -135,3 +135,12 @@ globalStyle("input:disabled", {
     },
   },
 });
+
+globalStyle("hr", {
+  "@layer": {
+    [reset]: {
+      border: "none",
+      margin: 0,
+    },
+  },
+});
