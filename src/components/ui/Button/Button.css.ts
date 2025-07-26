@@ -64,6 +64,11 @@ export const button = recipe({
         borderRadius: radius[160],
       },
     },
+    fullWidth: {
+      true: {
+        width: "100%",
+      },
+    },
   },
   defaultVariants: {
     variant: "primary",
