@@ -66,10 +66,9 @@ const RecentlySupportedStoresContent = () => {
         {stores.map(store => (
           <Link href={`/stores/${store.id}`} key={store.id}>
             <SupportedStoreCard
-              storeName={store.name}
-              storeDistrict={store.district}
-              storeNeighborhood={store.neighborhood}
-              storeCategory={store.category}
+              name={store.name}
+              location={`${store.district} ${store.neighborhood}`}
+              category={store.category}
               imageUrl={store.imageUrl}
             />
           </Link>
@@ -80,18 +79,16 @@ const RecentlySupportedStoresContent = () => {
 };
 
 type SupportedStoreCardProps = {
-  storeName: string;
-  storeDistrict: string;
-  storeNeighborhood: string;
-  storeCategory: string;
+  name: string;
+  location: string;
+  category: string;
   imageUrl: string;
 };
 
 const SupportedStoreCard = ({
-  storeName,
-  storeDistrict,
-  storeNeighborhood,
-  storeCategory,
+  name: storeName,
+  location,
+  category,
   imageUrl,
 }: SupportedStoreCardProps) => {
   return (
@@ -105,10 +102,10 @@ const SupportedStoreCard = ({
         <HStack align='center' gap={6}>
           <Separated by={<hr className={styles.divider} />}>
             <Text as='span' typo='caption1Md' color='text.alternative'>
-              {storeDistrict} {storeNeighborhood}
+              {location}
             </Text>
             <Text as='span' typo='caption1Md' color='text.alternative'>
-              {storeCategory}
+              {category}
             </Text>
           </Separated>
         </HStack>
