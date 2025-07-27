@@ -17,6 +17,7 @@ import { TextField } from "@/components/ui/TextField";
 
 import { storeSearchQueryOptions } from "../../_api";
 import { type SearchStoreFormValues } from "../../_types";
+import { type SelectedStore } from "../../_types/searchStore.types";
 import * as styles from "./SearchStoreBottomSheet.css";
 
 export type SearchStoreBottomSheetProps = {
@@ -27,7 +28,7 @@ export type SearchStoreBottomSheetProps = {
   onOpenChange: (open: boolean) => void;
 
   /** 가게 선택 시 호출되는 핸들러 */
-  onSelect: (storeName: string) => void;
+  onSelect: (store: SelectedStore) => void;
 };
 
 export const SearchStoreBottomSheet = ({
@@ -64,8 +65,8 @@ export const SearchStoreBottomSheet = ({
     [debouncedSearch]
   );
 
-  const handleSelect = (name: string) => {
-    onSelect(name);
+  const handleSelect = (store: SelectedStore) => {
+    onSelect(store);
     onOpenChange(false);
   };
 
@@ -156,7 +157,7 @@ export const SearchStoreBottomSheet = ({
                   <SearchResultItemLayout
                     key={store.kakaoId}
                     onSelect={handleSelect}
-                    storeName={store.name}
+                    store={store}
                   >
                     <Text typo='body1Sb'>{store.name}</Text>
                     <Text typo='label2Sb' color='neutral.50'>
@@ -181,19 +182,19 @@ export const SearchStoreBottomSheet = ({
 
 const SearchResultItemLayout = ({
   onSelect,
-  storeName,
+  store,
   className = styles.searchResultItem,
   children,
 }: {
   children: ReactNode;
-  onSelect?: (name: string) => void;
-  storeName?: string;
+  onSelect?: (store: SelectedStore) => void;
+  store?: SelectedStore;
   className?: string;
 }) => (
   <motion.li
     className={className}
     variants={styles.itemVariants}
-    onClick={onSelect && storeName ? () => onSelect(storeName) : undefined}
+    onClick={onSelect && store ? () => onSelect(store) : undefined}
   >
     {children}
   </motion.li>
