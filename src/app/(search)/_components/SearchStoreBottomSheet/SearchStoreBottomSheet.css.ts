@@ -29,11 +29,11 @@ export const searchResultItems = style({
   gap: "0.2rem",
   height: "49rem",
   overflowY: "auto",
-  cursor: "pointer",
 });
 
 export const searchResultItem = style({
   padding: "1.2rem 1.6rem",
+  cursor: "pointer",
 });
 
 export const skeletonItem = style({
