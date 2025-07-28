@@ -31,6 +31,27 @@ export type SearchStoreBottomSheetProps = {
   onSelect: (store: SelectedStore) => void;
 };
 
+/**
+ * 가게 검색 바텀시트 컴포넌트
+ *
+ * 사용자가 가게명을 검색하고 선택할 수 있는 바텀시트 UI를 제공합니다.
+ *
+ * @example
+ * ```tsx
+ * const [isOpen, setIsOpen] = useState(false);
+ *
+ * const handleStoreSelect = (store: SelectedStore) => {
+ *   setValue('storeName', store.name);
+ *   setValue('storeKakaoId', store.kakaoId);
+ * };
+ *
+ * <SearchStoreBottomSheet
+ *   open={isOpen}
+ *   onOpenChange={setIsOpen}
+ *   onSelect={handleStoreSelect}
+ * />
+ * ```
+ */
 export const SearchStoreBottomSheet = ({
   open,
   onOpenChange,
