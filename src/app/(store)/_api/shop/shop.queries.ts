@@ -11,7 +11,7 @@ export const storeQueryKeys = {
     [...storeQueryKeys.all, storeId, "images"] as const,
 };
 
-export const storeQueryOptions = (storeId: string) =>
+export const storeDetailQueryOptions = (storeId: string) =>
   queryOptions({
     queryKey: storeQueryKeys.detail(storeId),
     queryFn: () => getStoreDetail(storeId),

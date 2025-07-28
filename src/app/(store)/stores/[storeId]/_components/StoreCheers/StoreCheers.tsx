@@ -79,7 +79,8 @@ const CheerContent = ({ storeId }: { storeId: string }) => {
           </Button>
         </>
       )}
-      <Spacer size={12} />
+
+      <Spacer size={shouldShowToggleButton ? 12 : 20} />
 
       {/* 
         TODO: 가게 응원하기 버튼 클릭 시 가게 응원 페이지로 이동

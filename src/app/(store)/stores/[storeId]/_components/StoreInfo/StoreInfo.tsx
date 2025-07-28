@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import {
+  storeDetailQueryOptions,
   storeImagesQueryOptions,
-  storeQueryOptions,
 } from "@/app/(store)/_api/shop";
 import { Bleed } from "@/components/ui/Bleed";
 import { Skeleton } from "@/components/ui/Skeleton";
@@ -57,7 +57,7 @@ const StoreInfoImageCarousel = ({ storeId }: { storeId: string }) => {
 const StoreInfoContent = ({ storeId }: { storeId: string }) => {
   const {
     data: { name, district, neighborhood, category, placeUrl },
-  } = useSuspenseQuery(storeQueryOptions(storeId));
+  } = useSuspenseQuery(storeDetailQueryOptions(storeId));
   const address = `${district} ${neighborhood}`;
   return (
     <VStack gap={16} className={styles.storeInfoContentContainer}>
