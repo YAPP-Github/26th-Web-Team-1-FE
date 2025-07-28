@@ -9,11 +9,14 @@ import {
   storeDetailQueryOptions,
   storeImagesQueryOptions,
 } from "@/app/(store)/_api/shop";
+import LocationIcon from "@/assets/location-20.svg";
+import MapIcon from "@/assets/map-20.svg";
 import { Bleed } from "@/components/ui/Bleed";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { TextButton } from "@/components/ui/TextButton";
+import { semantic } from "@/styles";
 
 import * as styles from "./StoreInfo.css";
 
@@ -72,7 +75,7 @@ const StoreInfoContent = ({ storeId }: { storeId: string }) => {
 
       <VStack gap={4} align='start' style={{ paddingInline: "0.8rem" }}>
         <HStack gap={4} align='center'>
-          <span>아이콘</span>
+          <LocationIcon color={semantic.icon.primary} />
           <Text as='span' typo='label1Md' color='text.alternative'>
             {address}
           </Text>
@@ -86,7 +89,7 @@ const StoreInfoContent = ({ storeId }: { storeId: string }) => {
             size='small'
             variant='custom'
             className={styles.kakaoMapButton}
-            leftAddon={<span>맵 아이콘</span>}
+            leftAddon={<MapIcon color={semantic.icon.primary} />}
           >
             카카오맵 바로가기
           </TextButton>

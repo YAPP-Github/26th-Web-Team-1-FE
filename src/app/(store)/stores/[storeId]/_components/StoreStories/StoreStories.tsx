@@ -1,9 +1,11 @@
 "use client";
 
+import CameraIcon from "@/assets/camera.svg";
 import { Button } from "@/components/ui/Button";
 import { Spacer } from "@/components/ui/Spacer";
-import { VStack } from "@/components/ui/Stack";
+import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
+import { colors } from "@/styles";
 
 import * as styles from "./StoreStories.css";
 
@@ -19,7 +21,9 @@ export const StoreStories = ({ storeId }: { storeId: string }) => {
       <Spacer size={20} />
 
       <Button variant='assistive' size='large' fullWidth>
-        방문 스토리 남기기
+        <HStack gap={6} align='center'>
+          방문 스토리 남기기 <CameraIcon color={colors.neutral[10]} />
+        </HStack>
       </Button>
     </VStack>
   );
