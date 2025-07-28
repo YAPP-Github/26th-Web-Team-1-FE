@@ -31,12 +31,23 @@ export const storeInfoImageCarousel = style({
   },
 });
 
-export const storeInfoImage = style({
+export const storeInfoImageWrapper = style({
+  position: "relative",
   width: "calc(100% - 2rem)",
   height: "23.9rem",
   aspectRatio: 1.35,
   flexShrink: 0,
   borderRadius: "2.4rem",
+  overflow: "hidden",
+
+  selectors: {
+    "&:only-of-type": {
+      width: "100%",
+    },
+  },
+});
+
+export const storeInfoImage = style({
   objectFit: "cover",
   objectPosition: "center",
 });

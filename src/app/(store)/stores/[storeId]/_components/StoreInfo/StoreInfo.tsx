@@ -1,72 +1,64 @@
 "use client";
 
+import { Suspense } from "@suspensive/react";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import Image from "next/image";
 import Link from "next/link";
 
+import {
+  storeImagesQueryOptions,
+  storeQueryOptions,
+} from "@/app/(store)/_api/shop";
 import { Bleed } from "@/components/ui/Bleed";
+import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { TextButton } from "@/components/ui/TextButton";
 
 import * as styles from "./StoreInfo.css";
 
-const MOCK_STORE_INFO = {
-  name: "댈러스피자",
-  address: "서울 영등포구",
-  category: "양식",
-  kakaoMapUrl: "https://place.map.kakao.com/974847893",
-};
-
-const MOCK_STORE_IMAGES = [
-  "https://picsum.photos/200/300",
-  "https://picsum.photos/200/300",
-  "https://picsum.photos/200/300",
-];
-
 export const StoreInfo = ({ storeId }: { storeId: string }) => {
-  void storeId;
-
   return (
     <VStack>
-      <StoreInfoImageCarousel images={MOCK_STORE_IMAGES} />
-      <StoreInfoContent
-        name={MOCK_STORE_INFO.name}
-        address={MOCK_STORE_INFO.address}
-        category={MOCK_STORE_INFO.category}
-        kakaoMapUrl={MOCK_STORE_INFO.kakaoMapUrl}
-      />
+      <Suspense clientOnly fallback={<StoreImagesSkeleton />}>
+        <StoreInfoImageCarousel storeId={storeId} />
+      </Suspense>
+      <Suspense clientOnly fallback={<StoreInfoContentSkeleton />}>
+        <StoreInfoContent storeId={storeId} />
+      </Suspense>
     </VStack>
   );
 };
 
-const StoreInfoImageCarousel = ({ images }: { images: string[] }) => {
+const StoreInfoImageCarousel = ({ storeId }: { storeId: string }) => {
+  const {
+    data: { imageUrls },
+  } = useSuspenseQuery(storeImagesQueryOptions(storeId));
+
   return (
     <Bleed inline={20}>
       <div className={styles.storeInfoImageCarousel}>
-        {images.map((image, index) => (
-          // TODO: NextImage 사용, priority 1~3 high
-          <img
-            key={index}
-            className={styles.storeInfoImage}
-            src={image}
-            alt={`${index + 1}번째 가게 이미지`}
-          />
+        {imageUrls.map((image, index) => (
+          <div key={index} className={styles.storeInfoImageWrapper}>
+            <Image
+              key={index}
+              className={styles.storeInfoImage}
+              src={image}
+              fill
+              alt={`${index + 1}번째 가게 이미지`}
+            />
+          </div>
         ))}
       </div>
     </Bleed>
   );
 };
 
-const StoreInfoContent = ({
-  name,
-  address,
-  category,
-  kakaoMapUrl,
-}: {
-  name: string;
-  address: string;
-  category: string;
-  kakaoMapUrl: string;
-}) => {
+const StoreInfoContent = ({ storeId }: { storeId: string }) => {
+  const {
+    data: { name, district, neighborhood, category, placeUrl },
+  } = useSuspenseQuery(storeQueryOptions(storeId));
+  const address = `${district} ${neighborhood}`;
   return (
     <VStack gap={16} className={styles.storeInfoContentContainer}>
       <VStack gap={4}>
@@ -89,7 +81,7 @@ const StoreInfoContent = ({
             {category}
           </Text>
         </HStack>
-        <Link href={kakaoMapUrl} target='_blank' rel='noopener noreferrer'>
+        <Link href={placeUrl} target='_blank' rel='noopener noreferrer'>
           <TextButton
             size='small'
             variant='custom'
@@ -99,6 +91,27 @@ const StoreInfoContent = ({
             카카오맵 바로가기
           </TextButton>
         </Link>
+      </VStack>
+    </VStack>
+  );
+};
+
+const StoreImagesSkeleton = () => {
+  return <Skeleton width='100%' height={239} radius={24} />;
+};
+
+const StoreInfoContentSkeleton = () => {
+  return (
+    <VStack gap={16} className={styles.storeInfoContentContainer}>
+      <VStack gap={4}>
+        <Text as='span' typo='body1Md' color='text.alternative'>
+          잇다가 응원하는
+        </Text>
+        <Skeleton width='40%' height={32} radius={8} />
+      </VStack>
+      <VStack gap={4} align='start' style={{ paddingInline: "0.8rem" }}>
+        <Skeleton width='40%' height={20} radius={8} />
+        <Skeleton width='45%' height={28} radius={8} />
       </VStack>
     </VStack>
   );

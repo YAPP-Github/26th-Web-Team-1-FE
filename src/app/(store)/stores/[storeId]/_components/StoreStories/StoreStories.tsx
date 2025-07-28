@@ -15,10 +15,11 @@ export const StoreStories = ({ storeId }: { storeId: string }) => {
   return (
     <VStack className={styles.storeStoriesContainer}>
       {isEmpty ? <EmptyStoreStories /> : <StoreStoriesContent />}
+
       <Spacer size={20} />
 
       <Button variant='assistive' size='large' fullWidth>
-        방문 스토리 남기기 카메라 아이콘
+        방문 스토리 남기기
       </Button>
     </VStack>
   );
