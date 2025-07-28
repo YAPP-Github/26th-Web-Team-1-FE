@@ -28,28 +28,39 @@ const apiErrorHandler = async (error: HTTPError) => {
   const { status } = response;
 
   let errorMessage: string;
+  let errorCode: string;
 
   try {
     const errorData = await response.json<ApiError>();
+    errorCode = errorData?.errorCode || "";
     errorMessage =
       errorData?.message ||
       errorData?.errorMessage ||
       "알 수 없는 오류가 발생했습니다.";
   } catch {
     errorMessage = "서버 응답을 처리하는 중 오류가 발생했습니다.";
+    errorCode = "UNKNOWN_ERROR";
   }
 
   switch (status) {
     case StatusCode.Unauthorized:
-      throw new UnauthorizedException(errorMessage);
+      throw new UnauthorizedException(
+        errorMessage,
+        status as StatusCode,
+        errorCode
+      );
     case StatusCode.Forbidden:
-      throw new ForbiddenException(errorMessage);
+      throw new ForbiddenException(
+        errorMessage,
+        status as StatusCode,
+        errorCode
+      );
     case StatusCode.NotFound:
-      throw new ApiException(errorMessage, StatusCode.NotFound);
+      throw new ApiException(errorMessage, StatusCode.NotFound, errorCode);
     case StatusCode.Timeout:
-      throw new TimeoutException(errorMessage);
+      throw new TimeoutException(errorMessage, status as StatusCode, errorCode);
     default:
-      throw new ApiException(errorMessage, status as StatusCode);
+      throw new ApiException(errorMessage, status as StatusCode, errorCode);
   }
 };
 
