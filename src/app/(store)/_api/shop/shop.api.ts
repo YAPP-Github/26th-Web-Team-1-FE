@@ -6,6 +6,10 @@ import {
   type StoreImagesResponse,
 } from "./shop.types";
 
+export const STORE_ERROR_CODES = {
+  NOT_FOUND: "ST0012",
+} as const;
+
 /**
  * 가게 상세 조회 API
  * @params storeId 조회할 가게 ID
