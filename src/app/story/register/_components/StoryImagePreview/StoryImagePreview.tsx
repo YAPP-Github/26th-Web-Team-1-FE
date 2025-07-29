@@ -10,7 +10,7 @@ export const StoryImagePreview = () => {
   const { watch, setValue } = useFormContext<StoryRegisterFormData>();
   const imageFile = watch("image");
 
-  const previewUrl = URL.createObjectURL(imageFile);
+  const previewUrl = imageFile && URL.createObjectURL(imageFile);
 
   const validateImage = (file: File) => {
     const result = imageFileSchema.safeParse(file);
