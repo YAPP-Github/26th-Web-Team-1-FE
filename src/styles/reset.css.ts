@@ -64,6 +64,9 @@ globalStyle("button", {
       WebkitAppearance: "none",
       MozAppearance: "none",
       appearance: "none",
+      color: "inherit",
+      font: "inherit",
+      WebkitTapHighlightColor: "transparent",
     },
   },
 });
@@ -73,6 +76,7 @@ globalStyle("a", {
     [reset]: {
       textDecoration: "none",
       color: "inherit",
+      WebkitTapHighlightColor: "transparent",
     },
   },
 });
@@ -141,6 +145,16 @@ globalStyle("hr", {
     [reset]: {
       border: "none",
       margin: 0,
+    },
+  },
+});
+
+globalStyle("input, select, textarea", {
+  "@layer": {
+    [reset]: {
+      color: "inherit",
+      font: "inherit",
+      WebkitTapHighlightColor: "transparent",
     },
   },
 });
