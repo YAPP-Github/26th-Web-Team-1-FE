@@ -9,6 +9,7 @@ import { MSWProvider, QueryProvider } from "@/providers";
 import { pretendard } from "@/styles/pretendard";
 
 import * as styles from "./layout.css";
+import { UploadProvider } from "./story/register/_contexts";
 
 export const metadata: Metadata = {
   title: "Eat-da",
@@ -35,7 +36,9 @@ export default function RootLayout({
         <div className={styles.wrapper}>
           <RegisterServiceWorkerClient />
           <QueryProvider>
-            <MSWProvider>{children}</MSWProvider>
+            <MSWProvider>
+              <UploadProvider>{children}</UploadProvider>
+            </MSWProvider>
           </QueryProvider>
         </div>
       </body>
