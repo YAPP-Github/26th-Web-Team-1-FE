@@ -1,9 +1,13 @@
 "use client";
 
+import Lottie from "lottie-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { useLoginMutation } from "@/app/(auth)/_api/auth/auth.queries";
+import loginSpinner from "@/assets/login-spinner.json";
+import { VStack } from "@/components/ui/Stack";
+import { Text } from "@/components/ui/Text";
 
 export default function AuthCallbackPage() {
   const router = useRouter();
@@ -38,5 +42,36 @@ export default function AuthCallbackPage() {
     }
   }, [code, login, router, next]);
 
-  return <div>로그인 중입니다...</div>;
+  return (
+    <VStack
+      gap={12}
+      align='center'
+      justify='center'
+      style={{ minHeight: "100dvh" }}
+    >
+      <Lottie
+        animationData={loginSpinner}
+        style={{ width: 100, height: 100 }}
+      />
+
+      <VStack gap={4} align='center'>
+        <Text
+          as='h1'
+          typo='title2Md'
+          color='text.normal'
+          style={{ fontWeight: 700, textAlign: "center" }}
+        >
+          로그인 중입니다..
+        </Text>
+        <Text
+          as='p'
+          typo='body2Md'
+          color='text.alternative'
+          style={{ textAlign: "center" }}
+        >
+          잠시만 기다려 주세요
+        </Text>
+      </VStack>
+    </VStack>
+  );
 }
