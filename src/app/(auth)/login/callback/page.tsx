@@ -49,10 +49,7 @@ export default function AuthCallbackPage() {
       justify='center'
       style={{ minHeight: "100dvh" }}
     >
-      <Lottie
-        animationData={loginSpinner}
-        style={{ width: 100, height: 100 }}
-      />
+      <Lottie animationData={loginSpinner} style={{ width: 76, height: 76 }} />
 
       <VStack gap={4} align='center'>
         <Text
