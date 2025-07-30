@@ -2,7 +2,7 @@
 
 import { type ReactNode } from "react";
 
-import Bapurit from "@/assets/logo/front-bapurit.svg";
+import Bapurit from "@/assets/logo/symbol.svg";
 import { HStack, VStack } from "@/components/ui/Stack";
 
 import * as styles from "./Profile.css";
