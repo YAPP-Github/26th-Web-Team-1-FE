@@ -107,6 +107,7 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
             <a
               href={`${KAKAO_PLACE_URL}/${story.storeKakaoId}`}
               target='_blank'
+              rel='noopener noreferrer'
             >
               <div className={styles.tag}>
                 <LocationIcon className={styles.tagIcon} />
