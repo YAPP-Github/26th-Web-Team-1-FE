@@ -1,12 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
+import { storiesQueryKeys } from "../../_api";
 import { postStory } from "./register.api";
 import type { StoryRegisterRequest } from "./register.types";
-
-export const storyQueryKeys = {
-  all: ["story"] as const,
-  lists: () => [...storyQueryKeys.all, "list"] as const,
-} as const;
 
 export const usePostStoryMutation = () => {
   const queryClient = useQueryClient();
@@ -23,7 +19,7 @@ export const usePostStoryMutation = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: storyQueryKeys.lists(),
+        queryKey: storiesQueryKeys.lists(),
       });
     },
   });
