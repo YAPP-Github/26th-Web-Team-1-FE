@@ -9,7 +9,7 @@ import { useState } from "react";
 import { Avatar } from "@/app/member/_components/Avatar";
 import CancelIcon from "@/assets/cancel.svg";
 import LocationIcon from "@/assets/location.svg";
-import MarketIcon from "@/assets/market.svg";
+import MarketFillIcon from "@/assets/market-fill.svg";
 import { GNB } from "@/components/ui/GNB";
 import { Text } from "@/components/ui/Text";
 
@@ -98,7 +98,7 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
 
           <div className={styles.tagContainer}>
             <div className={styles.tag}>
-              <MarketIcon className={styles.tagIcon} />
+              <MarketFillIcon className={styles.tagIcon} />
               {/* TODO: 가게가 등록되어 있을 경우, 가게 상세페이지로 이동 */}
               <Text typo='label1Sb' color='common.100'>
                 {story.storeName}
