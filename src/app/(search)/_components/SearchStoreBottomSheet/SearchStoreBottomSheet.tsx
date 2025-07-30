@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { type ReactNode, useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDebounce } from "react-simplikit";
