@@ -1,18 +1,21 @@
-"use client";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
-import { Bleed } from "@/components/ui/Bleed";
-import { GNB } from "@/components/ui/GNB";
+import { memberQueryOptions } from "@/app/member/_api/member.queries";
 import { VStack } from "@/components/ui/Stack";
+import getQueryClient from "@/lib/tanstack/getQueryClient";
 
-import { ProgressBar } from "./_components";
+import { RegisterFunnel } from "./_components";
 
 export default function StoreRegisterPage() {
+  const queryClient = getQueryClient();
+
+  void queryClient.prefetchQuery(memberQueryOptions);
+
   return (
-    <VStack>
-      <Bleed inline={20}>
-        <GNB title='가게 등록' rightAddon={<button>대충 x 버튼</button>} />
-      </Bleed>
-      <ProgressBar currentStep={1} totalSteps={3} />
-    </VStack>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <VStack style={{ height: "100%" }}>
+        <RegisterFunnel />
+      </VStack>
+    </HydrationBoundary>
   );
 }
