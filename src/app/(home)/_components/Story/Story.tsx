@@ -1,10 +1,17 @@
 "use client";
 
+import { Suspense } from "@suspensive/react";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
 import { useImageUploadContext } from "@/app/story/register/_contexts";
 import { imageFileSchema } from "@/app/story/register/_schemas";
+import { HStack } from "@/components/ui/Stack";
+
+import { AddStoryAvatar } from "./AddStoryAvatar";
+import * as styles from "./Story.css";
+import { StoryList } from "./StoryList";
+import { StoryListSkeleton } from "./StoryList";
 
 export const Story = () => {
   const router = useRouter();
@@ -37,16 +44,26 @@ export const Story = () => {
 
     router.push("/story/register");
   };
+
   return (
-    <>
-      <button onClick={handleOpenPhotoGallery}>스토리 사진 선택</button>
-      <input
-        ref={fileInputRef}
-        type='file'
-        accept='image/jpeg,image/jpg,image/png'
-        onChange={handleFileChange}
-        hidden
-      />
-    </>
+    <div className={styles.wrapper}>
+      <HStack align='center' gap={16}>
+        <div>
+          <AddStoryAvatar onClick={handleOpenPhotoGallery} />
+        </div>
+
+        <input
+          ref={fileInputRef}
+          type='file'
+          accept='image/jpeg,image/jpg,image/png'
+          onChange={handleFileChange}
+          hidden
+        />
+
+        <Suspense clientOnly fallback={<StoryListSkeleton />}>
+          <StoryList />
+        </Suspense>
+      </HStack>
+    </div>
   );
 };

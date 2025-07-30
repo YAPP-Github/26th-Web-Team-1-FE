@@ -14,7 +14,8 @@ import {
 export default function HomePage() {
   return (
     <>
-      <Bleed inline={20}>
+      <Bleed inlineEnd={20}>
+        <Spacer size={12} />
         <Story />
       </Bleed>
       <Spacer size={12} />
