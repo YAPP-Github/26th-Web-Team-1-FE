@@ -1,0 +1,1 @@
+export { StoryDetailContent } from "./StoryDetailContent";
