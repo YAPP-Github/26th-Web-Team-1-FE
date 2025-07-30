@@ -10,7 +10,5 @@ import { type StoryDetailResponse } from "./detail.types";
 export const getStoryDetail = async (
   storyId: string
 ): Promise<StoryDetailResponse> => {
-  return await await http
-    .get(`api/stories/${storyId}`)
-    .json<StoryDetailResponse>();
+  return await http.get(`api/stories/${storyId}`).json<StoryDetailResponse>();
 };
