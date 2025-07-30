@@ -1,8 +1,10 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import { useFunnel } from "@use-funnel/browser";
 import { useRouter } from "next/navigation";
 
+import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
 import { Bleed } from "@/components/ui/Bleed";
 
 import { ProgressBar } from "../ProgressBar";
@@ -25,8 +27,13 @@ const STEP_MAP = {
   imagesStep: 3,
 } as const;
 
-export const RegisterFunnel = () => {
+export const RegisterFunnel = ({ storeId }: { storeId?: string }) => {
   const router = useRouter();
+
+  const { data: store } = useQuery({
+    ...storeDetailQueryOptions(storeId ?? ""),
+    enabled: !!storeId,
+  });
 
   const funnel = useFunnel<{
     storeStep: FunnelContext;
@@ -37,7 +44,12 @@ export const RegisterFunnel = () => {
     initial: {
       step: "storeStep",
       context: {
-        storeInfo: undefined,
+        storeInfo: store
+          ? {
+              storeName: store.name,
+              storeKakaoId: store.kakaoId,
+            }
+          : undefined,
         supportText: undefined,
       },
     },
@@ -69,8 +81,10 @@ export const RegisterFunnel = () => {
       />
 
       <funnel.Render
-        storeStep={({ history }) => (
+        storeStep={({ history, context }) => (
           <StoreInfoStep
+            storeName={context.storeInfo?.storeName}
+            storeKakaoId={context.storeInfo?.storeKakaoId}
             onNext={storeInfo => {
               history.replace("supportTextStep", {
                 storeInfo,

@@ -82,11 +82,7 @@ const CheerContent = ({ storeId }: { storeId: string }) => {
 
       <Spacer size={shouldShowToggleButton ? 12 : 20} />
 
-      {/* 
-        TODO: 가게 응원하기 버튼 클릭 시 가게 응원 페이지로 이동
-        추후 가게 응원 등록 작업할 때 연결 예정
-      */}
-      <Link href={""}>
+      <Link href={`/stores/register?storeId=${storeId}`}>
         <Button variant='primary' size='large' fullWidth>
           가게 응원하기
         </Button>

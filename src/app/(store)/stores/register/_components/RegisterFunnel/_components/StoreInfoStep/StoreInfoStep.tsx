@@ -1,5 +1,5 @@
 import { overlay } from "overlay-kit";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { SearchStoreBottomSheet } from "@/app/(search)/_components/SearchStoreBottomSheet";
 import SearchIcon from "@/assets/search.svg";
@@ -18,16 +18,28 @@ type StoreInfoStepProps = {
     storeName: string;
     storeKakaoId: string;
   }) => void;
+  storeName?: string;
+  storeKakaoId?: string;
 };
 
-export const StoreInfoStep = ({ onNext }: StoreInfoStepProps) => {
+export const StoreInfoStep = ({
+  onNext,
+  storeName,
+  storeKakaoId,
+}: StoreInfoStepProps) => {
   const [storeInfo, setStoreInfo] = useState<{
     storeName: string;
     storeKakaoId: string;
   }>({
-    storeName: "",
-    storeKakaoId: "",
+    storeName: storeName ?? "",
+    storeKakaoId: storeKakaoId ?? "",
   });
+
+  useEffect(() => {
+    if (storeName && storeKakaoId) {
+      setStoreInfo({ storeName, storeKakaoId });
+    }
+  }, [storeName, storeKakaoId]);
 
   return (
     <VStack justify='between' style={{ height: "100%" }}>
