@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { type Variants } from "framer-motion";
+import { type Variants } from "motion/react";
 
 import { radius, semantic } from "@/styles";
 
