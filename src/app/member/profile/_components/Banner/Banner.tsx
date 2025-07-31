@@ -24,8 +24,7 @@ export const Banner = () => {
           <Text typo='body1Sb' color='neutral.10'>
             당신의 소중한 가게를 소개해주세요
           </Text>
-          {/* TODO: [가게 등록하기] url로 변경 */}
-          <Link href='/' className={styles.linkWrapper}>
+          <Link href='/stores/register' className={styles.linkWrapper}>
             <Text typo='label2Sb' color='neutral.10'>
               가게 등록하기
             </Text>
