@@ -7,6 +7,7 @@ import { VStack } from "@/components/ui/Stack";
 import {
   RecentCheers,
   RecentlySupportedStores,
+  RegisterPopup,
   StoreStory,
   Story,
 } from "./_components";
@@ -25,6 +26,7 @@ export default function HomePage() {
         <StoreStory />
         <RecentlySupportedStores />
       </VStack>
+      <RegisterPopup />
     </>
   );
 }
