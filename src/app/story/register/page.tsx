@@ -31,7 +31,7 @@ export default function StoryRegisterPage() {
     defaultValues: {
       storeKakaoId: "",
       storeName: "",
-      description: "",
+      description: null,
       image: file,
     },
     mode: "onChange",
@@ -43,7 +43,7 @@ export default function StoryRegisterPage() {
         storyRequest: {
           storeKakaoId: data.storeKakaoId,
           storeName: data.storeName,
-          description: data.description || "",
+          description: data.description || null,
         },
         imageFile: data.image,
       },

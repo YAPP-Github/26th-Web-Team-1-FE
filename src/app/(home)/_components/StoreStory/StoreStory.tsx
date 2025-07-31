@@ -7,8 +7,9 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import Slider, { type Settings } from "react-slick";
 
+import { Indicator } from "@/components/ui/Indicator";
 import { Skeleton } from "@/components/ui/Skeleton";
-import { HStack, VStack } from "@/components/ui/Stack";
+import { VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { convertNewlineToJSX } from "@/lib/utils/convertNewlineToJSX";
 import { radius } from "@/styles";
@@ -75,7 +76,7 @@ const StoreStoryContent = () => {
           ))}
         </Slider>
       </div>
-      <StoreStoryIndicator
+      <Indicator
         totalCount={articles.length}
         currentIndex={currentIndex}
         onClickDot={handleDotClick}
@@ -112,36 +113,11 @@ const StoreStoryCard = ({ src, title, description }: StoreStoryCardProps) => {
   );
 };
 
-type StoreStoryIndicatorProps = {
-  totalCount: number;
-  currentIndex: number;
-  onClickDot: (index: number) => void;
-};
-
-const StoreStoryIndicator = ({
-  totalCount,
-  currentIndex,
-  onClickDot,
-}: StoreStoryIndicatorProps) => {
-  return (
-    <HStack gap={6}>
-      {Array.from({ length: totalCount }).map((_, index) => (
-        <span
-          key={index}
-          data-active={currentIndex === index}
-          className={styles.dot}
-          onClick={() => onClickDot(index)}
-        />
-      ))}
-    </HStack>
-  );
-};
-
 const StoreStorySkeleton = () => {
   return (
     <VStack gap={16} align='center'>
       <Skeleton width='100%' height={172} radius={radius[160]} />
-      <StoreStoryIndicator totalCount={3} currentIndex={0} onClickDot={noop} />
+      <Indicator totalCount={3} currentIndex={0} onClickDot={noop} />
     </VStack>
   );
 };
