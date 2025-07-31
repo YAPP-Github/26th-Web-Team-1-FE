@@ -37,6 +37,12 @@ export const typography = createGlobalTheme(":root", {
     letterSpacing: "-0.023em",
     fontWeight: "400",
   },
+  title2Bd: {
+    fontSize: "2rem",
+    lineHeight: "2.8rem",
+    letterSpacing: "-0.012em",
+    fontWeight: "700",
+  },
   title2Sb: {
     fontSize: "2rem",
     lineHeight: "2.8rem",
