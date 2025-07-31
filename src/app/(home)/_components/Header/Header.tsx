@@ -20,8 +20,7 @@ export const Header = () => {
       rightAddon={
         member?.id ? (
           <>
-            {/* TODO: 가게 리스틑 페이지로 이동 */}
-            <Link href='/'>
+            <Link href='/stores'>
               <MarketIcon width={24} height={24} />
             </Link>
             <Link href='/member/profile'>
