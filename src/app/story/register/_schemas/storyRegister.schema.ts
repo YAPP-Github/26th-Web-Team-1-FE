@@ -19,7 +19,7 @@ export const storyRegisterSchema = z.object({
     .string()
     .max(300, "최대 300자까지 입력할 수 있어요")
     .trim()
-    .optional(),
+    .nullable(),
   image: imageFileSchema,
 });
 
