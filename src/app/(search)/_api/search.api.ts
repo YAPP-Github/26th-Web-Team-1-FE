@@ -1,4 +1,4 @@
-import { http } from "@/lib/api";
+import { authHttp } from "@/lib/api";
 
 import { type StoreSearchResponse } from "./search.types";
 
@@ -10,7 +10,7 @@ import { type StoreSearchResponse } from "./search.types";
 export const getStoreSearch = async (
   query: string
 ): Promise<StoreSearchResponse> => {
-  return await http
+  return await authHttp
     .get("api/shop/search", {
       searchParams: { query },
     })
