@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { GNB } from "@/components/ui/GNB";
 
 export const Header = () => {
-  const { data: member } = useQuery(memberQueryOptions);
+  const { data: member } = useQuery({ ...memberQueryOptions, retry: false });
 
   return (
     <GNB
