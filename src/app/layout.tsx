@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import type { Metadata } from "next";
 
 import { RegisterServiceWorkerClient } from "@/lib/pwa";
-import { MSWProvider, QueryProvider } from "@/providers";
+import { MSWProvider, OverlayProvider, QueryProvider } from "@/providers";
 import { pretendard } from "@/styles/pretendard";
 
 import * as styles from "./layout.css";
@@ -36,9 +36,11 @@ export default function RootLayout({
         <div className={styles.wrapper}>
           <RegisterServiceWorkerClient />
           <QueryProvider>
-            <MSWProvider>
-              <UploadProvider>{children}</UploadProvider>
-            </MSWProvider>
+            <OverlayProvider>
+              <MSWProvider>
+                <UploadProvider>{children}</UploadProvider>
+              </MSWProvider>
+            </OverlayProvider>
           </QueryProvider>
         </div>
       </body>
