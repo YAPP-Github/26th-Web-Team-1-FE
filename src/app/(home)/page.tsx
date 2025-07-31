@@ -10,6 +10,7 @@ import {
   StoreStory,
   Story,
 } from "./_components";
+import { ServiceIntroBottomSheet } from "./_components/ServiceIntroBottomSheet";
 
 export default function HomePage() {
   return (
@@ -25,6 +26,7 @@ export default function HomePage() {
         <StoreStory />
         <RecentlySupportedStores />
       </VStack>
+      <ServiceIntroBottomSheet />
     </>
   );
 }
