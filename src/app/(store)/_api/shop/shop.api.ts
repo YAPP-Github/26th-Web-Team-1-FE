@@ -28,7 +28,7 @@ export const getStoreDetail = async (
  * @returns 가게별 응원 정보
  */
 export const getStoreCheers = async (
-  storeId: string,
+  storeId: number,
   size: number
 ): Promise<StoreCheersResponse> => {
   return await http
@@ -48,7 +48,7 @@ export const getStoreCheers = async (
  * @returns 가게별 이미지 정보
  */
 export const getStoreImages = async (
-  storeId: string
+  storeId: number
 ): Promise<StoreImagesResponse> => {
   return await http
     .get(`api/shops/${storeId}/images`)

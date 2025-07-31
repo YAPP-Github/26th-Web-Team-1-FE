@@ -5,9 +5,9 @@ import { getStoreCheers, getStoreDetail, getStoreImages } from "./shop.api";
 export const storeQueryKeys = {
   all: ["store"] as const,
   detail: (storeId: string) => [...storeQueryKeys.all, storeId] as const,
-  cheers: (storeId: string, size: number) =>
+  cheers: (storeId: number, size: number) =>
     [...storeQueryKeys.all, storeId, "cheers", size] as const,
-  images: (storeId: string) =>
+  images: (storeId: number) =>
     [...storeQueryKeys.all, storeId, "images"] as const,
 };
 
@@ -17,13 +17,13 @@ export const storeDetailQueryOptions = (storeId: string) =>
     queryFn: () => getStoreDetail(storeId),
   });
 
-export const storeCheersQueryOptions = (storeId: string, size: number) =>
+export const storeCheersQueryOptions = (storeId: number, size: number) =>
   queryOptions({
     queryKey: storeQueryKeys.cheers(storeId, size),
     queryFn: () => getStoreCheers(storeId, size),
   });
 
-export const storeImagesQueryOptions = (storeId: string) =>
+export const storeImagesQueryOptions = (storeId: number) =>
   queryOptions({
     queryKey: storeQueryKeys.images(storeId),
     queryFn: () => getStoreImages(storeId),
