@@ -1,7 +1,7 @@
 "use client";
 
 import * as RadixDialog from "@radix-ui/react-dialog";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { type HTMLAttributes } from "react";
 import { useControlledState } from "react-simplikit";
 
