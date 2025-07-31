@@ -6,11 +6,12 @@ import getQueryClient from "@/lib/tanstack/getQueryClient";
 
 import { RegisterFunnel } from "./_components";
 
-export default function StoreRegisterPage({
+export default async function StoreRegisterPage({
   searchParams,
 }: {
-  searchParams: { storeId: string };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  const storeId = (await searchParams).storeId as string;
   const queryClient = getQueryClient();
 
   void queryClient.prefetchQuery(memberQueryOptions);
@@ -18,7 +19,7 @@ export default function StoreRegisterPage({
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <VStack style={{ height: "100%" }}>
-        <RegisterFunnel storeId={searchParams.storeId} />
+        <RegisterFunnel storeId={Number(storeId)} />
       </VStack>
     </HydrationBoundary>
   );

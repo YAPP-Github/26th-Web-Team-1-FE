@@ -9,7 +9,7 @@ import { colors } from "@/styles";
 
 import * as styles from "./StoreStories.css";
 
-export const StoreStories = ({ storeId }: { storeId: string }) => {
+export const StoreStories = ({ storeId }: { storeId: number }) => {
   void storeId;
 
   const isEmpty = true;

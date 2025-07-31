@@ -44,7 +44,7 @@ export default function StoreRegisterSuccessPage() {
               clientOnly
               fallback={<Skeleton width={130} height={25} radius={8} />}
             >
-              <StoreInfo storeId={storeId ?? ""} />
+              <StoreInfo storeId={Number(storeId)} />
             </Suspense>
           </ErrorBoundary>
         </VStack>
@@ -61,7 +61,7 @@ export default function StoreRegisterSuccessPage() {
   );
 }
 
-const StoreInfo = ({ storeId }: { storeId: string }) => {
+const StoreInfo = ({ storeId }: { storeId: number }) => {
   const { data: storeDetail } = useSuspenseQuery(
     storeDetailQueryOptions(storeId)
   );
