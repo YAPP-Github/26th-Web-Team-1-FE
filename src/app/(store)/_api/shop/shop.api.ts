@@ -16,7 +16,7 @@ export const STORE_ERROR_CODES = {
  * @returns 가게 상세 정보
  */
 export const getStoreDetail = async (
-  storeId: string
+  storeId: number
 ): Promise<StoreDetailResponse> => {
   return await http.get(`api/shops/${storeId}`).json<StoreDetailResponse>();
 };

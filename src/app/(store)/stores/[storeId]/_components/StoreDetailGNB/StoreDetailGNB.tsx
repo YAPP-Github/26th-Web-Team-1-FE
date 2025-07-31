@@ -14,7 +14,7 @@ export const StoreDetailGNB = () => {
   const router = useRouter();
   const { storeId } = useParams<{ storeId: string }>();
 
-  const { data: store } = useQuery(storeDetailQueryOptions(storeId));
+  const { data: store } = useQuery(storeDetailQueryOptions(Number(storeId)));
 
   const handleClickBack = () => {
     router.back();
