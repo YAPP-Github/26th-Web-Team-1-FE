@@ -51,10 +51,12 @@ export const RegisterPopup = () => {
               단 3곳만, 당신의 진짜 맛집을 남겨주세요.
             </Text>
           </VStack>
+
           <Spacer size={24} />
 
           <Bleed inline={20}>
             <Slider
+              className='register-popup-slider'
               autoplay
               slidesToShow={1}
               centerMode
