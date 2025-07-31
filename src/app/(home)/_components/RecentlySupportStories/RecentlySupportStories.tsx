@@ -59,7 +59,7 @@ const CHEER_SIZE = 10;
 const RecentlySupportedStoresContent = () => {
   const {
     data: { stores },
-  } = useSuspenseQuery(storesQueryOptions(CHEER_SIZE));
+  } = useSuspenseQuery(storesQueryOptions({ size: CHEER_SIZE }));
 
   return (
     <Bleed inline={20}>
