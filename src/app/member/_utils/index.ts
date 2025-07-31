@@ -1,1 +1,2 @@
-export { phoneNumberUtils } from "./phoneNumberUtils";
+export * from "./phoneNumberUtils";
+export * from "./profileUtils";
