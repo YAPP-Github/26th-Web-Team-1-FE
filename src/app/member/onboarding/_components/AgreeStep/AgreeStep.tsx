@@ -54,7 +54,7 @@ export const AgreeStep = ({
       },
       {
         onSuccess: () => {
-          router.push("/");
+          router.push("/?register=true");
         },
       }
     );
