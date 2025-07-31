@@ -15,7 +15,7 @@ import { TextButton } from "@/components/ui/TextButton";
 
 import * as styles from "./StoreCheers.css";
 
-export const StoreCheers = ({ storeId }: { storeId: string }) => {
+export const StoreCheers = ({ storeId }: { storeId: number }) => {
   return (
     <VStack gap={16} className={styles.storeCheersContainer}>
       <Text as='h3' typo='title2Sb' color='text.normal'>
@@ -31,7 +31,7 @@ export const StoreCheers = ({ storeId }: { storeId: string }) => {
 
 const CHEERS_SIZE = 50;
 
-const CheerContent = ({ storeId }: { storeId: string }) => {
+const CheerContent = ({ storeId }: { storeId: number }) => {
   const {
     data: { cheers },
   } = useSuspenseQuery(storeCheersQueryOptions(storeId, CHEERS_SIZE));

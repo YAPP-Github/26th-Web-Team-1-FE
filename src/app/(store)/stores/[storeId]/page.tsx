@@ -26,9 +26,9 @@ export default function StoreDetailPage() {
           </Bleed>
         }
       >
-        <StoreInfo storeId={storeId} />
-        <StoreCheers storeId={storeId} />
-        <StoreStories storeId={storeId} />
+        <StoreInfo storeId={Number(storeId)} />
+        <StoreCheers storeId={Number(storeId)} />
+        <StoreStories storeId={Number(storeId)} />
       </Separated>
     </VStack>
   );

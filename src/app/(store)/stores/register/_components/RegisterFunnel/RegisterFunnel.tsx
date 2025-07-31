@@ -27,11 +27,11 @@ const STEP_MAP = {
   imagesStep: 3,
 } as const;
 
-export const RegisterFunnel = ({ storeId }: { storeId?: string }) => {
+export const RegisterFunnel = ({ storeId }: { storeId?: number }) => {
   const router = useRouter();
 
   const { data: store } = useQuery({
-    ...storeDetailQueryOptions(storeId ?? ""),
+    ...storeDetailQueryOptions(storeId!),
     enabled: !!storeId,
   });
 

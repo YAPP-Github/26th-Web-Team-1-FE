@@ -20,7 +20,7 @@ import { semantic } from "@/styles";
 
 import * as styles from "./StoreInfo.css";
 
-export const StoreInfo = ({ storeId }: { storeId: string }) => {
+export const StoreInfo = ({ storeId }: { storeId: number }) => {
   return (
     <VStack>
       <Suspense clientOnly fallback={<StoreImagesSkeleton />}>
@@ -33,7 +33,7 @@ export const StoreInfo = ({ storeId }: { storeId: string }) => {
   );
 };
 
-const StoreInfoImageCarousel = ({ storeId }: { storeId: string }) => {
+const StoreInfoImageCarousel = ({ storeId }: { storeId: number }) => {
   const {
     data: { imageUrls },
   } = useSuspenseQuery(storeImagesQueryOptions(storeId));
@@ -57,7 +57,7 @@ const StoreInfoImageCarousel = ({ storeId }: { storeId: string }) => {
   );
 };
 
-const StoreInfoContent = ({ storeId }: { storeId: string }) => {
+const StoreInfoContent = ({ storeId }: { storeId: number }) => {
   const {
     data: { name, district, neighborhood, category, placeUrl },
   } = useSuspenseQuery(storeDetailQueryOptions(storeId));
