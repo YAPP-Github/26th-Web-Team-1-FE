@@ -6,6 +6,7 @@ import { type HTMLAttributes } from "react";
 import { useControlledState } from "react-simplikit";
 
 import CancelIcon from "@/assets/cancel.svg";
+import { semantic } from "@/styles";
 
 import { Stack, type StackProps } from "../Stack";
 import { PopupProvider, usePopup } from "./context";
@@ -48,7 +49,7 @@ const PopupCloseButton = ({
         aria-label='팝업 닫기'
         {...props}
       >
-        <CancelIcon width={20} height={20} />
+        <CancelIcon width={20} height={20} color={semantic.icon.gray} />
       </button>
     </RadixDialog.Close>
   );
