@@ -3,6 +3,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -99,10 +100,17 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
           <div className={styles.tagContainer}>
             <div className={styles.tag}>
               <MarketFillIcon className={styles.tagIcon} />
-              {/* TODO: 가게가 등록되어 있을 경우, 가게 상세페이지로 이동 */}
-              <Text typo='label1Sb' color='common.100'>
-                {story.storeName}
-              </Text>
+              {story.storeId ? (
+                <Link href={`/stores/${story.storeId}`}>
+                  <Text typo='label1Sb' color='common.100'>
+                    {story.storeName}
+                  </Text>
+                </Link>
+              ) : (
+                <Text typo='label1Sb' color='common.100'>
+                  {story.storeName}
+                </Text>
+              )}
             </div>
             <a
               href={`${KAKAO_PLACE_URL}/${story.storeKakaoId}`}

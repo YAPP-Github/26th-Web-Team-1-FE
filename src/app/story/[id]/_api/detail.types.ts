@@ -8,4 +8,5 @@ export type StoryDetailResponse = {
   imageUrl: string;
   memberId: number;
   memberNickname: string;
+  storeId: number | null;
 };

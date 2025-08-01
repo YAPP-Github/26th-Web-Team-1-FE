@@ -1,5 +1,13 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
+import { Avatar } from "@/app/member/_components/Avatar";
+import { storiesByKakaoIdQueryOptions } from "@/app/story/_api";
 import CameraIcon from "@/assets/camera.svg";
 import { Button } from "@/components/ui/Button";
 import { Spacer } from "@/components/ui/Spacer";
@@ -10,26 +18,44 @@ import { colors } from "@/styles";
 import * as styles from "./StoreStories.css";
 
 export const StoreStories = ({ storeId }: { storeId: number }) => {
-  void storeId;
+  const router = useRouter();
+  const { data: store } = useQuery(storeDetailQueryOptions(Number(storeId)));
 
-  const isEmpty = true;
+  if (!store) {
+    return (
+      <VStack className={styles.storeStoriesContainer}>
+        <Text>가게 정보를 불러오는 중...</Text>
+      </VStack>
+    );
+  }
+
+  const handleClick = () => {
+    router.push("/");
+  };
 
   return (
     <VStack className={styles.storeStoriesContainer}>
-      {isEmpty ? <EmptyStoreStories /> : <StoreStoriesContent />}
+      <StoreStoriesContent kakaoId={store.kakaoId} />
 
       <Spacer size={20} />
 
       <Button variant='assistive' size='large' fullWidth>
-        <HStack gap={6} align='center'>
-          방문 스토리 남기기 <CameraIcon color={colors.neutral[10]} />
+        <HStack gap={6} align='center' onClick={handleClick}>
+          <Text typo='body1Sb'>방문 스토리 남기기</Text>
+          <CameraIcon color={colors.neutral[10]} />
         </HStack>
       </Button>
     </VStack>
   );
 };
 
-const StoreStoriesContent = () => {
+const StoreStoriesContent = ({ kakaoId }: { kakaoId: string }) => {
+  const { data: stories } = useQuery(storiesByKakaoIdQueryOptions(kakaoId, 20));
+
+  if (!stories || stories.stories.length === 0) {
+    return <EmptyStoreStories />;
+  }
+
   return (
     <VStack>
       <Text as='h3' typo='title2Sb' color='text.normal'>
@@ -37,8 +63,32 @@ const StoreStoriesContent = () => {
       </Text>
 
       <Spacer size={16} />
-
-      <div>스토리들</div>
+      <HStack gap={4}>
+        {stories.stories.map(data => (
+          <Link href={`/story/${data.storyId}`} key={data.storyId}>
+            <div className={styles.storyWrapper}>
+              <Image
+                src={data.imageUrl}
+                alt='스토리 이미지'
+                className={styles.image}
+                width={124}
+                height={220}
+              />
+              <div className={styles.overlay} />
+              <HStack align='center' gap={4} className={styles.memberWrapper}>
+                <Avatar memberId={data.memberId} />
+                <Text
+                  typo='label1Sb'
+                  color='text.white'
+                  className={styles.nickname}
+                >
+                  {data.memberNickname}
+                </Text>
+              </HStack>
+            </div>
+          </Link>
+        ))}
+      </HStack>
     </VStack>
   );
 };

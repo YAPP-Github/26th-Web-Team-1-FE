@@ -11,7 +11,7 @@ import * as styles from "./StoryList.css";
 
 export const StoryList = () => {
   const router = useRouter();
-  const { data: stories } = useSuspenseQuery(storiesQueryOptions);
+  const { data: stories } = useSuspenseQuery(storiesQueryOptions(20));
 
   const handleStoryClick = (storyId: number) => {
     router.push(`/story/${storyId}`);

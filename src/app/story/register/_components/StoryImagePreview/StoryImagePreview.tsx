@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useFormContext } from "react-hook-form";
+import { toast, Toaster } from "sonner";
 
 import { imageFileSchema, type StoryRegisterFormData } from "../../_schemas";
 import * as styles from "./StoryImagePreview.css";
@@ -18,7 +19,7 @@ export const StoryImagePreview = () => {
     if (!result.success) {
       const errorMessage = result.error.errors[0]?.message;
       // TODO: Toast 변경
-      alert(errorMessage);
+      toast.warning(errorMessage);
       return;
     }
 
@@ -55,6 +56,7 @@ export const StoryImagePreview = () => {
           />
         </label>
       </div>
+      <Toaster position='bottom-center' richColors />
     </div>
   );
 };
