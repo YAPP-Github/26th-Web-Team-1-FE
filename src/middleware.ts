@@ -1,19 +1,64 @@
-// src/middleware.ts
 import { type NextRequest, NextResponse } from "next/server";
 
 import { postReissue } from "@/app/(auth)/_api/auth/auth.api";
 import { TOKEN_TIMES } from "@/constants";
 import { getSessionFromServer } from "@/lib/session";
 
-// 인증이 필요 없는 경로
-const PUBLIC_PATHS = ["/", "/login", "/signup", "/public", "/login/callback"];
+type PathPattern = {
+  pattern: RegExp;
+  description: string;
+};
 
-const isPublicPath = (pathname: string) => {
-  return PUBLIC_PATHS.some(path => pathname.startsWith(path));
+const PUBLIC_PATTERNS: PathPattern[] = [
+  { pattern: /^\/$/, description: "홈페이지" },
+  { pattern: /^\/login(?:\/.*)?$/, description: "로그인 관련 페이지" },
+  { pattern: /^\/signup(?:\/.*)?$/, description: "회원가입 관련 페이지" },
+  { pattern: /^\/public(?:\/.*)?$/, description: "정적 파일" },
+  { pattern: /^\/stores$/, description: "가게 목록 페이지" },
+  {
+    pattern: /^\/stores\/\d+(?:\/.*)?$/,
+    description: "가게 상세 페이지 (동적)",
+  },
+  {
+    pattern: /^\/story\/\d+(?:\/.*)?$/,
+    description: "스토리 상세 페이지 (동적)",
+  },
+];
+
+const PROTECTED_PATTERNS: PathPattern[] = [
+  { pattern: /^\/stores\/register(?:\/.*)?$/, description: "가게 등록 관련" },
+  { pattern: /^\/story\/register(?:\/.*)?$/, description: "스토리 등록" },
+  { pattern: /^\/member(?:\/.*)?$/, description: "회원 관련 페이지" },
+];
+
+const isPublicPath = (pathname: string): boolean => {
+  const isProtected = PROTECTED_PATTERNS.some(({ pattern }) =>
+    pattern.test(pathname)
+  );
+
+  if (isProtected) {
+    return false;
+  }
+
+  const isPublic = PUBLIC_PATTERNS.some(({ pattern }) =>
+    pattern.test(pathname)
+  );
+
+  if (isPublic) {
+    return true;
+  }
+
+  // 기본적으로 모든 다른 경로는 인증 필요
+  return false;
 };
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // API 라우트에 대한 처리
+  if (pathname.startsWith("/api/")) {
+    return NextResponse.next();
+  }
 
   if (isPublicPath(pathname)) {
     return NextResponse.next();
@@ -23,6 +68,9 @@ export async function middleware(request: NextRequest) {
 
   if (!session.isLoggedIn) {
     const loginUrl = new URL("/login", request.url);
+
+    const originalUrl = request.nextUrl.pathname + request.nextUrl.search;
+    loginUrl.searchParams.set("next", originalUrl);
 
     return NextResponse.redirect(loginUrl);
   }
@@ -37,13 +85,20 @@ export async function middleware(request: NextRequest) {
   ) {
     try {
       if (!session.refreshToken) {
-        throw new Error("No refresh token");
+        console.warn("Refresh token이 없습니다. 로그인이 필요합니다.");
+        throw new Error("No refresh token available");
       }
+
+      console.info("토큰 갱신을 시도합니다...");
 
       // 백엔드에 직접 토큰 재발급 요청
       const newTokens = await postReissue({
         refreshToken: session.refreshToken,
       });
+
+      if (!newTokens.accessToken || !newTokens.refreshToken) {
+        throw new Error("Invalid token response from server");
+      }
 
       // 세션에 새로운 토큰 정보와 만료 시각 갱신
       session.accessToken = newTokens.accessToken;
@@ -54,11 +109,23 @@ export async function middleware(request: NextRequest) {
       await session.save();
       console.info("토큰이 성공적으로 갱신되었습니다.");
     } catch (error) {
-      console.error("토큰 갱신 실패:", error);
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      console.error("토큰 갱신 실패:", {
+        error: errorMessage,
+        pathname: request.nextUrl.pathname,
+        timestamp: new Date().toISOString(),
+      });
+
       // 재발급 실패 시 세션을 파기하고 로그인 페이지로 리디렉트
       session.destroy();
       const loginUrl = new URL("/login", request.url);
+
+      // 원래 접근하려던 URL과 쿼리스트링을 next 파라미터에 저장
+      const originalUrl = request.nextUrl.pathname + request.nextUrl.search;
+      loginUrl.searchParams.set("next", originalUrl);
       loginUrl.searchParams.set("error", "session_expired");
+
       return NextResponse.redirect(loginUrl);
     }
   }
