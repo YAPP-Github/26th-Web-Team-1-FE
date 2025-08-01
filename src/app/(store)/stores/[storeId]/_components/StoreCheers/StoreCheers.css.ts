@@ -10,7 +10,6 @@ export const storeCheersContainer = style({
 export const cheerCardProfileImage = style({
   width: "2.8rem",
   height: "2.8rem",
-  borderRadius: "50%",
 });
 
 export const cheerCardDivider = style({

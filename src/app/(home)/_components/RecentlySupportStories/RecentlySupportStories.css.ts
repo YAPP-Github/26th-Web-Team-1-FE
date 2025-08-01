@@ -27,7 +27,6 @@ export const supportedStoreCardImageWrapper = style({
   width: "15.4rem",
   height: "11.4rem",
   borderRadius: radius[160],
-  objectFit: "cover",
   overflow: "hidden",
 });
 

@@ -8,9 +8,7 @@ export const wrapper = style({
 });
 
 export const linkWrapper = style({
-  display: "flex",
-  alignItems: "center",
-  gap: "0.4rem",
+  width: "100%",
 });
 
 export const icon = style({

@@ -1,12 +1,14 @@
 "use client";
-
 import { ErrorBoundary, Suspense } from "@suspensive/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { storeDetailQueryOptions } from "@/app/(store)/_api/shop/shop.queries";
+import CancelIcon from "@/assets/cancel.svg";
 import LocationIcon from "@/assets/location-20.svg";
+import { Bleed } from "@/components/ui/Bleed";
 import { Button } from "@/components/ui/Button";
 import { GNB } from "@/components/ui/GNB";
 import { Skeleton } from "@/components/ui/Skeleton";
@@ -16,15 +18,24 @@ import { Text } from "@/components/ui/Text";
 import { semantic } from "@/styles";
 
 export default function StoreRegisterSuccessPage() {
-  const searchParams = useSearchParams();
+  const router = useRouter();
 
+  const searchParams = useSearchParams();
   const storeId = searchParams.get("storeId");
 
   return (
     <VStack justify='between' style={{ height: "100%" }}>
-      <GNB />
+      <Bleed inline={20}>
+        <GNB
+          rightAddon={
+            <button onClick={() => router.back()} aria-label='닫기'>
+              <CancelIcon width={24} height={24} color={semantic.icon.black} />
+            </button>
+          }
+        />
+      </Bleed>
 
-      <VStack style={{ flex: 1 }}>
+      <VStack style={{ flex: 1 }} align='center'>
         <Spacer size={36} />
 
         <VStack gap={12} align='center'>
@@ -49,7 +60,14 @@ export default function StoreRegisterSuccessPage() {
           </ErrorBoundary>
         </VStack>
 
-        <div>여기 로띠</div>
+        <Spacer size={16} />
+
+        <Image
+          src='/images/store-register-success.png'
+          alt='가게 등록 성공'
+          width={280}
+          height={280}
+        />
       </VStack>
 
       <Link href={`/stores/${storeId}`}>
