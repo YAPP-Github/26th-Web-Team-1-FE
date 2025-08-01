@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { storeCheersQueryOptions } from "@/app/(store)/_api/shop";
+import { Avatar } from "@/app/member/_components/Avatar";
 import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { Spacer } from "@/components/ui/Spacer";
@@ -63,6 +64,7 @@ const CheerContent = ({ storeId }: { storeId: number }) => {
             key={card.id}
             author={card.memberNickname}
             content={card.description}
+            memberId={card.memberId}
           />
         ))}
       </VStack>
@@ -94,9 +96,11 @@ const CheerContent = ({ storeId }: { storeId: number }) => {
 const CheerCard = ({
   author,
   content,
+  memberId,
 }: {
   author: string;
   content: string;
+  memberId: number;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -105,7 +109,7 @@ const CheerCard = ({
   return (
     <VStack gap={12}>
       <HStack align='center' gap={8}>
-        <span className={styles.cheerCardProfileImage}>아이콘</span>
+        <Avatar memberId={memberId} className={styles.cheerCardProfileImage} />
         <Text as='span' typo='body1Sb' color='text.normal'>
           {author}
         </Text>
