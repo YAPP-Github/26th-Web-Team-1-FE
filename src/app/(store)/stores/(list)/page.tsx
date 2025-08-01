@@ -24,7 +24,7 @@ export default function StoreListPage() {
           onSelectCategory={({ name }) => handleSelectCategory(name)}
         />
       </Bleed>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense>
         <StoreList category={selectedCategory.name} />
       </Suspense>
     </VStack>
