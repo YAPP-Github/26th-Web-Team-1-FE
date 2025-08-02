@@ -65,6 +65,8 @@ export const StoreInfoStep = ({
             <SearchIcon width={20} height={20} color={semantic.icon.black} />
           }
           value={storeInfo.storeName}
+          readOnly
+          placeholder='가게명을 입력해주세요'
           onClick={() => {
             overlay.open(({ isOpen, close }) => {
               return (

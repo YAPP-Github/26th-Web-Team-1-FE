@@ -4,6 +4,7 @@ import { Suspense } from "@suspensive/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { chunk, noop } from "es-toolkit";
 import Image from "next/image";
+import Link from "next/link";
 import { type HTMLAttributes, useState } from "react";
 import { Separated } from "react-simplikit";
 
@@ -43,20 +44,21 @@ const RecentSupportCardContent = () => {
     <VStack gap={24}>
       <VStack>
         {chunkedList[currentIndex]?.map((cheer, index) => (
-          <RecentSupportCard
-            key={cheer.cheerId}
-            style={{
-              backgroundColor: BACKGROUND_COLORS[index % 3],
-              transform: index === 1 ? "rotate(-4deg)" : "translate3d(0,0,0)",
-            }}
-            store={{
-              name: cheer.storeName,
-              imageUrl: cheer.imageUrl,
-              location: `${cheer.storeDistrict} ${cheer.storeNeighborhood}`,
-              category: cheer.storeCategory,
-            }}
-            content={cheer.cheerDescription}
-          />
+          <Link key={cheer.cheerId} href={`/stores/${cheer.storeId}`}>
+            <RecentSupportCard
+              style={{
+                backgroundColor: BACKGROUND_COLORS[index % 3],
+                transform: index === 1 ? "rotate(-4deg)" : "translate3d(0,0,0)",
+              }}
+              store={{
+                name: cheer.storeName,
+                imageUrl: cheer.imageUrl,
+                location: `${cheer.storeDistrict} ${cheer.storeNeighborhood}`,
+                category: cheer.storeCategory,
+              }}
+              content={cheer.cheerDescription}
+            />
+          </Link>
         ))}
       </VStack>
 

@@ -134,6 +134,7 @@ export const SearchStoreBottomSheet = ({
               onChange: e => handleSearchChange(e.target.value),
             })}
             placeholder='가게명을 입력해주세요'
+            autoFocus
             rightAddon={
               searchTermValue ? (
                 <button
