@@ -6,7 +6,11 @@ export type BottomSheetRootProps = {
 } & DialogProps;
 
 export function BottomSheetRoot({ children, ...props }: BottomSheetRootProps) {
-  return <Drawer.Root {...props}>{children}</Drawer.Root>;
+  return (
+    <Drawer.Root {...props} repositionInputs={false}>
+      {children}
+    </Drawer.Root>
+  );
 }
 
 BottomSheetRoot.displayName = "BottomSheet.Root";
