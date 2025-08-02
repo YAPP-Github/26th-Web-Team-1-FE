@@ -2,6 +2,7 @@ import "@/styles/reset.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import Script from "next/script";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={pretendard.className}>
+      <GoogleAnalytics gaId='G-H7HEQSEBC7' />
       <Script id='clarity-script' strategy='lazyOnload'>
         {`
             (function(c,l,a,r,i,t,y){
