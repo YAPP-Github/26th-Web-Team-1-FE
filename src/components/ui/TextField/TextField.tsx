@@ -11,7 +11,7 @@ export type TextFieldProps<T extends ElementType> =
     T,
     {
       label?: string | ReactNode;
-      helperText?: string;
+      helperText?: string | ReactNode;
       status?: Status;
       rightAddon?: ReactNode;
     }
@@ -64,9 +64,9 @@ export const TextField = <T extends ElementType = "input">({
       </div>
 
       {helperText && (
-        <p id={helperId} className={styles.helperText({ status })}>
+        <div id={helperId} className={styles.helperText({ status })}>
           {helperText}
-        </p>
+        </div>
       )}
     </div>
   );
