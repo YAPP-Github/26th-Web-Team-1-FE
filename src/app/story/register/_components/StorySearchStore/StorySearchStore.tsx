@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { SearchStoreBottomSheet } from "@/app/(search)/_components/SearchStoreBottomSheet";
@@ -13,13 +13,11 @@ import * as styles from "./StorySearchStore.css";
 
 export const StorySearchStore = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
   const { register, setValue, watch } = useFormContext<StoryRegisterFormData>();
 
   const selectedStoreValue = watch("storeName");
 
   const handleOpenClick = () => {
-    inputRef.current?.blur();
     setIsOpen(true);
   };
 

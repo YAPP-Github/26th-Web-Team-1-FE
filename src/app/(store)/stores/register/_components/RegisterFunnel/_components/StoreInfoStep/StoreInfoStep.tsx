@@ -1,5 +1,5 @@
 import { overlay } from "overlay-kit";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { SearchStoreBottomSheet } from "@/app/(search)/_components/SearchStoreBottomSheet";
 import SearchIcon from "@/assets/search.svg";
@@ -27,8 +27,6 @@ export const StoreInfoStep = ({
   storeName,
   storeKakaoId,
 }: StoreInfoStepProps) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-
   const [storeInfo, setStoreInfo] = useState<{
     storeName: string;
     storeKakaoId: string;
@@ -70,8 +68,6 @@ export const StoreInfoStep = ({
           readOnly
           placeholder='가게명을 입력해주세요'
           onClick={() => {
-            inputRef.current?.blur();
-
             overlay.open(({ isOpen, close }) => {
               return (
                 <SearchStoreBottomSheet
