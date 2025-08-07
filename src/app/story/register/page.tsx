@@ -6,6 +6,7 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import CancelIcon from "@/assets/cancel.svg";
 import { GNB } from "@/components/ui/GNB";
+import { Spacer } from "@/components/ui/Spacer";
 import { VStack } from "@/components/ui/Stack";
 
 import { usePostStoryMutation } from "./_api";
@@ -74,8 +75,9 @@ export default function StoryRegisterPage() {
           <VStack as='main' justify='between' className={styles.mainWrapper}>
             <VStack>
               <StoryImagePreview />
-              <StoryDescription />
+              <Spacer size={20} />
               <StorySearchStore />
+              <StoryDescription />
             </VStack>
             <StorySubmitButton isPending={isPending} />
           </VStack>
