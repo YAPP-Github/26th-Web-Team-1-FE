@@ -25,13 +25,16 @@ export const StoryList = () => {
           className={styles.storyItem}
           onClick={() => handleStoryClick(story.storyId)}
         >
-          <Image
-            src={story.imageUrl}
-            width={80}
-            height={80}
-            alt={`스토리 이미지 ${story.storyId}`}
-            className={styles.storyImage}
-          />
+          <div className={styles.storyImageInner}>
+            <Image
+              src={story.imageUrl}
+              width={80}
+              height={80}
+              alt={`스토리 이미지 ${story.storyId}`}
+              className={styles.storyImage}
+              objectFit='cover'
+            />
+          </div>
         </div>
       ))}
     </>
