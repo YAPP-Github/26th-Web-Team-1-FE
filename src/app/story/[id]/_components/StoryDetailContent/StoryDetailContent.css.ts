@@ -38,10 +38,6 @@ export const imageCard = style({
   overflow: "hidden",
 });
 
-export const image = style({
-  objectFit: "contain",
-});
-
 export const imageContent = style({
   position: "absolute",
   bottom: 0,

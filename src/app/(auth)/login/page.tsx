@@ -22,6 +22,13 @@ export default function LoginPage() {
   return (
     <main className={styles.wrapper}>
       <div className={styles.backgroundWrapper}>
+        <Image
+          src='/images/login-background.png'
+          alt='로그인 배경화면'
+          fill
+          priority
+        />
+
         <GNB
           align='left'
           background='transparent'

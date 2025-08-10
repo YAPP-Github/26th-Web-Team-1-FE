@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors } from "@/styles";
+import { colors, semantic } from "@/styles";
 
 export const contentWrapper = style({
   height: "calc(100dvh - 52px)",
@@ -21,6 +21,15 @@ export const clearButtonWrapper = style({
 
 export const icon = style({
   color: colors.neutral[90],
+});
+
+export const helperTextWrapper = style({
+  display: "flex",
+  gap: "0.4rem",
+});
+
+export const infoIcon = style({
+  color: semantic.icon.gray,
 });
 
 export const searchResultItems = style({

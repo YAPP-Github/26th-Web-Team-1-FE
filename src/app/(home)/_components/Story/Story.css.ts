@@ -4,7 +4,7 @@ import { radius } from "@/styles";
 
 export const wrapper = style({
   width: "100%",
-  height: "9rem",
+  height: "9.5rem",
   overflowX: "auto",
   "::-webkit-scrollbar": {
     display: "none",

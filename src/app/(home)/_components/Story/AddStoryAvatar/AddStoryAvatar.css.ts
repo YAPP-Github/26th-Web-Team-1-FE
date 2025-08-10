@@ -35,7 +35,7 @@ export const addButton = style({
   left: "2.9rem",
   width: "2.1rem",
   height: "2.1rem",
-  padding: "0.5rem",
+  padding: "0.3rem",
   borderRadius: radius.circle,
   background: `${colors.neutral[30]}`,
   border: `2px solid ${colors.common[100]}`,

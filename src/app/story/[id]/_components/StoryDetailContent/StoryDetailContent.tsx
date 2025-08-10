@@ -61,8 +61,8 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
           src={story.imageUrl}
           alt={`${story.storeName} 스토리`}
           fill
-          className={styles.image}
           priority
+          objectFit='contain'
         />
         <div className={styles.imageContent}>
           <div className={styles.userWrapper}>
@@ -72,7 +72,7 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
             </Text>
           </div>
 
-          {story?.description && (
+          {story.description && (
             <div className={styles.descriptionContainer}>
               <motion.div
                 className={`${styles.descriptionText} ${
@@ -128,15 +128,13 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
         </div>
 
         <AnimatePresence>
-          {isDescriptionExpanded && (
-            <motion.div
-              className={styles.descriptionOverlay}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          )}
+          <motion.div
+            className={styles.descriptionOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          />
         </AnimatePresence>
       </div>
     </div>

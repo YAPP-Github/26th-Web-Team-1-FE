@@ -12,10 +12,6 @@ export const backgroundWrapper = style({
   position: "relative",
   width: "100%",
   height: "100%",
-  backgroundImage: "url(\"/images/login-background.webp\")",
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
@@ -27,6 +23,7 @@ export const textButton = style({
 });
 
 export const logoWrapper = style({
+  position: "relative",
   width: "100%",
   height: "100%",
   display: "flex",

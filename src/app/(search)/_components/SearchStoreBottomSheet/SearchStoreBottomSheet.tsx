@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useDebounce } from "react-simplikit";
 
 import CircleCloseIcon from "@/assets/circle-close.svg";
+import InfoIcon from "@/assets/info.svg";
 import SearchIcon from "@/assets/search.svg";
 import { BottomSheet } from "@/components/ui/BottomSheet";
 import { Button } from "@/components/ui/Button";
@@ -64,10 +65,12 @@ export const SearchStoreBottomSheet = ({
 
   const searchTermValue = watch("searchTerm");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
 
   // TODO: 검색 디바운스 시간 의논
   const debouncedSearch = useDebounce((value: string) => {
     setDebouncedSearchTerm(value);
+    setIsTyping(false);
   }, 2000);
 
   const { data: list, isLoading } = useQuery(
@@ -76,11 +79,15 @@ export const SearchStoreBottomSheet = ({
 
   const handleSearchChange = useCallback(
     (value: string) => {
+      setIsTyping(true);
+
       if (!value.trim()) {
         debouncedSearch.cancel();
         setDebouncedSearchTerm("");
+        setIsTyping(false);
         return;
       }
+
       debouncedSearch(value);
     },
     [debouncedSearch]
@@ -110,7 +117,7 @@ export const SearchStoreBottomSheet = ({
     }
   }, [open, reset, debouncedSearch]);
 
-  const isSearching = !!debouncedSearchTerm && isLoading;
+  const isSearching = (!!debouncedSearchTerm && isLoading) || isTyping;
 
   return (
     <BottomSheet.Root open={open} onOpenChange={onOpenChange}>
@@ -134,7 +141,6 @@ export const SearchStoreBottomSheet = ({
               onChange: e => handleSearchChange(e.target.value),
             })}
             placeholder='가게명을 입력해주세요'
-            autoFocus
             rightAddon={
               searchTermValue ? (
                 <button
@@ -151,6 +157,14 @@ export const SearchStoreBottomSheet = ({
               ) : (
                 <SearchIcon width={20} height={20} />
               )
+            }
+            helperText={
+              <div className={styles.helperTextWrapper}>
+                <InfoIcon width={16} height={16} className={styles.infoIcon} />
+                <Text typo='caption1Md' color='text.alternative'>
+                  현재는 서울 지역 가게만 검색할 수 있어요.
+                </Text>
+              </div>
             }
           />
 
