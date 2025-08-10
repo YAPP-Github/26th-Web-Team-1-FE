@@ -8,6 +8,7 @@ import Link from "next/link";
 import { type HTMLAttributes, useState } from "react";
 import { Separated } from "react-simplikit";
 
+import ResetIcon from "@/assets/reset-20.svg";
 import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
@@ -30,7 +31,7 @@ export const RecentCheers = () => {
 const RecentSupportCardContent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const { data } = useSuspenseQuery(cheerQueryOptions(10));
+  const { data } = useSuspenseQuery(cheerQueryOptions(15));
 
   const chunkedList = chunk(data.cheers, 3);
 
@@ -45,7 +46,10 @@ const RecentSupportCardContent = () => {
           가게에 전하는 따뜻한 응원
         </Text>
         <TextButton variant='assistive' size='small' onClick={handleRefresh}>
-          새로고침
+          <HStack gap={4} align='center'>
+            새로고침
+            <ResetIcon width={16} height={16} />
+          </HStack>
         </TextButton>
       </HStack>
       <VStack gap={20}>
@@ -147,7 +151,10 @@ const RecentSupportCardContentSkeleton = () => {
           가게에 전하는 따뜻한 응원
         </Text>
         <TextButton variant='assistive' size='small' disabled>
-          새로고침
+          <HStack gap={4} align='center'>
+            새로고침
+            <ResetIcon width={16} height={16} />
+          </HStack>
         </TextButton>
       </HStack>
 
