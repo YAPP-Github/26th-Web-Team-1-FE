@@ -56,3 +56,7 @@ export const divider = style({
   width: "0.1rem",
   height: "1rem",
 });
+
+export const showAllButton = style({
+  border: `1px solid ${semantic.border.grayLight}`,
+});
