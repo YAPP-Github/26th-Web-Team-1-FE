@@ -8,12 +8,14 @@ import Link from "next/link";
 import { type HTMLAttributes, useState } from "react";
 import { Separated } from "react-simplikit";
 
+import LogoWordMark from "@/assets/logo-wordmark.svg";
 import ResetIcon from "@/assets/reset-20.svg";
 import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { TextButton } from "@/components/ui/TextButton";
+import { colors } from "@/styles";
 
 import { cheerQueryOptions } from "../../_api/cheer";
 import * as styles from "./RecentCheers.css";
@@ -106,15 +108,26 @@ const RecentSupportCard = ({
   return (
     <VStack gap={8} className={styles.recentSupportCard} {...restProps}>
       <HStack gap={12}>
-        <Image
-          width={40}
-          height={40}
-          alt={`${store.name} 가게 이미지`}
-          className={styles.storeImage}
-          src={store.imageUrl}
-          // TODO: 추후 제거
-          unoptimized
-        />
+        {store.imageUrl ? (
+          <Image
+            width={40}
+            height={40}
+            alt={`${store.name} 가게 이미지`}
+            className={styles.storeImage}
+            objectFit='cover'
+            src={store.imageUrl}
+            // TODO: 추후 제거
+            unoptimized
+          />
+        ) : (
+          <span className={styles.storeImageFallback}>
+            <LogoWordMark
+              width={30.16}
+              height={16}
+              color={colors.coolNeutral[96]}
+            />
+          </span>
+        )}
         <VStack gap={2}>
           <Text as='span' typo='body2Sb' color='text.normal'>
             {store.name}
