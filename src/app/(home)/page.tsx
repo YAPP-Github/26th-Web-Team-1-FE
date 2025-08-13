@@ -4,13 +4,7 @@ import { Bleed } from "@/components/ui/Bleed";
 import { Spacer } from "@/components/ui/Spacer";
 import { VStack } from "@/components/ui/Stack";
 
-import {
-  RecentCheers,
-  RecentlySupportedStores,
-  RegisterPopup,
-  StoreStory,
-  Story,
-} from "./_components";
+import { RecentCheers, RegisterPopup, Story } from "./_components";
 import { ServiceIntroBottomSheet } from "./_components/ServiceIntroBottomSheet";
 
 export default function HomePage() {
@@ -24,8 +18,6 @@ export default function HomePage() {
       <Spacer size={32} />
       <VStack gap={40}>
         <RecentCheers />
-        <StoreStory />
-        <RecentlySupportedStores />
       </VStack>
       <ServiceIntroBottomSheet />
       <RegisterPopup />
