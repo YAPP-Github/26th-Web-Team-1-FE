@@ -30,15 +30,34 @@ export const cancelIcon = style({
   color: semantic.icon.white,
 });
 
-export const imageCard = style({
+export const storyImageArea = style({
   position: "relative",
+  flex: 1,
   width: "100%",
   height: "100%",
-  flex: 1,
-  overflow: "hidden",
 });
 
-export const imageContent = style({
+export const leftZone = style({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "50%",
+  height: "100%",
+  cursor: "pointer",
+  zIndex: 5,
+});
+
+export const rightZone = style({
+  position: "absolute",
+  top: 0,
+  right: 0,
+  width: "50%",
+  height: "100%",
+  cursor: "pointer",
+  zIndex: 5,
+});
+
+export const informationContent = style({
   position: "absolute",
   bottom: 0,
   left: 0,
