@@ -12,10 +12,19 @@ export const storiesQueryKeys = {
     [...storiesQueryKeys.kakaoLists(), kakaoId, { size }] as const,
 } as const;
 
+export const CACHE_CONSTANTS = {
+  STORIES_LIST: {
+    STALE_TIME: 5 * 60 * 1000,
+    GC_TIME: 10 * 60 * 1000,
+  },
+} as const;
+
 export const storiesQueryOptions = (size: number) =>
   queryOptions({
     queryKey: storiesQueryKeys.lists(),
     queryFn: () => getStories(size),
+    staleTime: CACHE_CONSTANTS.STORIES_LIST.STALE_TIME,
+    gcTime: CACHE_CONSTANTS.STORIES_LIST.GC_TIME,
   });
 
 export const storiesByKakaoIdQueryOptions = (
