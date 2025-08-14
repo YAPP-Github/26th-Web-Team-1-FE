@@ -16,19 +16,20 @@ import { GNB } from "@/components/ui/GNB";
 import { Text } from "@/components/ui/Text";
 
 import { storyDetailQueryOptions } from "../../_api";
+import { KAKAO_PLACE_URL, STORIES_LIMIT } from "../../_constants";
 import * as styles from "./StoryDetailContent.css";
 
 type StoryDetailContentProps = {
   storyId: string;
 };
 
-const KAKAO_PLACE_URL = "https://place.map.kakao.com";
-
 export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
   const router = useRouter();
 
   const { data: story } = useSuspenseQuery(storyDetailQueryOptions(storyId));
-  const { data: storiesData } = useSuspenseQuery(storiesQueryOptions(20));
+  const { data: storiesData } = useSuspenseQuery(
+    storiesQueryOptions(STORIES_LIMIT)
+  );
 
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
