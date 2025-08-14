@@ -9,13 +9,6 @@ export const recentSupportCard = style({
   height: "13.6rem",
 });
 
-export const storeImage = style({
-  width: "4rem",
-  height: "4rem",
-  borderRadius: radius.circle,
-  objectFit: "cover",
-});
-
 export const cheersContent = style({
   display: "-webkit-box",
   WebkitLineClamp: 2,
@@ -56,3 +49,25 @@ export const divider = style({
   width: "0.1rem",
   height: "1rem",
 });
+
+export const showAllButton = style({
+  border: `1px solid ${semantic.border.grayLight}`,
+});
+
+export const storeImage = style({
+  width: "4rem",
+  height: "4rem",
+  borderRadius: radius[100],
+});
+
+export const storeImageFallback = style([
+  storeImage,
+  {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+
+    backgroundColor: semantic.background.grayLight,
+    border: `0.4px solid ${semantic.border.grayLight}`,
+  },
+]);
