@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { radius, semantic } from "@/styles";
 
@@ -37,24 +38,24 @@ export const storyImageArea = style({
   height: "100%",
 });
 
-export const leftZone = style({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "50%",
-  height: "100%",
-  cursor: "pointer",
-  zIndex: 5,
-});
-
-export const rightZone = style({
-  position: "absolute",
-  top: 0,
-  right: 0,
-  width: "50%",
-  height: "100%",
-  cursor: "pointer",
-  zIndex: 5,
+export const zone = recipe({
+  base: {
+    position: "absolute",
+    top: 0,
+    width: "50%",
+    height: "100%",
+    cursor: "pointer",
+    zIndex: 5,
+  },
+  variants: {
+    side: {
+      left: { left: 0 },
+      right: { right: 0 },
+    },
+  },
+  defaultVariants: {
+    side: "left",
+  },
 });
 
 export const informationContent = style({

@@ -81,8 +81,14 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
       </div>
 
       <div className={styles.storyImageArea}>
-        <button className={styles.leftZone} onClick={handlePrevStory} />
-        <button className={styles.rightZone} onClick={handleNextStory} />
+        <button
+          className={styles.zone({ side: "left" })}
+          onClick={handlePrevStory}
+        />
+        <button
+          className={styles.zone({ side: "right" })}
+          onClick={handleNextStory}
+        />
         <Image
           src={story.imageUrl}
           alt={`${story.storeName} 스토리`}
