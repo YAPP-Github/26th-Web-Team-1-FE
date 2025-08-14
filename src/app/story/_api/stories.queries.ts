@@ -1,5 +1,7 @@
 import { queryOptions } from "@tanstack/react-query";
 
+import { TIME } from "@/constants";
+
 import { getStories, getStoriesByKakaoId } from "./stories.api";
 
 export const storiesQueryKeys = {
@@ -14,8 +16,8 @@ export const storiesQueryKeys = {
 
 export const CACHE_CONSTANTS = {
   STORIES_LIST: {
-    STALE_TIME: 5 * 60 * 1000,
-    GC_TIME: 10 * 60 * 1000,
+    STALE_TIME: 5 * TIME.MINUTE,
+    GC_TIME: 10 * TIME.MINUTE,
   },
 } as const;
 
