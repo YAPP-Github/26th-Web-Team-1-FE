@@ -2,6 +2,7 @@
 
 import { Suspense } from "@suspensive/react";
 
+import { RegisterFloatingButton } from "@/app/(home)/_shared/RegisterFloatingButton";
 import { Bleed } from "@/components/ui/Bleed";
 import { VStack } from "@/components/ui/Stack";
 
@@ -27,6 +28,7 @@ export default function StoreListPage() {
       <Suspense>
         <StoreList category={selectedCategory.name} />
       </Suspense>
+      <RegisterFloatingButton />
     </VStack>
   );
 }
