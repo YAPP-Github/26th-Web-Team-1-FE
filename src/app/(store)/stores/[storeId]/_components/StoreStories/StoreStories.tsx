@@ -73,6 +73,8 @@ const StoreStoriesContent = ({ kakaoId }: { kakaoId: string }) => {
                 className={styles.image}
                 width={124}
                 height={220}
+                // TODO: 추후 제거
+                unoptimized
               />
               <div className={styles.overlay} />
               <HStack align='center' gap={4} className={styles.memberWrapper}>

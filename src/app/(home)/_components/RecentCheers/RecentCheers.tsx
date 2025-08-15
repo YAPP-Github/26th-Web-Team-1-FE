@@ -96,6 +96,8 @@ const RecentSupportCard = ({
           alt={`${store.name} 가게 이미지`}
           className={styles.storeImage}
           src={store.imageUrl}
+          // TODO: 추후 제거
+          unoptimized
         />
         <VStack gap={2}>
           <Text as='span' typo='body2Sb' color='text.normal'>

@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -21,6 +20,8 @@ export const Banner = () => {
             alt='가게 이미지'
             width={55}
             height={55}
+            // TODO: 추후 제거
+            unoptimized
           />
           <VStack gap={4} justify='center'>
             <Text typo='body1Sb' color='neutral.10'>

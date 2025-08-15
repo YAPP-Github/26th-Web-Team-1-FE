@@ -131,6 +131,8 @@ const StoreImages = ({ storeId }: { storeId: number }) => {
                   data-first={index === 0}
                   data-last={index === images.length - 1}
                   className={styles.storeImage}
+                  // TODO: 추후 제거
+                  unoptimized
                 />
               ) : (
                 <EmptyImage

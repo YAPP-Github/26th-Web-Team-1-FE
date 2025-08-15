@@ -33,6 +33,8 @@ export const StoryList = () => {
               alt={`스토리 이미지 ${story.storyId}`}
               className={styles.storyImage}
               objectFit='cover'
+              // TODO: 추후 제거
+              unoptimized
             />
           </div>
         </div>
