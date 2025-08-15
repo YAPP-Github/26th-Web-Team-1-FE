@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { radius, semantic } from "@/styles";
 
@@ -30,15 +31,34 @@ export const cancelIcon = style({
   color: semantic.icon.white,
 });
 
-export const imageCard = style({
+export const storyImageArea = style({
   position: "relative",
+  flex: 1,
   width: "100%",
   height: "100%",
-  flex: 1,
-  overflow: "hidden",
 });
 
-export const imageContent = style({
+export const zone = recipe({
+  base: {
+    position: "absolute",
+    top: 0,
+    width: "50%",
+    height: "100%",
+    cursor: "pointer",
+    zIndex: 5,
+  },
+  variants: {
+    side: {
+      left: { left: 0 },
+      right: { right: 0 },
+    },
+  },
+  defaultVariants: {
+    side: "left",
+  },
+});
+
+export const informationContent = style({
   position: "absolute",
   bottom: 0,
   left: 0,
