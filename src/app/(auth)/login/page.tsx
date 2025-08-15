@@ -27,6 +27,8 @@ export default function LoginPage() {
           alt='로그인 배경화면'
           fill
           priority
+          // TODO: 추후 제거
+          unoptimized
         />
 
         <GNB
@@ -50,6 +52,8 @@ export default function LoginPage() {
             alt='로그인 일러스트'
             width={149}
             height={139}
+            // TODO: 추후 제거
+            unoptimized
           />
         </div>
 

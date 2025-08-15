@@ -67,6 +67,8 @@ export default function StoreRegisterSuccessPage() {
           alt='가게 등록 성공'
           width={280}
           height={280}
+          // TODO: 추후 제거
+          unoptimized
         />
       </VStack>
 
