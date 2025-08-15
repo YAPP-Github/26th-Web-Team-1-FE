@@ -6,6 +6,7 @@ import { VStack } from "@/components/ui/Stack";
 
 import { RecentCheers, RegisterPopup, Story } from "./_components";
 import { ServiceIntroBottomSheet } from "./_components/ServiceIntroBottomSheet";
+import { RegisterFloatingButton } from "./_shared/RegisterFloatingButton";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
       <VStack gap={40}>
         <RecentCheers />
       </VStack>
+      <RegisterFloatingButton />
       <ServiceIntroBottomSheet />
       <RegisterPopup />
     </>
