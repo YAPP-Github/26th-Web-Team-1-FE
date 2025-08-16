@@ -1,11 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { type ReactNode } from "react";
 
-import ChevronLeftIcon from "@/assets/chevron-left.svg";
-import { GNB } from "@/components/ui/GNB";
+import { BottomNavigation } from "@/components/ui/BottomNavigation";
 
+import { Header } from "./_components/Header";
 import * as styles from "./layout.css";
 
 type MemberProfileLayoutProps = {
@@ -15,33 +14,11 @@ type MemberProfileLayoutProps = {
 export default function MemberProfileLayout({
   children,
 }: MemberProfileLayoutProps) {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push("/");
-  };
-
   return (
     <div className={styles.wrapper}>
-      <GNB
-        align='center'
-        title='마이페이지'
-        leftAddon={
-          <button
-            type='button'
-            onClick={handleClick}
-            aria-label='홈으로 이동하기'
-            className={styles.button}
-          >
-            <ChevronLeftIcon
-              width={24}
-              height={24}
-              onClick={handleClick}
-              className={styles.icon}
-            />
-          </button>
-        }
-      />
+      <Header />
       <main className={styles.mainWrapper}>{children}</main>
+      <BottomNavigation />
     </div>
   );
 }

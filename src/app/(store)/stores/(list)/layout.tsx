@@ -1,3 +1,5 @@
+import { BottomNavigation } from "@/components/ui/BottomNavigation";
+
 import * as styles from "./layout.css";
 
 export default function StoreListLayout({
@@ -5,5 +7,10 @@ export default function StoreListLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className={styles.container}>{children}</div>;
+  return (
+    <>
+      <div className={styles.container}>{children}</div>
+      <BottomNavigation />
+    </>
+  );
 }
