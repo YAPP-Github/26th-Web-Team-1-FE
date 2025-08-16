@@ -4,7 +4,7 @@ import { semantic } from "@/styles";
 
 export const mainContainer = style({
   minHeight: "100dvh",
-  paddingBottom: "2.4rem",
+  paddingBottom: "5.6em",
   paddingInline: "2rem",
   backgroundColor: semantic.background.white,
 });
