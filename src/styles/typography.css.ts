@@ -169,10 +169,16 @@ export const typography = createGlobalTheme(":root", {
     letterSpacing: "0.0252em",
     fontWeight: "400",
   },
-  caption2: {
+  caption2Sb: {
     fontSize: "1.1rem",
     lineHeight: "1.4rem",
     letterSpacing: "0.0311em",
     fontWeight: "600",
+  },
+  caption2Md: {
+    fontSize: "1.1rem",
+    lineHeight: "1.4rem",
+    letterSpacing: "0.0311em",
+    fontWeight: "500",
   },
 });
