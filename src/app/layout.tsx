@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Toaster } from "sonner";
 
 import { RegisterServiceWorkerClient } from "@/lib/pwa";
 import { MSWProvider, OverlayProvider, QueryProvider } from "@/providers";
@@ -54,6 +55,7 @@ export default function RootLayout({
               </MSWProvider>
             </OverlayProvider>
           </QueryProvider>
+          <Toaster position='bottom-center' richColors />
         </div>
       </body>
     </html>
