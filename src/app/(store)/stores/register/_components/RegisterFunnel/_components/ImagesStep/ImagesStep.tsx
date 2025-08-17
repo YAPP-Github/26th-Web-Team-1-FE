@@ -20,6 +20,7 @@ type ImageStepProps = {
   storeKakaoId: string;
   storeName: string;
   supportText: string;
+  tags: string[];
   onNext: (storeId: number) => void;
 };
 
@@ -27,6 +28,7 @@ export const ImagesStep = ({
   storeKakaoId,
   storeName,
   supportText,
+  tags,
   onNext,
 }: ImageStepProps) => {
   const { data: member } = useQuery(memberQueryOptions);
@@ -43,6 +45,7 @@ export const ImagesStep = ({
           storeName,
           description: supportText,
           storeKakaoId,
+          tags,
         },
         imageFile: image,
       },

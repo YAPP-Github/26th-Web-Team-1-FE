@@ -126,12 +126,13 @@ export const RegisterFunnel = ({ storeId }: { storeId?: number }) => {
             }}
           />
         )}
-        // TODO: 업로드시 태그 추가 필요
+        // TODO: upload는 images step에서 처리하지 않고 바깥으로 위임하게끔 수정 필요
         imagesStep={({ context }) => (
           <ImagesStep
             storeName={context.storeInfo.storeName}
             storeKakaoId={context.storeInfo.storeKakaoId}
             supportText={context.supportText}
+            tags={context.tags}
             onNext={storeId => {
               router.replace(`/stores/register/success?storeId=${storeId}`);
             }}
