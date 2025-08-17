@@ -126,6 +126,7 @@ export const RegisterFunnel = ({ storeId }: { storeId?: number }) => {
             }}
           />
         )}
+        // TODO: 업로드시 태그 추가 필요
         imagesStep={({ context }) => (
           <ImagesStep
             storeName={context.storeInfo.storeName}
