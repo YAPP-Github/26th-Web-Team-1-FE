@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
 
 import { memberQueryOptions } from "@/app/member/_api/member.queries";
 import { Button } from "@/components/ui/Button";
 import { Spacer } from "@/components/ui/Spacer";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
+import { type Tag } from "@/constants/tag.constants";
 
 import { useTagSelection } from "./_hooks";
 import * as styles from "./TagStep.css";
@@ -38,60 +40,22 @@ export const TagStep = ({
           </Text>
         </VStack>
         <Spacer size={44} />
-        <VStack gap={8}>
-          <HStack align='center' gap={4}>
-            <Text as='h3' typo='body1Sb' color='text.normal'>
-              분위기
-            </Text>{" "}
-            <Text typo='caption1Md' color='status.negative'>
-              * 최대 2개 선택 가능
-            </Text>
-          </HStack>
-
-          <HStack wrap='wrap' gap={"0.8rem 1.2rem"}>
-            {atmosphereTags.map(tag => (
-              <button
-                key={tag.name}
-                className={styles.chipButton({
-                  selected: selectedTags.some(({ name }) => name === tag.name),
-                })}
-                onClick={() => {
-                  selectTag(tag.name);
-                }}
-              >
-                {tag.label}
-              </button>
-            ))}
-          </HStack>
-        </VStack>
+        <TagSection
+          title='분위기'
+          description='* 최대 2개 선택 가능'
+          tags={atmosphereTags}
+          selectedTags={selectedTags}
+          onTagSelect={selectTag}
+        />
         <Spacer size={44} />
 
-        <VStack gap={8}>
-          <HStack align='center' gap={4}>
-            <Text as='h3' typo='body1Sb' color='text.normal'>
-              실용도
-            </Text>
-            <Text typo='caption1Md' color='status.negative'>
-              * 최대 2개 선택 가능
-            </Text>
-          </HStack>
-
-          <HStack wrap='wrap' gap={"0.8rem 1.2rem"}>
-            {utilityTags.map(tag => (
-              <button
-                key={tag.name}
-                className={styles.chipButton({
-                  selected: selectedTags.some(({ name }) => name === tag.name),
-                })}
-                onClick={() => {
-                  selectTag(tag.name);
-                }}
-              >
-                {tag.label}
-              </button>
-            ))}
-          </HStack>
-        </VStack>
+        <TagSection
+          title='실용도'
+          description='* 최대 2개 선택 가능'
+          tags={utilityTags}
+          selectedTags={selectedTags}
+          onTagSelect={selectTag}
+        />
       </VStack>
 
       <Button
@@ -102,6 +66,50 @@ export const TagStep = ({
       >
         다음
       </Button>
+    </VStack>
+  );
+};
+
+type TagSectionProps = {
+  title: string;
+  description: string;
+  tags: Tag[];
+  selectedTags: Tag[];
+  onTagSelect: (tagName: string) => void;
+};
+
+const TagSection = ({
+  title,
+  description,
+  tags,
+  selectedTags,
+  onTagSelect,
+}: TagSectionProps) => {
+  return (
+    <VStack gap={8}>
+      <HStack align='center' gap={4}>
+        <Text as='h3' typo='body1Sb' color='text.normal'>
+          {title}
+        </Text>
+        <Text typo='caption1Md' color='status.negative'>
+          {description}
+        </Text>
+      </HStack>
+
+      <HStack wrap='wrap' gap={"0.8rem 1.2rem"}>
+        {tags.map(tag => (
+          <button
+            key={tag.name}
+            className={styles.chipButton({
+              selected: selectedTags.some(({ name }) => name === tag.name),
+            })}
+            onClick={() => onTagSelect(tag.name)}
+          >
+            <Image src={tag.iconUrl} alt={tag.label} width={16} height={16} />
+            {tag.label}
+          </button>
+        ))}
+      </HStack>
     </VStack>
   );
 };
