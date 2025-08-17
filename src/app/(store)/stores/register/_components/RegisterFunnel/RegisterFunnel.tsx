@@ -9,7 +9,12 @@ import { Bleed } from "@/components/ui/Bleed";
 
 import { ProgressBar } from "../ProgressBar";
 import { StoreRegisterGNB } from "../StoreRegisterGNB";
-import { ImagesStep, StoreInfoStep, SupportTextStep } from "./_components";
+import {
+  ImagesStep,
+  StoreInfoStep,
+  SupportTextStep,
+  TagStep,
+} from "./_components";
 
 type StoreInfo = {
   storeName: string;
@@ -19,12 +24,20 @@ type StoreInfo = {
 type FunnelContext = {
   storeInfo?: StoreInfo;
   supportText?: string;
+  tags?: string[];
 };
 
-const STEP_MAP = {
-  storeStep: 1,
-  supportTextStep: 2,
-  imagesStep: 3,
+const FUNNEL_STEPS = [
+  "storeStep",
+  "supportTextStep",
+  "tagStep",
+  "imagesStep",
+] as const;
+
+const FUNNEL_BACK_MAP = {
+  supportTextStep: "storeStep",
+  tagStep: "supportTextStep",
+  imagesStep: "tagStep",
 } as const;
 
 export const RegisterFunnel = ({ storeId }: { storeId?: number }) => {
@@ -38,7 +51,15 @@ export const RegisterFunnel = ({ storeId }: { storeId?: number }) => {
   const funnel = useFunnel<{
     storeStep: FunnelContext;
     supportTextStep: FunnelContext & { storeInfo: StoreInfo };
-    imagesStep: FunnelContext & { storeInfo: StoreInfo; supportText: string };
+    tagStep: FunnelContext & {
+      storeInfo: StoreInfo;
+      supportText: string;
+    };
+    imagesStep: FunnelContext & {
+      storeInfo: StoreInfo;
+      supportText: string;
+      tags: string[];
+    };
   }>({
     id: "register-funnel",
     initial: {
@@ -54,11 +75,6 @@ export const RegisterFunnel = ({ storeId }: { storeId?: number }) => {
       },
     },
   });
-
-  const FUNNEL_BACK_MAP = {
-    supportTextStep: "storeStep",
-    imagesStep: "supportTextStep",
-  } as const;
 
   return (
     <>
@@ -76,8 +92,8 @@ export const RegisterFunnel = ({ storeId }: { storeId?: number }) => {
       </Bleed>
 
       <ProgressBar
-        currentStep={STEP_MAP[funnel.step]}
-        totalSteps={Object.keys(STEP_MAP).length}
+        currentStep={FUNNEL_STEPS.indexOf(funnel.step)}
+        totalSteps={FUNNEL_STEPS.length}
       />
 
       <funnel.Render
@@ -96,9 +112,17 @@ export const RegisterFunnel = ({ storeId }: { storeId?: number }) => {
           <SupportTextStep
             storeName={context.storeInfo.storeName}
             onNext={supportText => {
-              history.replace("imagesStep", {
+              history.replace("tagStep", {
                 supportText,
               });
+            }}
+          />
+        )}
+        tagStep={({ context, history }) => (
+          <TagStep
+            tags={context.tags}
+            onNext={tags => {
+              history.replace("imagesStep", { tags });
             }}
           />
         )}
