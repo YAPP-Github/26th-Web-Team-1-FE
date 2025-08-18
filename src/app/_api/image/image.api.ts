@@ -1,4 +1,5 @@
 import { authHttp } from "@/lib/api";
+import { ApiException } from "@/lib/exceptions";
 
 import { type FileDetail, type PresignedUrlResponse } from "./image.types";
 
@@ -27,11 +28,15 @@ export const uploadImageToS3 = async (
   presignedUrl: string,
   file: File
 ): Promise<void> => {
-  await fetch(presignedUrl, {
+  const response = await fetch(presignedUrl, {
     method: "PUT",
     body: file,
     headers: {
       "Content-Type": file.type,
     },
   });
+
+  if (!response.ok) {
+    throw new ApiException("이미지 업로드에 실패했습니다.", response.status);
+  }
 };
