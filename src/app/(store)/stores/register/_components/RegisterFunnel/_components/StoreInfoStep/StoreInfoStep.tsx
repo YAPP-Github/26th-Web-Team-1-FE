@@ -127,7 +127,7 @@ const GUIDE_INFO_LIST = [
     iconUrl: "/images/register/guide-1.png",
     title: (
       <>
-        <b>프렌차이즈 기준</b>은 어떻게 결정되나요?
+        <b>프랜차이즈 기준</b>은 어떻게 결정되나요?
       </>
     ),
     description:
@@ -137,7 +137,7 @@ const GUIDE_INFO_LIST = [
     iconUrl: "/images/register/guide-2.png",
     title: (
       <>
-        응원은 <b>최대 3곳</b> 까지 가능해요
+        응원은 <b>최대 3곳</b>까지 가능해요
       </>
     ),
     description:
