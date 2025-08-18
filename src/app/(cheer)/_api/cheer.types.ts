@@ -2,6 +2,7 @@ export type CheerRegisterRequest = {
   storeKakaoId: string;
   storeName: string;
   description: string;
+  tags: string[];
 };
 
 export type CheerRegisterResponse = {
