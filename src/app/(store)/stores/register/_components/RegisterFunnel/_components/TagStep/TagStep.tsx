@@ -3,13 +3,13 @@ import Image from "next/image";
 
 import { memberQueryOptions } from "@/app/member/_api/member.queries";
 import { Button } from "@/components/ui/Button";
+import { Chip } from "@/components/ui/Chip";
 import { Spacer } from "@/components/ui/Spacer";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { type Tag } from "@/constants/tag.constants";
 
 import { useTagSelection } from "./_hooks";
-import * as styles from "./TagStep.css";
 
 export const TagStep = ({
   onNext,
@@ -98,16 +98,14 @@ const TagSection = ({
 
       <HStack wrap='wrap' gap={"0.8rem 1.2rem"}>
         {tags.map(tag => (
-          <button
+          <Chip
             key={tag.name}
-            className={styles.chipButton({
-              selected: selectedTags.some(({ name }) => name === tag.name),
-            })}
+            active={selectedTags.some(({ name }) => name === tag.name)}
             onClick={() => onTagSelect(tag.name)}
           >
             <Image src={tag.iconUrl} alt={tag.label} width={16} height={16} />
             {tag.label}
-          </button>
+          </Chip>
         ))}
       </HStack>
     </VStack>
