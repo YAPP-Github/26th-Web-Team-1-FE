@@ -1,10 +1,6 @@
-export type Tag = {
-  iconUrl: string;
-  name: string;
-  label: string;
-};
+import { type Tag } from "@/types/tag.types";
 
-export const ATMOSPHERE_TAGS = [
+export const ATMOSPHERE_TAGS: Tag[] = [
   {
     iconUrl: "/images/tags/OLD_STORE_MOOD.png",
     name: "OLD_STORE_MOOD",
@@ -47,7 +43,7 @@ export const ATMOSPHERE_TAGS = [
   },
 ];
 
-export const UTILITY_TAGS = [
+export const UTILITY_TAGS: Tag[] = [
   {
     iconUrl: "/images/tags/GROUP_RESERVATION.png",
     name: "GROUP_RESERVATION",

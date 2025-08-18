@@ -7,7 +7,7 @@ import { Chip } from "@/components/ui/Chip";
 import { Spacer } from "@/components/ui/Spacer";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
-import { type Tag } from "@/constants/tag.constants";
+import { type Tag } from "@/types/tag.types";
 
 import { useTagSelection } from "./_hooks";
 
