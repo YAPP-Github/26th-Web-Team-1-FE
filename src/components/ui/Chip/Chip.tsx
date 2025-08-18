@@ -8,13 +8,6 @@ export type ChipProps = {
   active?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-/**
- * @description 칩 컴포넌트
- * @example
- * <Chip>
- *  <Text>칩</Text>
- * </Chip>
- */
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
   ({ children, size = "medium", active, className, ...restProps }, ref) => {
     return (
