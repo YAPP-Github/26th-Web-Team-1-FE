@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { useDebounce } from "react-simplikit";
 
 import CircleCloseIcon from "@/assets/circle-close.svg";
-import InfoIcon from "@/assets/info.svg";
+import InfoFillIcon from "@/assets/info-fill.svg";
 import SearchIcon from "@/assets/search.svg";
 import { BottomSheet } from "@/components/ui/BottomSheet";
 import { Button } from "@/components/ui/Button";
@@ -160,7 +160,11 @@ export const SearchStoreBottomSheet = ({
             }
             helperText={
               <div className={styles.helperTextWrapper}>
-                <InfoIcon width={16} height={16} className={styles.infoIcon} />
+                <InfoFillIcon
+                  width={16}
+                  height={16}
+                  className={styles.infoIcon}
+                />
                 <Text typo='caption1Md' color='text.alternative'>
                   현재는 서울 지역 가게만 검색할 수 있어요.
                 </Text>

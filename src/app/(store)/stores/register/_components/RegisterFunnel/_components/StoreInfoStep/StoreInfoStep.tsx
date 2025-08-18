@@ -1,14 +1,19 @@
+import Image from "next/image";
 import { overlay } from "overlay-kit";
 import { useEffect, useState } from "react";
 
 import { SearchStoreBottomSheet } from "@/app/(search)/_components/SearchStoreBottomSheet";
+import InfoIcon from "@/assets/info.svg";
 import SearchIcon from "@/assets/search.svg";
+import { BottomSheet } from "@/components/ui/BottomSheet";
 import { Button } from "@/components/ui/Button";
 import { Spacer } from "@/components/ui/Spacer";
-import { VStack } from "@/components/ui/Stack";
+import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { TextField } from "@/components/ui/TextField";
 import { semantic } from "@/styles";
+
+import * as styles from "./StoreInfoStep.css";
 
 type StoreInfoStepProps = {
   onNext: ({
@@ -53,9 +58,25 @@ export const StoreInfoStep = ({
             소개해주실 수 있나요?
           </Text>
 
-          <Text as='p' typo='label1Md' color='text.alternative'>
-            *프렌차이즈의 경우, 반려될 수 있습니다.
-          </Text>
+          <HStack gap={4} align='center'>
+            <Text as='p' typo='label1Md' color='text.alternative'>
+              검수된 맛집만 제공하여 기준에 따라 반려될 수 있어요.
+            </Text>
+            <button
+              type='button'
+              aria-label='가게 등록 주의사항'
+              onClick={() => {
+                overlay.open(({ isOpen, close }) => (
+                  <StoreRegistrationGuideBottomSheet
+                    open={isOpen}
+                    onOpenChange={close}
+                  />
+                ));
+              }}
+            >
+              <InfoIcon width={16} height={16} color={semantic.icon.primary} />
+            </button>
+          </HStack>
         </VStack>
         <Spacer size={44} />
 
@@ -93,5 +114,88 @@ export const StoreInfoStep = ({
         다음
       </Button>
     </VStack>
+  );
+};
+
+type StoreRegistrationGuideBottomSheetProps = {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+};
+
+const GUIDE_INFO_LIST = [
+  {
+    iconUrl: "/images/register/guide-1.png",
+    title: (
+      <>
+        <b>프랜차이즈 기준</b>은 어떻게 결정되나요?
+      </>
+    ),
+    description:
+      "맥도날드나 스타벅스와 같은 대형 프랜차이즈는 등록이 어려워요.",
+  },
+  {
+    iconUrl: "/images/register/guide-2.png",
+    title: (
+      <>
+        응원은 <b>최대 3곳</b>까지 가능해요
+      </>
+    ),
+    description:
+      "최대 3곳까지 가게를 응원할 수 있어요. 신중하게 가게를 응원해주세요.",
+  },
+];
+
+const StoreRegistrationGuideBottomSheet = ({
+  open,
+  onOpenChange,
+}: StoreRegistrationGuideBottomSheetProps) => {
+  return (
+    <BottomSheet.Root open={open} onOpenChange={onOpenChange}>
+      <BottomSheet.Content>
+        <BottomSheet.Title className={styles.registrationGuideBottomSheetTitle}>
+          <Text typo='title3Sb' color='neutral.10'>
+            가게를 등록할 때 주의할 사항이에요
+          </Text>
+        </BottomSheet.Title>
+        <BottomSheet.Body
+          className={styles.registrationGuideBottomSheetContent}
+        >
+          {GUIDE_INFO_LIST.map(({ title, description, iconUrl }, index) => (
+            <VStack
+              gap={10}
+              className={styles.registrationGuideInfo}
+              key={index}
+            >
+              <HStack align='center' gap={8}>
+                <Image
+                  src={iconUrl}
+                  alt='가게 등록 주의사항'
+                  width={24}
+                  height={24}
+                  // TODO: 추후 제거
+                  unoptimized
+                />
+                <Text
+                  as='h4'
+                  typo='body1Sb'
+                  color='text.normal'
+                  className={styles.registrationGuideInfoTitle}
+                >
+                  {title}
+                </Text>
+              </HStack>
+              <Text as='p' typo='body1Md' color='text.alternative'>
+                {description}
+              </Text>
+            </VStack>
+          ))}
+        </BottomSheet.Body>
+        <BottomSheet.Footer>
+          <Button size='fullWidth' onClick={() => onOpenChange(false)}>
+            확인
+          </Button>
+        </BottomSheet.Footer>
+      </BottomSheet.Content>
+    </BottomSheet.Root>
   );
 };
