@@ -72,11 +72,18 @@ export default function StoreRegisterSuccessPage() {
         />
       </VStack>
 
-      <Link href={`/stores/${storeId}`}>
-        <Button variant='primary' size='fullWidth' type='button'>
-          내가 등록한 가게 보러가기
-        </Button>
-      </Link>
+      <HStack gap={8} style={{ width: "100%" }}>
+        <Link href='/' style={{ flex: 1 }}>
+          <Button variant='assistive' size='fullWidth' type='button'>
+            홈으로 가기
+          </Button>
+        </Link>
+        <Link href={`/stores/${storeId}`} style={{ flex: 1 }}>
+          <Button variant='primary' size='fullWidth' type='button'>
+            내 응원 보기
+          </Button>
+        </Link>
+      </HStack>
     </VStack>
   );
 }
