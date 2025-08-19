@@ -1,0 +1,1 @@
+export { FoodCategories } from "./FoodCategory";

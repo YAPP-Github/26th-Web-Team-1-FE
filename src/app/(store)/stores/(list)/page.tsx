@@ -4,14 +4,15 @@ import { Suspense } from "@suspensive/react";
 
 import { RegisterFloatingButton } from "@/app/(home)/_shared/RegisterFloatingButton";
 import { Bleed } from "@/components/ui/Bleed";
+import { FoodCategories } from "@/components/ui/FoodCategory";
 import { VStack } from "@/components/ui/Stack";
+import { useFoodCategory } from "@/hooks/useFoodCategory";
 
-import { StoreCategories, StoreList, StoreListGNB } from "./_components";
-import { useStoreCategory } from "./_hooks";
+import { StoreList, StoreListGNB } from "./_components";
 
 export default function StoreListPage() {
   const { categories, selectedCategory, handleSelectCategory } =
-    useStoreCategory();
+    useFoodCategory("/stores");
 
   return (
     <VStack>
@@ -19,10 +20,10 @@ export default function StoreListPage() {
         <StoreListGNB />
       </Bleed>
       <Bleed inline={20}>
-        <StoreCategories
+        <FoodCategories
           categories={categories}
           selectedCategory={selectedCategory}
-          onSelectCategory={({ name }) => handleSelectCategory(name)}
+          onSelectCategory={handleSelectCategory}
         />
       </Bleed>
       <Suspense>
