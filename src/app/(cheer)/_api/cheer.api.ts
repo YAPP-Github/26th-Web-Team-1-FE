@@ -1,8 +1,10 @@
-import { authHttp } from "@/lib/api";
+import { authHttp, http } from "@/lib/api";
 
-import {
-  type CheerRegisterRequest,
-  type CheerRegisterResponse,
+import type {
+  CheerListParams,
+  CheerListResponse,
+  CheerRegisterRequest,
+  CheerRegisterResponse,
 } from "./cheer.types";
 
 /**
@@ -19,4 +21,37 @@ export const postCheer = async (
       json: body,
     })
     .json<CheerRegisterResponse>();
+};
+
+/**
+ * 최신 응원 조회 API
+ * @example
+ * /api/cheer?category=KOREAN&tag=OLD_STORE_MOOD,ENERGETIC&location=HONGDAE,IHWA
+ *
+ * @param size  페이지 사이즈 (기본 5, 1~50)
+ * @param category  음식 카테고리
+ * @param tag  분위기, 실용도 태그
+ * @param location  서울 위치
+ *
+ * @returns {Promise<CheerListResponse>} 등록된 응원 리스트 반환
+ */
+export const getCheerList = async ({
+  size = 5,
+  category,
+  tag,
+  location,
+}: CheerListParams): Promise<CheerListResponse> => {
+  const toCSV = (v?: string | string[]) =>
+    Array.isArray(v) ? v.filter(Boolean).join(",") : v || undefined;
+
+  return await http
+    .get("api/cheer", {
+      searchParams: {
+        size,
+        ...(category ? { category } : {}),
+        ...(toCSV(tag) ? { tag: toCSV(tag) } : {}),
+        ...(toCSV(location) ? { location: toCSV(location) } : {}),
+      },
+    })
+    .json<CheerListResponse>();
 };
