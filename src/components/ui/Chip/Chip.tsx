@@ -9,7 +9,10 @@ export type ChipProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
-  ({ children, size = "medium", active, className, ...restProps }, ref) => {
+  (
+    { children, size = "medium", active = false, className, ...restProps },
+    ref
+  ) => {
     return (
       <button
         className={clsx(chip({ size, active }), className)}
