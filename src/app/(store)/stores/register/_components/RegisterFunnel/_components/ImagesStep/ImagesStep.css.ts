@@ -7,6 +7,8 @@ export const imageUploader = style({
   width: "12rem",
   height: "12rem",
 
+  flexShrink: 0,
+
   borderRadius: radius[160],
 
   selectors: {
@@ -28,7 +30,7 @@ export const emptyImageUploader = style({
   cursor: "pointer",
 });
 
-export const imagePreview = style({
+export const imagePreviewContainer = style({
   position: "relative",
 
   width: "100%",
@@ -55,4 +57,11 @@ export const imageRemoveButton = style({
   right: 0,
 
   transform: "translate(30%, -20%)",
+});
+
+export const imagePreview = style({
+  width: "100%",
+  height: "100%",
+
+  objectFit: "cover",
 });
