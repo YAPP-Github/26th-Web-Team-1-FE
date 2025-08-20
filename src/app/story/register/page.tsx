@@ -4,10 +4,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 
+import { getPresignedUrl, uploadImageToS3 } from "@/app/_api/image/image.api";
 import CancelIcon from "@/assets/cancel.svg";
 import { GNB } from "@/components/ui/GNB";
 import { Spacer } from "@/components/ui/Spacer";
 import { VStack } from "@/components/ui/Stack";
+import { type ImageRequest } from "@/types/image.types";
 
 import { usePostStoryMutation } from "./_api";
 import { StoryDescription } from "./_components/StoryDescription";
@@ -39,25 +41,51 @@ export default function StoryRegisterPage() {
   });
 
   const onSubmit = async (data: StoryRegisterFormData) => {
-    postStory(
-      {
-        storyRequest: {
+    try {
+      let imageData: ImageRequest[] = [];
+
+      if (data.image) {
+        const { urls: presignedUrls } = await getPresignedUrl([
+          {
+            order: 0,
+            contentType: data.image.type,
+            fileSize: data.image.size,
+          },
+        ]);
+
+        const { url, key, order, contentType } = presignedUrls[0]!;
+        await uploadImageToS3(url, data.image);
+
+        imageData = [
+          {
+            imageKey: key,
+            orderIndex: order,
+            contentType,
+            fileSize: data.image.size,
+          },
+        ];
+      }
+
+      postStory(
+        {
           storeKakaoId: data.storeKakaoId,
           storeName: data.storeName,
           description: data.description || null,
+          images: imageData,
         },
-        imageFile: data.image,
-      },
-      {
-        onSuccess: response => {
-          clearUpload();
-          router.push(`/story/${response.storyId}`);
-        },
-        onError: error => {
-          console.error("스토리 등록 실패:", error);
-        },
-      }
-    );
+        {
+          onSuccess: response => {
+            clearUpload();
+            router.push(`/story/${response.storyId}`);
+          },
+          onError: error => {
+            console.error("스토리 등록 실패:", error);
+          },
+        }
+      );
+    } catch (error) {
+      console.error("이미지 업로드 실패:", error);
+    }
   };
 
   return (
