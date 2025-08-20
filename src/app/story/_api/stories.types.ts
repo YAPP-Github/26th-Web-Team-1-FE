@@ -1,6 +1,8 @@
+import { type ImageResponse } from "@/types";
+
 export type Story = {
   storyId: number;
-  imageUrl: string;
+  images: ImageResponse[];
 };
 
 export type StoriesResponse = {
@@ -9,7 +11,7 @@ export type StoriesResponse = {
 
 export type StoryByKakaoId = {
   storyId: number;
-  imageUrl: string;
+  images: ImageResponse[];
   memberId: number;
   memberNickname: string;
 };

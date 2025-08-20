@@ -68,7 +68,7 @@ const StoreStoriesContent = ({ kakaoId }: { kakaoId: string }) => {
           <Link href={`/story/${data.storyId}`} key={data.storyId}>
             <div className={styles.storyWrapper}>
               <Image
-                src={data.imageUrl}
+                src={data.images?.[0]?.url ?? ""}
                 alt='스토리 이미지'
                 className={styles.image}
                 width={124}

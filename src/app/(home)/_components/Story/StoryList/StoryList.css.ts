@@ -19,5 +19,6 @@ export const storyImageInner = style({
 export const storyImage = style({
   display: "block",
   borderRadius: radius.circle,
+  objectFit: "cover",
   cursor: "pointer",
 });
