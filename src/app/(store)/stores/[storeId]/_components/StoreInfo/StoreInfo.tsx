@@ -1,21 +1,25 @@
 "use client";
 
 import { Suspense } from "@suspensive/react";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQueries, useSuspenseQuery } from "@tanstack/react-query";
+import { head } from "es-toolkit";
 import Image from "next/image";
 import Link from "next/link";
 
 import {
   storeDetailQueryOptions,
   storeImagesQueryOptions,
+  storeTagsQueryOptions,
 } from "@/app/(store)/_api/shop";
 import LocationIcon from "@/assets/location-20.svg";
 import MapIcon from "@/assets/map-20.svg";
 import { Bleed } from "@/components/ui/Bleed";
+import { Chip } from "@/components/ui/Chip";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { TextButton } from "@/components/ui/TextButton";
+import { ALL_TAGS } from "@/constants/tag.constants";
 import { semantic } from "@/styles";
 
 import * as styles from "./StoreInfo.css";
@@ -60,9 +64,19 @@ const StoreInfoImageCarousel = ({ storeId }: { storeId: number }) => {
 };
 
 const StoreInfoContent = ({ storeId }: { storeId: number }) => {
-  const {
-    data: { name, district, neighborhood, category, placeUrl },
-  } = useSuspenseQuery(storeDetailQueryOptions(storeId));
+  const [
+    {
+      data: { name, district, neighborhood, category, placeUrl },
+    },
+    {
+      data: { tags },
+    },
+  ] = useSuspenseQueries({
+    queries: [storeDetailQueryOptions(storeId), storeTagsQueryOptions(storeId)],
+  });
+
+  const firstTag = head(ALL_TAGS.filter(tag => tags.includes(tag.name)));
+
   const address = `${district} ${neighborhood}`;
   return (
     <VStack gap={16} className={styles.storeInfoContentContainer}>
@@ -97,6 +111,28 @@ const StoreInfoContent = ({ storeId }: { storeId: number }) => {
           </TextButton>
         </Link>
       </VStack>
+
+      {/* TODO: chip -> tag 변경 */}
+      {firstTag && (
+        <HStack gap={8}>
+          <Chip key={firstTag.name} active>
+            <Image
+              src={firstTag.iconUrl}
+              alt={firstTag.label}
+              width={16}
+              height={16}
+            />
+            <Text as='span' typo='label1Sb' color='transparent'>
+              {firstTag.label}
+            </Text>
+          </Chip>
+          <Chip active>
+            <Text as='span' typo='label1Sb' color='transparent'>
+              +{tags.length - 1}
+            </Text>
+          </Chip>
+        </HStack>
+      )}
     </VStack>
   );
 };
@@ -116,8 +152,12 @@ const StoreInfoContentSkeleton = () => {
       </VStack>
       <VStack gap={4} align='start' style={{ paddingInline: "0.8rem" }}>
         <Skeleton width='40%' height={20} radius={8} />
-        <Skeleton width='45%' height={28} radius={8} />
+        <Skeleton width='45%' height={20} radius={8} />
       </VStack>
+      <HStack gap={8}>
+        <Skeleton width={100} height={36} radius={100} />
+        <Skeleton width={44} height={36} radius={100} />
+      </HStack>
     </VStack>
   );
 };
