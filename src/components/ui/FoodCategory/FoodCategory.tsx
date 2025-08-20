@@ -2,24 +2,24 @@
 
 import Image from "next/image";
 
-import { type StoreCategory } from "@/app/(store)/_types/storeCategory.types";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
+import { type FoodCategory } from "@/types";
 
-import * as styles from "./StoreCategory.css";
+import * as styles from "./FoodCategory.css";
 
-type StoreCategoryProps = {
-  categories: readonly StoreCategory[];
-  selectedCategory: StoreCategory;
-  onSelectCategory: (category: StoreCategory) => void;
+type FoodCategoryProps = {
+  categories: readonly FoodCategory[];
+  selectedCategory: FoodCategory;
+  onSelectCategory: (category: FoodCategory) => void;
 };
 
-export const StoreCategories = ({
+export const FoodCategories = ({
   categories,
   selectedCategory,
   onSelectCategory,
-}: StoreCategoryProps) => {
-  const isSelected = (category: StoreCategory) =>
+}: FoodCategoryProps) => {
+  const isSelected = (category: FoodCategory) =>
     selectedCategory.name === category.name;
 
   return (
@@ -39,8 +39,8 @@ export const StoreCategories = ({
             <Image
               src={category.imageUrl}
               alt={category.label}
-              width={category.label === "전체" ? 26 : 24}
-              height={category.label === "전체" ? 26 : 24}
+              width={category.name === "ALL" ? 26 : 24}
+              height={category.name === "ALL" ? 26 : 24}
               // TODO: 추후 제거
               unoptimized
             />

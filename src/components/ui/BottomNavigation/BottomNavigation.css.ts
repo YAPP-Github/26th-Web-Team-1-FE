@@ -5,13 +5,13 @@ import { semantic } from "@/styles";
 
 export const wrapper = style({
   maxWidth: "48rem",
-  height: "5rem",
+  height: "auto",
   position: "fixed",
   bottom: 0,
   left: 0,
   right: 0,
   margin: "0 auto",
-  padding: "0.9rem 3.4rem",
+  padding: "0.9rem 3.4rem calc(0.9rem + env(safe-area-inset-bottom, 0)) 3.4rem",
   backgroundColor: semantic.surface.white,
 });
 

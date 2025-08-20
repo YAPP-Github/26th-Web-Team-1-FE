@@ -1,3 +1,5 @@
+import { type ImageMeta } from "@/types";
+
 type CheerImage = {
   imageKey: string;
   orderIndex: number;
@@ -18,4 +20,31 @@ export type CheerRegisterResponse = {
   cheerId: number;
   cheerDescription: string;
   images: CheerImage[];
+};
+
+export type CheerListParams = {
+  size?: number;
+  category?: string;
+  tag?: string[];
+  location?: string[];
+};
+
+export type CheerResponse = {
+  storeId: number;
+  storeName: string;
+  storeDistrict: string;
+  storeNeighborhood: string;
+  storeCategory: string;
+  images: ImageMeta[];
+
+  cheerId: number;
+  cheerDescription: string;
+  tags: string[];
+
+  memberId: number;
+  memberNickname: string;
+};
+
+export type CheerListResponse = {
+  cheers: CheerResponse[];
 };

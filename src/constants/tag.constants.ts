@@ -12,9 +12,9 @@ export const ATMOSPHERE_TAGS: Tag[] = [
     label: "활기찬",
   },
   {
-    iconUrl: "/images/tags/INSTAGRAMMABLE.png",
-    name: "INSTAGRAMMABLE",
-    label: "인스타 감성",
+    iconUrl: "/images/tags/GOOD_FOR_DATING.png",
+    name: "GOOD_FOR_DATING",
+    label: "데이트하기 좋은",
   },
   {
     iconUrl: "/images/tags/QUIET.png",
@@ -27,9 +27,9 @@ export const ATMOSPHERE_TAGS: Tag[] = [
     label: "술 땡기는",
   },
   {
-    iconUrl: "/images/tags/GOOD_FOR_DATING.png",
-    name: "GOOD_FOR_DATING",
-    label: "데이트하기 좋은",
+    iconUrl: "/images/tags/INSTAGRAMMABLE.png",
+    name: "INSTAGRAMMABLE",
+    label: "인스타 감성",
   },
   {
     iconUrl: "/images/tags/GOOD_FOR_FAMILY.png",

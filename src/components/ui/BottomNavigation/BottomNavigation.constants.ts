@@ -15,7 +15,7 @@ export const BOTTOM_NAVIGATION_ITEMS: BottomNavigationItem[] = [
   {
     id: "support",
     label: "응원",
-    path: "/cheer-list",
+    path: "/cheer",
     icon: CheerIcon,
   },
   {

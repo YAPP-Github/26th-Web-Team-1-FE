@@ -1,6 +1,7 @@
-import { http } from "@/lib/api";
+import { authHttp, http } from "@/lib/api";
 
 import {
+  type CheeredMemberResponse,
   type StoreCheersResponse,
   type StoreDetailResponse,
   type StoreImagesResponse,
@@ -53,4 +54,18 @@ export const getStoreImages = async (
   return await http
     .get(`api/shops/${storeId}/images`)
     .json<StoreImagesResponse>();
+};
+
+/**
+ * 자신이 응원한 가게 목록 조회 API
+ *
+ * @description
+ * 현재 로그인한 사용자가 응원하고 있는 가게들의 정보를 가져옵니다.
+ *
+ * @returns {Promise<CheeredMemberResponse>} 응원한 가게 목록과 관련 정보
+ */
+export const getCheeredMember = async (): Promise<CheeredMemberResponse> => {
+  return await authHttp
+    .get("api/shops/cheered-member")
+    .json<CheeredMemberResponse>();
 };
