@@ -6,7 +6,7 @@ export const floatingButton = recipe({
   base: {
     position: "fixed",
     right: "calc((100vw - min(100vw, 480px)) / 2 + 1rem)",
-    bottom: "2rem",
+    bottom: "6.4rem",
     borderRadius: "4rem",
     zIndex: 1000,
     boxShadow: "0 0 24px 0 rgba(79, 79, 79, 0.24)",

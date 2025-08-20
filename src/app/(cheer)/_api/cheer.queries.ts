@@ -1,10 +1,17 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  queryOptions,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 
-import { postCheer } from "./cheer.api";
+import { getCheerList, postCheer } from "./cheer.api";
+import { type CheerListParams } from "./cheer.types";
 
 export const cheerQueryKeys = {
   all: ["cheer"] as const,
   lists: () => [...cheerQueryKeys.all, "list"] as const,
+  list: (params: CheerListParams) =>
+    [...cheerQueryKeys.lists(), params] as const,
 } as const;
 
 export const usePostCheerMutation = () => {
@@ -19,3 +26,9 @@ export const usePostCheerMutation = () => {
     },
   });
 };
+
+export const cheerListQueryOptions = (params: CheerListParams) =>
+  queryOptions({
+    queryKey: cheerQueryKeys.list(params),
+    queryFn: () => getCheerList(params),
+  });

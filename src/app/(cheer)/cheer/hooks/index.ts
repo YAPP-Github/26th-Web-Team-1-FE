@@ -1,0 +1,1 @@
+export { useExpandableText } from "./useExpandableText";
