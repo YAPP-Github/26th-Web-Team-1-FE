@@ -1,36 +1,37 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, radius, semantic } from "@/styles";
+import { radius } from "@/styles";
 
 export const storeCheersContainer = style({
   paddingTop: "2.4rem",
   paddingBottom: "4rem",
 });
 
-export const cheerCardProfileImage = style({
-  width: "2.8rem",
-  height: "2.8rem",
+export const cheerCard = style({
+  width: "100%",
+  borderRadius: radius[160],
+  overflow: "hidden",
 });
 
-export const cheerCardDivider = style({
-  width: "0.2rem",
-  height: "auto",
-  alignSelf: "stretch",
-  flexShrink: 0,
-  backgroundColor: colors.coolNeutral[97],
-  marginLeft: "1.4rem",
-  marginRight: "2.1rem",
+export const cheerCardHeader = style({
+  display: "flex",
+  alignItems: "center",
+  gap: "0.8rem",
+  padding: "1.2rem 2rem",
+});
+
+export const cheerCardAvatar = style({
+  width: "2.4rem",
+  height: "2.4rem",
 });
 
 export const cheerCardContent = style({
-  width: "100%",
-  height: "100%",
-  padding: "1.6rem",
-  backgroundColor: semantic.background.grayLight,
-  borderRadius: radius[160],
+  padding: "2rem",
+  paddingBottom: "1.6rem",
 });
 
 export const cheerCardContentText = style({
+  width: "100%",
   selectors: {
     "&[data-long-text='true'][data-expanded='false']": {
       display: "-webkit-box",
@@ -40,4 +41,18 @@ export const cheerCardContentText = style({
       textOverflow: "ellipsis",
     },
   },
+});
+
+export const tag = style({
+  display: "flex",
+  alignItems: "center",
+  gap: "0.4rem",
+  padding: "0.6rem 0.8rem",
+  backgroundColor: "#ffffff",
+  borderRadius: "999px",
+  border: "1px solid #f0f0f0",
+});
+
+export const tagIcon = style({
+  fontSize: "1.2rem",
 });
