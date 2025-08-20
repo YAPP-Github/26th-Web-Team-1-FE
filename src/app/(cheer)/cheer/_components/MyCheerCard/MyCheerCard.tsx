@@ -30,6 +30,10 @@ export const MyCheerCard = () => {
 
   const stores = data?.stores ?? [];
 
+  if (stores.length === 0) {
+    return <EmptyCard />;
+  }
+
   const settings: Settings = {
     ...SLIDER_SETTINGS,
     beforeChange: () => setIsDragging(true),
@@ -49,7 +53,7 @@ export const MyCheerCard = () => {
     router.push(`/stores/${storeId}`);
   };
 
-  return stores.length > 0 ? (
+  return (
     <MyCheerCardLayout
       right={
         <Indicator
@@ -69,8 +73,6 @@ export const MyCheerCard = () => {
         ))}
       </Slider>
     </MyCheerCardLayout>
-  ) : (
-    <EmptyCard />
   );
 };
 
