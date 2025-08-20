@@ -5,6 +5,7 @@ import {
   type StoreCheersResponse,
   type StoreDetailResponse,
   type StoreImagesResponse,
+  type StoreTagsResponse,
 } from "./shop.types";
 
 export const STORE_ERROR_CODES = {
@@ -68,4 +69,15 @@ export const getCheeredMember = async (): Promise<CheeredMemberResponse> => {
   return await authHttp
     .get("api/shops/cheered-member")
     .json<CheeredMemberResponse>();
+};
+
+/**
+ * 가게별 태그 조회 API
+ * @params storeId 조회할 가게 ID
+ * @returns 가게별 태그 정보
+ */
+export const getStoreTags = async (
+  storeId: number
+): Promise<StoreTagsResponse> => {
+  return await http.get(`api/shops/${storeId}/tags`).json<StoreTagsResponse>();
 };

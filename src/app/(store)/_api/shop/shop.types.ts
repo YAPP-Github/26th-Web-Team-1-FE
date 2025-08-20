@@ -15,6 +15,7 @@ type StoreCheers = {
   memberId: number;
   memberNickname: string;
   description: string;
+  tags: string[];
 };
 
 export type StoreCheersResponse = { cheers: StoreCheers[] };
@@ -33,4 +34,8 @@ export type CheeredStore = {
 
 export type CheeredMemberResponse = {
   stores: CheeredStore[];
+};
+
+export type StoreTagsResponse = {
+  tags: string[];
 };
