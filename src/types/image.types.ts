@@ -5,3 +5,7 @@ export type ImageMeta = {
   fileSize: number;
   url: string;
 };
+
+export type ImageRequest = Omit<ImageMeta, "url">;
+
+export type ImageResponse = ImageMeta;

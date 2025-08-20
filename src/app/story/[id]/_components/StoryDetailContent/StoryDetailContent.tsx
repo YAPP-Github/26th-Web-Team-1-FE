@@ -90,7 +90,7 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
           onClick={handleNextStory}
         />
         <Image
-          src={story.imageUrl}
+          src={story.images?.[0]?.url ?? ""}
           alt={`${story.storeName} 스토리`}
           fill
           priority

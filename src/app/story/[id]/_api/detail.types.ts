@@ -1,3 +1,5 @@
+import type { ImageResponse } from "@/types";
+
 export type StoryDetailResponse = {
   storeKakaoId: string;
   category: string;
@@ -5,7 +7,7 @@ export type StoryDetailResponse = {
   storeDistrict: string;
   storeNeighborhood: string;
   description: string | null;
-  imageUrl: string;
+  images: ImageResponse[];
   memberId: number;
   memberNickname: string;
   storeId: number | null;
