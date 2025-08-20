@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import clsx from "clsx";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -87,9 +88,10 @@ const CheerCardItem = ({ cheer }: CheerCardItemProps) => {
       <div>
         <motion.div
           ref={textRef}
-          className={`${styles.descriptionText} ${
-            isExpanded ? styles.descriptionTextExpanded : ""
-          }`}
+          className={clsx(
+            styles.descriptionText,
+            isExpanded && styles.descriptionTextExpanded
+          )}
           onClick={toggleExpanded}
           animate={{
             height: showMoreButton && !isExpanded ? "6.2rem" : "auto",
