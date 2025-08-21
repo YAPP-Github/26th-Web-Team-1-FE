@@ -1,6 +1,11 @@
 import { queryOptions } from "@tanstack/react-query";
 
-import { getStoreCheers, getStoreDetail, getStoreImages } from "./shop.api";
+import {
+  getCheeredMember,
+  getStoreCheers,
+  getStoreDetail,
+  getStoreImages,
+} from "./shop.api";
 
 export const storeQueryKeys = {
   all: ["store"] as const,
@@ -27,4 +32,14 @@ export const storeImagesQueryOptions = (storeId: number) =>
   queryOptions({
     queryKey: storeQueryKeys.images(storeId),
     queryFn: () => getStoreImages(storeId),
+  });
+
+export const cheeredMemberQueryKeys = {
+  all: ["cheeredMember"] as const,
+};
+
+export const cheeredMemberQueryOptions = () =>
+  queryOptions({
+    queryKey: cheeredMemberQueryKeys.all,
+    queryFn: () => getCheeredMember(),
   });
