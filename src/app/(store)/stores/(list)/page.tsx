@@ -2,9 +2,11 @@
 
 import { Suspense } from "@suspensive/react";
 
+import { ChipFilter } from "@/app/_shared/ChipFilter";
 import { RegisterFloatingButton } from "@/app/(home)/_shared/RegisterFloatingButton";
 import { Bleed } from "@/components/ui/Bleed";
 import { FoodCategories } from "@/components/ui/FoodCategory";
+import { Spacer } from "@/components/ui/Spacer";
 import { VStack } from "@/components/ui/Stack";
 import { useFoodCategory } from "@/hooks/useFoodCategory";
 
@@ -26,6 +28,11 @@ export default function StoreListPage() {
           onSelectCategory={handleSelectCategory}
         />
       </Bleed>
+
+      <Spacer size={12} />
+
+      <ChipFilter />
+
       <Suspense>
         <StoreList category={selectedCategory.name} />
       </Suspense>
