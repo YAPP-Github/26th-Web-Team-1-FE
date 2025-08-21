@@ -2,7 +2,8 @@
 
 import { Suspense } from "@suspensive/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { chunk } from "es-toolkit";
+import { at, chunk, compact } from "es-toolkit";
+import { isEmpty } from "es-toolkit/compat";
 import Image from "next/image";
 import Link from "next/link";
 import { type HTMLAttributes, useState } from "react";
@@ -13,8 +14,10 @@ import ResetIcon from "@/assets/reset-20.svg";
 import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
+import { Tag } from "@/components/ui/Tag";
 import { Text } from "@/components/ui/Text";
 import { TextButton } from "@/components/ui/TextButton";
+import { ALL_TAGS } from "@/constants/tag.constants";
 import { colors } from "@/styles";
 
 import { cheerQueryOptions } from "../../_api/cheer";
@@ -66,23 +69,24 @@ const RecentSupportCardContent = () => {
                 }}
                 store={{
                   name: cheer.storeName,
-                  imageUrl: cheer.imageUrl,
+                  imageUrl: cheer.images[0]?.url ?? "",
                   location: `${cheer.storeDistrict} ${cheer.storeNeighborhood}`,
                   category: cheer.storeCategory,
                 }}
                 content={cheer.cheerDescription}
+                tags={cheer.tags}
               />
             </Link>
           ))}
         </VStack>
-        <Link href='/stores'>
+        <Link href='/cheer'>
           <Button
             variant='custom'
             size='large'
             className={styles.showAllButton}
             fullWidth
           >
-            가게 전체보기
+            응원 전체보기
           </Button>
         </Link>
       </VStack>
@@ -98,13 +102,19 @@ type RecentSupportCardProps = {
     category: string;
   };
   content: string;
+  tags: string[];
 } & HTMLAttributes<HTMLDivElement>;
 
 const RecentSupportCard = ({
   store,
   content,
+  tags,
   ...restProps
 }: RecentSupportCardProps) => {
+  const selectedTags = ALL_TAGS.filter(tag => tags?.includes(tag.name));
+
+  const visibleTags = compact(at(selectedTags, [0, 1]));
+
   return (
     <VStack gap={8} className={styles.recentSupportCard} {...restProps}>
       <HStack gap={12}>
@@ -114,7 +124,6 @@ const RecentSupportCard = ({
             height={40}
             alt={`${store.name} 가게 이미지`}
             className={styles.storeImage}
-            objectFit='cover'
             src={store.imageUrl}
             // TODO: 추후 제거
             unoptimized
@@ -152,6 +161,18 @@ const RecentSupportCard = ({
       >
         {content}
       </Text>
+
+      {isEmpty(selectedTags) ? null : (
+        <HStack gap={8}>
+          {visibleTags.map(tag => (
+            <Tag key={tag.name}>
+              <Image src={tag.iconUrl} alt={tag.label} width={14} height={14} />
+              {tag.label}
+            </Tag>
+          ))}
+          {selectedTags.length > 2 && <Tag>+{selectedTags.length - 2}</Tag>}
+        </HStack>
+      )}
     </VStack>
   );
 };

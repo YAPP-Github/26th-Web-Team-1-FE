@@ -6,7 +6,9 @@ export const recentSupportCard = style({
   borderRadius: "2.8rem",
   padding: "2rem",
   border: "2px solid #fff",
-  height: "13.6rem",
+  minHeight: "13.6rem",
+  maxHeight: "17.4rem",
+  overflow: "hidden",
 });
 
 export const cheersContent = style({
@@ -58,6 +60,7 @@ export const storeImage = style({
   width: "4rem",
   height: "4rem",
   borderRadius: radius[100],
+  objectFit: "cover",
 });
 
 export const storeImageFallback = style([

@@ -1,26 +1,19 @@
-"use client";
-
-import { Suspense } from "@suspensive/react";
+import { Suspense } from "react";
 
 import { ChipFilter } from "@/app/_shared/ChipFilter";
-import { RegisterFloatingButton } from "@/app/(home)/_shared/RegisterFloatingButton";
+import { StoreList as StoreListComponent } from "@/app/(store)/stores/(list)/_components";
 import { Bleed } from "@/components/ui/Bleed";
 import { FoodCategories } from "@/components/ui/FoodCategory";
 import { Spacer } from "@/components/ui/Spacer";
 import { VStack } from "@/components/ui/Stack";
 import { useFoodCategory } from "@/hooks/useFoodCategory";
 
-import { StoreList, StoreListGNB } from "./_components";
-
-export default function StoreListPage() {
-  const { categories, selectedCategory, handleSelectCategory } =
-    useFoodCategory("/stores");
+export const StoreList = () => {
+  const { categories, handleSelectCategory, selectedCategory } =
+    useFoodCategory("/");
 
   return (
     <VStack>
-      <Bleed inline={20}>
-        <StoreListGNB />
-      </Bleed>
       <Bleed inline={20}>
         <FoodCategories
           categories={categories}
@@ -34,9 +27,8 @@ export default function StoreListPage() {
       <ChipFilter />
 
       <Suspense>
-        <StoreList category={selectedCategory.name} />
+        <StoreListComponent category={selectedCategory.name} />
       </Suspense>
-      <RegisterFloatingButton />
     </VStack>
   );
-}
+};
