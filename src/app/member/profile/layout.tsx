@@ -15,10 +15,10 @@ export default function MemberProfileLayout({
   children,
 }: MemberProfileLayoutProps) {
   return (
-    <div className={styles.wrapper}>
+    <main className={styles.wrapper}>
       <Header />
-      <main className={styles.mainWrapper}>{children}</main>
+      <div className={styles.content}>{children}</div>
       <BottomNavigation />
-    </div>
+    </main>
   );
 }
