@@ -11,6 +11,7 @@ export const chip = recipe({
     border: "1px solid",
     ...typography.label1Md,
     color: semantic.text.neutral,
+    whiteSpace: "nowrap",
     transition:
       "background 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out",
   },
