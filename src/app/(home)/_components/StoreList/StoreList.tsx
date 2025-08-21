@@ -13,24 +13,22 @@ export const StoreList = () => {
     useFoodCategory("/");
 
   return (
-    <Bleed>
-      <VStack>
-        <Bleed inline={20}>
-          <FoodCategories
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onSelectCategory={handleSelectCategory}
-          />
-        </Bleed>
+    <VStack>
+      <Bleed inline={20}>
+        <FoodCategories
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelectCategory={handleSelectCategory}
+        />
+      </Bleed>
 
-        <Spacer size={12} />
+      <Spacer size={12} />
 
-        <ChipFilter />
+      <ChipFilter />
 
-        <Suspense>
-          <StoreListComponent category={selectedCategory.name} />
-        </Suspense>
-      </VStack>
-    </Bleed>
+      <Suspense>
+        <StoreListComponent category={selectedCategory.name} />
+      </Suspense>
+    </VStack>
   );
 };
