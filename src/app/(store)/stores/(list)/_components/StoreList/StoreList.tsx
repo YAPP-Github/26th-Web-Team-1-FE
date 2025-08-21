@@ -1,24 +1,19 @@
 "use client";
 
 import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
-import { at } from "es-toolkit";
+import { first } from "es-toolkit/compat";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Separated,
-  useBooleanState,
-  useIntersectionObserver,
-} from "react-simplikit";
+import { useBooleanState, useIntersectionObserver } from "react-simplikit";
 
+import { useChipFilter } from "@/app/_shared/ChipFilter";
 import { storesQueryOptions } from "@/app/(home)/_api/shop/shop.queries";
 import {
   storeCheersQueryOptions,
   storeImagesQueryOptions,
 } from "@/app/(store)/_api/shop";
-import ChevronRightIcon from "@/assets/chevron-right.svg";
 import LogoWordMark from "@/assets/logo-wordmark.svg";
 import { Bleed } from "@/components/ui/Bleed";
-import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { Spacer } from "@/components/ui/Spacer";
 import { HStack, VStack } from "@/components/ui/Stack";
@@ -28,23 +23,30 @@ import { colors } from "@/styles";
 import * as styles from "./StoreList.css";
 
 export const StoreList = ({ category }: { category: string }) => {
+  const { selectedFilters } = useChipFilter();
+
   const {
     data: { stores },
-  } = useSuspenseQuery(storesQueryOptions({ size: 50, category }));
+  } = useSuspenseQuery(
+    storesQueryOptions({
+      size: 50,
+      category,
+      tag: [...selectedFilters.atmosphereTags, ...selectedFilters.utilityTags],
+      location: selectedFilters.locations,
+    })
+  );
 
   return (
     <VStack className={styles.container}>
-      <Separated by={<hr className={styles.separator} />}>
-        {stores.map(store => (
-          <StoreCard
-            key={store.id}
-            id={store.id}
-            name={store.name}
-            location={`${store.district} ${store.neighborhood}`}
-            category={store.category}
-          />
-        ))}
-      </Separated>
+      {stores.map(store => (
+        <StoreCard
+          key={store.id}
+          id={store.id}
+          name={store.name}
+          location={`${store.district} ${store.neighborhood}`}
+          category={store.category}
+        />
+      ))}
     </VStack>
   );
 };
@@ -112,62 +114,37 @@ const StoreImages = ({ storeId }: { storeId: number }) => {
     return null;
   }
 
-  const images = at(imageUrls, [0, 1, 2]);
+  const thumbnailImage = first(imageUrls);
 
   return (
     <>
       <Spacer size={16} />
       <div ref={ref}>
         <HStack gap={12} align='center' className={styles.storeImagesContainer}>
-          <HStack gap={4} className={styles.storeImages}>
-            {images.map((imageUrl, index) =>
-              imageUrl ? (
-                <Image
-                  key={imageUrl}
-                  src={imageUrl}
-                  alt={"이미지"}
-                  width={126}
-                  height={168}
-                  data-first={index === 0}
-                  data-last={index === images.length - 1}
-                  className={styles.storeImage}
-                  // TODO: 추후 제거
-                  unoptimized
-                />
-              ) : (
-                <EmptyImage
-                  key={index}
-                  first={index === 0}
-                  last={index === images.length - 1}
-                />
-              )
-            )}
-          </HStack>
-
-          <Link href={`/stores/${storeId}`}>
-            <VStack gap={4} align='center'>
-              <Button variant='assistive' className={styles.moreButton}>
-                <ChevronRightIcon width={16} height={16} />
-              </Button>
-              <Text
-                as='p'
-                typo='label1Rg'
-                color='text.neutral'
-                className={styles.moreButtonText}
-              >
-                더보기
-              </Text>
-            </VStack>
-          </Link>
+          {thumbnailImage ? (
+            <div className={styles.storeImageWrapper}>
+              <Image
+                key={thumbnailImage}
+                src={thumbnailImage}
+                alt={"이미지"}
+                fill
+                className={styles.storeImage}
+                // TODO: 추후 제거
+                unoptimized
+              />
+            </div>
+          ) : (
+            <EmptyImage />
+          )}
         </HStack>
       </div>
     </>
   );
 };
 
-const EmptyImage = ({ first, last }: { first: boolean; last: boolean }) => {
+const EmptyImage = () => {
   return (
-    <div className={styles.emptyImage} data-first={first} data-last={last}>
+    <div className={styles.emptyImage}>
       <LogoWordMark width={30.16} height={16} color={colors.coolNeutral[96]} />
     </div>
   );

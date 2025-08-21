@@ -21,6 +21,7 @@ export const storeCard = style({
 });
 
 export const storeImagesContainer = style({
+  position: "relative",
   paddingInline: "2rem",
   overflowX: "auto",
 
@@ -31,12 +32,10 @@ export const storeImagesContainer = style({
   },
 });
 
-export const storeImages = style({
-  selectors: {
-    "&::-webkit-scrollbar": {
-      display: "none",
-    },
-  },
+export const storeImageWrapper = style({
+  position: "relative",
+  width: "100%",
+  height: "168px",
 });
 
 export const storeImage = style({
@@ -44,16 +43,7 @@ export const storeImage = style({
   overflow: "hidden",
   flexShrink: 0,
 
-  selectors: {
-    "&[data-first=true]": {
-      borderTopLeftRadius: radius[160],
-      borderBottomLeftRadius: radius[160],
-    },
-    "&[data-last=true]": {
-      borderTopRightRadius: radius[160],
-      borderBottomRightRadius: radius[160],
-    },
-  },
+  borderRadius: radius[160],
 });
 
 export const emptyImage = style({
@@ -68,16 +58,7 @@ export const emptyImage = style({
 
   backgroundColor: semantic.background.grayLight,
 
-  selectors: {
-    "&[data-first=true]": {
-      borderTopLeftRadius: radius[160],
-      borderBottomLeftRadius: radius[160],
-    },
-    "&[data-last=true]": {
-      borderTopRightRadius: radius[160],
-      borderBottomRightRadius: radius[160],
-    },
-  },
+  borderRadius: radius[160],
 });
 
 export const moreButtonText = style({
