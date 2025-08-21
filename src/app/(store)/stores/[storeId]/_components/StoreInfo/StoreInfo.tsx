@@ -14,6 +14,7 @@ import {
 import LocationIcon from "@/assets/location-20.svg";
 import MapIcon from "@/assets/map-20.svg";
 import { Bleed } from "@/components/ui/Bleed";
+import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Tag } from "@/components/ui/Tag";
@@ -30,7 +31,10 @@ export const StoreInfo = ({ storeId }: { storeId: number }) => {
       <Suspense clientOnly fallback={<StoreImagesSkeleton />}>
         <StoreInfoImageCarousel storeId={storeId} />
       </Suspense>
-      <Suspense clientOnly fallback={<StoreInfoContentSkeleton />}>
+      <Suspense
+        clientOnly
+        fallback={<StoreInfoContentSkeleton storeId={storeId} />}
+      >
         <StoreInfoContent storeId={storeId} />
       </Suspense>
     </VStack>
@@ -81,62 +85,76 @@ const StoreInfoContent = ({ storeId }: { storeId: number }) => {
 
   const address = `${district} ${neighborhood}`;
   return (
-    <VStack gap={16} className={styles.storeInfoContentContainer}>
-      <VStack gap={4}>
-        <Text as='span' typo='body1Md' color='text.alternative'>
-          잇다가 응원하는
-        </Text>
-        <Text as='span' typo='title1Bd' color='text.normal'>
-          {name}
-        </Text>
-      </VStack>
-
-      <VStack gap={4} align='start' style={{ paddingInline: "0.8rem" }}>
-        <HStack gap={4} align='center'>
-          <LocationIcon color={semantic.icon.primary} />
-          <Text as='span' typo='label1Md' color='text.alternative'>
-            {address}
+    <VStack gap={20} className={styles.storeInfoContentContainer}>
+      <VStack gap={16}>
+        <VStack gap={4}>
+          <Text as='span' typo='body1Md' color='text.alternative'>
+            잇다가 응원하는
           </Text>
-          <hr className={styles.divider} />
-          <Text as='span' typo='label1Md' color='text.alternative'>
-            {category}
+          <Text as='span' typo='title1Bd' color='text.normal'>
+            {name}
           </Text>
-        </HStack>
-        <Link href={placeUrl} target='_blank' rel='noopener noreferrer'>
-          <TextButton
-            size='small'
-            variant='custom'
-            className={styles.kakaoMapButton}
-            leftAddon={<MapIcon color={semantic.icon.primary} />}
-          >
-            카카오맵 바로가기
-          </TextButton>
-        </Link>
-      </VStack>
+        </VStack>
 
-      {firstTag && (
-        <HStack gap={8}>
-          <Tag key={firstTag.name} variant='primaryLow'>
-            <Image
-              src={firstTag.iconUrl}
-              alt={firstTag.label}
-              width={16}
-              height={16}
-            />
-            <Text as='span' typo='label1Sb' color='transparent'>
-              {firstTag.label}
+        <VStack gap={4} align='start' style={{ paddingInline: "0.8rem" }}>
+          <HStack gap={4} align='center'>
+            <LocationIcon color={semantic.icon.primary} />
+            <Text as='span' typo='label1Md' color='text.alternative'>
+              {address}
             </Text>
-          </Tag>
-          {showAdditionalTags && (
-            <Tag variant='primaryLow'>
+            <hr className={styles.divider} />
+            <Text as='span' typo='label1Md' color='text.alternative'>
+              {category}
+            </Text>
+          </HStack>
+          <Link href={placeUrl} target='_blank' rel='noopener noreferrer'>
+            <TextButton
+              size='small'
+              variant='custom'
+              className={styles.kakaoMapButton}
+              leftAddon={<MapIcon color={semantic.icon.primary} />}
+            >
+              카카오맵 바로가기
+            </TextButton>
+          </Link>
+        </VStack>
+
+        {firstTag && (
+          <HStack gap={8}>
+            <Tag key={firstTag.name} variant='primaryLow'>
+              <Image
+                src={firstTag.iconUrl}
+                alt={firstTag.label}
+                width={16}
+                height={16}
+              />
               <Text as='span' typo='label1Sb' color='transparent'>
-                +{tags.length - 1}
+                {firstTag.label}
               </Text>
             </Tag>
-          )}
-        </HStack>
-      )}
+            {showAdditionalTags && (
+              <Tag variant='primaryLow'>
+                <Text as='span' typo='label1Sb' color='transparent'>
+                  +{tags.length - 1}
+                </Text>
+              </Tag>
+            )}
+          </HStack>
+        )}
+      </VStack>
+
+      <StoreRegisterButton storeId={storeId} />
     </VStack>
+  );
+};
+
+const StoreRegisterButton = ({ storeId }: { storeId: number }) => {
+  return (
+    <Link href={`/stores/register?storeId=${storeId}`}>
+      <Button variant='primary' size='large' fullWidth>
+        가게 응원하기
+      </Button>
+    </Link>
   );
 };
 
@@ -144,23 +162,27 @@ const StoreImagesSkeleton = () => {
   return <Skeleton width='100%' height={239} radius={24} />;
 };
 
-const StoreInfoContentSkeleton = () => {
+const StoreInfoContentSkeleton = ({ storeId }: { storeId: number }) => {
   return (
-    <VStack gap={16} className={styles.storeInfoContentContainer}>
-      <VStack gap={4}>
-        <Text as='span' typo='body1Md' color='text.alternative'>
-          잇다가 응원하는
-        </Text>
-        <Skeleton width='40%' height={32} radius={8} />
+    <VStack gap={20} className={styles.storeInfoContentContainer}>
+      <VStack gap={16}>
+        <VStack gap={4}>
+          <Text as='span' typo='body1Md' color='text.alternative'>
+            잇다가 응원하는
+          </Text>
+          <Skeleton width='40%' height={32} radius={8} />
+        </VStack>
+        <VStack gap={4} align='start' style={{ paddingInline: "0.8rem" }}>
+          <Skeleton width='40%' height={20} radius={8} />
+          <Skeleton width='45%' height={20} radius={8} />
+        </VStack>
+        <HStack gap={8}>
+          <Skeleton width={100} height={36} radius={100} />
+          <Skeleton width={44} height={36} radius={100} />
+        </HStack>
       </VStack>
-      <VStack gap={4} align='start' style={{ paddingInline: "0.8rem" }}>
-        <Skeleton width='40%' height={20} radius={8} />
-        <Skeleton width='45%' height={20} radius={8} />
-      </VStack>
-      <HStack gap={8}>
-        <Skeleton width={100} height={36} radius={100} />
-        <Skeleton width={44} height={36} radius={100} />
-      </HStack>
+
+      <StoreRegisterButton storeId={storeId} />
     </VStack>
   );
 };

@@ -5,7 +5,6 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { slice } from "es-toolkit/compat";
 import { motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 import { storeCheersQueryOptions } from "@/app/(store)/_api/shop";
@@ -94,12 +93,6 @@ const CheerContent = ({ storeId }: { storeId: number }) => {
       )}
 
       <Spacer size={showToggleButton ? 12 : 20} />
-
-      <Link href={`/stores/register?storeId=${storeId}`}>
-        <Button variant='primary' size='large' fullWidth>
-          가게 응원하기
-        </Button>
-      </Link>
     </VStack>
   );
 };
