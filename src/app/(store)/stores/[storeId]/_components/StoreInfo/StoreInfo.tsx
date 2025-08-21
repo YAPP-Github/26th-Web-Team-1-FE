@@ -14,9 +14,9 @@ import {
 import LocationIcon from "@/assets/location-20.svg";
 import MapIcon from "@/assets/map-20.svg";
 import { Bleed } from "@/components/ui/Bleed";
-import { Chip } from "@/components/ui/Chip";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { HStack, VStack } from "@/components/ui/Stack";
+import { Tag } from "@/components/ui/Tag";
 import { Text } from "@/components/ui/Text";
 import { TextButton } from "@/components/ui/TextButton";
 import { ALL_TAGS } from "@/constants/tag.constants";
@@ -77,6 +77,8 @@ const StoreInfoContent = ({ storeId }: { storeId: number }) => {
 
   const firstTag = head(ALL_TAGS.filter(tag => tags.includes(tag.name)));
 
+  const showAdditionalTags = tags.length > 1;
+
   const address = `${district} ${neighborhood}`;
   return (
     <VStack gap={16} className={styles.storeInfoContentContainer}>
@@ -112,10 +114,9 @@ const StoreInfoContent = ({ storeId }: { storeId: number }) => {
         </Link>
       </VStack>
 
-      {/* TODO: chip -> tag 변경 */}
       {firstTag && (
         <HStack gap={8}>
-          <Chip key={firstTag.name} active>
+          <Tag key={firstTag.name} variant='primaryLow'>
             <Image
               src={firstTag.iconUrl}
               alt={firstTag.label}
@@ -125,12 +126,14 @@ const StoreInfoContent = ({ storeId }: { storeId: number }) => {
             <Text as='span' typo='label1Sb' color='transparent'>
               {firstTag.label}
             </Text>
-          </Chip>
-          <Chip active>
-            <Text as='span' typo='label1Sb' color='transparent'>
-              +{tags.length - 1}
-            </Text>
-          </Chip>
+          </Tag>
+          {showAdditionalTags && (
+            <Tag variant='primaryLow'>
+              <Text as='span' typo='label1Sb' color='transparent'>
+                +{tags.length - 1}
+              </Text>
+            </Tag>
+          )}
         </HStack>
       )}
     </VStack>
