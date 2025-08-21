@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { Spacer } from "@/components/ui/Spacer";
 import { HStack, VStack } from "@/components/ui/Stack";
+import { Tag } from "@/components/ui/Tag";
 import { Text } from "@/components/ui/Text";
 import { TextButton } from "@/components/ui/TextButton";
 import { ALL_TAGS } from "@/constants/tag.constants";
@@ -181,8 +182,7 @@ const CheerCard = ({
 
           <HStack gap={8} align='start' wrap='wrap'>
             {visibleTags.map(tag => (
-              // {/* TODO: chip -> tag 변경 */}
-              <div key={tag.name} className={styles.tag}>
+              <Tag key={tag.name}>
                 <Image
                   src={tag.iconUrl}
                   alt={tag.label}
@@ -193,16 +193,15 @@ const CheerCard = ({
                 <Text as='span' typo='caption1Sb' color='text.primary'>
                   {tag.label}
                 </Text>
-              </div>
+              </Tag>
             ))}
-            {/* TODO: chip -> tag 변경 */}
 
             {showAdditionalTags && (
-              <div className={styles.tag}>
+              <Tag>
                 <Text as='span' typo='caption1Sb' color='text.primary'>
                   +{additionalTagsCount}
                 </Text>
-              </div>
+              </Tag>
             )}
           </HStack>
         </VStack>
