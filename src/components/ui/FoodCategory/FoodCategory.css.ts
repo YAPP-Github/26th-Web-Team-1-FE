@@ -8,6 +8,8 @@ export const container = style({
   paddingTop: "1.2rem",
   paddingBottom: "2rem",
 
+  borderBottom: `1px solid ${colors.coolNeutral[97]}`,
+
   selectors: {
     "&::-webkit-scrollbar": {
       display: "none",
