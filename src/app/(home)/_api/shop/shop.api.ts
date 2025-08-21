@@ -10,15 +10,24 @@ import { type StoresResponse } from "./shop.types";
 export const getStores = async ({
   size,
   category,
+  tag,
+  location,
 }: {
   size: number;
   category?: string;
+  tag?: string[];
+  location?: string[];
 }): Promise<StoresResponse> => {
+  const toCSV = (v?: string | string[]) =>
+    Array.isArray(v) ? v.filter(Boolean).join(",") : v || undefined;
+
   return await http
     .get("api/shops", {
       searchParams: {
         size,
         ...(category ? { category } : {}),
+        ...(toCSV(tag) ? { tag: toCSV(tag) } : {}),
+        ...(toCSV(location) ? { location: toCSV(location) } : {}),
       },
     })
     .json<StoresResponse>();
