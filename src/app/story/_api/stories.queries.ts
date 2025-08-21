@@ -2,7 +2,8 @@ import { queryOptions } from "@tanstack/react-query";
 
 import { TIME } from "@/constants";
 
-import { getStories, getStoriesByKakaoId } from "./stories.api";
+import { getStories, getStoriesByKakaoId, getStoryMember } from "./stories.api";
+import type { StoryMemberParams } from "./stories.types";
 
 export const storiesQueryKeys = {
   all: ["story"] as const,
@@ -12,6 +13,10 @@ export const storiesQueryKeys = {
   kakaoLists: () => [...storiesQueryKeys.all, "kakao"] as const,
   kakaoList: (kakaoId: string, size: number) =>
     [...storiesQueryKeys.kakaoLists(), kakaoId, { size }] as const,
+
+  memberLists: () => [...storiesQueryKeys.all, "member"] as const,
+  memberList: (params: StoryMemberParams) =>
+    [...storiesQueryKeys.memberLists(), params] as const,
 } as const;
 
 export const CACHE_CONSTANTS = {
@@ -37,4 +42,10 @@ export const storiesByKakaoIdQueryOptions = (
     queryKey: storiesQueryKeys.kakaoList(kakaoId, size),
     queryFn: () => getStoriesByKakaoId(kakaoId, size),
     enabled: !!kakaoId,
+  });
+
+export const storyMemberQueryOptions = (params: StoryMemberParams) =>
+  queryOptions({
+    queryKey: storiesQueryKeys.memberList(params),
+    queryFn: () => getStoryMember(params),
   });

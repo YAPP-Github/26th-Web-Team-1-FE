@@ -19,3 +19,18 @@ export type StoryByKakaoId = {
 export type StoriesByKakaoIdResponse = {
   stories: StoryByKakaoId[];
 };
+
+export type StoryMemberParams = {
+  page?: number;
+  size?: number;
+};
+
+export type StoryMember = {
+  id: number;
+  images: ImageResponse[];
+  storeName: string;
+};
+
+export type StoryMemberResponse = {
+  stories: StoryMember[];
+};
