@@ -2,7 +2,7 @@
 
 import { Suspense } from "@suspensive/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { at, chunk } from "es-toolkit";
+import { at, chunk, compact } from "es-toolkit";
 import { isEmpty } from "es-toolkit/compat";
 import Image from "next/image";
 import Link from "next/link";
@@ -113,7 +113,7 @@ const RecentSupportCard = ({
 }: RecentSupportCardProps) => {
   const selectedTags = ALL_TAGS.filter(tag => tags?.includes(tag.name));
 
-  const visibleTags = at(selectedTags, [0, 1]);
+  const visibleTags = compact(at(selectedTags, [0, 1]));
 
   return (
     <VStack gap={8} className={styles.recentSupportCard} {...restProps}>
