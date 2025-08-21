@@ -1,11 +1,11 @@
 import { Suspense } from "react";
 
+import { Spacer } from "@/components/ui/Spacer";
 import { VStack } from "@/components/ui/Stack";
 
-import { Banner } from "./_components/Banner";
-import { MenuList } from "./_components/MenuList";
 import { Profile } from "./_components/Profile";
 import { ProfileSkeleton } from "./_components/Profile/ProfileSkeleton";
+import { TabList } from "./_components/TabList";
 
 export default function ProfilePage() {
   return (
@@ -13,8 +13,10 @@ export default function ProfilePage() {
       <Suspense fallback={<ProfileSkeleton />}>
         <Profile />
       </Suspense>
-      <Banner />
-      <MenuList />
+
+      <Spacer size={20} />
+
+      <TabList />
     </VStack>
   );
 }

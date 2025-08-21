@@ -6,8 +6,10 @@ import { useRouter } from "next/navigation";
 import { type ReactNode, useRef, useState } from "react";
 import Slider, { type Settings } from "react-slick";
 
-import { cheeredMemberQueryOptions } from "@/app/(home)/_api/shop";
-import { type CheeredStore } from "@/app/(store)/_api/shop";
+import {
+  cheeredMemberQueryOptions,
+  type CheeredStore,
+} from "@/app/(store)/_api/shop";
 import { Avatar } from "@/app/member/_components/Avatar";
 import LocationIcon from "@/assets/location.svg";
 import MarketIcon from "@/assets/market-fill.svg";
