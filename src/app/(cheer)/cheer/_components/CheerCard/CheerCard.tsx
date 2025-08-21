@@ -18,9 +18,22 @@ import { CHEER_CARD_CONSTANTS, SLIDER_SETTINGS } from "../../constants";
 import { useExpandableText } from "../../hooks";
 import * as styles from "./CheerCard.css";
 
-export const CheerCard = ({ category }: { category: string }) => {
+export const CheerCard = ({
+  category,
+  location,
+  tag,
+}: {
+  category: string;
+  location: string[];
+  tag: string[];
+}) => {
   const { data } = useQuery(
-    cheerListQueryOptions({ size: CHEER_CARD_CONSTANTS.DEFAULT_SIZE, category })
+    cheerListQueryOptions({
+      size: CHEER_CARD_CONSTANTS.DEFAULT_SIZE,
+      category,
+      location,
+      tag,
+    })
   );
 
   if (!data?.cheers || data.cheers.length === 0) {

@@ -1,5 +1,6 @@
 "use client";
 
+import { ChipFilter, useChipFilter } from "@/app/_shared/ChipFilter";
 import { Bleed } from "@/components/ui/Bleed";
 import { FoodCategories } from "@/components/ui/FoodCategory";
 import { Spacer } from "@/components/ui/Spacer";
@@ -12,6 +13,8 @@ import { MyCheerCard } from "./_components/MyCheerCard";
 export default function CheerPage() {
   const { categories, selectedCategory, handleSelectCategory } =
     useFoodCategory("/cheer");
+
+  const { selectedFilters } = useChipFilter();
 
   return (
     <>
@@ -27,12 +30,19 @@ export default function CheerPage() {
         />
       </Bleed>
 
-      <div>서울 전체, 분위기, 실용도 chip이 들어갈 자리</div>
+      <ChipFilter />
 
       <Spacer size={16} />
 
       <Bleed inline={20}>
-        <CheerCard category={selectedCategory.name} />
+        <CheerCard
+          category={selectedCategory.name}
+          location={selectedFilters.locations}
+          tag={[
+            ...selectedFilters.atmosphereTags,
+            ...selectedFilters.utilityTags,
+          ]}
+        />
       </Bleed>
       <RegisterFloatingButton />
     </>

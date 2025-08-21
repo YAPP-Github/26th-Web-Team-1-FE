@@ -13,6 +13,7 @@ import { Tabs } from "@/components/ui/Tabs";
 import { LOCATIONS } from "@/constants/location.constants";
 import { ATMOSPHERE_TAGS, UTILITY_TAGS } from "@/constants/tag.constants";
 
+import { type FilterTabType } from "../ChipFilter";
 import * as styles from "./FilterBottomSheet.css";
 
 export type FilterValues = {
@@ -34,6 +35,10 @@ export type FilterBottomSheetProps = {
    * 실시간 필터 변경 시 호출되는 콜백 (제공되면 자동으로 실시간 업데이트 활성화)
    */
   onChange?: (filters: FilterValues) => void;
+  /**
+   * 기본적으로 열릴 탭 (location, mood, utility)
+   */
+  defaultTab?: FilterTabType;
 } & Omit<BottomSheetRootProps, "children">;
 
 /**
@@ -109,6 +114,7 @@ export const FilterBottomSheet = ({
   onApply,
   defaultValues,
   onChange,
+  defaultTab,
 }: FilterBottomSheetProps) => {
   const [selectedLocations, setSelectedLocations] = useState<string[]>(
     defaultValues?.locations ?? []
@@ -174,7 +180,7 @@ export const FilterBottomSheet = ({
         <BottomSheet.Title>
           <></>
         </BottomSheet.Title>
-        <Tabs.Root defaultValue='location'>
+        <Tabs.Root defaultValue={defaultTab ?? "location"}>
           <Tabs.List>
             <Tabs.Trigger value='location'>지역</Tabs.Trigger>
             <Tabs.Trigger value='mood'>분위기</Tabs.Trigger>
