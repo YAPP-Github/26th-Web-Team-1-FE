@@ -1,4 +1,4 @@
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { FOOD_CATEGORIES } from "@/constants";
@@ -38,6 +38,7 @@ import { type FoodCategory } from "@/types";
 export const useFoodCategory = (basePath: string) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   const categoryName = searchParams.get("category");
 
@@ -46,18 +47,29 @@ export const useFoodCategory = (basePath: string) => {
     FOOD_CATEGORIES[0];
 
   const handleSelectCategory = (category: FoodCategory) => {
+    const params = new URLSearchParams(searchParams.toString());
+
     if (category.name === "") {
-      router.replace(basePath);
+      params.delete("category");
     } else {
-      router.replace(`${basePath}?category=${category.name}`);
+      params.set("category", category.name);
     }
+
+    const query = params.toString();
+    router.replace(`${basePath}?${query}`);
   };
 
   useEffect(() => {
-    if (!FOOD_CATEGORIES.some(category => category.name === categoryName)) {
-      router.replace(basePath);
+    if (
+      categoryName &&
+      !FOOD_CATEGORIES.some(category => category.name === categoryName)
+    ) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("category");
+      const query = params.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname);
     }
-  }, [categoryName, router, basePath]);
+  }, [categoryName, searchParams, pathname, router]);
 
   return {
     categories: FOOD_CATEGORIES,
