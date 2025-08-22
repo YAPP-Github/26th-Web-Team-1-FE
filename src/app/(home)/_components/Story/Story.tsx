@@ -3,7 +3,7 @@
 import { Suspense } from "@suspensive/react";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 
 import { useImageUploadContext } from "@/app/story/register/_contexts";
 import { imageFileSchema } from "@/app/story/register/_schemas";
@@ -65,7 +65,6 @@ export const Story = () => {
           <StoryList />
         </Suspense>
       </HStack>
-      <Toaster position='bottom-center' richColors />
     </div>
   );
 };
