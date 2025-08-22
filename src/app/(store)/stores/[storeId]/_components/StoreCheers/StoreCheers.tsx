@@ -2,7 +2,9 @@
 
 import { Suspense } from "@suspensive/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import Link from "next/link";
+import { slice } from "es-toolkit/compat";
+import { motion } from "motion/react";
+import Image from "next/image";
 import { useState } from "react";
 
 import { storeCheersQueryOptions } from "@/app/(store)/_api/shop";
@@ -11,10 +13,13 @@ import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { Spacer } from "@/components/ui/Spacer";
 import { HStack, VStack } from "@/components/ui/Stack";
+import { Tag } from "@/components/ui/Tag";
 import { Text } from "@/components/ui/Text";
 import { TextButton } from "@/components/ui/TextButton";
+import { ALL_TAGS } from "@/constants/tag.constants";
 
 import * as styles from "./StoreCheers.css";
+import { getContentBackgroundColor, getHeaderBackgroundColor } from "./utils";
 
 export const StoreCheers = ({ storeId }: { storeId: number }) => {
   return (
@@ -32,6 +37,11 @@ export const StoreCheers = ({ storeId }: { storeId: number }) => {
 
 const CHEERS_SIZE = 50;
 
+const ITEMS_PER_PAGE = 3;
+
+const THEMES = ["yellow", "pink", "blue"] as const;
+type Theme = (typeof THEMES)[number];
+
 const CheerContent = ({ storeId }: { storeId: number }) => {
   const {
     data: { cheers },
@@ -39,10 +49,9 @@ const CheerContent = ({ storeId }: { storeId: number }) => {
 
   const [visibleCount, setVisibleCount] = useState(3);
 
-  const ITEMS_PER_PAGE = 3;
   const totalItems = cheers.length;
   const isAllVisible = visibleCount >= totalItems;
-  const shouldShowToggleButton = totalItems > ITEMS_PER_PAGE;
+  const showToggleButton = totalItems > ITEMS_PER_PAGE;
 
   const handleToggle = () => {
     if (isAllVisible) {
@@ -59,16 +68,17 @@ const CheerContent = ({ storeId }: { storeId: number }) => {
   return (
     <VStack>
       <VStack gap={24}>
-        {visibleCards.map(card => (
+        {visibleCards.map((card, index) => (
           <CheerCard
             key={card.id}
             author={card.memberNickname}
             content={card.description}
-            memberId={card.memberId}
+            tags={card.tags}
+            theme={THEMES[index % THEMES.length] as Theme}
           />
         ))}
       </VStack>
-      {shouldShowToggleButton && (
+      {showToggleButton && (
         <>
           <Spacer size={20} />
           <Button
@@ -82,13 +92,7 @@ const CheerContent = ({ storeId }: { storeId: number }) => {
         </>
       )}
 
-      <Spacer size={shouldShowToggleButton ? 12 : 20} />
-
-      <Link href={`/stores/register?storeId=${storeId}`}>
-        <Button variant='primary' size='large' fullWidth>
-          가게 응원하기
-        </Button>
-      </Link>
+      <Spacer size={showToggleButton ? 12 : 20} />
     </VStack>
   );
 };
@@ -96,50 +100,106 @@ const CheerContent = ({ storeId }: { storeId: number }) => {
 const CheerCard = ({
   author,
   content,
-  memberId,
+  tags,
+  theme,
 }: {
   author: string;
   content: string;
-  memberId: number;
+  tags: string[];
+  theme: Theme;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
   const isLongText = content.length > 50;
 
+  const selectedTags = ALL_TAGS.filter(tag => tags.includes(tag.name));
+  const visibleTags = isExpanded ? selectedTags : slice(selectedTags, 0, 2);
+  const additionalTagsCount = Math.max(
+    0,
+    selectedTags.length - visibleTags.length
+  );
+  const showAdditionalTags = additionalTagsCount > 0 && !isExpanded;
+
   return (
-    <VStack gap={12}>
-      <HStack align='center' gap={8}>
-        <Avatar memberId={memberId} className={styles.cheerCardProfileImage} />
+    <motion.div
+      className={styles.cheerCard}
+      onClick={() => setIsExpanded(!isExpanded)}
+      role='button'
+      tabIndex={0}
+      transition={{ duration: 0.3 }}
+      whileTap={{ scale: 0.99 }}
+    >
+      <div
+        className={styles.cheerCardHeader}
+        style={{
+          backgroundColor: getHeaderBackgroundColor(theme),
+        }}
+      >
+        <Avatar
+          // TODO: 추후 theme 지정 가능하게끔 수정
+          memberId={THEMES.findIndex(t => t === theme)}
+          className={styles.cheerCardAvatar}
+        />
         <Text as='span' typo='body1Sb' color='text.normal'>
           {author}
         </Text>
-      </HStack>
+      </div>
 
-      <HStack align='stretch'>
-        <hr className={styles.cheerCardDivider} />
-        <VStack className={styles.cheerCardContent} gap={4} align='start'>
-          <Text
-            as='p'
-            typo='body2Rg'
-            color='text.normal'
-            className={styles.cheerCardContentText}
-            data-expanded={isExpanded}
-            data-long-text={isLongText}
-          >
-            {content}
-          </Text>
-          {isLongText && (
-            <TextButton
-              size='small'
-              variant='assistive'
-              onClick={() => setIsExpanded(!isExpanded)}
+      <div
+        className={styles.cheerCardContent}
+        style={{
+          backgroundColor: getContentBackgroundColor(theme),
+        }}
+      >
+        <VStack gap={8} align='start'>
+          <VStack gap={4} align='start'>
+            <Text
+              as='p'
+              typo='body2Rg'
+              color='text.normal'
+              className={styles.cheerCardContentText}
+              data-expanded={isExpanded}
+              data-long-text={isLongText}
             >
-              {isExpanded ? "접기" : "더보기"}
-            </TextButton>
-          )}
+              {content}
+            </Text>
+            {isLongText && (
+              <TextButton
+                size='small'
+                variant='assistive'
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                {isExpanded ? "접기" : "더보기"}
+              </TextButton>
+            )}
+          </VStack>
+
+          <HStack gap={8} align='start' wrap='wrap'>
+            {visibleTags.map(tag => (
+              <Tag key={tag.name}>
+                <Image
+                  src={tag.iconUrl}
+                  alt={tag.label}
+                  width={16}
+                  height={16}
+                  className={styles.tagIcon}
+                />
+                <Text as='span' typo='caption1Sb' color='text.primary'>
+                  {tag.label}
+                </Text>
+              </Tag>
+            ))}
+
+            {showAdditionalTags && (
+              <Tag>
+                <Text as='span' typo='caption1Sb' color='text.primary'>
+                  +{additionalTagsCount}
+                </Text>
+              </Tag>
+            )}
+          </HStack>
         </VStack>
-      </HStack>
-    </VStack>
+      </div>
+    </motion.div>
   );
 };
 
