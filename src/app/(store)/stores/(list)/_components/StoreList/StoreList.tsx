@@ -12,6 +12,7 @@ import {
   storeCheersQueryOptions,
   storeImagesQueryOptions,
 } from "@/app/(store)/_api/shop";
+import InfoIcon from "@/assets/info.svg";
 import LogoWordMark from "@/assets/logo-wordmark.svg";
 import { Bleed } from "@/components/ui/Bleed";
 import { Skeleton } from "@/components/ui/Skeleton";
@@ -36,17 +37,39 @@ export const StoreList = ({ category }: { category: string }) => {
     })
   );
 
+  if (stores.length === 0) {
+    return <EmptyStoreList />;
+  }
+
   return (
     <VStack className={styles.container}>
-      {stores.map(store => (
-        <StoreCard
-          key={store.id}
-          id={store.id}
-          name={store.name}
-          location={`${store.district} ${store.neighborhood}`}
-          category={store.category}
-        />
-      ))}
+      <Spacer size={24} />
+      <VStack gap={28}>
+        {stores.map(store => (
+          <Link href={`/stores/${store.id}`} key={store.id}>
+            <StoreCard
+              key={store.id}
+              id={store.id}
+              name={store.name}
+              location={`${store.district} ${store.neighborhood}`}
+              category={store.category}
+            />
+          </Link>
+        ))}
+      </VStack>
+    </VStack>
+  );
+};
+
+const EmptyStoreList = () => {
+  return (
+    <VStack gap={12} align='center' className={styles.emptyWrapper}>
+      <InfoIcon width={44} height={44} className={styles.infoIcon} />
+      <Text typo='body1Md' color='#767676'>
+        검색하신 가게를 찾을 수 없습니다.
+        <br />
+        다시 한 번 검색해 주세요.
+      </Text>
     </VStack>
   );
 };
@@ -63,7 +86,7 @@ const StoreCard = ({
   category: string;
 }) => {
   return (
-    <VStack className={styles.storeCard}>
+    <VStack>
       <VStack gap={4}>
         <Text as='h3' typo='title2Bd'>
           {name}
