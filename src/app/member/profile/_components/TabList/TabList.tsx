@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "@suspensive/react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,14 +31,18 @@ export const TabList = () => {
 
       <Tabs.Content value='cheer' className={styles.cheerTabContent}>
         <Spacer size={20} />
-        <CheerTab />
+        <Suspense>
+          <CheerTab />
+        </Suspense>
       </Tabs.Content>
 
       <Tabs.Content value='story'>
-        <Bleed inline={20}>
-          <Spacer size={1} />
-          <StoryTab />
-        </Bleed>
+        <Suspense>
+          <Bleed inline={20}>
+            <Spacer size={1} />
+            <StoryTab />
+          </Bleed>
+        </Suspense>
       </Tabs.Content>
     </Tabs.Root>
   );
