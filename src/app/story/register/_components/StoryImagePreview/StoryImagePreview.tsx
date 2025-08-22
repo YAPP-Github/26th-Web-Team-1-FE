@@ -44,8 +44,6 @@ export const StoryImagePreview = () => {
         width={121}
         height={213}
         className={styles.image}
-        // TODO: 추후 제거
-        unoptimized
       />
       <div className={styles.overlayButtonWrapper}>
         <label className={styles.overlayButton}>

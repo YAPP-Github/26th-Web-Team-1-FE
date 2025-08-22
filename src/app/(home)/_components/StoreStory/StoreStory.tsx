@@ -99,8 +99,6 @@ const StoreStoryCard = ({ src, title, description }: StoreStoryCardProps) => {
         src={src}
         alt={`${title} 가게 이야기 이미지`}
         className={styles.storyImage}
-        // TODO: 추후 제거
-        unoptimized
       />
       <div className={styles.storyCardGradient} />
       <VStack gap={4} style={{ zIndex: 1, position: "relative" }}>

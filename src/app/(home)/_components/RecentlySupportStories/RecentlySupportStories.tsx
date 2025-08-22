@@ -100,8 +100,6 @@ const SupportedStoreCard = ({
           src={imageUrl}
           alt={`${storeName} 가게 이미지`}
           objectFit='cover'
-          // TODO: 추후 제거
-          unoptimized
         />
       </div>
       <VStack className={styles.supportedStoreCardContent}>

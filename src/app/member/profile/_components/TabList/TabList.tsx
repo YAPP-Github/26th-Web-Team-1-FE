@@ -130,8 +130,6 @@ const StoryTab = () => {
               alt={story.storeName}
               className={styles.storyImage}
               fill
-              // TODO: 추후 제거
-              unoptimized
             />
 
             <div className={styles.overlay} />

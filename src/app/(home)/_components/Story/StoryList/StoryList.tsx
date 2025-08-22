@@ -32,8 +32,6 @@ export const StoryList = () => {
               height={80}
               alt={`스토리 이미지 ${story.storyId}`}
               className={styles.storyImage}
-              // TODO: 추후 제거
-              unoptimized
             />
           </div>
         </div>

@@ -77,8 +77,6 @@ export const RegisterPopup = () => {
                         height: "214px",
                         marginLeft: "10px",
                       }}
-                      // TODO: 추후 제거
-                      unoptimized
                     />
                   </div>
                 </div>

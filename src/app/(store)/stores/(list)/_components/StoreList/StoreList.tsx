@@ -129,8 +129,6 @@ const StoreImages = ({ storeId }: { storeId: number }) => {
                 alt={"이미지"}
                 fill
                 className={styles.storeImage}
-                // TODO: 추후 제거
-                unoptimized
               />
             </div>
           ) : (
