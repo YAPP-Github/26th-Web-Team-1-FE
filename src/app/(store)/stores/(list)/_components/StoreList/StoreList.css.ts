@@ -6,18 +6,19 @@ export const container = style({
   height: "100%",
 });
 
-export const separator = style({
-  borderTop: `1px solid ${colors.coolNeutral[97]}`,
+export const emptyWrapper = style({
+  paddingBlock: "10rem",
+  textAlign: "center",
+});
+
+export const infoIcon = style({
+  color: semantic.icon.disabled,
 });
 
 export const divider = style({
   width: "0.1rem",
   height: "1rem",
   backgroundColor: colors.neutral[95],
-});
-
-export const storeCard = style({
-  paddingBlock: "2.4rem",
 });
 
 export const storeImagesContainer = style({
@@ -51,7 +52,7 @@ export const emptyImage = style({
   alignItems: "center",
   justifyContent: "center",
 
-  width: "126px",
+  width: "100%",
   height: "168px",
 
   flexShrink: 0,

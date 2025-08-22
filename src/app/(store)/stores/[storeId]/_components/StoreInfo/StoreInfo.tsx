@@ -57,8 +57,6 @@ const StoreInfoImageCarousel = ({ storeId }: { storeId: number }) => {
               src={image}
               fill
               alt={`${index + 1}번째 가게 이미지`}
-              // TODO: 추후 제거
-              unoptimized
             />
           </div>
         ))}

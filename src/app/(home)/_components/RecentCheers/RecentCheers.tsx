@@ -125,8 +125,6 @@ const RecentSupportCard = ({
             alt={`${store.name} 가게 이미지`}
             className={styles.storeImage}
             src={store.imageUrl}
-            // TODO: 추후 제거
-            unoptimized
           />
         ) : (
           <span className={styles.storeImageFallback}>

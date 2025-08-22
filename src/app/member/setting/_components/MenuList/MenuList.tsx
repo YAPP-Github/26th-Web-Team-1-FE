@@ -3,7 +3,7 @@
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 
 import { useDeleteSessionMutation } from "@/app/(auth)/_api/auth/auth.queries";
 import { AlertModal } from "@/components/ui/AlertModal";
@@ -34,7 +34,6 @@ export const MenuList = () => {
 
   return (
     <>
-      <Toaster position='bottom-center' richColors />
       <VStack as='ul' gap={8} className={styles.wrapper}>
         {MENU_LIST.map(menu => (
           <li key={menu.id} className={styles.list}>

@@ -172,8 +172,6 @@ const StoreRegistrationGuideBottomSheet = ({
                   alt='가게 등록 주의사항'
                   width={24}
                   height={24}
-                  // TODO: 추후 제거
-                  unoptimized
                 />
                 <Text
                   as='h4'

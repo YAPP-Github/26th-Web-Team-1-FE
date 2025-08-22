@@ -95,8 +95,6 @@ export const StoryDetailContent = ({ storyId }: StoryDetailContentProps) => {
           fill
           priority
           objectFit='contain'
-          // TODO: 추후 제거
-          unoptimized
         />
       </div>
 

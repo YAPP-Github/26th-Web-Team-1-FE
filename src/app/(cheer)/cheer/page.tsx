@@ -30,6 +30,8 @@ export default function CheerPage() {
         />
       </Bleed>
 
+      <Spacer size={12} />
+
       <ChipFilter />
 
       <Spacer size={16} />

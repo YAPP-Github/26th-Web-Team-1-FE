@@ -41,8 +41,6 @@ export const FoodCategories = ({
               alt={category.label}
               width={category.name === "ALL" ? 26 : 24}
               height={category.name === "ALL" ? 26 : 24}
-              // TODO: 추후 제거
-              unoptimized
             />
           </div>
           <Text

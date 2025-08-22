@@ -111,8 +111,6 @@ export const ServiceIntroBottomSheet = () => {
                         src={content.imageSrc}
                         alt={content.imageAlt}
                         priority
-                        // TODO: 추후 제거
-                        unoptimized
                       />
                     </motion.div>
                   </AnimatePresence>

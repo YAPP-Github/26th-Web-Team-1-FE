@@ -10,21 +10,24 @@ import { Avatar } from "@/app/member/_components/Avatar";
 import { storiesByKakaoIdQueryOptions } from "@/app/story/_api";
 import CameraIcon from "@/assets/camera.svg";
 import { Button } from "@/components/ui/Button";
+import { Skeleton } from "@/components/ui/Skeleton";
 import { Spacer } from "@/components/ui/Spacer";
 import { HStack, VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
-import { colors } from "@/styles";
+import { colors, radius } from "@/styles";
 
 import * as styles from "./StoreStories.css";
 
 export const StoreStories = ({ storeId }: { storeId: number }) => {
   const router = useRouter();
-  const { data: store } = useQuery(storeDetailQueryOptions(Number(storeId)));
+  const { data: store, isLoading } = useQuery(
+    storeDetailQueryOptions(Number(storeId))
+  );
 
-  if (!store) {
+  if (!store || isLoading) {
     return (
       <VStack className={styles.storeStoriesContainer}>
-        <Text>가게 정보를 불러오는 중...</Text>
+        <Skeleton width={124} height={220} radius={radius[160]} />
       </VStack>
     );
   }
@@ -73,8 +76,6 @@ const StoreStoriesContent = ({ kakaoId }: { kakaoId: string }) => {
                 className={styles.image}
                 width={124}
                 height={220}
-                // TODO: 추후 제거
-                unoptimized
               />
               <div className={styles.overlay} />
               <HStack align='center' gap={4} className={styles.memberWrapper}>

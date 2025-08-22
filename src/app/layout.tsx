@@ -5,10 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { type CSSProperties } from "react";
 import { Toaster } from "sonner";
 
 import { RegisterServiceWorkerClient } from "@/lib/pwa";
 import { MSWProvider, OverlayProvider, QueryProvider } from "@/providers";
+import { semantic } from "@/styles";
 import { pretendard } from "@/styles/pretendard";
 
 import * as styles from "./layout.css";
@@ -61,7 +63,21 @@ export default function RootLayout({
               </MSWProvider>
             </OverlayProvider>
           </QueryProvider>
-          <Toaster position='bottom-center' richColors />
+          <Toaster
+            position='bottom-center'
+            toastOptions={{
+              style: {
+                backdropFilter: "blur(26px)",
+              },
+            }}
+            style={
+              {
+                "--normal-bg": "rgba(42, 42, 42, 0.52)",
+                "--normal-text": semantic.text.white,
+                "--normal-border": "transparent",
+              } as CSSProperties
+            }
+          />
         </div>
       </body>
     </html>

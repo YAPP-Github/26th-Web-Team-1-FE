@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useFormContext } from "react-hook-form";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 
 import { imageFileSchema, type StoryRegisterFormData } from "../../_schemas";
 import * as styles from "./StoryImagePreview.css";
@@ -44,8 +44,6 @@ export const StoryImagePreview = () => {
         width={121}
         height={213}
         className={styles.image}
-        // TODO: 추후 제거
-        unoptimized
       />
       <div className={styles.overlayButtonWrapper}>
         <label className={styles.overlayButton}>
@@ -58,7 +56,6 @@ export const StoryImagePreview = () => {
           />
         </label>
       </div>
-      <Toaster position='bottom-center' richColors />
     </div>
   );
 };

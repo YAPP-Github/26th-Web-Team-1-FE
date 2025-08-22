@@ -176,8 +176,6 @@ const CheerCardImages = ({ images, storeName }: CheerCardImagesProps) => {
                   alt={`${storeName}-${idx + 1}`}
                   fill
                   objectFit='cover'
-                  // TODO: 추후 제거
-                  unoptimized
                 />
               </div>
             ))}
@@ -196,8 +194,6 @@ const CheerCardImages = ({ images, storeName }: CheerCardImagesProps) => {
           alt={storeName}
           fill
           objectFit='cover'
-          // TODO: 추후 제거
-          unoptimized
         />
       )}
     </div>
@@ -224,8 +220,6 @@ const CheerCardTags = ({ tags }: CheerCardTagsProps) => {
               alt={tagInfo.label}
               width={14}
               height={14}
-              // TODO: 추후 제거
-              unoptimized
             />
             {tagInfo.label}
           </Tag>
