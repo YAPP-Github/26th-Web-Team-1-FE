@@ -68,11 +68,11 @@ export const ImagesStep = ({
           }))
         );
 
-        await Promise.all(
-          presignedUrls.map(({ url, order }) => {
-            uploadImageToS3(url, images[order]!);
-          })
+        const uploadPromises = presignedUrls.map(({ url, order }) =>
+          uploadImageToS3(url, images[order]!)
         );
+
+        await Promise.all(uploadPromises);
 
         imageData = presignedUrls.map(({ key, order, contentType }) => ({
           imageKey: key,
