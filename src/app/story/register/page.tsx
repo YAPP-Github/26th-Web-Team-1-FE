@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { getPresignedUrl, uploadImageToS3 } from "@/app/_api/image/image.api";
@@ -23,7 +24,9 @@ import * as styles from "./page.css";
 export default function StoryRegisterPage() {
   const { file, clearUpload } = useImageUploadContext();
   const router = useRouter();
-  const { mutate: postStory, isPending } = usePostStoryMutation();
+
+  const [isPending, setIsPending] = useState(false);
+  const { mutate: postStory } = usePostStoryMutation();
 
   const handleClick = () => {
     router.back();
@@ -45,6 +48,8 @@ export default function StoryRegisterPage() {
       let imageData: ImageRequest[] = [];
 
       if (data.image) {
+        setIsPending(true);
+
         const { urls: presignedUrls } = await getPresignedUrl([
           {
             order: 0,
@@ -85,6 +90,8 @@ export default function StoryRegisterPage() {
       );
     } catch (error) {
       console.error("이미지 업로드 실패:", error);
+    } finally {
+      setIsPending(false);
     }
   };
 

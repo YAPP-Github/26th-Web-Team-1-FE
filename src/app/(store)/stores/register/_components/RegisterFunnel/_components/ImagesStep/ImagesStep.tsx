@@ -38,7 +38,9 @@ export const ImagesStep = ({
 }: ImageStepProps) => {
   const { data: member } = useQuery(memberQueryOptions);
 
-  const { mutateAsync: postCheer, isPending } = usePostCheerMutation();
+  const [isPending, setIsPending] = useState(false);
+
+  const { mutateAsync: postCheer } = usePostCheerMutation();
 
   const [images, setImages] = useState<File[]>([]);
 
@@ -58,6 +60,8 @@ export const ImagesStep = ({
         contentType: string;
         fileSize: number;
       }> = [];
+
+      setIsPending(true);
 
       if (submitType === "with-images" && images.length > 0) {
         const { urls: presignedUrls } = await getPresignedUrl(
@@ -95,6 +99,8 @@ export const ImagesStep = ({
       if (error instanceof ApiException) {
         toast.error(error.message);
       }
+    } finally {
+      setIsPending(false);
     }
   };
 
