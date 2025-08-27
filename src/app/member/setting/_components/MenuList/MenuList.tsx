@@ -1,6 +1,5 @@
 "use client";
 
-import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -20,12 +19,10 @@ export const MenuList = () => {
   const handleLogout = () => {
     logout(undefined, {
       onSuccess: () => {
-        // TODO: Toast 띄우기
         toast.success("로그아웃이 완료되었어요.");
         router.replace("/");
       },
       onError: error => {
-        // TODO: Toast 띄우기
         toast.error("로그아웃에 실패했어요. 다시 시도해주세요.");
         console.error("로그아웃 실패", error);
       },
@@ -42,16 +39,18 @@ export const MenuList = () => {
                 {menu.label}
               </Link>
             ) : (
-              <AlertModal
-                title='로그아웃하시나요?'
-                trigger={
+              <AlertModal.Root>
+                <AlertModal.Trigger asChild>
                   <button type='button' className={styles.menuItem}>
                     로그아웃
                   </button>
-                }
-                footer={
-                  <>
-                    <AlertDialog.Cancel asChild>
+                </AlertModal.Trigger>
+                <AlertModal.Content>
+                  <AlertModal.Header>
+                    <AlertModal.Title>로그아웃하시나요?</AlertModal.Title>
+                  </AlertModal.Header>
+                  <AlertModal.Footer>
+                    <AlertModal.Cancel asChild>
                       <Button
                         variant='assistive'
                         size='large'
@@ -65,8 +64,8 @@ export const MenuList = () => {
                       >
                         취소
                       </Button>
-                    </AlertDialog.Cancel>
-                    <AlertDialog.Action asChild>
+                    </AlertModal.Cancel>
+                    <AlertModal.Action asChild>
                       <Button
                         variant='primary'
                         size='large'
@@ -76,10 +75,10 @@ export const MenuList = () => {
                       >
                         확인
                       </Button>
-                    </AlertDialog.Action>
-                  </>
-                }
-              />
+                    </AlertModal.Action>
+                  </AlertModal.Footer>
+                </AlertModal.Content>
+              </AlertModal.Root>
             )}
           </li>
         ))}
