@@ -70,8 +70,7 @@ export const http = ky.create({
   prefixUrl: API_BASE_URL,
   headers: {
     ...(isServer() && {
-      "X-Origin-Verify":
-        "e8eb093eeaf23930588ac65b94972d477345d3b8821197dfbcce84c223c9b6b3",
+      "X-Origin-Verify": process.env.ORIGIN_VERIFY,
     }),
   },
   hooks: {
