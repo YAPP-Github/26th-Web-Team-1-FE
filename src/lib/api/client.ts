@@ -69,7 +69,9 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
 export const http = ky.create({
   prefixUrl: API_BASE_URL,
   headers: {
-    "X-Origin-Verify": process.env.NEXT_PUBLIC_ORIGIN_VERIFY,
+    ...(isServer() && {
+      "X-Origin-Verify": process.env.ORIGIN_VERIFY,
+    }),
   },
   hooks: {
     beforeError: [apiErrorHandler],
