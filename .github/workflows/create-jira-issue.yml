@@ -31,7 +31,7 @@ jobs:
           echo '${{ steps.issue-parser.outputs.jsonString }}'
 
       - name: Convert markdown to Jira Syntax
-        uses: peter-evans/jira2md@v1
+        uses: peter-evans/jira2md@v2
         id: md2jira
         with:
           input-text: |
