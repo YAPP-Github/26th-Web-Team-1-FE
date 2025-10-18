@@ -86,3 +86,17 @@ export type StoreCategory = {
   name: string;
   imageUrl: string;
 };
+
+// ============================================
+// Store Search Types (from (search)/_api)
+// ============================================
+
+export type StoreSearchItem = {
+  kakaoId: string;
+  name: string;
+  address: string;
+};
+
+export type StoreSearchResponse = {
+  stores: StoreSearchItem[];
+};

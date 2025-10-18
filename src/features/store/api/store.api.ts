@@ -5,6 +5,7 @@ import type {
   StoreCheersResponse,
   StoreDetailResponse,
   StoreImagesResponse,
+  StoreSearchResponse,
   StoresResponse,
   StoreTagsResponse,
 } from "./store.types";
@@ -122,4 +123,23 @@ export const getStores = async ({
       },
     })
     .json<StoresResponse>();
+};
+
+// ============================================
+// Store Search APIs (from (search)/_api)
+// ============================================
+
+/**
+ * 가게 검색 API
+ * @param query 검색어
+ * @returns {Promise<StoreSearchResponse>} 검색된 가게 리스트
+ */
+export const getStoreSearch = async (
+  query: string
+): Promise<StoreSearchResponse> => {
+  return await authHttp
+    .get("api/shop/search", {
+      searchParams: { query },
+    })
+    .json<StoreSearchResponse>();
 };

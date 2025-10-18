@@ -6,6 +6,7 @@ import {
   getStoreDetail,
   getStoreImages,
   getStores,
+  getStoreSearch,
   getStoreTags,
 } from "./store.api";
 
@@ -38,6 +39,10 @@ export const storeQueryKeys = {
     tag?: string[],
     location?: string[]
   ) => [...storeQueryKeys.lists(), size, category, tag, location] as const,
+
+  // Store Search
+  searches: () => [...storeQueryKeys.all, "search"] as const,
+  search: (query: string) => [...storeQueryKeys.searches(), query] as const,
 } as const;
 
 export const cheeredMemberQueryKeys = {
@@ -96,4 +101,18 @@ export const storesQueryOptions = ({
   queryOptions({
     queryKey: storeQueryKeys.list(size, category, tag, location),
     queryFn: () => getStores({ size, category, tag, location }),
+  });
+
+// ============================================
+// Query Options (Search)
+// ============================================
+
+export const storeSearchQueryOptions = (query: string) =>
+  queryOptions({
+    queryKey: storeQueryKeys.search(query),
+    queryFn: () => getStoreSearch(query),
+    enabled: !!query,
+    staleTime: 5 * 60 * 1000,
+    gcTime: 30 * 60 * 1000,
+    retry: 1,
   });

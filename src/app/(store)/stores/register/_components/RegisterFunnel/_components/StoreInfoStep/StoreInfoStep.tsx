@@ -2,9 +2,9 @@ import Image from "next/image";
 import { overlay } from "overlay-kit";
 import { useEffect, useState } from "react";
 
-import { SearchStoreBottomSheet } from "@/app/(search)/_components/SearchStoreBottomSheet";
 import InfoIcon from "@/assets/info.svg";
 import SearchIcon from "@/assets/search.svg";
+import { SearchStoreBottomSheet } from "@/features/store";
 import { BottomSheet } from "@/shared/components/ui/BottomSheet";
 import { Button } from "@/shared/components/ui/Button";
 import { Spacer } from "@/shared/components/ui/Spacer";

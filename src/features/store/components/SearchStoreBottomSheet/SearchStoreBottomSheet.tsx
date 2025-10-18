@@ -16,9 +16,8 @@ import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
 import { TextField } from "@/shared/components/ui/TextField";
 
-import { storeSearchQueryOptions } from "../../_api";
-import { type SearchStoreFormValues } from "../../_types";
-import { type SelectedStore } from "../../_types/searchStore.types";
+import { storeSearchQueryOptions } from "../../api";
+import { type SearchStoreFormValues, type SelectedStore } from "../../types";
 import * as styles from "./SearchStoreBottomSheet.css";
 
 export type SearchStoreBottomSheetProps = {
