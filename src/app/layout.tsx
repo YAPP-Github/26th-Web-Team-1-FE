@@ -8,8 +8,12 @@ import Script from "next/script";
 import { type CSSProperties } from "react";
 import { Toaster } from "sonner";
 
-import { MSWProvider, OverlayProvider, QueryProvider } from "@/providers";
 import { RegisterServiceWorkerClient } from "@/shared/lib/pwa";
+import {
+  MSWProvider,
+  OverlayProvider,
+  QueryProvider,
+} from "@/shared/providers";
 import { semantic } from "@/styles";
 import { pretendard } from "@/styles/pretendard";
 
