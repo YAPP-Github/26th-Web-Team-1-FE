@@ -1,9 +1,9 @@
-export type LoginRequest = {
+export type LoginRequestDto = {
   code: string;
   origin: string;
 };
 
-export type LoginResponse = {
+export type LoginResponseDto = {
   token: {
     accessToken: string;
     refreshToken: string;
@@ -14,11 +14,11 @@ export type LoginResponse = {
   };
 };
 
-export type ReissueRequest = {
+export type ReissueRequestDto = {
   refreshToken: string;
 };
 
-export type ReissueResponse = {
+export type ReissueResponseDto = {
   accessToken: string;
   refreshToken: string;
 };

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
-import { postReissue } from "@/app/(auth)/_api/auth/auth.api";
+import { postReissue } from "@/features/auth/api";
 import { type ApiError } from "@/lib/api";
-import { getSessionFromServer } from "@/lib/session";
+import { getSessionFromServer } from "@/shared/lib/session";
 
 export const POST = async () => {
   const session = await getSessionFromServer();

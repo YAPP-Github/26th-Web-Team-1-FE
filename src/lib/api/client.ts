@@ -1,6 +1,6 @@
 import ky, { type BeforeRetryState, type HTTPError } from "ky";
 
-import { postClientReissue } from "@/app/(auth)/_api/auth/auth.api";
+import { postClientReissue } from "@/features/auth/api";
 import {
   ApiException,
   ForbiddenException,
@@ -9,12 +9,12 @@ import {
   TimeoutException,
   UnauthorizedException,
 } from "@/lib/exceptions";
+import { isServer } from "@/lib/utils/environment";
 import {
   clearClientSessionCache,
   getSessionFromClient,
   getSessionFromServer,
-} from "@/lib/session";
-import { isServer } from "@/lib/utils/environment";
+} from "@/shared/lib/session";
 
 import { type ApiError } from "./type";
 

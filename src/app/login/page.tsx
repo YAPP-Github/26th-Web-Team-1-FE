@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import { redirectToKakaoOAuthLoginPage } from "@/app/(auth)/_api/auth/auth.api";
 import KakaoLogoIcon from "@/assets/kakao-logo.svg";
 import LogoWordmarkIcon from "@/assets/logo-wordmark.svg";
 import { Button } from "@/components/ui/Button";
 import { GNB } from "@/components/ui/GNB";
 import { TextButton } from "@/components/ui/TextButton";
+import { redirectToKakaoOAuthLoginPage } from "@/features/auth/api";
 
 import * as styles from "./_styles/Login.css";
 

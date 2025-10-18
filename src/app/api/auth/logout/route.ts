@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getSessionFromServer } from "@/lib/session/serverSession";
+import { getSessionFromServer } from "@/shared/lib/session";
 
 export const DELETE = async () => {
   try {

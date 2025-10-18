@@ -1,34 +1,34 @@
 import { http, nextHttp } from "@/lib/api/client";
 
 import type {
-  LoginRequest,
-  LoginResponse,
-  ReissueRequest,
-  ReissueResponse,
-} from "./auth.types";
+  LoginRequestDto,
+  LoginResponseDto,
+  ReissueRequestDto,
+  ReissueResponseDto,
+} from "./auth.dto";
 
 /**
  * 백엔드의 /api/auth/login 엔드포인트에 로그인 요청을 보냅니다.
  *
- * @param {LoginRequest} params - 카카오 인가 코드
- * @returns {Promise<LoginResponse>} 로그인 응답 데이터
+ * @param {LoginRequestDto} params - 카카오 인가 코드
+ * @returns {Promise<LoginResponseDto>} 로그인 응답 데이터
  */
-export const postLogin = async (params: LoginRequest) => {
+export const postLogin = async (params: LoginRequestDto) => {
   return await http
     .post("api/auth/login", { json: params })
-    .json<LoginResponse>();
+    .json<LoginResponseDto>();
 };
 
 /**
  * 백엔드의 /api/auth/reissue 엔드포인트에 토큰 재발급 요청을 보냅니다.
  *
- * @param {ReissueRequest} params - 리프레시 토큰
- * @returns {Promise<ReissueResponse>} 재발급된 토큰 데이터
+ * @param {ReissueRequestDto} params - 리프레시 토큰
+ * @returns {Promise<ReissueResponseDto>} 재발급된 토큰 데이터
  */
-export const postReissue = async (params: ReissueRequest) => {
+export const postReissue = async (params: ReissueRequestDto) => {
   return await http
     .post("api/auth/reissue", { json: params })
-    .json<ReissueResponse>();
+    .json<ReissueResponseDto>();
 };
 
 /**
@@ -43,15 +43,17 @@ export const redirectToKakaoOAuthLoginPage = async () => {
   window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login/oauth`;
 };
 
-type Information = Omit<LoginResponse, "token">["information"];
+type Information = Omit<LoginResponseDto, "token">["information"];
 
 /**
  * Next.js API Route(/api/auth/login)를 통해 로그인 요청을 보냅니다.
  *
- * @param {LoginRequest} params - 카카오 인가 코드
+ * @param {Omit<LoginRequestDto, "origin">} params - 카카오 인가 코드
  * @returns {Promise<Information>} 회원 정보
  */
-export const postClientLogin = async (params: Omit<LoginRequest, "origin">) => {
+export const postClientLogin = async (
+  params: Omit<LoginRequestDto, "origin">
+) => {
   return await nextHttp
     .post("api/auth/login", { json: params })
     .json<Information>();
@@ -60,10 +62,10 @@ export const postClientLogin = async (params: Omit<LoginRequest, "origin">) => {
 /**
  * Next.js API Route(/api/auth/reissue)를 통해 토큰 재발급 요청을 보냅니다.
  *
- * @returns {Promise<ReissueResponse>} 재발급된 세션 정보
+ * @returns {Promise<ReissueResponseDto>} 재발급된 세션 정보
  */
 export const postClientReissue = async () => {
-  return await nextHttp.post("api/auth/reissue").json<ReissueResponse>();
+  return await nextHttp.post("api/auth/reissue").json<ReissueResponseDto>();
 };
 
 /**

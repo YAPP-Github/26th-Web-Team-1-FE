@@ -4,10 +4,10 @@ import Lottie from "lottie-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-import { useLoginMutation } from "@/app/(auth)/_api/auth/auth.queries";
 import loginSpinner from "@/assets/login-spinner.json";
 import { VStack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
+import { useLoginMutation } from "@/features/auth/api";
 
 export default function AuthCallbackPage() {
   const router = useRouter();

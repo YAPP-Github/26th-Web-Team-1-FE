@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { memberQueryKeys } from "@/app/member/_api";
-import { clearClientSessionCache } from "@/lib/session";
+import { clearClientSessionCache } from "@/shared/lib/session";
 
 import {
   deleteClientSession,

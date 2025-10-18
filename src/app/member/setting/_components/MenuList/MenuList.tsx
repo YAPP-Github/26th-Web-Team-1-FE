@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import { useDeleteSessionMutation } from "@/app/(auth)/_api/auth/auth.queries";
 import { AlertModal } from "@/components/ui/AlertModal";
 import { Button } from "@/components/ui/Button";
 import { VStack } from "@/components/ui/Stack";
+import { useDeleteSessionMutation } from "@/features/auth/api";
 
 import { MENU_LIST } from "../../_constants";
 import * as styles from "./MenuList.css";

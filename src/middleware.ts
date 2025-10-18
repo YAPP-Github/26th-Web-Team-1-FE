@@ -1,8 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import { postReissue } from "@/app/(auth)/_api/auth/auth.api";
 import { TOKEN_TIMES } from "@/constants";
-import { getSessionFromServer } from "@/lib/session";
+import { postReissue } from "@/features/auth/api";
+import { getSessionFromServer } from "@/shared/lib/session";
 
 type PathPattern = {
   pattern: RegExp;
