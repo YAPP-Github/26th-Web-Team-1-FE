@@ -5,10 +5,10 @@ import { toast } from "sonner";
 
 import { getPresignedUrl, uploadImageToS3 } from "@/app/_api/image/image.api";
 import { usePostCheerMutation } from "@/app/(cheer)/_api/cheer.queries";
-import { memberQueryOptions } from "@/app/member/_api/member.queries";
 import CircleCloseIcon from "@/assets/circle-close.svg";
 import LocationIcon from "@/assets/location-20.svg";
 import PlusIcon from "@/assets/plus.svg";
+import { memberQueryOptions } from "@/features/member/api/member.queries";
 import { Button } from "@/shared/components/ui/Button";
 import { Spacer } from "@/shared/components/ui/Spacer";
 import { HStack, VStack } from "@/shared/components/ui/Stack";

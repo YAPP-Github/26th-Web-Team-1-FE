@@ -7,11 +7,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { Avatar } from "@/app/member/_components/Avatar";
 import { storiesQueryOptions } from "@/app/story/_api";
 import CancelIcon from "@/assets/cancel.svg";
 import LocationIcon from "@/assets/location.svg";
 import MarketFillIcon from "@/assets/market-fill.svg";
+import { Avatar } from "@/features/member";
 import { GNB } from "@/shared/components/ui/GNB";
 import { Text } from "@/shared/components/ui/Text";
 

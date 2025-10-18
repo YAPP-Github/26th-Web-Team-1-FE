@@ -5,7 +5,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
 import { cheeredMemberQueryOptions } from "@/app/(store)/_api/shop";
-import { memberQueryOptions } from "@/app/member/_api";
+import { memberQueryOptions } from "@/features/member/api";
 import { AlertModal } from "@/shared/components/ui/AlertModal";
 import { Button } from "@/shared/components/ui/Button";
 import { VStack } from "@/shared/components/ui/Stack";

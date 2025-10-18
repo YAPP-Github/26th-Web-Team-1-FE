@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
-import { useUpdateMemberMutation } from "@/app/member/_api";
+import { useUpdateMemberMutation } from "@/features/member/api";
 import { Button } from "@/shared/components/ui/Button";
 import { CheckBox } from "@/shared/components/ui/CheckBox";
 import { HStack, VStack } from "@/shared/components/ui/Stack";

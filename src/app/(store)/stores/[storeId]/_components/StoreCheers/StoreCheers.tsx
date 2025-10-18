@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { storeCheersQueryOptions } from "@/app/(store)/_api/shop";
-import { Avatar } from "@/app/member/_components/Avatar";
+import { Avatar } from "@/features/member";
 import { Button } from "@/shared/components/ui/Button";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { Spacer } from "@/shared/components/ui/Spacer";

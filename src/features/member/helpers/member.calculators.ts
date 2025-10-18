@@ -1,7 +1,7 @@
 import {
   PROFILE_COLOR_COUNT,
   type ProfileColorIndex,
-} from "../_constants/profileColors.constants";
+} from "../constants/member.constants";
 
 /**
  * memberId를 기반으로 프로필 색상 인덱스 반환 (0, 1, 2)

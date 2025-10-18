@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
-import { memberQueryOptions } from "@/app/member/_api/member.queries";
+import { memberQueryOptions } from "@/features/member/api/member.queries";
 import { Button } from "@/shared/components/ui/Button";
 import { Chip } from "@/shared/components/ui/Chip";
 import { Spacer } from "@/shared/components/ui/Spacer";

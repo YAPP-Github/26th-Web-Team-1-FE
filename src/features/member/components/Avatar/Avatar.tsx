@@ -1,7 +1,7 @@
 import Bapurit from "@/assets/logo/symbol.svg";
 
-import { PROFILE_COLORS } from "../../_constants";
-import { getProfileColorIndex } from "../../_utils";
+import { PROFILE_COLORS } from "../../constants";
+import { getProfileColorIndex } from "../../helpers";
 import * as styles from "./Avatar.css";
 
 type AvatarProps = {

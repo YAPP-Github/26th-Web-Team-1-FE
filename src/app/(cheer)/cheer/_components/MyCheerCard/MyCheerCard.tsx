@@ -10,9 +10,9 @@ import {
   cheeredMemberQueryOptions,
   type CheeredStore,
 } from "@/app/(store)/_api/shop";
-import { Avatar } from "@/app/member/_components/Avatar";
 import LocationIcon from "@/assets/location.svg";
 import MarketIcon from "@/assets/market-fill.svg";
+import { Avatar } from "@/features/member";
 import { Button } from "@/shared/components/ui/Button";
 import { Indicator } from "@/shared/components/ui/Indicator";
 import { Spacer } from "@/shared/components/ui/Spacer";

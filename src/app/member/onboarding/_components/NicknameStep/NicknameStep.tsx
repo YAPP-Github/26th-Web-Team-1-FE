@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDebounce } from "react-simplikit";
 
-import { useNicknameCheckMutation } from "@/app/member/_api/member.queries";
-import { nicknameSchema } from "@/app/member/_schemas";
 import CircleCloseIcon from "@/assets/circle-close.svg";
+import { useNicknameCheckMutation } from "@/features/member/api/member.queries";
 import { Button } from "@/shared/components/ui/Button";
 import { VStack } from "@/shared/components/ui/Stack";
 import { TextField } from "@/shared/components/ui/TextField";
 
+import { nicknameSchema } from "../../_schemas";
 import { OnboardingTitle } from "../OnboardingTitle";
 import * as styles from "./NicknameStep.css";
 
