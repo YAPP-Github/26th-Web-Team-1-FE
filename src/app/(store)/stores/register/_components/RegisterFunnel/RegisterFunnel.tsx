@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useFunnel } from "@use-funnel/browser";
 import { useRouter } from "next/navigation";
 
-import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
+import { storeDetailQueryOptions } from "@/features/store";
 import { Bleed } from "@/shared/components/ui/Bleed";
 
 import { ProgressBar } from "../ProgressBar";

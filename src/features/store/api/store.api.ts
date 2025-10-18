@@ -1,16 +1,25 @@
 import { authHttp, http } from "@/shared/lib/api";
 
-import {
-  type CheeredMemberResponse,
-  type StoreCheersResponse,
-  type StoreDetailResponse,
-  type StoreImagesResponse,
-  type StoreTagsResponse,
-} from "./shop.types";
+import type {
+  CheeredMemberResponse,
+  StoreCheersResponse,
+  StoreDetailResponse,
+  StoreImagesResponse,
+  StoresResponse,
+  StoreTagsResponse,
+} from "./store.types";
+
+// ============================================
+// Constants
+// ============================================
 
 export const STORE_ERROR_CODES = {
   NOT_FOUND: "ST0012",
 } as const;
+
+// ============================================
+// Store Detail APIs (from (store)/_api/shop)
+// ============================================
 
 /**
  * 가게 상세 조회 API
@@ -41,8 +50,6 @@ export const getStoreCheers = async (
     })
     .json<StoreCheersResponse>();
 };
-
-// /api/shops/{storeId}/images
 
 /**
  * 가게별 이미지 조회 API
@@ -80,4 +87,39 @@ export const getStoreTags = async (
   storeId: number
 ): Promise<StoreTagsResponse> => {
   return await http.get(`api/shops/${storeId}/tags`).json<StoreTagsResponse>();
+};
+
+// ============================================
+// Store List APIs (from (home)/_api/shop)
+// ============================================
+
+/**
+ * 가게 목록 조회 API
+ * @params size 조회할 가게 개수 (최소 1, 최대 50)
+ * @returns 가게 목록
+ */
+export const getStores = async ({
+  size,
+  category,
+  tag,
+  location,
+}: {
+  size: number;
+  category?: string;
+  tag?: string[];
+  location?: string[];
+}): Promise<StoresResponse> => {
+  const toCSV = (v?: string | string[]) =>
+    Array.isArray(v) ? v.filter(Boolean).join(",") : v || undefined;
+
+  return await http
+    .get("api/shops", {
+      searchParams: {
+        size,
+        ...(category ? { category } : {}),
+        ...(toCSV(tag) ? { tag: toCSV(tag) } : {}),
+        ...(toCSV(location) ? { location: toCSV(location) } : {}),
+      },
+    })
+    .json<StoresResponse>();
 };

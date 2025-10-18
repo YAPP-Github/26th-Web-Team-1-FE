@@ -4,9 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 
-import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
 import ChevronLeftIcon from "@/assets/chevron-left.svg";
 import ShareIcon from "@/assets/share-24.svg";
+import { storeDetailQueryOptions } from "@/features/store";
 import { GNB } from "@/shared/components/ui/GNB";
 import { semantic } from "@/shared/styles";
 

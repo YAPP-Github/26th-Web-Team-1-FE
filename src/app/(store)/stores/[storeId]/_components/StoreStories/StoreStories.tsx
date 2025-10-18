@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
 import CameraIcon from "@/assets/camera.svg";
 import { Avatar } from "@/features/member";
+import { storeDetailQueryOptions } from "@/features/store";
 import { storiesByKakaoIdQueryOptions } from "@/features/story";
 import { Button } from "@/shared/components/ui/Button";
 import { Skeleton } from "@/shared/components/ui/Skeleton";

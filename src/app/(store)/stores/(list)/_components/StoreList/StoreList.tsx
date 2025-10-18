@@ -7,13 +7,13 @@ import Link from "next/link";
 import { useBooleanState, useIntersectionObserver } from "react-simplikit";
 
 import { useChipFilter } from "@/app/_shared/ChipFilter";
-import { storesQueryOptions } from "@/app/(home)/_api/shop/shop.queries";
+import InfoIcon from "@/assets/info.svg";
+import LogoWordMark from "@/assets/logo-wordmark.svg";
 import {
   storeCheersQueryOptions,
   storeImagesQueryOptions,
-} from "@/app/(store)/_api/shop";
-import InfoIcon from "@/assets/info.svg";
-import LogoWordMark from "@/assets/logo-wordmark.svg";
+  storesQueryOptions,
+} from "@/features/store";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { Spacer } from "@/shared/components/ui/Spacer";

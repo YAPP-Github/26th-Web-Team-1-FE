@@ -1,4 +1,8 @@
-import { type ImageMeta } from "@/types";
+import { type ImageMeta, type ImageResponse } from "@/types";
+
+// ============================================
+// Cheer Register Types (from (cheer)/_api)
+// ============================================
 
 type CheerImage = {
   imageKey: string;
@@ -21,6 +25,10 @@ export type CheerRegisterResponse = {
   cheerDescription: string;
   images: CheerImage[];
 };
+
+// ============================================
+// Cheer List Types (from (cheer)/_api)
+// ============================================
 
 export type CheerListParams = {
   size?: number;
@@ -47,4 +55,24 @@ export type CheerResponse = {
 
 export type CheerListResponse = {
   cheers: CheerResponse[];
+};
+
+// ============================================
+// Cheers Types (from (home)/_api/cheer)
+// ============================================
+
+export type Cheer = {
+  storeId: number;
+  images: ImageResponse[];
+  storeName: string;
+  storeDistrict: string;
+  storeNeighborhood: string;
+  storeCategory: string;
+  cheerId: number;
+  cheerDescription: string;
+  tags: string[];
+};
+
+export type CheersResponse = {
+  cheers: Cheer[];
 };

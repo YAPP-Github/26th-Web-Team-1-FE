@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { storeDetailQueryOptions } from "@/app/(store)/_api/shop/shop.queries";
 import CancelIcon from "@/assets/cancel.svg";
 import LocationIcon from "@/assets/location-20.svg";
+import { storeDetailQueryOptions } from "@/features/store";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { Button } from "@/shared/components/ui/Button";
 import { GNB } from "@/shared/components/ui/GNB";

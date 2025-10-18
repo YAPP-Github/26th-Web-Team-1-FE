@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Separated } from "react-simplikit";
 
+import { storesQueryOptions } from "@/features/store";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { Button } from "@/shared/components/ui/Button";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
@@ -15,7 +16,6 @@ import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
 import { radius } from "@/shared/styles";
 
-import { storesQueryOptions } from "../../_api/shop";
 import * as styles from "./RecentlySupportStories.css";
 
 export const RecentlySupportedStores = () => {

@@ -6,13 +6,13 @@ import { head } from "es-toolkit";
 import Image from "next/image";
 import Link from "next/link";
 
+import LocationIcon from "@/assets/location-20.svg";
+import MapIcon from "@/assets/map-20.svg";
 import {
   storeDetailQueryOptions,
   storeImagesQueryOptions,
   storeTagsQueryOptions,
-} from "@/app/(store)/_api/shop";
-import LocationIcon from "@/assets/location-20.svg";
-import MapIcon from "@/assets/map-20.svg";
+} from "@/features/store";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { Button } from "@/shared/components/ui/Button";
 import { Skeleton } from "@/shared/components/ui/Skeleton";

@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import Slider, { type Settings } from "react-slick";
 
-import { cheerListQueryOptions, type CheerResponse } from "@/app/(cheer)/_api";
 import InfoIcon from "@/assets/info.svg";
+import { cheerListQueryOptions, type CheerResponse } from "@/features/cheer";
 import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Tag } from "@/shared/components/ui/Tag";
 import { Text } from "@/shared/components/ui/Text";

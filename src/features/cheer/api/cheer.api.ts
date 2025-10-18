@@ -5,7 +5,12 @@ import type {
   CheerListResponse,
   CheerRegisterRequest,
   CheerRegisterResponse,
+  CheersResponse,
 } from "./cheer.types";
+
+// ============================================
+// Cheer Register & List APIs (from (cheer)/_api)
+// ============================================
 
 /**
  * 응원 등록 API
@@ -24,7 +29,7 @@ export const postCheer = async (
 };
 
 /**
- * 최신 응원 조회 API
+ * 최신 응원 조회 API (with filters)
  * @example
  * /api/cheer?category=KOREAN&tag=OLD_STORE_MOOD,ENERGETIC&location=HONGDAE,IHWA
  *
@@ -54,4 +59,23 @@ export const getCheerList = async ({
       },
     })
     .json<CheerListResponse>();
+};
+
+// ============================================
+// Cheers API (from (home)/_api/cheer)
+// ============================================
+
+/**
+ * 최신 응원 조회 API (simple, no filters)
+ * @params size 조회할 응원 개수 (최소 1, 최대 50)
+ * @returns 최신 응원 목록
+ */
+export const getCheers = async (size: number): Promise<CheersResponse> => {
+  return await http
+    .get("api/cheer", {
+      searchParams: {
+        size,
+      },
+    })
+    .json<CheersResponse>();
 };

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { STORE_ERROR_CODES } from "@/app/(store)/_api/shop/shop.api";
+import { STORE_ERROR_CODES } from "@/features/store";
 import { ApiException } from "@/shared/lib/exceptions";
 
 /**
