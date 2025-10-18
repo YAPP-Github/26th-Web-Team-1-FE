@@ -1,8 +1,8 @@
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
 import { memberQueryOptions } from "@/app/member/_api/member.queries";
-import { VStack } from "@/components/ui/Stack";
-import getQueryClient from "@/lib/tanstack/getQueryClient";
+import { VStack } from "@/shared/components/ui/Stack";
+import getQueryClient from "@/shared/lib/tanstack/getQueryClient";
 
 import { RegisterFunnel } from "./_components";
 

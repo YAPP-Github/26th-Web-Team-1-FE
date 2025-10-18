@@ -9,12 +9,12 @@ import { memberQueryOptions } from "@/app/member/_api/member.queries";
 import CircleCloseIcon from "@/assets/circle-close.svg";
 import LocationIcon from "@/assets/location-20.svg";
 import PlusIcon from "@/assets/plus.svg";
-import { Button } from "@/components/ui/Button";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
-import { TextButton } from "@/components/ui/TextButton";
-import { ApiException } from "@/lib/exceptions";
+import { Button } from "@/shared/components/ui/Button";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
+import { TextButton } from "@/shared/components/ui/TextButton";
+import { ApiException } from "@/shared/lib/exceptions";
 import { semantic } from "@/styles";
 
 import * as styles from "./ImagesStep.css";

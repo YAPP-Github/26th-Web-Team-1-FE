@@ -6,11 +6,11 @@ import { MAX_SUPPORT_TEXT_LENGTH } from "@/app/(store)/stores/register/_constant
 import { supportTextSchema } from "@/app/(store)/stores/register/_schemas";
 import { memberQueryOptions } from "@/app/member/_api/member.queries";
 import LocationIcon from "@/assets/location-20.svg";
-import { Button } from "@/components/ui/Button";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
-import { TextField } from "@/components/ui/TextField";
+import { Button } from "@/shared/components/ui/Button";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
+import { TextField } from "@/shared/components/ui/TextField";
 import { semantic } from "@/styles";
 
 import * as styles from "./SupportTextStep.css";

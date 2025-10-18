@@ -14,11 +14,11 @@ import {
 } from "@/app/(store)/_api/shop";
 import InfoIcon from "@/assets/info.svg";
 import LogoWordMark from "@/assets/logo-wordmark.svg";
-import { Bleed } from "@/components/ui/Bleed";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 import { colors } from "@/styles";
 
 import * as styles from "./StoreList.css";

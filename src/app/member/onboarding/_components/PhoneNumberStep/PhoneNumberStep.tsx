@@ -5,9 +5,9 @@ import { usePhoneNumberCheckMutation } from "@/app/member/_api/member.queries";
 import { phoneNumberSchema } from "@/app/member/_schemas";
 import { type PhoneNumberFormValues } from "@/app/member/_types/member.types";
 import CircleCloseIcon from "@/assets/circle-close.svg";
-import { Button } from "@/components/ui/Button";
-import { VStack } from "@/components/ui/Stack";
-import { TextField } from "@/components/ui/TextField";
+import { Button } from "@/shared/components/ui/Button";
+import { VStack } from "@/shared/components/ui/Stack";
+import { TextField } from "@/shared/components/ui/TextField";
 
 import { phoneNumberUtils } from "../../../_utils";
 import { OnboardingTitle } from "../OnboardingTitle";

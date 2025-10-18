@@ -1,4 +1,4 @@
-import { http } from "@/lib/api";
+import { http } from "@/shared/lib/api";
 
 import { type StoryDetailResponse } from "./detail.types";
 

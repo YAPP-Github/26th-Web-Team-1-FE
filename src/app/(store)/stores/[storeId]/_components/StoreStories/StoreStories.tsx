@@ -9,11 +9,11 @@ import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
 import { Avatar } from "@/app/member/_components/Avatar";
 import { storiesByKakaoIdQueryOptions } from "@/app/story/_api";
 import CameraIcon from "@/assets/camera.svg";
-import { Button } from "@/components/ui/Button";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
+import { Button } from "@/shared/components/ui/Button";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 import { colors, radius } from "@/styles";
 
 import * as styles from "./StoreStories.css";

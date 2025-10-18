@@ -1,5 +1,5 @@
-import { authHttp } from "@/lib/api";
-import { ApiException } from "@/lib/exceptions";
+import { authHttp } from "@/shared/lib/api";
+import { ApiException } from "@/shared/lib/exceptions";
 
 import { type FileDetail, type PresignedUrlResponse } from "./image.types";
 

@@ -1,7 +1,7 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { type HTMLAttributes } from "react";
 
-import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
+import { coerceCssRemValue } from "@/shared/lib/utils/style";
 
 import * as styles from "./Skeleton.css";
 

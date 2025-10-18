@@ -3,8 +3,8 @@
 import { useParams } from "next/navigation";
 import { Separated } from "react-simplikit";
 
-import { Bleed } from "@/components/ui/Bleed";
-import { VStack } from "@/components/ui/Stack";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { VStack } from "@/shared/components/ui/Stack";
 import { semantic } from "@/styles";
 
 import { StoreCheers, StoreInfo, StoreStories } from "./_components";

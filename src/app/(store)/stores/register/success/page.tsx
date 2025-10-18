@@ -8,13 +8,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { storeDetailQueryOptions } from "@/app/(store)/_api/shop/shop.queries";
 import CancelIcon from "@/assets/cancel.svg";
 import LocationIcon from "@/assets/location-20.svg";
-import { Bleed } from "@/components/ui/Bleed";
-import { Button } from "@/components/ui/Button";
-import { GNB } from "@/components/ui/GNB";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { Button } from "@/shared/components/ui/Button";
+import { GNB } from "@/shared/components/ui/GNB";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 import { semantic } from "@/styles";
 
 export default function StoreRegisterSuccessPage() {

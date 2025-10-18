@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { postReissue } from "@/features/auth/api";
-import { type ApiError } from "@/lib/api";
+import { type ApiError } from "@/shared/lib/api";
 import { getSessionFromServer } from "@/shared/lib/session";
 
 export const POST = async () => {

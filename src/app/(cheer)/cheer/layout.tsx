@@ -1,4 +1,4 @@
-import { BottomNavigation } from "@/components/ui/BottomNavigation";
+import { BottomNavigation } from "@/shared/components/ui/BottomNavigation";
 
 import { CheerHeader } from "./_components/CheerHeader";
 import * as styles from "./layout.css";

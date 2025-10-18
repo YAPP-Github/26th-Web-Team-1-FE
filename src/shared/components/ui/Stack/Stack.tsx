@@ -1,7 +1,7 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { type ElementType } from "react";
 
-import { coerceCssRemValue } from "@/lib/utils/coerceCssRemValue";
+import { coerceCssRemValue } from "@/shared/lib/utils/style";
 import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic.types";
 
 import * as styles from "./Stack.css";

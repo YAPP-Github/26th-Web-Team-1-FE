@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 import { type FoodCategory } from "@/types";
 
 import * as styles from "./FoodCategory.css";

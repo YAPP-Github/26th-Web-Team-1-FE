@@ -5,9 +5,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import loginSpinner from "@/assets/login-spinner.json";
-import { VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
 import { useLoginMutation } from "@/features/auth/api";
+import { VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 
 export default function AuthCallbackPage() {
   const router = useRouter();

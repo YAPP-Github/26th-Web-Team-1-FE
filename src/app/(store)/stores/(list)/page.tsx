@@ -4,11 +4,11 @@ import { Suspense } from "@suspensive/react";
 
 import { ChipFilter } from "@/app/_shared/ChipFilter";
 import { RegisterFloatingButton } from "@/app/(home)/_shared/RegisterFloatingButton";
-import { Bleed } from "@/components/ui/Bleed";
-import { FoodCategories } from "@/components/ui/FoodCategory";
-import { Spacer } from "@/components/ui/Spacer";
-import { VStack } from "@/components/ui/Stack";
-import { useFoodCategory } from "@/hooks/useFoodCategory";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { FoodCategories } from "@/shared/components/ui/FoodCategory";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { VStack } from "@/shared/components/ui/Stack";
+import { useFoodCategory } from "@/shared/hooks/useFoodCategory";
 
 import { StoreList, StoreListGNB } from "./_components";
 

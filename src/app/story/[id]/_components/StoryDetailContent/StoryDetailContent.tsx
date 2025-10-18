@@ -12,8 +12,8 @@ import { storiesQueryOptions } from "@/app/story/_api";
 import CancelIcon from "@/assets/cancel.svg";
 import LocationIcon from "@/assets/location.svg";
 import MarketFillIcon from "@/assets/market-fill.svg";
-import { GNB } from "@/components/ui/GNB";
-import { Text } from "@/components/ui/Text";
+import { GNB } from "@/shared/components/ui/GNB";
+import { Text } from "@/shared/components/ui/Text";
 
 import { storyDetailQueryOptions } from "../../_api";
 import { KAKAO_PLACE_URL, STORIES_LIMIT } from "../../_constants";

@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { SearchStoreBottomSheet } from "@/app/(search)/_components/SearchStoreBottomSheet";
 import InfoIcon from "@/assets/info.svg";
 import SearchIcon from "@/assets/search.svg";
-import { BottomSheet } from "@/components/ui/BottomSheet";
-import { Button } from "@/components/ui/Button";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
-import { TextField } from "@/components/ui/TextField";
+import { BottomSheet } from "@/shared/components/ui/BottomSheet";
+import { Button } from "@/shared/components/ui/Button";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
+import { TextField } from "@/shared/components/ui/TextField";
 import { semantic } from "@/styles";
 
 import * as styles from "./StoreInfoStep.css";

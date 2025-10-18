@@ -13,14 +13,14 @@ import {
 } from "@/app/(store)/_api/shop";
 import LocationIcon from "@/assets/location-20.svg";
 import MapIcon from "@/assets/map-20.svg";
-import { Bleed } from "@/components/ui/Bleed";
-import { Button } from "@/components/ui/Button";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Tag } from "@/components/ui/Tag";
-import { Text } from "@/components/ui/Text";
-import { TextButton } from "@/components/ui/TextButton";
 import { ALL_TAGS } from "@/constants/tag.constants";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { Button } from "@/shared/components/ui/Button";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Tag } from "@/shared/components/ui/Tag";
+import { Text } from "@/shared/components/ui/Text";
+import { TextButton } from "@/shared/components/ui/TextButton";
 import { semantic } from "@/styles";
 
 import * as styles from "./StoreInfo.css";

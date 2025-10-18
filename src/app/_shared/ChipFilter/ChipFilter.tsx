@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { FilterBottomSheet } from "@/app/_shared/FilterBottomSheet";
 import ChevronDownIcon from "@/assets/chevron-down.svg";
-import { Chip } from "@/components/ui/Chip";
-import { HStack } from "@/components/ui/Stack";
+import { Chip } from "@/shared/components/ui/Chip";
+import { HStack } from "@/shared/components/ui/Stack";
 
 import * as styles from "./ChipFilter.css";
 import { type FilterTabType } from "./chipFilter.types";

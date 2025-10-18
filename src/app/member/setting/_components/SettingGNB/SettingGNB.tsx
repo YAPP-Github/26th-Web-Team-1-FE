@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 import ChevronLeftIcon from "@/assets/chevron-left.svg";
-import { GNB } from "@/components/ui/GNB";
+import { GNB } from "@/shared/components/ui/GNB";
 
 export const SettingGNB = () => {
   const router = useRouter();

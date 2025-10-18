@@ -7,11 +7,11 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import Slider, { type Settings } from "react-slick";
 
-import { Indicator } from "@/components/ui/Indicator";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
-import { convertNewlineToJSX } from "@/lib/utils/convertNewlineToJSX";
+import { Indicator } from "@/shared/components/ui/Indicator";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
+import { convertNewlineToJSX } from "@/shared/lib/utils/react";
 import { radius } from "@/styles";
 
 import { articleQueryOptions } from "../../_api/articles";

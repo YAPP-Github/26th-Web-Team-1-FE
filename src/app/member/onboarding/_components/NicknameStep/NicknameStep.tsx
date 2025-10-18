@@ -7,9 +7,9 @@ import { useDebounce } from "react-simplikit";
 import { useNicknameCheckMutation } from "@/app/member/_api/member.queries";
 import { nicknameSchema } from "@/app/member/_schemas";
 import CircleCloseIcon from "@/assets/circle-close.svg";
-import { Button } from "@/components/ui/Button";
-import { VStack } from "@/components/ui/Stack";
-import { TextField } from "@/components/ui/TextField";
+import { Button } from "@/shared/components/ui/Button";
+import { VStack } from "@/shared/components/ui/Stack";
+import { TextField } from "@/shared/components/ui/TextField";
 
 import { OnboardingTitle } from "../OnboardingTitle";
 import * as styles from "./NicknameStep.css";

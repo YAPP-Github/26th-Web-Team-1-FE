@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
 import ChevronLeftIcon from "@/assets/chevron-left.svg";
 import ShareIcon from "@/assets/share-24.svg";
-import { GNB } from "@/components/ui/GNB";
+import { GNB } from "@/shared/components/ui/GNB";
 import { semantic } from "@/styles";
 
 export const StoreDetailGNB = () => {

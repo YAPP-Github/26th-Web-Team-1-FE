@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import SearchIcon from "@/assets/search.svg";
-import { GNB } from "@/components/ui/GNB";
+import { GNB } from "@/shared/components/ui/GNB";
 
 export const CheerHeader = () => {
   return (

@@ -13,11 +13,11 @@ import {
 import { Avatar } from "@/app/member/_components/Avatar";
 import LocationIcon from "@/assets/location.svg";
 import MarketIcon from "@/assets/market-fill.svg";
-import { Button } from "@/components/ui/Button";
-import { Indicator } from "@/components/ui/Indicator";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
+import { Button } from "@/shared/components/ui/Button";
+import { Indicator } from "@/shared/components/ui/Indicator";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 
 import { SLIDER_SETTINGS } from "../../constants";
 import * as styles from "./MyCheerCard.css";

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { storiesQueryOptions } from "@/app/story/_api";
-import { Skeleton } from "@/components/ui/Skeleton";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
 
 import * as styles from "./StoryList.css";
 

@@ -2,7 +2,7 @@
 
 import CancelIcon from "@/assets/cancel.svg";
 import ChevronLeftIcon from "@/assets/chevron-left.svg";
-import { GNB } from "@/components/ui/GNB";
+import { GNB } from "@/shared/components/ui/GNB";
 import { semantic } from "@/styles";
 
 type StoreRegisterGNBProps = {

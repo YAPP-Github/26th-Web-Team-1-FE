@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 
 import KakaoLogoIcon from "@/assets/kakao-logo.svg";
 import LogoWordmarkIcon from "@/assets/logo-wordmark.svg";
-import { Button } from "@/components/ui/Button";
-import { GNB } from "@/components/ui/GNB";
-import { TextButton } from "@/components/ui/TextButton";
 import { redirectToKakaoOAuthLoginPage } from "@/features/auth/api";
+import { Button } from "@/shared/components/ui/Button";
+import { GNB } from "@/shared/components/ui/GNB";
+import { TextButton } from "@/shared/components/ui/TextButton";
 
 import * as styles from "./_styles/Login.css";
 

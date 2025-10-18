@@ -1,4 +1,4 @@
-import { authHttp, http } from "@/lib/api";
+import { authHttp, http } from "@/shared/lib/api";
 
 import type {
   StoriesByKakaoIdResponse,

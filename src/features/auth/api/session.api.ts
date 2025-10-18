@@ -1,4 +1,4 @@
-import { nextHttp } from "@/lib/api/client";
+import { nextHttp } from "@/shared/lib/api/client";
 
 import type { SessionData } from "./session.dto";
 

@@ -3,15 +3,15 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePreservedCallback } from "react-simplikit";
 
-import { BottomSheet } from "@/components/ui/BottomSheet";
-import { type BottomSheetRootProps } from "@/components/ui/BottomSheet/BottomSheetRoot";
-import { Button } from "@/components/ui/Button";
-import { Chip } from "@/components/ui/Chip";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack } from "@/components/ui/Stack";
-import { Tabs } from "@/components/ui/Tabs";
 import { LOCATIONS } from "@/constants/location.constants";
 import { ATMOSPHERE_TAGS, UTILITY_TAGS } from "@/constants/tag.constants";
+import { BottomSheet } from "@/shared/components/ui/BottomSheet";
+import { type BottomSheetRootProps } from "@/shared/components/ui/BottomSheet/BottomSheetRoot";
+import { Button } from "@/shared/components/ui/Button";
+import { Chip } from "@/shared/components/ui/Chip";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack } from "@/shared/components/ui/Stack";
+import { Tabs } from "@/shared/components/ui/Tabs";
 
 import { type FilterTabType } from "../ChipFilter";
 import * as styles from "./FilterBottomSheet.css";

@@ -1,6 +1,6 @@
 import Bapurit from "@/assets/logo/symbol.svg";
 import NotificationIcon from "@/assets/notification.svg";
-import { HStack } from "@/components/ui/Stack";
+import { HStack } from "@/shared/components/ui/Stack";
 
 import * as styles from "./AddStoryAvatar.css";
 

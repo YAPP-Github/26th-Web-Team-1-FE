@@ -8,13 +8,13 @@ import {
   StatusCode,
   TimeoutException,
   UnauthorizedException,
-} from "@/lib/exceptions";
-import { isServer } from "@/lib/utils/environment";
+} from "@/shared/lib/exceptions";
 import {
   clearClientSessionCache,
   getSessionFromClient,
   getSessionFromServer,
 } from "@/shared/lib/session";
+import { isServer } from "@/shared/lib/utils/browser";
 
 import { type ApiError } from "./type";
 

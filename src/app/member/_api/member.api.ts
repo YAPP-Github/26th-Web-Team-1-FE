@@ -1,4 +1,4 @@
-import { authHttp } from "@/lib/api";
+import { authHttp } from "@/shared/lib/api";
 
 import {
   type MemberResponse,

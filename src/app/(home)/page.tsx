@@ -1,8 +1,8 @@
 "use client";
 
-import { Bleed } from "@/components/ui/Bleed";
-import { Spacer } from "@/components/ui/Spacer";
-import { VStack } from "@/components/ui/Stack";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { VStack } from "@/shared/components/ui/Stack";
 import { colors } from "@/styles";
 
 import { RecentCheers, RegisterPopup, StoreList, Story } from "./_components";

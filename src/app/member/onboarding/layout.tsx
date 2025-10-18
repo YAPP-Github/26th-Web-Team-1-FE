@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { type ReactNode } from "react";
 
 import ChevronLeftIcon from "@/assets/chevron-left.svg";
-import { GNB } from "@/components/ui/GNB";
+import { GNB } from "@/shared/components/ui/GNB";
 
 import * as styles from "./layout.css";
 

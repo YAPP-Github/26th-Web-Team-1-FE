@@ -1,4 +1,4 @@
-import { Bleed } from "@/components/ui/Bleed";
+import { Bleed } from "@/shared/components/ui/Bleed";
 
 import { StoreDetailGNB } from "./_components/StoreDetailGNB";
 import * as styles from "./layout.css";

@@ -5,7 +5,7 @@ import { useFunnel } from "@use-funnel/browser";
 import { useRouter } from "next/navigation";
 
 import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
-import { Bleed } from "@/components/ui/Bleed";
+import { Bleed } from "@/shared/components/ui/Bleed";
 
 import { ProgressBar } from "../ProgressBar";
 import { StoreRegisterGNB } from "../StoreRegisterGNB";

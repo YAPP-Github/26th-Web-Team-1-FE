@@ -2,11 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
 import { memberQueryOptions } from "@/app/member/_api/member.queries";
-import { Button } from "@/components/ui/Button";
-import { Chip } from "@/components/ui/Chip";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
+import { Button } from "@/shared/components/ui/Button";
+import { Chip } from "@/shared/components/ui/Chip";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 import { type Tag } from "@/types/tag.types";
 
 import { useTagSelection } from "./_hooks";

@@ -9,12 +9,12 @@ import { useDebounce } from "react-simplikit";
 import CircleCloseIcon from "@/assets/circle-close.svg";
 import InfoFillIcon from "@/assets/info-fill.svg";
 import SearchIcon from "@/assets/search.svg";
-import { BottomSheet } from "@/components/ui/BottomSheet";
-import { Button } from "@/components/ui/Button";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { Text } from "@/components/ui/Text";
-import { TextButton } from "@/components/ui/TextButton";
-import { TextField } from "@/components/ui/TextField";
+import { BottomSheet } from "@/shared/components/ui/BottomSheet";
+import { Button } from "@/shared/components/ui/Button";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { Text } from "@/shared/components/ui/Text";
+import { TextButton } from "@/shared/components/ui/TextButton";
+import { TextField } from "@/shared/components/ui/TextField";
 
 import { storeSearchQueryOptions } from "../../_api";
 import { type SearchStoreFormValues } from "../../_types";

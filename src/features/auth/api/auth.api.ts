@@ -1,4 +1,4 @@
-import { http, nextHttp } from "@/lib/api/client";
+import { http, nextHttp } from "@/shared/lib/api/client";
 
 import type {
   LoginRequestDto,

@@ -8,11 +8,11 @@ import Slider, { type Settings } from "react-slick";
 
 import { cheerListQueryOptions, type CheerResponse } from "@/app/(cheer)/_api";
 import InfoIcon from "@/assets/info.svg";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Tag } from "@/components/ui/Tag";
-import { Text } from "@/components/ui/Text";
-import { TextButton } from "@/components/ui/TextButton";
 import { ALL_TAGS } from "@/constants/tag.constants";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Tag } from "@/shared/components/ui/Tag";
+import { Text } from "@/shared/components/ui/Text";
+import { TextButton } from "@/shared/components/ui/TextButton";
 
 import { CHEER_CARD_CONSTANTS, SLIDER_SETTINGS } from "../../constants";
 import { useExpandableText } from "../../hooks";

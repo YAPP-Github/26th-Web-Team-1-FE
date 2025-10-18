@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 import { STORE_ERROR_CODES } from "@/app/(store)/_api/shop/shop.api";
-import { ApiException } from "@/lib/exceptions";
+import { ApiException } from "@/shared/lib/exceptions";
 
 /**
  * TODO: 에러 처리 강화

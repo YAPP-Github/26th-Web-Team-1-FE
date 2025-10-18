@@ -3,10 +3,10 @@
 import { useRouter } from "next/navigation";
 
 import PlusIcon from "@/assets/plus.svg";
-import { FloatingButton } from "@/components/ui/FloatingButton";
-import { HStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
-import { useScrollThreshold } from "@/hooks";
+import { FloatingButton } from "@/shared/components/ui/FloatingButton";
+import { HStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
+import { useScrollThreshold } from "@/shared/hooks";
 
 import * as styles from "./RegisterFloatingButton.css";
 

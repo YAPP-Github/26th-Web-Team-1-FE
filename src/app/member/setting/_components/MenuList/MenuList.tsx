@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import { AlertModal } from "@/components/ui/AlertModal";
-import { Button } from "@/components/ui/Button";
-import { VStack } from "@/components/ui/Stack";
 import { useDeleteSessionMutation } from "@/features/auth/api";
+import { AlertModal } from "@/shared/components/ui/AlertModal";
+import { Button } from "@/shared/components/ui/Button";
+import { VStack } from "@/shared/components/ui/Stack";
 
 import { MENU_LIST } from "../../_constants";
 import * as styles from "./MenuList.css";
