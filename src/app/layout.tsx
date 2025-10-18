@@ -110,7 +110,6 @@ export default function RootLayout({
           />
         </div>
       </body>
-      <GoogleAnalytics gaId='G-H7HEQSEBC7' />
     </html>
   );
 }
