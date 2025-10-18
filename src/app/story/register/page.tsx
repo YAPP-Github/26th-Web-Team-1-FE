@@ -7,12 +7,12 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import { getPresignedUrl, uploadImageToS3 } from "@/app/_api/image/image.api";
 import CancelIcon from "@/assets/cancel.svg";
+import { usePostStoryMutation } from "@/features/story";
 import { GNB } from "@/shared/components/ui/GNB";
 import { Spacer } from "@/shared/components/ui/Spacer";
 import { VStack } from "@/shared/components/ui/Stack";
 import { type ImageRequest } from "@/types/image.types";
 
-import { usePostStoryMutation } from "./_api";
 import { StoryDescription } from "./_components/StoryDescription";
 import { StoryImagePreview } from "./_components/StoryImagePreview";
 import { StorySearchStore } from "./_components/StorySearchStore";

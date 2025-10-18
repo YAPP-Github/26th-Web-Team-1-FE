@@ -6,10 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cheeredMemberQueryOptions } from "@/app/(store)/_api/shop";
-import { storyMemberQueryOptions } from "@/app/story/_api";
 import LocationIcon from "@/assets/location.svg";
 import MarketIcon from "@/assets/market-fill.svg";
 import { Avatar } from "@/features/member";
+import { storyMemberQueryOptions } from "@/features/story";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { Button } from "@/shared/components/ui/Button";
 import { Spacer } from "@/shared/components/ui/Spacer";

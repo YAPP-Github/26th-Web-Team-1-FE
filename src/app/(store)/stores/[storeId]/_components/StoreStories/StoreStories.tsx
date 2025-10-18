@@ -6,9 +6,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { storeDetailQueryOptions } from "@/app/(store)/_api/shop";
-import { storiesByKakaoIdQueryOptions } from "@/app/story/_api";
 import CameraIcon from "@/assets/camera.svg";
 import { Avatar } from "@/features/member";
+import { storiesByKakaoIdQueryOptions } from "@/features/story";
 import { Button } from "@/shared/components/ui/Button";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { Spacer } from "@/shared/components/ui/Spacer";

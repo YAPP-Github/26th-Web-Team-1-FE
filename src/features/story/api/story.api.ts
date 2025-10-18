@@ -3,9 +3,16 @@ import { authHttp, http } from "@/shared/lib/api";
 import type {
   StoriesByKakaoIdResponse,
   StoriesResponse,
+  StoryDetailResponse,
   StoryMemberParams,
   StoryMemberResponse,
-} from "./stories.types";
+  StoryRegisterRequest,
+  StoryRegisterResponse,
+} from "./story.types";
+
+// ============================================
+// Story List APIs (공통 조회)
+// ============================================
 
 /**
  * 스토리 목록 조회 API
@@ -57,4 +64,39 @@ export const getStoryMember = async (
       searchParams: { page, size },
     })
     .json<StoryMemberResponse>();
+};
+
+// ============================================
+// Story Detail API (상세 조회)
+// ============================================
+
+/**
+ * 스토리 상세 정보 조회 API
+ * @param storyId - 조회할 스토리 ID
+ * @returns {Promise<StoryDetailResponse>} 스토리 상세 정보
+ */
+export const getStoryDetail = async (
+  storyId: string
+): Promise<StoryDetailResponse> => {
+  return await http.get(`api/stories/${storyId}`).json<StoryDetailResponse>();
+};
+
+// ============================================
+// Story Register API (등록)
+// ============================================
+
+/**
+ * 스토리 등록 API
+ * @param {StoryRegisterRequest} storyRequest - 스토리 등록 요청 데이터
+ *
+ * @returns {Promise<StoryRegisterResponse>} 등록된 스토리 ID 반환
+ */
+export const postStory = async (
+  storyRequest: StoryRegisterRequest
+): Promise<StoryRegisterResponse> => {
+  return await authHttp
+    .post("api/stories", {
+      json: storyRequest,
+    })
+    .json<StoryRegisterResponse>();
 };
