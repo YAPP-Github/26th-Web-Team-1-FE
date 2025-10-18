@@ -1,12 +1,12 @@
 "use client";
 
 import { ChipFilter, useChipFilter } from "@/app/_shared/ChipFilter";
+import { RegisterFloatingButton } from "@/features/cheer";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { FoodCategories } from "@/shared/components/ui/FoodCategory";
 import { Spacer } from "@/shared/components/ui/Spacer";
 import { useFoodCategory } from "@/shared/hooks/useFoodCategory";
 
-import { RegisterFloatingButton } from "../../(home)/_shared/RegisterFloatingButton";
 import { CheerCard } from "./_components/CheerCard";
 import { MyCheerCard } from "./_components/MyCheerCard";
 

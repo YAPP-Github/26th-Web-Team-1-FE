@@ -3,7 +3,7 @@
 import { Suspense } from "@suspensive/react";
 
 import { ChipFilter } from "@/app/_shared/ChipFilter";
-import { RegisterFloatingButton } from "@/app/(home)/_shared/RegisterFloatingButton";
+import { RegisterFloatingButton } from "@/features/cheer";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { FoodCategories } from "@/shared/components/ui/FoodCategory";
 import { Spacer } from "@/shared/components/ui/Spacer";

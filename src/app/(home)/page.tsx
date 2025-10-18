@@ -1,5 +1,6 @@
 "use client";
 
+import { RegisterFloatingButton } from "@/features/cheer";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { Spacer } from "@/shared/components/ui/Spacer";
 import { VStack } from "@/shared/components/ui/Stack";
@@ -7,7 +8,6 @@ import { colors } from "@/shared/styles";
 
 import { RecentCheers, RegisterPopup, StoreList, Story } from "./_components";
 import { ServiceIntroBottomSheet } from "./_components/ServiceIntroBottomSheet";
-import { RegisterFloatingButton } from "./_shared/RegisterFloatingButton";
 
 export default function HomePage() {
   return (
