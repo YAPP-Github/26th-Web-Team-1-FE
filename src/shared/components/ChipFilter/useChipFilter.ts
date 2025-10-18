@@ -1,6 +1,6 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-import { type FilterValues } from "@/app/_shared/FilterBottomSheet";
+import { type FilterValues } from "@/shared/components/FilterBottomSheet";
 import {
   ATMOSPHERE_TAGS,
   UTILITY_TAGS,

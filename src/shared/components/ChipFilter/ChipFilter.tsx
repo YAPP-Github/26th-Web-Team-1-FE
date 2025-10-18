@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { FilterBottomSheet } from "@/app/_shared/FilterBottomSheet";
 import ChevronDownIcon from "@/assets/chevron-down.svg";
+import { FilterBottomSheet } from "@/shared/components/FilterBottomSheet";
 import { Chip } from "@/shared/components/ui/Chip";
 import { HStack } from "@/shared/components/ui/Stack";
 

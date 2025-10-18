@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-import { getPresignedUrl, uploadImageToS3 } from "@/app/_api/image/image.api";
 import CancelIcon from "@/assets/cancel.svg";
 import { usePostStoryMutation } from "@/features/story";
 import { GNB } from "@/shared/components/ui/GNB";
 import { Spacer } from "@/shared/components/ui/Spacer";
 import { VStack } from "@/shared/components/ui/Stack";
+import { getPresignedUrl, uploadImageToS3 } from "@/shared/lib/image";
 import { type ImageRequest } from "@/types/image.types";
 
 import { StoryDescription } from "./_components/StoryDescription";

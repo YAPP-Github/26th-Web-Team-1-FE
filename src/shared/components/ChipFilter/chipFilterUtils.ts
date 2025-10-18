@@ -1,4 +1,4 @@
-import { type FilterValues } from "@/app/_shared/FilterBottomSheet";
+import { type FilterValues } from "@/shared/components/FilterBottomSheet";
 import { LOCATIONS } from "@/shared/constants/location.constants";
 import { ALL_TAGS } from "@/shared/constants/tag.constants";
 

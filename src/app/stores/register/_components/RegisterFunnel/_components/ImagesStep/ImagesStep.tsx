@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 
-import { getPresignedUrl, uploadImageToS3 } from "@/app/_api/image/image.api";
 import CircleCloseIcon from "@/assets/circle-close.svg";
 import LocationIcon from "@/assets/location-20.svg";
 import PlusIcon from "@/assets/plus.svg";
@@ -15,6 +14,7 @@ import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
 import { ApiException } from "@/shared/lib/exceptions";
+import { getPresignedUrl, uploadImageToS3 } from "@/shared/lib/image";
 import { semantic } from "@/shared/styles";
 
 import * as styles from "./ImagesStep.css";

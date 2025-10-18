@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useBooleanState, useIntersectionObserver } from "react-simplikit";
 
-import { useChipFilter } from "@/app/_shared/ChipFilter";
 import InfoIcon from "@/assets/info.svg";
 import LogoWordMark from "@/assets/logo-wordmark.svg";
 import {
@@ -14,6 +13,7 @@ import {
   storeImagesQueryOptions,
   storesQueryOptions,
 } from "@/features/store";
+import { useChipFilter } from "@/shared/components/ChipFilter";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { Spacer } from "@/shared/components/ui/Spacer";

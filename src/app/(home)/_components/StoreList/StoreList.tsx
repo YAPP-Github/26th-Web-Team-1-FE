@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
-import { ChipFilter } from "@/app/_shared/ChipFilter";
 import { StoreList as StoreListComponent } from "@/app/stores/(list)/_components";
+import { ChipFilter } from "@/shared/components/ChipFilter";
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { FoodCategories } from "@/shared/components/ui/FoodCategory";
 import { Spacer } from "@/shared/components/ui/Spacer";
