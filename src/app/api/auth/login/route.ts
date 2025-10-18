@@ -1,10 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import { postLogin } from "@/app/(auth)/_api/auth/auth.api";
-import { TOKEN_TIMES } from "@/constants/time.constants";
-import { type ApiError } from "@/lib/api";
-import { UnauthorizedException } from "@/lib/exceptions";
-import { getSessionFromServer } from "@/lib/session";
+import { postLogin } from "@/features/auth/api";
+import { TOKEN_TIMES } from "@/shared/constants/time.constants";
+import { type ApiError } from "@/shared/lib/api";
+import { UnauthorizedException } from "@/shared/lib/exceptions";
+import { getSessionFromServer } from "@/shared/lib/session";
 
 /**
  * 로그인 요청

@@ -5,17 +5,17 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 
-import { cheeredMemberQueryOptions } from "@/app/(store)/_api/shop";
-import { Avatar } from "@/app/member/_components/Avatar";
-import { storyMemberQueryOptions } from "@/app/story/_api";
 import LocationIcon from "@/assets/location.svg";
 import MarketIcon from "@/assets/market-fill.svg";
-import { Bleed } from "@/components/ui/Bleed";
-import { Button } from "@/components/ui/Button";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Tabs } from "@/components/ui/Tabs";
-import { Text } from "@/components/ui/Text";
+import { Avatar } from "@/features/member";
+import { cheeredMemberQueryOptions } from "@/features/store";
+import { storyMemberQueryOptions } from "@/features/story";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { Button } from "@/shared/components/ui/Button";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Tabs } from "@/shared/components/ui/Tabs";
+import { Text } from "@/shared/components/ui/Text";
 
 import * as styles from "./TabList.css";
 

@@ -6,16 +6,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { Separated } from "react-simplikit";
 
-import { Bleed } from "@/components/ui/Bleed";
-import { Button } from "@/components/ui/Button";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { Spacer } from "@/components/ui/Spacer";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
-import { TextButton } from "@/components/ui/TextButton";
-import { radius } from "@/styles";
+import { storesQueryOptions } from "@/features/store";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { Button } from "@/shared/components/ui/Button";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
+import { TextButton } from "@/shared/components/ui/TextButton";
+import { radius } from "@/shared/styles";
 
-import { storesQueryOptions } from "../../_api/shop";
 import * as styles from "./RecentlySupportStories.css";
 
 export const RecentlySupportedStores = () => {

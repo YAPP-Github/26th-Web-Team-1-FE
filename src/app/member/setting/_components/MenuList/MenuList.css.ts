@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { semantic, typography } from "@/styles";
+import { semantic, typography } from "@/shared/styles";
 
 export const wrapper = style({
   padding: "1.6rem 0",

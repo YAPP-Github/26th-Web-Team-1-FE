@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 import SettingIcon from "@/assets/setting.svg";
-import { GNB } from "@/components/ui/GNB";
+import { GNB } from "@/shared/components/ui/GNB";
 
 import * as styles from "./Header.css";
 

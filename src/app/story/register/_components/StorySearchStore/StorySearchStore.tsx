@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
-import { SearchStoreBottomSheet } from "@/app/(search)/_components/SearchStoreBottomSheet";
-import { type SelectedStore } from "@/app/(search)/_types/searchStore.types";
 import SearchIcon from "@/assets/search.svg";
-import { TextField } from "@/components/ui/TextField";
+import { SearchStoreBottomSheet, type SelectedStore } from "@/features/store";
+import { TextField } from "@/shared/components/ui/TextField";
 
 import { type StoryRegisterFormData } from "../../_schemas";
 import * as styles from "./StorySearchStore.css";

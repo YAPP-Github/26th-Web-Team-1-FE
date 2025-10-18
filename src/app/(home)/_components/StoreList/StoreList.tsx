@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 
-import { ChipFilter } from "@/app/_shared/ChipFilter";
-import { StoreList as StoreListComponent } from "@/app/(store)/stores/(list)/_components";
-import { Bleed } from "@/components/ui/Bleed";
-import { FoodCategories } from "@/components/ui/FoodCategory";
-import { Spacer } from "@/components/ui/Spacer";
-import { VStack } from "@/components/ui/Stack";
-import { useFoodCategory } from "@/hooks/useFoodCategory";
+import { StoreList as StoreListComponent } from "@/app/stores/(list)/_components";
+import { ChipFilter } from "@/shared/components/ChipFilter";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { FoodCategories } from "@/shared/components/ui/FoodCategory";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { VStack } from "@/shared/components/ui/Stack";
+import { useFoodCategory } from "@/shared/hooks/useFoodCategory";
 
 export const StoreList = () => {
   const { categories, handleSelectCategory, selectedCategory } =

@@ -1,3 +1,5 @@
+import { type Member } from "@/features/member/api";
+
 export type NicknameFunnel = {
   nickname?: string;
   phoneNumber?: string;
@@ -21,3 +23,8 @@ export type AgreementConstants = {
   label: string;
   required: boolean;
 };
+
+// Form values for onboarding steps
+export type NicknameFormValues = Pick<Member, "nickname">;
+
+export type PhoneNumberFormValues = Pick<Member, "phoneNumber">;

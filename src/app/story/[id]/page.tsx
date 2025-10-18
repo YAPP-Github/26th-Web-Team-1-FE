@@ -1,9 +1,9 @@
 import { Suspense } from "@suspensive/react";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
-import getQueryClient from "@/lib/tanstack/getQueryClient";
+import { storyDetailQueryOptions } from "@/features/story";
+import getQueryClient from "@/shared/lib/tanstack/getQueryClient";
 
-import { storyDetailQueryOptions } from "./_api";
 import { StoryDetailContent } from "./_components/StoryDetailContent";
 
 type StoryDetailPageProps = {

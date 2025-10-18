@@ -1,0 +1,40 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+import { memberQueryKeys } from "@/features/member/api";
+import { clearClientSessionCache } from "@/shared/lib/session";
+
+import {
+  deleteClientSession,
+  postClientLogin,
+  postClientReissue,
+} from "./auth.api";
+
+export const useLoginMutation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: postClientLogin,
+    onSuccess: response => {
+      clearClientSessionCache();
+      queryClient.setQueryData(memberQueryKeys.me(), response);
+    },
+  });
+};
+
+export const useReissueMutation = () => {
+  return useMutation({
+    mutationFn: postClientReissue,
+  });
+};
+
+export const useDeleteSessionMutation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: deleteClientSession,
+    onSuccess: () => {
+      clearClientSessionCache();
+      queryClient.clear();
+    },
+  });
+};

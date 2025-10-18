@@ -7,7 +7,7 @@ import { toast } from "sonner";
 
 import { useImageUploadContext } from "@/app/story/register/_contexts";
 import { imageFileSchema } from "@/app/story/register/_schemas";
-import { HStack } from "@/components/ui/Stack";
+import { HStack } from "@/shared/components/ui/Stack";
 
 import { AddStoryAvatar } from "./AddStoryAvatar";
 import * as styles from "./Story.css";

@@ -6,11 +6,11 @@ import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 
 import CancelIcon from "@/assets/cancel.svg";
-import { BottomSheet } from "@/components/ui/BottomSheet";
-import { Button } from "@/components/ui/Button";
-import { Indicator } from "@/components/ui/Indicator";
-import { Spacer } from "@/components/ui/Spacer";
-import { Text } from "@/components/ui/Text";
+import { BottomSheet } from "@/shared/components/ui/BottomSheet";
+import { Button } from "@/shared/components/ui/Button";
+import { Indicator } from "@/shared/components/ui/Indicator";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { Text } from "@/shared/components/ui/Text";
 
 import { INTRO_STEP_CONTENTS, type IntroStepContent } from "../../_constants";
 import * as styles from "./ServiceIntroBottomSheet.css";

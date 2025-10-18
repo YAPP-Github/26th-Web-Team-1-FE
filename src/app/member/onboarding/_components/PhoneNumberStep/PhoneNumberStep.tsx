@@ -1,15 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { usePhoneNumberCheckMutation } from "@/app/member/_api/member.queries";
-import { phoneNumberSchema } from "@/app/member/_schemas";
-import { type PhoneNumberFormValues } from "@/app/member/_types/member.types";
 import CircleCloseIcon from "@/assets/circle-close.svg";
-import { Button } from "@/components/ui/Button";
-import { VStack } from "@/components/ui/Stack";
-import { TextField } from "@/components/ui/TextField";
+import { usePhoneNumberCheckMutation } from "@/features/member/api/member.queries";
+import { Button } from "@/shared/components/ui/Button";
+import { VStack } from "@/shared/components/ui/Stack";
+import { TextField } from "@/shared/components/ui/TextField";
 
-import { phoneNumberUtils } from "../../../_utils";
+import { formatPhoneNumber } from "../../_helpers";
+import { phoneNumberSchema } from "../../_schemas";
+import { type PhoneNumberFormValues } from "../../_types";
 import { OnboardingTitle } from "../OnboardingTitle";
 import * as styles from "./PhoneNumberStep.css";
 
@@ -33,7 +33,7 @@ export const PhoneNumberStep = ({
     resolver: zodResolver(phoneNumberSchema),
     mode: "onTouched",
     defaultValues: {
-      phoneNumber: phoneNumberUtils(phoneNumber ?? ""),
+      phoneNumber: formatPhoneNumber(phoneNumber ?? ""),
     },
   });
   const phoneNumberValue = watch("phoneNumber");
@@ -81,7 +81,7 @@ export const PhoneNumberStep = ({
           placeholder='010-1234-5678'
           {...register("phoneNumber", {
             onChange: e => {
-              const formatted = phoneNumberUtils(e.target.value);
+              const formatted = formatPhoneNumber(e.target.value);
               setValue("phoneNumber", formatted);
             },
           })}

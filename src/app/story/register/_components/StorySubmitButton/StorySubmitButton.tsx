@@ -2,7 +2,7 @@
 
 import { useFormContext, useWatch } from "react-hook-form";
 
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/shared/components/ui/Button";
 
 import { type StoryRegisterFormData } from "../../_schemas";
 

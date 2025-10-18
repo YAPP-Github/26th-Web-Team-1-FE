@@ -7,13 +7,13 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Slider from "react-slick";
 
-import { Bleed } from "@/components/ui/Bleed";
-import { Button } from "@/components/ui/Button";
-import { Popup } from "@/components/ui/Popup";
-import { Spacer } from "@/components/ui/Spacer";
-import { VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
-import { TextButton } from "@/components/ui/TextButton";
+import { Bleed } from "@/shared/components/ui/Bleed";
+import { Button } from "@/shared/components/ui/Button";
+import { Popup } from "@/shared/components/ui/Popup";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
+import { TextButton } from "@/shared/components/ui/TextButton";
 
 const IMAGES = [
   "/images/register-popup-card1.png",
