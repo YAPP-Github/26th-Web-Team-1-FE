@@ -1,5 +1,5 @@
 import { Skeleton } from "@/shared/components/ui/Skeleton";
-import { radius } from "@/styles";
+import { radius } from "@/shared/styles";
 
 import { ProfileLayout } from "./ProfileLayout";
 

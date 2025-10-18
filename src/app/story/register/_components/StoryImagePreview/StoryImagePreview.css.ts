@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, radius, semantic, typography } from "@/styles";
+import { colors, radius, semantic, typography } from "@/shared/styles";
 
 export const imageWrapper = style({
   position: "relative",

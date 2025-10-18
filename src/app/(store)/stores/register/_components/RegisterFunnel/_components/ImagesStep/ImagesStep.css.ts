@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
-import { semantic } from "@/styles";
-import { radius } from "@/styles";
+import { semantic } from "@/shared/styles";
+import { radius } from "@/shared/styles";
 
 export const imageUploader = style({
   width: "12rem",

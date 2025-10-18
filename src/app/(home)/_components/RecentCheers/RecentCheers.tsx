@@ -18,7 +18,7 @@ import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Tag } from "@/shared/components/ui/Tag";
 import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
-import { colors } from "@/styles";
+import { colors } from "@/shared/styles";
 
 import { cheerQueryOptions } from "../../_api/cheer";
 import * as styles from "./RecentCheers.css";

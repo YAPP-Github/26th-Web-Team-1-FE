@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors } from "@/styles";
+import { colors } from "@/shared/styles";
 
 export const body = style({
   backgroundColor: colors.neutral[95],

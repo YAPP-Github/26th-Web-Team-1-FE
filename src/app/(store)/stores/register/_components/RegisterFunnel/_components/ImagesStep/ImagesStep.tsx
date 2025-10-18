@@ -15,7 +15,7 @@ import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
 import { ApiException } from "@/shared/lib/exceptions";
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 import * as styles from "./ImagesStep.css";
 

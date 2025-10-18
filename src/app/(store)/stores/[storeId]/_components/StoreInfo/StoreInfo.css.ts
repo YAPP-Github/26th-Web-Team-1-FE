@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 export const storeInfoContentContainer = style({
   paddingBlock: "2.4rem",

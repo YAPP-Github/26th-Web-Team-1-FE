@@ -5,7 +5,7 @@ import { Separated } from "react-simplikit";
 
 import { Bleed } from "@/shared/components/ui/Bleed";
 import { VStack } from "@/shared/components/ui/Stack";
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 import { StoreCheers, StoreInfo, StoreStories } from "./_components";
 

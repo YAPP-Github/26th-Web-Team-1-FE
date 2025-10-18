@@ -1,4 +1,4 @@
-import "@/styles/reset.css";
+import "@/shared/styles/reset.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -14,8 +14,8 @@ import {
   OverlayProvider,
   QueryProvider,
 } from "@/shared/providers";
-import { semantic } from "@/styles";
-import { pretendard } from "@/styles/pretendard";
+import { semantic } from "@/shared/styles";
+import { pretendard } from "@/shared/styles/pretendard";
 
 import * as styles from "./layout.css";
 import { UploadProvider } from "./story/register/_contexts";

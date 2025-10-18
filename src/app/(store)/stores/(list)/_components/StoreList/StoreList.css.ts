@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, radius, semantic } from "@/styles";
+import { colors, radius, semantic } from "@/shared/styles";
 
 export const container = style({
   height: "100%",

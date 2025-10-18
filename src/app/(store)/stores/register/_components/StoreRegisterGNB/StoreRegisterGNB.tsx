@@ -3,7 +3,7 @@
 import CancelIcon from "@/assets/cancel.svg";
 import ChevronLeftIcon from "@/assets/chevron-left.svg";
 import { GNB } from "@/shared/components/ui/GNB";
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 type StoreRegisterGNBProps = {
   onCancel?: () => void;

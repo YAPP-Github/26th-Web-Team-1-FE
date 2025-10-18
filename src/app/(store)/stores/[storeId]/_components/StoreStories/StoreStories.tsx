@@ -14,7 +14,7 @@ import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { Spacer } from "@/shared/components/ui/Spacer";
 import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Text } from "@/shared/components/ui/Text";
-import { colors, radius } from "@/styles";
+import { colors, radius } from "@/shared/styles";
 
 import * as styles from "./StoreStories.css";
 

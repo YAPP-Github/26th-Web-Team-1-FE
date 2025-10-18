@@ -21,7 +21,7 @@ import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Tag } from "@/shared/components/ui/Tag";
 import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 import * as styles from "./StoreInfo.css";
 

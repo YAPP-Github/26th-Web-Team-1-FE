@@ -12,7 +12,7 @@ import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { VStack } from "@/shared/components/ui/Stack";
 import { Text } from "@/shared/components/ui/Text";
 import { convertNewlineToJSX } from "@/shared/lib/utils/react";
-import { radius } from "@/styles";
+import { radius } from "@/shared/styles";
 
 import { articleQueryOptions } from "../../_api/articles";
 import * as styles from "./StoreStory.css";

@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { radius, semantic, typography } from "@/styles";
+import { radius, semantic, typography } from "@/shared/styles";
 
 export const wrapper = style({
   display: "flex",

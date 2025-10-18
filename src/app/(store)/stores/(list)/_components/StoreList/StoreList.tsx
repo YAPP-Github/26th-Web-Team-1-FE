@@ -19,7 +19,7 @@ import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { Spacer } from "@/shared/components/ui/Spacer";
 import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Text } from "@/shared/components/ui/Text";
-import { colors } from "@/styles";
+import { colors } from "@/shared/styles";
 
 import * as styles from "./StoreList.css";
 

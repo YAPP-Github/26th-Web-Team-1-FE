@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { type Variants } from "motion/react";
 
-import { radius, semantic } from "@/styles";
+import { radius, semantic } from "@/shared/styles";
 
 export const overlay = style({
   position: "fixed",

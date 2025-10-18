@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, semantic } from "@/styles";
+import { colors, semantic } from "@/shared/styles";
 
 export const contentWrapper = style({
   height: "calc(100dvh - 52px)",

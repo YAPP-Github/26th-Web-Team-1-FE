@@ -1,6 +1,6 @@
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 export const floatingButton = recipe({
   base: {

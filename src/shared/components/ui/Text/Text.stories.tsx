@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Fragment } from "react";
 
-import { typography } from "@/styles/typography.css";
+import { typography } from "@/shared/styles/typography.css";
 
 import { Text } from "./Text";
 

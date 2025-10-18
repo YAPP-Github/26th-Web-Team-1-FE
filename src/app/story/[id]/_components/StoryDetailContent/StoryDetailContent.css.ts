@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { radius, semantic } from "@/styles";
+import { radius, semantic } from "@/shared/styles";
 
 export const container = style({
   position: "relative",

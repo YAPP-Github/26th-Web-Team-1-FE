@@ -11,7 +11,7 @@ import { Spacer } from "@/shared/components/ui/Spacer";
 import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Text } from "@/shared/components/ui/Text";
 import { TextField } from "@/shared/components/ui/TextField";
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 import * as styles from "./StoreInfoStep.css";
 

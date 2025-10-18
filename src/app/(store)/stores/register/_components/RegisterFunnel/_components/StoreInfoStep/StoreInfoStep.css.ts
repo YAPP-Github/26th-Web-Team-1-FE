@@ -1,6 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 export const registrationGuideBottomSheetTitle = style({
   padding: "2rem 2.4rem",

@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { radius } from "@/styles";
+import { radius } from "@/shared/styles";
 
 // StoreStories 컴포넌트 스타일
 export const storeStoriesContainer = style({

@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 export const checkboxWrapper = recipe({
   base: {

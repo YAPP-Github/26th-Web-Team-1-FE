@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { semantic, typography } from "@/styles";
-import { zIndex } from "@/styles/zIndex.css";
+import { semantic, typography } from "@/shared/styles";
+import { zIndex } from "@/shared/styles/zIndex.css";
 
 export const wrapper = recipe({
   base: {

@@ -1,6 +1,6 @@
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 
-import { colors, radius, semantic, typography } from "@/styles";
+import { colors, radius, semantic, typography } from "@/shared/styles";
 
 export const tag = recipe({
   base: {

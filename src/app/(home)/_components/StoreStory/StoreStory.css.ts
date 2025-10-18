@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, radius } from "@/styles";
+import { colors, radius } from "@/shared/styles";
 
 export const storeStoryList = style({
   width: "100%",

@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { semantic, typography } from "@/styles";
+import { semantic, typography } from "@/shared/styles";
 
 export const textButton = recipe({
   base: {

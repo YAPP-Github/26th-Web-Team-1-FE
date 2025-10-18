@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { radius } from "@/styles";
+import { radius } from "@/shared/styles";
 
 export const wrapper = style({
   width: "100%",

@@ -13,7 +13,7 @@ import { Spacer } from "@/shared/components/ui/Spacer";
 import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
-import { radius } from "@/styles";
+import { radius } from "@/shared/styles";
 
 import { storesQueryOptions } from "../../_api/shop";
 import * as styles from "./RecentlySupportStories.css";

@@ -1,7 +1,7 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { type ElementType } from "react";
 
-import { colors, semantic, typography } from "@/styles";
+import { colors, semantic, typography } from "@/shared/styles";
 import { type PolymorphicComponentPropsWithRef } from "@/types/polymorphic.types";
 
 import * as styles from "./Text.css";

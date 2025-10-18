@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, semantic } from "@/styles";
-import { zIndex } from "@/styles/zIndex.css";
+import { colors, semantic } from "@/shared/styles";
+import { zIndex } from "@/shared/styles/zIndex.css";
 
 export const overlay = style({
   position: "fixed",

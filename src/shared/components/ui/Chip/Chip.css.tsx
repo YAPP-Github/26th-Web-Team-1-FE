@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { colors, semantic, typography } from "@/styles";
+import { colors, semantic, typography } from "@/shared/styles";
 
 export const chip = recipe({
   base: {

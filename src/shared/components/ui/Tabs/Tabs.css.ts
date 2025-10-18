@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { colors, semantic } from "@/styles";
+import { colors, semantic } from "@/shared/styles";
 
 export const tabsList = recipe({
   base: {

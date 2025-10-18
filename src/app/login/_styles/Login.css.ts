@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, semantic, typography } from "@/styles";
+import { colors, semantic, typography } from "@/shared/styles";
 
 export const wrapper = style({
   width: "100%",

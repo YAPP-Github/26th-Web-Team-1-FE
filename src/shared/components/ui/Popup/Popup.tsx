@@ -6,7 +6,7 @@ import { type HTMLAttributes } from "react";
 import { useControlledState } from "react-simplikit";
 
 import CancelIcon from "@/assets/cancel.svg";
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 import { Stack, type StackProps } from "../Stack";
 import { PopupProvider, usePopup } from "./context";

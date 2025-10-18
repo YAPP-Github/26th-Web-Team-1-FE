@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors, radius, semantic } from "@/styles";
+import { colors, radius, semantic } from "@/shared/styles";
 
 export const wrapper = style({
   backgroundColor: colors.redOrange[90],
