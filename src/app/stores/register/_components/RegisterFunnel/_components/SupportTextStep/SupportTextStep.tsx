@@ -2,8 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 
-import { MAX_SUPPORT_TEXT_LENGTH } from "@/app/(store)/stores/register/_constants";
-import { supportTextSchema } from "@/app/(store)/stores/register/_schemas";
+import { MAX_SUPPORT_TEXT_LENGTH } from "@/app/stores/register/_constants";
+import { supportTextSchema } from "@/app/stores/register/_schemas";
 import LocationIcon from "@/assets/location-20.svg";
 import { memberQueryOptions } from "@/features/member/api/member.queries";
 import { Button } from "@/shared/components/ui/Button";
