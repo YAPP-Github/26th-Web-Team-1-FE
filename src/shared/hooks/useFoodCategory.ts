@@ -1,7 +1,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-import { FOOD_CATEGORIES } from "@/constants";
+import { FOOD_CATEGORIES } from "@/shared/constants";
 import { type FoodCategory } from "@/types";
 
 /**

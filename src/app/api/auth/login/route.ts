@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import { TOKEN_TIMES } from "@/constants/time.constants";
 import { postLogin } from "@/features/auth/api";
+import { TOKEN_TIMES } from "@/shared/constants/time.constants";
 import { type ApiError } from "@/shared/lib/api";
 import { UnauthorizedException } from "@/shared/lib/exceptions";
 import { getSessionFromServer } from "@/shared/lib/session";

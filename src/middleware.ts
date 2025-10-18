@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import { TOKEN_TIMES } from "@/constants";
 import { postReissue } from "@/features/auth/api";
+import { TOKEN_TIMES } from "@/shared/constants";
 import { getSessionFromServer } from "@/shared/lib/session";
 
 type PathPattern = {

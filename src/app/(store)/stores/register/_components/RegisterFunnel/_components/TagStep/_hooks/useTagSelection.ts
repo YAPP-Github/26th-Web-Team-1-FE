@@ -6,7 +6,7 @@ import {
   ALL_TAGS,
   ATMOSPHERE_TAGS,
   UTILITY_TAGS,
-} from "@/constants/tag.constants";
+} from "@/shared/constants/tag.constants";
 
 const MAX_TAGS = 4;
 const MAX_TAGS_PER_CATEGORY = 2;

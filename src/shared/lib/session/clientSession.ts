@@ -1,5 +1,5 @@
-import { TOKEN_TIMES } from "@/constants";
 import { getSession } from "@/features/auth/api";
+import { TOKEN_TIMES } from "@/shared/constants";
 import { type SessionData } from "@/shared/lib/session";
 
 const clientSessionCache = new Map<

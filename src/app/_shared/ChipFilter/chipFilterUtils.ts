@@ -1,6 +1,6 @@
 import { type FilterValues } from "@/app/_shared/FilterBottomSheet";
-import { LOCATIONS } from "@/constants/location.constants";
-import { ALL_TAGS } from "@/constants/tag.constants";
+import { LOCATIONS } from "@/shared/constants/location.constants";
+import { ALL_TAGS } from "@/shared/constants/tag.constants";
 
 import { type FilterTabType } from "./chipFilter.types";
 

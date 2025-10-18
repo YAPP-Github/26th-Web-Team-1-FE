@@ -9,7 +9,6 @@ import { useState } from "react";
 
 import { storeCheersQueryOptions } from "@/app/(store)/_api/shop";
 import { Avatar } from "@/app/member/_components/Avatar";
-import { ALL_TAGS } from "@/constants/tag.constants";
 import { Button } from "@/shared/components/ui/Button";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { Spacer } from "@/shared/components/ui/Spacer";
@@ -17,6 +16,7 @@ import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Tag } from "@/shared/components/ui/Tag";
 import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
+import { ALL_TAGS } from "@/shared/constants/tag.constants";
 
 import * as styles from "./StoreCheers.css";
 import { getContentBackgroundColor, getHeaderBackgroundColor } from "./utils";

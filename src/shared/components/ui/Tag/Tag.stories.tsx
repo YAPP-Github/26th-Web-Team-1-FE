@@ -6,7 +6,7 @@ import {
   ALL_TAGS,
   ATMOSPHERE_TAGS,
   UTILITY_TAGS,
-} from "@/constants/tag.constants";
+} from "@/shared/constants/tag.constants";
 
 import { Tag } from "./Tag";
 

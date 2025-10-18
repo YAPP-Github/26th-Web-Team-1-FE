@@ -1,7 +1,10 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { type FilterValues } from "@/app/_shared/FilterBottomSheet";
-import { ATMOSPHERE_TAGS, UTILITY_TAGS } from "@/constants/tag.constants";
+import {
+  ATMOSPHERE_TAGS,
+  UTILITY_TAGS,
+} from "@/shared/constants/tag.constants";
 
 /**
  * useChipFilter 훅

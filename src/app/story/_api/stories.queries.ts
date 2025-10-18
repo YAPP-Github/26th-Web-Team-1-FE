@@ -1,6 +1,6 @@
 import { queryOptions } from "@tanstack/react-query";
 
-import { TIME } from "@/constants";
+import { TIME } from "@/shared/constants";
 
 import { getStories, getStoriesByKakaoId, getStoryMember } from "./stories.api";
 import type { StoryMemberParams } from "./stories.types";

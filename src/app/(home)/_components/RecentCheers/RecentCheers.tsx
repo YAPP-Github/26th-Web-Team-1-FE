@@ -11,13 +11,13 @@ import { Separated } from "react-simplikit";
 
 import LogoWordMark from "@/assets/logo-wordmark.svg";
 import ResetIcon from "@/assets/reset-20.svg";
-import { ALL_TAGS } from "@/constants/tag.constants";
 import { Button } from "@/shared/components/ui/Button";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { HStack, VStack } from "@/shared/components/ui/Stack";
 import { Tag } from "@/shared/components/ui/Tag";
 import { Text } from "@/shared/components/ui/Text";
 import { TextButton } from "@/shared/components/ui/TextButton";
+import { ALL_TAGS } from "@/shared/constants/tag.constants";
 import { colors } from "@/shared/styles";
 
 import { cheerQueryOptions } from "../../_api/cheer";
