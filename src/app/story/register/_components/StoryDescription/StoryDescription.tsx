@@ -2,7 +2,7 @@
 
 import { useFormContext } from "react-hook-form";
 
-import { TextField } from "@/components/ui/TextField";
+import { TextField } from "@/shared/components/ui/TextField";
 
 import { type StoryRegisterFormData } from "../../_schemas";
 import * as styles from "./StoryDescription.css";

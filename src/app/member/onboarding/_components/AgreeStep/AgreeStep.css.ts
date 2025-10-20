@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { radius, semantic } from "@/styles";
+import { radius, semantic } from "@/shared/styles";
 
 export const wrapper = style({
   height: "100%",

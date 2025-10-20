@@ -1,4 +1,4 @@
-import "@/styles/reset.css";
+import "@/shared/styles/reset.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -8,10 +8,14 @@ import Script from "next/script";
 import { type CSSProperties } from "react";
 import { Toaster } from "sonner";
 
-import { RegisterServiceWorkerClient } from "@/lib/pwa";
-import { MSWProvider, OverlayProvider, QueryProvider } from "@/providers";
-import { semantic } from "@/styles";
-import { pretendard } from "@/styles/pretendard";
+import { RegisterServiceWorkerClient } from "@/shared/lib/pwa";
+import {
+  MSWProvider,
+  OverlayProvider,
+  QueryProvider,
+} from "@/shared/providers";
+import { semantic } from "@/shared/styles";
+import { pretendard } from "@/shared/styles/pretendard";
 
 import * as styles from "./layout.css";
 import { UploadProvider } from "./story/register/_contexts";

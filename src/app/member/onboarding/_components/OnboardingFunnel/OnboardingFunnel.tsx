@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useFunnel } from "@use-funnel/browser";
 
-import { memberQueryOptions } from "@/app/member/_api";
+import { memberQueryOptions } from "@/features/member/api";
 
 import type {
   AgreeFunnel,

@@ -1,4 +1,4 @@
-import "@/styles/reset.css.ts";
+import "@/shared/styles/reset.css.ts";
 
 import type { Preview } from "@storybook/nextjs";
 

@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 export const mainContainer = style({
   minHeight: "100dvh",

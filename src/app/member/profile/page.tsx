@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
-import { Spacer } from "@/components/ui/Spacer";
-import { VStack } from "@/components/ui/Stack";
+import { Spacer } from "@/shared/components/ui/Spacer";
+import { VStack } from "@/shared/components/ui/Stack";
 
 import { Profile } from "./_components/Profile";
 import { ProfileSkeleton } from "./_components/Profile/ProfileSkeleton";

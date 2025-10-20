@@ -1,11 +1,11 @@
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
-import { useUpdateMemberMutation } from "@/app/member/_api";
-import { Button } from "@/components/ui/Button";
-import { CheckBox } from "@/components/ui/CheckBox";
-import { HStack, VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
+import { useUpdateMemberMutation } from "@/features/member/api";
+import { Button } from "@/shared/components/ui/Button";
+import { CheckBox } from "@/shared/components/ui/CheckBox";
+import { HStack, VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 
 import { AGREEMENTS } from "../../_constants/agreement.constants";
 import { OnboardingTitle } from "../OnboardingTitle";

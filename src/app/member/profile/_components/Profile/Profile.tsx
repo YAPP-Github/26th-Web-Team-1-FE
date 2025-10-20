@@ -4,12 +4,12 @@ import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
-import { cheeredMemberQueryOptions } from "@/app/(store)/_api/shop";
-import { memberQueryOptions } from "@/app/member/_api";
-import { AlertModal } from "@/components/ui/AlertModal";
-import { Button } from "@/components/ui/Button";
-import { VStack } from "@/components/ui/Stack";
-import { Text } from "@/components/ui/Text";
+import { memberQueryOptions } from "@/features/member/api";
+import { cheeredMemberQueryOptions } from "@/features/store";
+import { AlertModal } from "@/shared/components/ui/AlertModal";
+import { Button } from "@/shared/components/ui/Button";
+import { VStack } from "@/shared/components/ui/Stack";
+import { Text } from "@/shared/components/ui/Text";
 
 import * as styles from "./Profile.css";
 import { ProfileLayout } from "./ProfileLayout";

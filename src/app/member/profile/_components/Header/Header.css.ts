@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { semantic } from "@/styles";
+import { semantic } from "@/shared/styles";
 
 export const button = style({
   width: "2.4rem",
