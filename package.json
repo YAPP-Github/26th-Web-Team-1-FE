@@ -76,7 +76,7 @@
     "chromatic": "^13.0.1",
     "commitizen": "^4.3.1",
     "eslint": "^9",
-    "eslint-config-next": "15.3.6",
+    "eslint-config-next": "15.5.9",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-jest-dom": "^5.5.0",
     "eslint-plugin-playwright": "^2.2.0",
